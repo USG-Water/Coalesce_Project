@@ -1,2 +1,2 @@
 # Coalesce_Project
-Repo to connecto to Coalesce and track changes
+Repo to connect to Coalesce and track changes
