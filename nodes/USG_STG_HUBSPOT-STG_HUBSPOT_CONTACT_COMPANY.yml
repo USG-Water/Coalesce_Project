@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+name: STG_HUBSPOT_CONTACT_COMPANY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Associations between contacts and companies
+  isMultisource: false
+  locationName: USG_STG_HUBSPOT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bca3bc3-9df3-4f66-bbac-7b9331d30ee8
+          stepCounter: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTACT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56a677fa-40ea-411b-b002-8e73f1c99703
+                stepCounter: f9cdd50e-4dbc-4cfb-88d3-bbe6d6e5166d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f73da23-dc62-40fa-ae94-27a20c8289f9
+          stepCounter: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: COMPANY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 904735f2-1c93-4c60-b035-1c26f2cfb0b8
+                stepCounter: f9cdd50e-4dbc-4cfb-88d3-bbe6d6e5166d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CONTACT_COMPANY: f9cdd50e-4dbc-4cfb-88d3-bbe6d6e5166d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_HUBSPOT_RAW
+            nodeName: CONTACT_COMPANY
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_HUBSPOT_RAW', 'CONTACT_COMPANY') }} "CONTACT_COMPANY"
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "CONTACT_COMPANY"."CONTACT_ID", "CONTACT_COMPANY"."COMPANY_ID"
+                ORDER BY "CONTACT_COMPANY"."_FIVETRAN_SYNCED" DESC
+            ) = 1;
+        name: STG_HUBSPOT_CONTACT_COMPANY
+        noLinkRefs: []
+  name: STG_HUBSPOT_CONTACT_COMPANY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

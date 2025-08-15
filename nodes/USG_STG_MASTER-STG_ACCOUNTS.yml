@@ -1,0 +1,160 @@
+fileVersion: 1
+id: e06a4544-2840-4718-ad43-831b10421819
+name: STG_ACCOUNTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Get unique accounts ID's and normalize descriptive data
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 034856c1-17ee-4fb8-9281-45e6cb2fe423
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53fa8969-0028-48da-8788-d18858d99786
+                stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca595c53-1583-4ce6-ba6c-7cccf34e2882
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  UPPER(TRIM("STG_ACCOUNT_KEYS"."NAME")),
+                  CASE 
+                      WHEN UPPER(TRIM("STG_ACCOUNT_KEYS"."NAME")) IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c431872b-ed11-4b72-b64f-f02e33e20f06
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(2048)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."DESCRIPTION",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."DESCRIPTION" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccbb2649-4cc4-4443-a1d2-86dee1a7050c
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."INDUSTRY",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."INDUSTRY" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01d204bc-220c-4ecc-8a21-7422e001a6ee
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."URL",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."URL" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9031b5a0-69d1-4b6b-a3a1-fbe4e50d6865
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: MAX("STG_ACCOUNT_KEYS"."LAST_UPDATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ACCOUNT_KEYS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
+            GROUP BY "STG_ACCOUNT_KEYS"."ACCOUNT_ID"
+        name: STG_ACCOUNTS
+        noLinkRefs: []
+  name: STG_ACCOUNTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

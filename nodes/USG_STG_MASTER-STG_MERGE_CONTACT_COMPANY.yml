@@ -1,0 +1,127 @@
+fileVersion: 1
+id: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+name: STG_MERGE_CONTACT_COMPANY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Associations between contacts and companies
+  isMultisource: true
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a615e44-42de-477c-81e5-d071b33f8a07
+          stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bca3bc3-9df3-4f66-bbac-7b9331d30ee8
+                stepCounter: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e346901c-ed3b-4213-859e-7e47c7470c7d
+          stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: OSC_PERSON_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 599fcf23-0d7b-41b8-81ed-83529d559543
+                stepCounter: 0c5f332b-b816-4b59-a950-ff41a12284fc
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30d772ef-ea51-4692-95d8-ebc1a2c9e228
+          stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f73da23-dc62-40fa-ae94-27a20c8289f9
+                stepCounter: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18634cd8-a20e-425a-8efa-16d7648a0a56
+          stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: OSC_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 309df974-53c8-49cb-b248-1cc47fb6fb4a
+                stepCounter: 0c5f332b-b816-4b59-a950-ff41a12284fc
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_HUBSPOT_CONTACT_COMPANY: 2319c0fb-ca79-47dc-bf1a-3993e9cf627e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_HUBSPOT
+            nodeName: STG_HUBSPOT_CONTACT_COMPANY
+        join:
+          joinCondition: FROM {{ ref('USG_STG_HUBSPOT', 'STG_HUBSPOT_CONTACT_COMPANY') }} "STG_HUBSPOT_CONTACT_COMPANY"
+        name: STG_HUBSPOT_CONTACT_COMPANY
+        noLinkRefs: []
+      - aliases:
+          STG_OSC_PERSON: 0c5f332b-b816-4b59-a950-ff41a12284fc
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_PERSON
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PERSON') }} "STG_OSC_PERSON"
+        name: STG_OSC_PERSON
+        noLinkRefs: []
+  name: STG_MERGE_CONTACT_COMPANY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

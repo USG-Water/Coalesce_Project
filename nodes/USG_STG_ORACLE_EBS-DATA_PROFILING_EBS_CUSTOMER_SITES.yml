@@ -1,0 +1,154 @@
+fileVersion: 1
+id: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+name: DATA_PROFILING_EBS_CUSTOMER_SITES
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e70e0503-ee45-4f58-8003-5c48ede8d6a6
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCT_SITE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 432a9b38-f715-4f16-9881-c0565ab23215
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6079619a-a718-4415-8b4f-2d69c3c1616e
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3a1954b-9201-412f-9eca-bad591744190
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ad263b4-f86a-498f-ae3f-eed0aaa2f07d
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_SITE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e57850b2-e472-4ddf-9e53-186b82ea40a8
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 852e9d54-5020-4e60-a84d-b1b6b67745e6
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 022f36eb-6571-4ea4-ba0d-064eaec95d59
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 957380d5-5d1c-4964-8c97-c40274db317f
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bb3c736-48b5-4c00-9266-9767ae6197d2
+          stepCounter: ce2765d3-ac94-4325-8bb2-af0efbfcd48b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_CUST_ACCT_SITES_ALL
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_CUST_ACCT_SITES_ALL') }} "HZ_CUST_ACCT_SITES_ALL"
+        name: DATA_PROFILING_EBS_CUSTOMER_SITES
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_CUSTOMER_SITES
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

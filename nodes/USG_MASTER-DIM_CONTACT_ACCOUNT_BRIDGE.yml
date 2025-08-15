@@ -1,0 +1,186 @@
+fileVersion: 1
+id: e692336d-c675-4274-88d3-bbe891e6c46d
+name: DIM_CONTACT_ACCOUNT_BRIDGE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Associations between contacts and accounts
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9b211f4-6b21-421e-a458-9bbaf9afd190
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_MERGE_CONTACT_COMPANY_UNIQUE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bbf9ae77-642d-4b62-8f0d-71a39b7581d6
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d94686d-7ecb-4fe2-9fee-3177192198d0
+                stepCounter: 468e2c5e-6f68-4f93-b15a-0bfd542ee9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73223ba2-e8bf-4731-bcdc-bf619d773f24
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79cde718-00bb-4c1f-a02b-2dc9af58b30f
+                stepCounter: 468e2c5e-6f68-4f93-b15a-0bfd542ee9ce
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5df9331-1138-4523-a469-0bf006e0bbc2
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81495e8a-abf8-4a3f-960e-1fa269129e04
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a6abb13-dd8b-45f4-8264-5e147d3a64f5
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2406ec62-6bd5-4eec-a77e-f9419408f5c2
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19f743c8-ef65-4283-9b6e-93e31a5d5ff1
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8a75f7f-07d3-480e-8d73-28a132ae3188
+          stepCounter: e692336d-c675-4274-88d3-bbe891e6c46d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_CONTACT_COMPANY_UNIQUE
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT_COMPANY_UNIQUE') }} "STG_MERGE_CONTACT_COMPANY_UNIQUE"
+        name: DIM_CONTACT_ACCOUNT_BRIDGE
+        noLinkRefs: []
+  name: DIM_CONTACT_ACCOUNT_BRIDGE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

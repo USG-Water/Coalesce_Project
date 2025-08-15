@@ -1,0 +1,424 @@
+fileVersion: 1
+id: 5fe702b0-3561-4925-9990-967fafc06509
+name: DIM_ADDRESSES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Addresses for all accounts and customers
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6242d796-7fc3-47f2-8f18-1dbe3c898dec
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_ADDRESSES_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bab194d9-0b35-4cd1-bd6d-853c55175d21
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR
+        description: The unique identifier for each address
+        isBusinessKey: true
+        name: ADDRESS_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 408a2ac1-90f8-481d-a1cf-ce645c207151
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99139d02-f1e8-4551-8264-86eb34311601
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier for an address in Oracle Salescloud (LOCATION_ID)
+        name: OSC_LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0938549-07fd-4991-8f76-da69f5d79442
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f28ae35-8744-476a-b2ed-3d327f5d2a56
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier for a company in HubSpot (COMPANY_ID)
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db504681-c069-4347-b750-1e2b46633bf0
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07b1a8cb-b6da-4f21-bac7-38bcb16990a4
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier for an address in Oracle EBS (LOCATION_ID)
+        name: EBS_LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8b472df-679d-4aba-8d2a-3862c7fa08db
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e16ac2f6-9de3-48a5-ad89-5799723df1d7
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The first line of the address
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b9fafe8-04d4-4ce9-82ad-4587559c0c1e
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf6e3bcc-37c0-4cb9-ba37-30c40d46a08b
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The second line of the address
+        name: ADDRESS_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9a429d7-26aa-4dc0-84b7-be6efcc2879a
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52f5ad58-fe12-4757-baee-9fa748ad8aca
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The third line of the address
+        name: ADDRESS_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4093a7e1-c50d-440d-a1ee-01bfbfae4abc
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a60da219-679a-4c6f-8d40-3f09e1daa7b6
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The fourth line of the address
+        name: ADDRESS_4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 800ea988-accc-4767-ad01-7c56a4b011bd
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcc4e001-664f-4d5c-83c8-7ba0fa2d076c
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(16384)
+        description: The city name of the location
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f06ba3a5-2051-4d0b-be7f-994a9c3a90e8
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f546e3b9-080e-4916-a74b-c01e04503a55
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The postal code element of the address
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e3b941b1-a62c-4e64-b2c9-02c41482148e
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd3c7dc1-1bd5-4ea9-8d2b-346297729ce7
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The four-digit extension to the United States Postal ZIP code for the address
+        name: POSTAL_PLUS_4_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45dc7f0c-f813-488d-a6e1-e429e2cff13e
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7245abf8-132b-44e3-a1bd-4e68eca1fbd8
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The name of the county
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f77a6272-cff1-4491-9299-e7df96f73e00
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68466388-9e1b-48ea-a8e5-87835a9e441f
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The name of the province
+        name: PROVINCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51796ab6-300a-487d-adf6-1e0994176734
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fa89dd1-e8ca-419a-88fa-3ea0cfab92a9
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The name of the state
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a222f765-48eb-4d95-ab9d-ed5deb70eef6
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c4522db-da70-4aec-8ef4-a3cc7d3e5bf9
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR(256)
+        description: The name of the country
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2e2edbf-8693-4dfb-b9c4-c320f48bd6d3
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4dad93d7-4ef5-47bf-bd75-39cee5876835
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: FLOAT
+        description: The latitude information for the location which is used for spatial proximity and containment purposes
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ca2de85a-a297-41d0-8982-97b1ce5776e7
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1cf1f530-a892-4b74-93b1-d73eeecd36cf
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: FLOAT
+        description: The longitude information for the location which is used for spatial proximity and containment purposes
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3eba6aef-9742-4331-865b-4383d58549a8
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1005255-2dee-43e6-a3e3-bd50296a04b9
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: BOOLEAN
+        description: This is set to TRUE for identifying internal or legal location. Possible values are TRUE, FALSE, and NULL. Default is FALSE
+        name: INTERNAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a90a9622-cef1-44be-8cc3-7f7099e1afa3
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73670d5e-d272-4e77-8249-9cac69b89f93
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: BOOLEAN
+        description: The record status flag used to soft delete the record
+        name: ACTIVE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4865d7d6-4569-4f14-9510-647f21fa5c9e
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4abab71b-47d7-4c73-aabf-f4d0566fef23
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0d8498c-993d-40d5-ac58-499c0e961023
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e33c094-22d9-4ab8-b229-4d32d56d78e2
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae53f764-dcf8-4f45-8967-0c0a7163a316
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b847b25-ae3a-4976-a050-43382690df11
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b042e97e-2e6a-4a73-a92f-aaa73ed65f64
+          stepCounter: 5fe702b0-3561-4925-9990-967fafc06509
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+        name: DIM_ADDRESSES
+        noLinkRefs: []
+  name: DIM_ADDRESSES
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 468e2c5e-6f68-4f93-b15a-0bfd542ee9ce
+name: STG_MERGE_CONTACT_COMPANY_UNIQUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Associations between contacts and companies
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d94686d-7ecb-4fe2-9fee-3177192198d0
+          stepCounter: 468e2c5e-6f68-4f93-b15a-0bfd542ee9ce
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 87f73c57-6507-4d40-a047-769a2a6a1139
+                stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79cde718-00bb-4c1f-a02b-2dc9af58b30f
+          stepCounter: 468e2c5e-6f68-4f93-b15a-0bfd542ee9ce
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7ffa9e1a-2a43-4637-a37a-11919ad4f64f
+                stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT: d9f70470-d5cf-4897-a0fc-1619ba692081
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT') }} "STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT"
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT"."CONTACT_ID", "STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT"."ACCOUNT_ID"
+                ORDER BY "STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT"."CONTACT_ID"
+            ) = 1;
+        name: STG_MERGE_CONTACT_COMPANY_UNIQUE
+        noLinkRefs: []
+  name: STG_MERGE_CONTACT_COMPANY_UNIQUE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,124 @@
+fileVersion: 1
+id: 381623e7-04cb-4fd5-a034-81b437d60b54
+name: STG_EBS_PARTIES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95c0a1a6-6bf0-47d9-af92-3580bd90edb5
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76257946-7a48-440a-b556-fa6aedd023fa
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e73ecf73-362e-4d63-a45f-0060ceb3ea7f
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PARTY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd213869-f25c-4940-b148-c6a64c377cff
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac355a40-814c-4e86-94b8-f570df4c5372
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9544ebca-0991-46ec-9049-a9f7ebc208cd
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26cab4f3-b52e-4ec1-b248-d95fb8e9f3ec
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2c67d8a-989c-4cae-ae72-a54dfc5bc0e0
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f38387b-3ac5-48fe-b9f9-eddbe5bbf83e
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d444c64c-1049-4956-bed8-f327239e797d
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: TO_TIMESTAMP("HZ_PARTIES"."LAST_UPDATE_DATE",'MM/DD/YYYY HH24:MI')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04663f15-5952-47a4-9f12-d6711991e811
+          stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: FISCAL_YEAREND_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6dc4d7e-3082-48f5-8d5b-801b0b80d012
+                stepCounter: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          HZ_PARTIES: 6a73fd91-d957-4315-b9b2-381f3dc8e6b2
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_PARTIES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_PARTIES') }} "HZ_PARTIES"
+        name: STG_EBS_PARTIES
+        noLinkRefs: []
+  name: STG_EBS_PARTIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

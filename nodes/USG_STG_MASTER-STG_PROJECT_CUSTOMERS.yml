@@ -1,0 +1,286 @@
+fileVersion: 1
+id: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+name: STG_PROJECT_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b86b2ea-2c0a-4d65-bdb3-7554e9dd173a
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95e94f77-3306-4256-a600-3f44e10d091a
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2360d662-2d7f-426a-97e4-e2e173479e08
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b4df3ad-14d5-438e-b76a-bb0a4f6e4576
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8966ab43-8aca-48d2-9240-2a4694bd9714
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53fa8969-0028-48da-8788-d18858d99786
+                stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1924f575-ef37-4fa5-8f3e-65d7e6ca3d85
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG_ACCOUNT_KEYS_BILL_TO\".\"ACCOUNT_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b20321c0-5bb6-4f9d-a3d4-eaa30cde5bf9
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG_ACCOUNT_KEYS_SHIP_TO\".\"ACCOUNT_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18d44e4b-3cfd-4c4b-836c-2e1e29903509
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3aa98eb4-6f4c-4289-af93-0a9a481f0be6
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0932486c-45d7-4149-9bd4-7fda344d4f4f
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_BILL_TO_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18c7377e-92d1-463e-bfbb-03934c53c3c0
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1785fe41-d478-45d3-a4a2-708b085cf8c4
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c6e6428-1bff-4858-8526-bd6b5c2890fa
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 571364bf-2698-47a5-9959-28955a269570
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_BILL_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58ecc756-a17d-4720-96f8-442250322dd7
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74b10f35-9dd3-4da2-b022-46fc8cd5d6b8
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 935629ed-6664-44ab-b847-e51210a68d49
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5308943-5603-47ce-b2e5-43cbfc176537
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: RECEIVER_TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aefba7c3-3ee7-4f2f-bec4-431f3f417cfd
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3533f0b-cbca-4aa1-a845-702eba23513a
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_RELATIONSHIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4ccae41-e64c-4d36-aa18-1546dd80cf87
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d4abf18-ccbc-4b9f-9e0d-5cadbf0094f0
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: DEFAULT_TOP_TASK_CUST_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59c75460-c137-42a8-859f-929291245294
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a8d53af-0008-40b9-b900-2d0419020115
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: RECORD_VERSION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 401cde9c-7af0-4180-b047-354a00573cf9
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df381b49-2318-4af2-8358-e678276f0da2
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1af5999d-5f77-4040-aed0-f3050c61ea62
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95f85464-3c23-482c-8e97-1adb95d1d871
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1348b00-dc0c-4d08-a4fc-28217f11fac1
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d96b380-3cfd-4611-9e2e-63e20a2b713d
+          stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 235f7947-e2d4-406c-a480-bca4086ade9c
+                stepCounter: e5bcdbd0-fa93-4212-b561-641729ddcc68
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+          STG_ACCOUNT_KEYS_BILL_TO: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+          STG_ACCOUNT_KEYS_SHIP_TO: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+          STG_EBS_PROJECT_CUSTOMERS: e5bcdbd0-fa93-4212-b561-641729ddcc68
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ACCOUNT_KEYS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_PROJECT_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PROJECT_CUSTOMERS') }} "STG_EBS_PROJECT_CUSTOMERS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
+                ON "STG_EBS_PROJECT_CUSTOMERS"."CUSTOMER_ID" = "STG_ACCOUNT_KEYS"."EBS_CUSTOMER_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS_BILL_TO"
+                ON "STG_EBS_PROJECT_CUSTOMERS"."BILL_TO_CUSTOMER_ID" = "STG_ACCOUNT_KEYS_BILL_TO"."EBS_CUSTOMER_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS_SHIP_TO"
+                ON "STG_EBS_PROJECT_CUSTOMERS"."SHIP_TO_CUSTOMER_ID" = "STG_ACCOUNT_KEYS_SHIP_TO"."EBS_CUSTOMER_ID"
+        name: STG_PROJECT_CUSTOMERS
+        noLinkRefs: []
+  name: STG_PROJECT_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

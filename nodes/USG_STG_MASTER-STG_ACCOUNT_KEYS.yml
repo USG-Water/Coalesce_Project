@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+name: STG_ACCOUNT_KEYS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Create a Account ID that associates all similar accounts among systems
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53fa8969-0028-48da-8788-d18858d99786
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE
+                  WHEN "STG_MERGE_ACCOUNT".NAME IS NOT NULL THEN MD5("STG_MERGE_ACCOUNT".NAME)
+                  ELSE MD5(COALESCE("STG_MERGE_ACCOUNT"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_ACCOUNT"."HUBSPOT_COMPANY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_ACCOUNT"."EBS_CUSTOMER_ID"::VARCHAR, ''))
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92b038e4-69d4-4a5c-922a-252f68b1667f
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSC_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 362cbe01-21d9-4d06-ae80-85452683ac39
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cc36cceb-30f9-479b-8bfa-9261814eb205
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf8aff69-83ca-40f7-bdd8-d14d8b0929e3
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 027130c1-6bc3-474b-835b-f36c813c9c7e
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f345bcaa-4a6e-4e92-a902-0ae31dd4284e
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4a767e9-d0fb-4aca-871c-f4f9f1570100
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82189f6a-d649-4c65-ac07-37250d6425eb
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 082b3812-9de1-4886-89f0-b2a3561f2e7a
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: VARCHAR(2048)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8839b666-da5f-45c6-a56a-824a12f31d6d
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ee5ca56-debb-4117-8fe4-baae27c98c41
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb12d115-b51f-4d32-9663-724b9fa7fe6b
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50db6b93-b103-44d2-bf04-38f010e50b06
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53e9b076-1113-4a8c-adbf-907e8104c285
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51b19ac1-5ed6-4a4f-add5-0ad309acafe2
+          stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4aa2028c-0265-4046-b7ea-35a44ff6c8f5
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_MERGE_ACCOUNT: 3af125b2-fd19-4626-91c5-83491903aba0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_ACCOUNT
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_ACCOUNT') }} "STG_MERGE_ACCOUNT"
+        name: STG_ACCOUNT_KEYS
+        noLinkRefs: []
+  name: STG_ACCOUNT_KEYS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

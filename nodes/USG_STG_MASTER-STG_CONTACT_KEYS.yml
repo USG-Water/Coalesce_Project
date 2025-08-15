@@ -1,0 +1,271 @@
+fileVersion: 1
+id: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+name: STG_CONTACT_KEYS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Create a Contact ID that associates all similar contacts among systems
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdb234c9-f1e0-4f9a-b2a0-340c2220dfdf
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTACT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE
+                  WHEN "STG_MERGE_CONTACT"."FIRST_NAME" IS NOT NULL AND "STG_MERGE_CONTACT"."LAST_NAME" IS NOT NULL AND "STG_MERGE_CONTACT"."EMAIL_ADDRESS" IS NOT NULL THEN MD5("STG_MERGE_CONTACT"."FIRST_NAME" || '|' || "STG_MERGE_CONTACT"."LAST_NAME" || '|' || STG_MERGE_CONTACT."EMAIL_ADDRESS")
+                  ELSE MD5(COALESCE("STG_MERGE_CONTACT"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_CONTACT"."HUBSPOT_CONTACT_ID"::VARCHAR, ''))
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3fe8bd8-ac0c-49f5-8771-5df92b6faa09
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSC_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2bac0e41-4ccf-4fed-bd60-fedb15106708
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b779aa1f-ad05-4309-ad86-64b20954cb68
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c3406b8-325c-4e10-9977-1018998c4114
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd3e5047-0ddc-4e30-ab4b-9b559c794dc4
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0d8c01b-1842-45c5-ac34-30f86824dfed
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25bdc161-771b-438f-9b95-0d4c3742d98e
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MIDDLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 38b90b66-4332-41de-9842-009de873b63e
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 356aa1f0-608d-475a-8009-c36a0418e2e6
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 00ae473d-8ee3-40fb-a217-de5a176b0007
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef1d7cf6-df86-4a6d-bd14-21380a6db976
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ceb72e15-dca3-4b90-867e-3739848d49fb
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1e37da4-a2e4-428d-8c2e-e2181cc68159
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: JOB_TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9d15d7a-5104-4eb0-9c12-ae65261dd301
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac204f47-b385-4397-a10f-4bf25aaf2551
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e8e35c0f-d7c9-4d23-9a7b-294e8b509804
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3efcd10c-bf09-4f95-8592-a6025ad1b582
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PRIMARY_CUSTOMER_RELATIONSHIP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74cdbe80-c9ac-4b07-8255-9ba68465e4be
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b2d7889-3a96-4ce0-a1fb-a410e2dc2735
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d81587b2-7055-4ab4-a1cb-3d65d054b9f1
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6f415c4-e54f-4452-9e5c-f41c420087c2
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_AREA_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fdc7fc1-0676-404a-9fa2-b87f3d6b8bc4
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 002427dc-4a41-42fe-b786-8d441cd9a8a7
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4736992-ca3d-4687-870a-ca114202ace4
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a29432f4-47b8-4b12-9df7-c4337ece906a
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_EXTENSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93d792f5-8362-45d1-9f8a-832f5368dd30
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f93ac1fd-0929-495b-b02f-55072cf28bd5
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_LINE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f6fb627-242e-4181-8b9c-2658ecdcda5f
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29d3b13c-1180-4876-b9a4-d3af41b7abdd
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a69dbc98-3abe-4afa-81a7-5557e66d1df6
+                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_CONTACT
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT') }} "STG_MERGE_CONTACT"
+        name: STG_CONTACT_KEYS
+        noLinkRefs: []
+  name: STG_CONTACT_KEYS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

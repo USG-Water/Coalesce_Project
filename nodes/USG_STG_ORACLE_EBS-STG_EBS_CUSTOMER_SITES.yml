@@ -1,0 +1,95 @@
+fileVersion: 1
+id: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
+name: STG_EBS_CUSTOMER_SITES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 179bdfa1-6b37-4098-a004-06cfce7dcef1
+          stepCounter: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCT_SITE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 432a9b38-f715-4f16-9881-c0565ab23215
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8cc741f-97a2-4453-a83d-7b49d6679bf2
+          stepCounter: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3a1954b-9201-412f-9eca-bad591744190
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08365c84-d51a-49f8-bcf7-6ae8afb1bb98
+          stepCounter: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_SITE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e57850b2-e472-4ddf-9e53-186b82ea40a8
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a23fac85-69ff-4336-879a-87f39717f2f1
+          stepCounter: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 022f36eb-6571-4ea4-ba0d-064eaec95d59
+                stepCounter: 9ad248b8-facf-4863-85e8-1a56fb00394a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_CUST_ACCT_SITES_ALL
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_CUST_ACCT_SITES_ALL') }} "HZ_CUST_ACCT_SITES_ALL"
+        name: STG_EBS_CUSTOMER_SITES
+        noLinkRefs: []
+  name: STG_EBS_CUSTOMER_SITES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

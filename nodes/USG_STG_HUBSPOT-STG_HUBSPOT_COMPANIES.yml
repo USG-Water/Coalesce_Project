@@ -1,0 +1,294 @@
+fileVersion: 1
+id: a485b708-19e1-449a-bb15-89f3638f951e
+name: STG_HUBSPOT_COMPANIES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Each record represents a company in Hubspot.
+  isMultisource: false
+  locationName: USG_STG_HUBSPOT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ca5d12b-0320-47f7-b92a-aca3b3b3aa39
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d88a49ff-e2b1-4454-b66f-9504fb32b4dd
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe413d51-52c1-43a5-acba-932357959ed7
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COMPANY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75678df0-c3a5-4785-855c-a4c23caf8d83
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5511cf7c-7121-4c07-ac62-e25434d957fc
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(2048)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f99afb9-deeb-4b45-bdf8-0d92c4e2c9de
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 847566e5-dbbf-4f31-8d80-e594de24961d
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed1475e4-11e2-4d38-9f23-bfda79cfe5f0
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 211391b0-a693-4e80-846f-25dd169b0ada
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6600e595-184d-40d9-820d-23a22db4fc1b
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6789f6e7-b9a9-4af9-b180-cfdcfdfe8fa0
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STREET_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea897c42-8bcd-43e4-b61f-2da582e8da20
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: NULLIF(TRIM("HUBSPOT__COMPANIES"."STREET_ADDRESS"), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dd98d7a-31df-4c78-9897-52c6fc7e2b91
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STREET_ADDRESS_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 653b1e8d-8eac-4ab9-a600-727d793c0230
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: NULLIF(TRIM("HUBSPOT__COMPANIES"."STREET_ADDRESS_2"), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 312eb810-595c-408a-a194-429c3cc92046
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(16384)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27c94da1-7beb-4857-905c-5b7ea8b7b83b
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: NULLIF(TRIM("HUBSPOT__COMPANIES"."CITY"), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93a738cb-03a3-481e-89f2-88dd3227539f
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ec157f14-3927-4be3-ab71-14684bedeff6
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: NULLIF(TRIM("HUBSPOT__COMPANIES"."STATE"), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2de02726-9941-4b0c-a504-7c385770b1ed
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8764447c-6832-4414-87c6-e35927911471
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: NULLIF(TRIM("HUBSPOT__COMPANIES"."COUNTRY"), '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d49d5801-a975-42ff-99c4-7b2d0ecd4b0c
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COMPANY_ANNUAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 21239296-2972-4e1c-acc0-f94b5d7e9e22
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3eb2ff44-e065-43e6-bf7b-3ce376bd8dd5
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_NOTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a566fef-7dcc-48b6-87b2-e8c2e56acecf
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 373368aa-fd80-44fc-ad86-fcc7d23ef4c6
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_TASKS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 395ed0f4-cf0d-4df0-a834-5ff2b0b87d2a
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1973106c-f9e3-4a0d-be73-aa15f15d2773
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_CALLS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56a61e07-0fbf-4b20-b885-064f81c7888b
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9696dd45-9bf2-4e35-9dff-469bceb0c377
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_MEETINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 385a00bb-a637-452a-9e29-6f8b3b853363
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d28c001f-6f6e-4b36-ba7a-f84a287fa1de
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_EMAILS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e848620-dc4f-4398-93a2-b2be2dd12b88
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 556cdeba-96d4-4c05-8445-5c674f84061a
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_INCOMING_EMAILS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1764424f-4fca-4402-b7a8-c1e27878d829
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37770673-30d3-45da-9e91-9916cd402bc4
+          stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: COUNT_ENGAGEMENT_FORWARDED_EMAILS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71bd1f5c-17ef-4d93-9229-c99dabdeda1e
+                stepCounter: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          HUBSPOT__COMPANIES: 8f885e55-26ab-4d70-bcc0-5e279042b77b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_HUBSPOT
+            nodeName: HUBSPOT__COMPANIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_HUBSPOT', 'HUBSPOT__COMPANIES') }} "HUBSPOT__COMPANIES"
+            WHERE "HUBSPOT__COMPANIES"."IS_COMPANY_DELETED" = FALSE
+        name: STG_HUBSPOT_COMPANIES
+        noLinkRefs: []
+  name: STG_HUBSPOT_COMPANIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

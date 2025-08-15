@@ -1,0 +1,290 @@
+fileVersion: 1
+id: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+name: DATA_PROFILING_EBS_CUST_ACCOUNTS
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 952fa00c-5b3f-449c-aca0-086730c04e7a
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41411f66-70d9-408c-8dcc-e0db14c578eb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c315192a-bf6c-4c58-b974-f2c54e580e9d
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 46466e6c-dc33-40eb-8c80-ee8c369e427b
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46ab73d5-ae41-452c-98b7-92036435d600
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84fd45f1-4c00-479c-8766-bc91f9f9cbfb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe94e065-cf82-4005-bae5-7f4face8a801
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACCOUNT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7de0269d-49d9-42d7-99d5-1b3301998199
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 546d0f0b-d85f-4de7-b089-77d2cc8a816d
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_ADDRESS1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f718a96-d9b7-42d4-b826-49945ee4cae9
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1a150ec-9eb7-4027-9974-4cd4e9c92efb
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_ADDRESS2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4415487-3f74-4a81-a1c8-c2b990ce0576
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ce10098-84bc-43bb-9c12-ed2302d0d1d5
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab91611f-af38-499d-9bc1-7aadf65ef205
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d0274db-c0d8-44d9-ba0a-2dedfcb69686
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e2efa71-d2b2-4872-a0f3-959e6a8d59ed
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b809d8f1-2071-45c9-9b4c-23d277285515
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96d953c7-e20f-4511-9453-ef101bc421cb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d0a70dc-8a45-4b8b-91e1-fda5fb3525c6
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CONTACT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 383bc5ae-7cdd-4c08-bea0-5baac4cd1902
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5400038b-8cff-4b28-9dbe-d0952ecee303
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: JOB_TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4038215b-3590-4b46-9dea-3590482be3fc
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc443c0c-7f6f-4fe9-8041-a1ebbf7fa70d
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRIMARY_CONTACT_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbd2fe79-0004-4bd3-9dcc-fa138abec7ef
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1dd1203-cc8d-49fc-b70e-b98478854df9
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 696646e7-3bec-4510-b0c5-f678d30ba7c9
+          stepCounter: 2c9e6275-0e4f-4fc9-a577-6e13ec5a65ec
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_CUST_ACCOUNTS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_CUST_ACCOUNTS') }} "HZ_CUST_ACCOUNTS"
+        name: DATA_PROFILING_EBS_CUST_ACCOUNTS
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_CUST_ACCOUNTS
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,228 @@
+fileVersion: 1
+id: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+name: STG_EBS_CUST_ACCOUNTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16cff5b2-148e-41e7-8400-8d919ef4f9e2
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41411f66-70d9-408c-8dcc-e0db14c578eb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ad8da84-501f-4fab-868e-93b843e4dc2c
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 46466e6c-dc33-40eb-8c80-ee8c369e427b
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dafa6424-839b-4924-b108-776e2b4ecb23
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PARTY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e73ecf73-362e-4d63-a45f-0060ceb3ea7f
+                stepCounter: 381623e7-04cb-4fd5-a034-81b437d60b54
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 658fc02b-9709-46d6-9954-ea599377dea7
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84fd45f1-4c00-479c-8766-bc91f9f9cbfb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ca7ccd0-8d88-419b-aeba-1e7f7f21d740
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACCOUNT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7de0269d-49d9-42d7-99d5-1b3301998199
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e73703f-b29c-4999-a7e7-8e9ea7fb9636
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_ADDRESS1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f718a96-d9b7-42d4-b826-49945ee4cae9
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7cdef51c-c70d-4fa8-84f1-6665ebb2e36a
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_ADDRESS2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4415487-3f74-4a81-a1c8-c2b990ce0576
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a3ca1ca-84cc-4ec5-80eb-988db286e482
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab91611f-af38-499d-9bc1-7aadf65ef205
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7da43a2-5a1d-4756-b61b-9e5c7c55cc1a
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e2efa71-d2b2-4872-a0f3-959e6a8d59ed
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f33fd2b8-8388-40e8-bae9-da41db86d493
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BILLING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96d953c7-e20f-4511-9453-ef101bc421cb
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9667438-1c62-4e2f-baeb-c93a44690d7e
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CONTACT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 383bc5ae-7cdd-4c08-bea0-5baac4cd1902
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53cf05c9-26f4-4813-9374-c13eea28506b
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: JOB_TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4038215b-3590-4b46-9dea-3590482be3fc
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b59713dd-63ab-4408-9fb4-e0d890c32e27
+          stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRIMARY_CONTACT_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbd2fe79-0004-4bd3-9dcc-fa138abec7ef
+                stepCounter: 0174eb29-80d2-403f-85d4-24f83ad43923
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          HZ_CUST_ACCOUNTS: 0174eb29-80d2-403f-85d4-24f83ad43923
+          STG_EBS_PARTIES: 381623e7-04cb-4fd5-a034-81b437d60b54
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_CUST_ACCOUNTS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_PARTIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_CUST_ACCOUNTS') }} "HZ_CUST_ACCOUNTS"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PARTIES') }} "STG_EBS_PARTIES"
+                ON "HZ_CUST_ACCOUNTS"."PARTY_ID" = "STG_EBS_PARTIES"."PARTY_ID"
+        name: STG_EBS_CUST_ACCOUNTS
+        noLinkRefs: []
+  name: STG_EBS_CUST_ACCOUNTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

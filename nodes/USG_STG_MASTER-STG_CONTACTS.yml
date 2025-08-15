@@ -1,0 +1,328 @@
+fileVersion: 1
+id: d2598e7d-86ed-44b1-a733-e6dc36688569
+name: STG_CONTACTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Get unique contact ID's and normalize descriptive data
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc1fc043-2f81-40f7-8687-0c1d2691401c
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTACT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bdb234c9-f1e0-4f9a-b2a0-340c2220dfdf
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6cc7e285-8a12-4956-91d0-dfa50454d74d
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd3e5047-0ddc-4e30-ab4b-9b559c794dc4
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."FIRST_NAME",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."FIRST_NAME" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c39b56ed-1950-452e-8b9b-68394b198f8e
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MIDDLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25bdc161-771b-438f-9b95-0d4c3742d98e
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."MIDDLE_NAME",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."MIDDLE_NAME" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1a8bf7c-a53a-4029-a774-f078eabdd12b
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 356aa1f0-608d-475a-8009-c36a0418e2e6
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."LAST_NAME",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."LAST_NAME" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6711edc-c871-49d5-8e8d-3cdf0e946833
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef1d7cf6-df86-4a6d-bd14-21380a6db976
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."EMAIL_ADDRESS",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."EMAIL_ADDRESS" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11c012a9-6256-4c64-b876-1cde764eeff1
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: JOB_TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e37da4-a2e4-428d-8c2e-e2181cc68159
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."JOB_TITLE",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."JOB_TITLE" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb709296-12e6-48b1-97bd-d18d16f431fb
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ac204f47-b385-4397-a10f-4bf25aaf2551
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."COMMENTS",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."COMMENTS" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71e6fec4-5a5b-4853-a01a-e9d41f251056
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PRIMARY_CUSTOMER_RELATIONSHIP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3efcd10c-bf09-4f95-8592-a6025ad1b582
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PRIMARY_CUSTOMER_RELATIONSHIP_ID",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PRIMARY_CUSTOMER_RELATIONSHIP_ID" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 525cca56-fa6b-417c-8056-abdeb3c195b6
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b2d7889-3a96-4ce0-a1fb-a410e2dc2735
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PHONE_COUNTRY_CODE",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PHONE_COUNTRY_CODE" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2b45066-39fb-4e55-b5a5-c3111cc839a0
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_AREA_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6f415c4-e54f-4452-9e5c-f41c420087c2
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PHONE_AREA_CODE",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PHONE_AREA_CODE" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d18904c-746a-4310-8ef1-c263c6b7d08f
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 002427dc-4a41-42fe-b786-8d441cd9a8a7
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PHONE_NUMBER",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PHONE_NUMBER" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6db5f97b-ae15-4f93-a48b-5f565d4ddb5c
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_EXTENSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a29432f4-47b8-4b12-9df7-c4337ece906a
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PHONE_EXTENSION",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PHONE_EXTENSION" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20e2edeb-a8c2-4003-a81a-c83d8b61629c
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE_LINE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f93ac1fd-0929-495b-b02f-55072cf28bd5
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."PHONE_LINE_TYPE",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."PHONE_LINE_TYPE" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b4dc4cd-5589-438a-a2c4-569eac104c0e
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29d3b13c-1180-4876-b9a4-d3af41b7abdd
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: MAX("STG_CONTACT_KEYS"."LAST_UPDATE")
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_CONTACT_KEYS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS"
+            GROUP BY "STG_CONTACT_KEYS"."CONTACT_ID"
+        name: STG_CONTACTS
+        noLinkRefs: []
+  name: STG_CONTACTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

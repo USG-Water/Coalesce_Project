@@ -1,0 +1,143 @@
+fileVersion: 1
+id: d9f70470-d5cf-4897-a0fc-1619ba692081
+name: STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Associations between contacts and companies
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87f73c57-6507-4d40-a047-769a2a6a1139
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ebda3a92-84b9-4fa2-9cdc-221a157ecb6e
+                stepCounter: 5bb84e4f-16f7-460f-8831-d90891fa9313
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35e80701-3060-49de-82a8-2da122a581eb
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a615e44-42de-477c-81e5-d071b33f8a07
+                stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b6a28c8-ef2a-4504-9555-c20218f2e3e0
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSC_PERSON_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e346901c-ed3b-4213-859e-7e47c7470c7d
+                stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ffa9e1a-2a43-4637-a37a-11919ad4f64f
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53fa8969-0028-48da-8788-d18858d99786
+                stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 837c4786-891c-4689-a05c-92289d06b04f
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30d772ef-ea51-4692-95d8-ebc1a2c9e228
+                stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c078f774-f3b4-4116-a561-7e5a1b27cb12
+          stepCounter: d9f70470-d5cf-4897-a0fc-1619ba692081
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSC_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18634cd8-a20e-425a-8efa-16d7648a0a56
+                stepCounter: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+          STG_MERGE_CONTACTS: 5bb84e4f-16f7-460f-8831-d90891fa9313
+          STG_MERGE_CONTACT_COMPANY: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ACCOUNT_KEYS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_CONTACT_COMPANY
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_CONTACTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT_COMPANY') }} "STG_MERGE_CONTACT_COMPANY"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACTS') }} "STG_MERGE_CONTACTS"
+                ON "STG_MERGE_CONTACT_COMPANY"."HUBSPOT_CONTACT_ID" = "STG_MERGE_CONTACTS"."HUBSPOT_ID"
+                OR "STG_MERGE_CONTACT_COMPANY"."OSC_PERSON_ID" = "STG_MERGE_CONTACTS"."OSC_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
+                ON "STG_MERGE_CONTACT_COMPANY"."HUBSPOT_COMPANY_ID" = "STG_ACCOUNT_KEYS"."HUBSPOT_COMPANY_ID"
+                OR "STG_MERGE_CONTACT_COMPANY"."OSC_ORGANIZATION_ID" = "STG_ACCOUNT_KEYS"."OSC_PARTY_ID"
+        name: STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT
+        noLinkRefs: []
+  name: STG_MERGE_CONTACT_COMPANY_MERGED_CONTACT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

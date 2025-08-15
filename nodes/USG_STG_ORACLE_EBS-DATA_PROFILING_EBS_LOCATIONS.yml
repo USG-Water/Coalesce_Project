@@ -1,0 +1,307 @@
+fileVersion: 1
+id: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+name: DATA_PROFILING_EBS_LOCATIONS
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 572f6ebe-2cce-41dd-afe3-3e2674928cf1
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd2dc689-81de-4836-97e5-3c24cf46f565
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8dbbc81-aaed-4cce-aa8b-1e4cf2f38a7c
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 551794bb-8795-4f9b-874b-594b280e83c2
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbd9c983-267b-42ed-955d-12efad39a003
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REQUEST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0cffa833-9992-4488-a6b9-7f58710739f8
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8c5d2d3-6dc7-4ec2-a679-1eea4eaf886f
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42a048e2-eac0-475c-822b-6d6d1aaf14af
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5080bd3e-4b3d-4df5-ba89-bcdd1438bdc3
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dbfb8d5-3e93-4755-8174-1c38bbc82b76
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25e33ccf-cf0b-4db5-964c-a7af5c8a99fc
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9fd40ba-9945-43ca-adea-f863690b2b3e
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da8e7871-4fee-4a63-9e6b-6077c2daf9b9
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b896313b-21b0-47c2-8831-804c02bca9ff
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1564e19e-ca6b-46b3-a1f1-877c91b592cb
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 270d343d-37fe-423e-ab4e-bf5545a9c40b
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a033fd3-0357-4a56-9d7b-acf273238f84
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 178186f5-a653-43ff-a7c7-e5737c9f9c2b
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8243fcf-4416-44ec-8d8e-6d5516af42be
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39f0d09d-9949-44b1-b12e-4da9ec36e5de
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d879464f-f09e-4ffe-85d0-b9c8e43d2b43
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e38d02a9-ba6b-43b9-a19a-129f4683de01
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d37824b6-c771-4441-8133-d12925c6d796
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROVINCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8891f4ce-8c81-4b38-85b4-70635960ee26
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e10a101-461f-4b1f-be4f-3dd063e14bf0
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 230fb1f7-fdf1-43e3-b189-162d3e3e5a5b
+                stepCounter: ffa4ee86-2a7f-4215-9d29-9752b3223ade
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c78c078-7bb3-49f8-9216-eed525d36540
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7465355-88ac-48c3-a9ad-ad37a74af2f6
+          stepCounter: 3e2679cc-42cb-4dba-ab18-2a6e16b7882d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_LOCATIONS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_LOCATIONS') }} "HZ_LOCATIONS"
+        name: DATA_PROFILING_EBS_LOCATIONS
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_LOCATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

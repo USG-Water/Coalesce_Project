@@ -1,0 +1,171 @@
+fileVersion: 1
+id: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+name: DATA_PROFILING_EBS_PARTY_SITES
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5fb272c-06ef-4b68-839a-04a2b1eb877a
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_SITE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dea457b5-a676-43a5-8325-c8be7e985fb7
+                stepCounter: 8ec5c120-8796-4642-a2a5-630055f7ef71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 070b7621-49d8-4996-b087-2a1b3489ce9a
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1bc69d18-ee9a-4cf2-9059-d503eb2948c1
+                stepCounter: 8ec5c120-8796-4642-a2a5-630055f7ef71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1301029c-8bff-442f-bf55-1d3682ab8cf7
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0968ca2b-c174-4105-827f-b5238e1ccc0a
+                stepCounter: 8ec5c120-8796-4642-a2a5-630055f7ef71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7f8ae8e-bac1-4e8c-bf54-2a318710d7c1
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6a65868-714a-4cf3-af4d-986e554ccad5
+                stepCounter: 8ec5c120-8796-4642-a2a5-630055f7ef71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6803bd31-4c63-4e40-a974-3f540cc6c17b
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PARTY_SITE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e27156d-ee23-4946-a5ff-3f40e06623be
+                stepCounter: 8ec5c120-8796-4642-a2a5-630055f7ef71
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0589c8e-3b3e-4bf7-8de3-ad87e56feda5
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57bbf536-5f16-449d-9845-258cd8c2c776
+          stepCounter: 3cfe0a2d-f674-4639-8103-247ad2a7cf18
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: HZ_PARTY_SITES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'HZ_PARTY_SITES') }} "HZ_PARTY_SITES"
+        name: DATA_PROFILING_EBS_PARTY_SITES
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_PARTY_SITES
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

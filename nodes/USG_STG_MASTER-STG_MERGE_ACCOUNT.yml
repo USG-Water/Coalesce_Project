@@ -1,0 +1,249 @@
+fileVersion: 1
+id: 3af125b2-fd19-4626-91c5-83491903aba0
+name: STG_MERGE_ACCOUNT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Create a union on all systems with accounts
+  isMultisource: true
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 362cbe01-21d9-4d06-ae80-85452683ac39
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: OSC_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61372e92-bcd8-4738-8ab8-59add39139b0
+                stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf8aff69-83ca-40f7-bdd8-d14d8b0929e3
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+          - columnReferences:
+              - columnCounter: 0ca5d12b-0320-47f7-b92a-aca3b3b3aa39
+                stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f345bcaa-4a6e-4e92-a902-0ae31dd4284e
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: EBS_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 16cff5b2-148e-41e7-8400-8d919ef4f9e2
+                stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82189f6a-d649-4c65-ac07-37250d6425eb
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e1dc04-6c72-4208-ae8b-34b906a19c56
+                stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: UPPER(TRIM("STG_OSC_ACCOUNT"."PARTY_NAME"))
+          - columnReferences:
+              - columnCounter: fe413d51-52c1-43a5-acba-932357959ed7
+                stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: UPPER(TRIM("STG_HUBSPOT_COMPANIES"."COMPANY_NAME"))
+          - columnReferences:
+              - columnCounter: dafa6424-839b-4924-b108-776e2b4ecb23
+                stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+            transform: UPPER(TRIM("STG_EBS_CUST_ACCOUNTS"."PARTY_NAME"))
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8839b666-da5f-45c6-a56a-824a12f31d6d
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: VARCHAR(2048)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ffeea012-2c8e-4dd8-a810-011402aa3624
+                stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 5511cf7c-7121-4c07-ac62-e25434d957fc
+                stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb12d115-b51f-4d32-9663-724b9fa7fe6b
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 211391b0-a693-4e80-846f-25dd169b0ada
+                stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53e9b076-1113-4a8c-adbf-907e8104c285
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22936013-6fed-49af-9c98-831fb7329a0c
+                stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 211391b0-a693-4e80-846f-25dd169b0ada
+                stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4aa2028c-0265-4046-b7ea-35a44ff6c8f5
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 975e3e13-ab2a-4a18-9da8-79577c7b8db0
+                stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: ""
+          - columnReferences: []
+            transform: "'1970-01-01'"
+          - columnReferences:
+              - columnCounter: 658fc02b-9709-46d6-9954-ea599377dea7
+                stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_ACCOUNT
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_ACCOUNT') }} "STG_OSC_ACCOUNT"
+        name: STG_OSC_ACCOUNT
+        noLinkRefs: []
+      - aliases:
+          STG_HUBSPOT_COMPANIES: a485b708-19e1-449a-bb15-89f3638f951e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_HUBSPOT
+            nodeName: STG_HUBSPOT_COMPANIES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_HUBSPOT', 'STG_HUBSPOT_COMPANIES') }} "STG_HUBSPOT_COMPANIES"
+        name: STG_HUBSPOT_COMPANIES
+        noLinkRefs: []
+      - aliases:
+          STG_EBS_CUST_ACCOUNTS: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_CUST_ACCOUNTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_CUST_ACCOUNTS') }} "STG_EBS_CUST_ACCOUNTS"
+        name: STG_EBS_CUST_ACCOUNTS
+        noLinkRefs: []
+  name: STG_MERGE_ACCOUNT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

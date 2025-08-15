@@ -1,0 +1,140 @@
+fileVersion: 1
+id: 61a9e224-6c37-4f3a-8958-9963b2420c63
+name: STG_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_SQL_SERVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2061c35b-bac2-4e5c-9aee-0195e5cd4513
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: _FIVETRAN_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ccda944-afd2-4f46-8183-510cb0e9f4e6
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19c82ae0-67d6-4c5b-ab49-ad4ce694def5
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 456b61f9-e721-45ec-a2de-85c882b3776f
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aef53a90-7399-4a3e-ad75-471bf971c3dc
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMER_ACCOUNT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ce5fa49-ef58-4c20-9e53-0b6ed006c00e
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e8c5317-43d7-4451-96ac-f30f6b9990f1
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMERID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e84e3603-a8fc-4215-8226-568879e968ee
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72ef940e-e1a5-4051-bbca-48b3332787f7
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e1e4aee-613d-421b-8bb4-0fc9d1321977
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 003c6cca-0042-4570-9f9b-98a53a1e6929
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee0c424a-1b5a-4367-a914-a5f90e568d6b
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60284b26-78a4-40be-9b46-9ed6718a8845
+          stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d31c41d3-56d9-443e-a0ba-59c00fd278ad
+                stepCounter: 87acd086-c739-4c4a-8088-926fbd4c432e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CUSTOMERS: 87acd086-c739-4c4a-8088-926fbd4c432e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SQL_SERVER
+            nodeName: CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_SQL_SERVER', 'CUSTOMERS') }} "CUSTOMERS"
+            WHERE "_FIVETRAN_DELETED" = FALSE
+        name: STG_CUSTOMERS
+        noLinkRefs: []
+  name: STG_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
