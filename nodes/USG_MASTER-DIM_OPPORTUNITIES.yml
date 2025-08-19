@@ -1,0 +1,367 @@
+fileVersion: 1
+id: fc617d68-d460-4c62-adeb-2b17123ccd1c
+name: DIM_OPPORTUNITIES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Opportunities for pipeline tracking in Oracle Salescloud
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 130d7f0b-9a29-470c-a8de-1a56f1d9cfa3
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_OPPORTUNITIES_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29c8777b-c184-42db-9336-e108dfb4c5ae
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier of the opportunity.
+        isBusinessKey: true
+        name: OPPORTUNITY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d40f5ee5-9db3-461d-a859-f04ee1123440
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c667d865-66d0-4efa-bfd8-0fcab7965b29
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier of the current stage for the opportunities.
+        name: CURR_STG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ebd1d977-67e9-41eb-bec5-6db334a31250
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9477cd39-eecf-489f-b31d-19ff6ce670de
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR
+        description: The unique identifier of the account associated with the opportunity.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4f8fcee-248b-48ee-a229-fe46b14b823b
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c40414cd-b413-46dd-b0d2-e1cbddb4153f
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR
+        description: The unique identifier of the primary contact associated with the opportunity.
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 394b713c-d762-42ef-9806-337de84793cd
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a501cca-b903-4104-a105-2822cb6392e7
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR(256)
+        description: The name of the opportunity.
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 066853e5-ab88-460e-a6d9-b073b0eac63f
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ae7166b-4c53-43d9-ae82-5287a111ddff
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR(512)
+        description: The description of the opportunity including the sales objective. The sales representative provides the description.
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92499b48-8789-4663-8c52-318127f1a95d
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26fc6d03-bf87-438b-894c-1f9bdcd8bacf
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The amount budgeted for this opportunity.
+        name: BDGT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 15fc11ba-c91e-4b7b-a99f-2aa1406ed7ba
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f830846-3b3c-4cad-b2a0-721df68d76c9
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The expected amount of revenue for the opportunity based on win probability.
+        name: EXPECTED_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90193ed0-481e-4c2a-9caa-deae08f767a8
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf13c954-29d6-4342-8809-c414e0357083
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The minimum amount of revenue for the opportunity.
+        name: DOWNSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c77defc-6a63-449b-a971-0990c0e6ec8b
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb3e2b2b-daeb-411b-b96f-367413cca3dc
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The maximum amount of revenue for the opportunity.
+        name: UPSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d822c7-8967-4a8e-8bff-b2062f05d922
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ecab932c-6ce9-4c95-afc5-caf2a64a6367
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR(256)
+        description: The user who created the opportunity row.
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2bef8de2-1303-4411-8c3f-46116fe3cebb
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 407017c2-44a6-49c1-a887-e68d0e19d5c9
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR(256)
+        description: The user who last updated the opportunity row.
+        name: LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24605b73-0f80-4ec8-a07e-e91e2e1ac610
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e5926d7-8802-4e52-b6d1-c7d7f529b809
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The date and time when the opportunity row was created.
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 439fe31d-1db6-44ba-be92-3ea99f7ee472
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a255e67d-699e-4692-9912-eff0bb6d5591
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The date and time when the opportunity row was last updated.
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9ba0833-0229-4999-b554-837676cb4677
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d265b9a5-4b32-40d0-b2f8-92506e110f04
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The date when the opportunity is expected to close.
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 548606b2-6e69-4a78-85d9-5695e0de1267
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4ab94fe-7d79-4897-ba67-da77b0a9ce57
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16d22272-b1f7-48a2-9c8d-0d76aec8e976
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 886bb12e-5183-41f1-bc61-b52ca2125501
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3221654a-18d7-47f2-92ff-5e6f6394658f
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04a4aef0-8278-473d-a688-5ca13a104783
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a5e1ecd-6e65-4f36-af1c-56460c0b9a65
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_OPPORTUNITIES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_OPPORTUNITIES') }} "STG_OPPORTUNITIES"
+        name: DIM_OPPORTUNITIES
+        noLinkRefs: []
+  name: DIM_OPPORTUNITIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

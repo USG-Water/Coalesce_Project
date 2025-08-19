@@ -1,0 +1,339 @@
+fileVersion: 1
+id: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+name: DIM_SALES_STAGES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: A list of stages for Oracle Salescloud
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29615949-f5d2-415f-99af-bec921eaafd8
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_OSC_SALES_STAGE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bb6d65a-7143-4ca1-88e3-c8a1e010d2ce
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The unique identifier of the sales stage. This is a primary key of the Sales Stage view object.
+        isBusinessKey: true
+        name: STG_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2446567e-7926-46f8-b65b-fe8ba8da7e2c
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a12b114-f815-453b-884d-d34fb25c36c9
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: The unique name of the sales stage.
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fdd46316-09d5-425b-9aa3-022c6ff84b17
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb4b78de-c275-4ed6-a8f1-94020cf0d4e6
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: This value is used to roll up different stages into phases. Phases simplify management and reporting of the sales cycle. A list of accepted values is defined in the lookup type MOO_STAGE_PHASE_CD.
+        name: PHASE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48c7e5fd-89c4-4b09-87ba-d35d71ba2e30
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c7a3c47-ea48-4efa-87e3-6412d2fb4800
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: A brief description about the sales stage.
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b03a95e-a267-4e15-9c9f-8a25cae94860
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2975b50-342b-43e3-b8a7-a5169f077a22
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: FLOAT
+        description: The order in which the sales stage will be displayed.
+        name: ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2ef8d33-7415-4cb7-ab28-35edd2ad5b8b
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79d37ae0-8e9c-48ee-9aab-15cbeda937a5
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: The code indicating the status of the sales stage. A list of accepted values is defined in the lookup type OPTY_STATUS.
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4e1b0eb-c4e3-4ae5-a4d1-f2cfce41958d
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc112895-0140-4899-b548-10f71b29b65c
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The average number of days at sales stage.
+        name: AVG_DAYS_AT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a839e9e-d4dc-47f1-a121-05acdb97d15a
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa9a552c-9d9c-4ef1-8526-c8991f9eafbc
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The maximum number of days an opportunity can be in this sales stage before it is considered Stalled.
+        name: MAX_DAYS_IN_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82b6967e-b7e7-4087-b8bb-0a92c0ae6163
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83f3febb-5346-47af-a30c-af3bf9486786
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: FLOAT
+        description: The recommended probability of a win.
+        name: RCMND_WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc002c18-9b55-4d0a-b8c1-b743165a6a06
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9be85037-ddc2-44c4-862d-36c2f724635f
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: The user who created the sales stage row.
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eecd27ab-dfaf-44b9-b990-2e87059ade7b
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6402560e-6c4d-498a-b793-83190a283d5e
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: The user who last updated the sales stage row.
+        name: LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631ee77-ddc9-479e-8171-9b6022b8f9f1
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55ff73bf-9cd5-43b7-8447-d81d34cf3a13
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The date when the sales stage row was created.
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f5200c2-fe59-4858-9034-45471719af77
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6dbd2104-9165-4037-8aa5-809bb62de6e2
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The date when the sales stage row was last updated.
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74298582-16f8-47b5-a235-2ac1c1dc98ea
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 056d44f8-a565-491e-8063-790cb0ca9c9c
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 553c1f0a-8707-423b-b3b1-050385dec7d5
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a876dd58-212a-4705-9f8e-264bbaf5e62c
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9d80ed3-f605-4bcf-9162-36966ee4ef37
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 832be3e5-2775-4be1-9ba6-a4392966e4e1
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87349abe-b866-4254-8c49-88e41baceb48
+          stepCounter: a83bcfcb-17b5-4252-a1f0-d44098c3c61a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_SALES_STAGE
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_SALES_STAGE') }} "STG_OSC_SALES_STAGE"
+        name: DIM_SALES_STAGES
+        noLinkRefs: []
+  name: DIM_SALES_STAGES
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
