@@ -1,0 +1,285 @@
+fileVersion: 1
+id: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+name: DIM_FEDERAL_SITE_VISITS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Public water system site visits conducted by the EPA
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5a4931-7758-4941-b6f0-2ac182c1e9ce
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_FEDERAL_SITE_VISITS_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7aa0051e-6bc1-4f25-8e1c-64387dd30b54
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifying code for a public water system in SDWIS. The PWSID consists of a two-letter state or region code, followed by seven digits.
+        isBusinessKey: true
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6af9dfd6-2f95-4b9a-8721-97c3801b72cc
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22a1f974-ada1-4608-897b-1d3bc6c3b9d3
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Identification number of the visit.
+        isBusinessKey: true
+        name: VISIT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f176415b-da1f-438f-921d-6818e36322a9
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b717f9ee-3938-4392-a2c5-461804fdaed6
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Reason for the site visit.
+        name: VISIT_REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68abe184-4da3-404b-a2f5-b1fda195292e
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 903fe401-478a-47b2-affc-887c5ce0fad3
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Comments of site visit by the visitor.
+        name: VISIT_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ea0af4d-98c9-4865-af5c-cdee7502a663
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52b7c2e3-8ffa-4eaa-83f7-3fd6b4669685
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Agency type that conducted the site visit.
+        name: AGENCY_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a96171fb-78ca-4143-b884-254be87e917a
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2c90d36-e3c5-4ee9-a3fd-c6b0ad7a01b6
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Field on the site visit form.
+        isBusinessKey: true
+        name: EVALUATION_TYPE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3980ca33-8c00-480c-a0aa-4ed89dc209ff
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90ef9431-00bd-4e80-905f-898d2bb879d5
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Evaluation on the site visit form.
+        name: EVALUATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61a8bbe0-8367-4151-8366-f8d7f686afdf
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80025b6b-9457-44b8-9e5b-808ca6ad4f07
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: DATE
+        description: Date of the site visit.
+        name: VISIT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c128df02-dab4-459e-9ba0-f33cc8b04075
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2acea25-44c8-4235-b4ba-ce4cbdac1f09
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Fiscal year and quarter of the quarterly snapshot of SDWIS.
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26955de3-1c06-4b65-a44c-dd1ee9f29613
+                stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7a9f7da-163f-4457-b14b-ef63b52a942d
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa743c54-d3d1-4928-80de-e237bdd64e40
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a88465c-7489-4c7a-84e5-c2bdf0a8bc3a
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f784b418-06e8-4846-b36c-484d4380a302
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 656ed97a-f809-40ce-b274-a6406a482d25
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54ab74e6-44ee-407d-956c-eff3b6b6a3ee
+          stepCounter: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FEDERAL_SITE_VISITS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FEDERAL_SITE_VISITS') }} "STG_FEDERAL_SITE_VISITS"
+        name: DIM_FEDERAL_SITE_VISITS
+        noLinkRefs: []
+  name: DIM_FEDERAL_SITE_VISITS
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

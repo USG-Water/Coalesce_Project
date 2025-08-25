@@ -199,6 +199,26 @@ operation:
               - columnCounter: 9bf520ab-4d12-4537-b6ab-afbe7835f517
                 stepCounter: 72521d13-7f7c-40c6-8134-aee6b8adeea6
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 995e4306-ff1a-46dd-ad75-cb45fe439664
+          stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: Gives the service line tied to the project's highest-revenue task
+        keyColumnType: None
+        name: PNL_SERVICE_LINE_BY_MAX_REVENUE_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7425f37c-f2c5-4728-8929-43f83805e753
+                stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+            transform: ""
+        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
           columnCounter: cbace67a-669b-4c81-8c24-92ed362ba6a6
@@ -286,14 +306,21 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          STG_EBS_PROJECTS: 72521d13-7f7c-40c6-8134-aee6b8adeea6
+          STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS_MAX_REVENUE_BUDGET
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_PROJECTS
         join:
-          joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PROJECTS') }} "STG_EBS_PROJECTS"
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PROJECTS') }} "STG_EBS_PROJECTS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS_MAX_REVENUE_BUDGET') }} "STG_PROJECTS_MAX_REVENUE_BUDGET"
+                ON "STG_EBS_PROJECTS"."PROJECT_ID" = "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID"
         name: STG_PROJECTS
         noLinkRefs: []
   name: STG_PROJECTS

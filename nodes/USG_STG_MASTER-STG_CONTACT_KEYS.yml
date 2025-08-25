@@ -30,8 +30,8 @@ operation:
           - columnReferences: []
             transform: |-
               CASE
-                  WHEN "STG_MERGE_CONTACT"."FIRST_NAME" IS NOT NULL AND "STG_MERGE_CONTACT"."LAST_NAME" IS NOT NULL AND "STG_MERGE_CONTACT"."EMAIL_ADDRESS" IS NOT NULL THEN MD5("STG_MERGE_CONTACT"."FIRST_NAME" || '|' || "STG_MERGE_CONTACT"."LAST_NAME" || '|' || STG_MERGE_CONTACT."EMAIL_ADDRESS")
-                  ELSE MD5(COALESCE("STG_MERGE_CONTACT"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_CONTACT"."HUBSPOT_CONTACT_ID"::VARCHAR, ''))
+                  WHEN "STG_CONTACT_FULL_NAME"."NAME" IS NOT NULL AND "STG_CONTACT_FULL_NAME"."EMAIL_ADDRESS" IS NOT NULL THEN MD5("STG_CONTACT_FULL_NAME"."NAME" || '|' || STG_CONTACT_FULL_NAME."EMAIL_ADDRESS")
+                  ELSE MD5(COALESCE("STG_CONTACT_FULL_NAME"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_CONTACT_FULL_NAME"."HUBSPOT_CONTACT_ID"::VARCHAR, '') || '|' || COALESCE("STG_CONTACT_FULL_NAME"."EPA_PWSID", ''))
               END
       - appliedColumnTests: {}
         columnReference:
@@ -44,8 +44,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2bac0e41-4ccf-4fed-bd60-fedb15106708
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 8ae96bf4-1f43-4d09-bc3c-ddec9e2e35bf
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -58,50 +58,36 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2c3406b8-325c-4e10-9977-1018998c4114
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 9c3ade5f-e83c-4490-8d93-ea4899c8f54a
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: bd3e5047-0ddc-4e30-ab4b-9b559c794dc4
+          columnCounter: ff5b398e-5453-4821-88d6-52bea5d11fa3
+          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EPA_PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f923efb3-22bd-4560-8bd8-99af9d7e6814
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6414f253-ad3b-4f64-b3db-d2f296169605
           stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
         config: {}
         dataType: VARCHAR(256)
         description: ""
-        name: FIRST_NAME
+        name: NAME
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: a0d8c01b-1842-45c5-ac34-30f86824dfed
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 25bdc161-771b-438f-9b95-0d4c3742d98e
-          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: MIDDLE_NAME
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 38b90b66-4332-41de-9842-009de873b63e
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 356aa1f0-608d-475a-8009-c36a0418e2e6
-          stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: LAST_NAME
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 00ae473d-8ee3-40fb-a217-de5a176b0007
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: dc26abd3-f8fe-47de-9cae-0840a090bd80
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -114,8 +100,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: ceb72e15-dca3-4b90-867e-3739848d49fb
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 45d1b965-b663-4b95-a49e-e68f263f0f56
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -128,8 +114,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f9d15d7a-5104-4eb0-9c12-ae65261dd301
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: a714d775-6f81-4361-ba8a-a947d3c88d61
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -142,8 +128,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e8e35c0f-d7c9-4d23-9a7b-294e8b509804
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 890ed127-12e4-44c3-aba6-2fc7780fff8a
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -156,8 +142,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 74cdbe80-c9ac-4b07-8255-9ba68465e4be
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: fbb4eced-5996-4f82-9afe-ab5de15dacce
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -170,8 +156,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: d81587b2-7055-4ab4-a1cb-3d65d054b9f1
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 659804fb-d6ac-4989-a860-49ff50f5bc19
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -184,8 +170,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5fdc7fc1-0676-404a-9fa2-b87f3d6b8bc4
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: dc79dfda-3b4b-4a55-a06d-0bc53b1f7ee2
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -198,8 +184,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: a4736992-ca3d-4687-870a-ca114202ace4
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: be384b0a-2efc-483c-a203-cea957f8520b
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -212,8 +198,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 93d792f5-8362-45d1-9f8a-832f5368dd30
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 35e03991-8fcb-4bfc-96fc-cb16ffa09144
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -226,8 +212,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 6f6fb627-242e-4181-8b9c-2658ecdcda5f
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 49341e2d-9c67-433e-8db4-8ba4bfd654fb
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
       - acceptedValues:
           strictMatch: true
@@ -245,21 +231,22 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: a69dbc98-3abe-4afa-81a7-5557e66d1df6
-                stepCounter: 4b304210-ca37-4b38-b69a-c7d70f80a5c6
+              - columnCounter: 1ea5d3d2-8ff9-409b-bb0a-741d341e2bf8
+                stepCounter: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
             transform: ""
         systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          STG_CONTACT_FULL_NAME: 35ccbd2e-92c1-4aab-bd49-a603c7f08d49
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
-            nodeName: STG_MERGE_CONTACT
+            nodeName: STG_CONTACT_FULL_NAME
         join:
-          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT') }} "STG_MERGE_CONTACT"
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_CONTACT_FULL_NAME') }} "STG_CONTACT_FULL_NAME"
         name: STG_CONTACT_KEYS
         noLinkRefs: []
   name: STG_CONTACT_KEYS

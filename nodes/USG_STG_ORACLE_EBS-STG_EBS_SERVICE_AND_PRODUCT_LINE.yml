@@ -1,0 +1,105 @@
+fileVersion: 1
+id: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+name: STG_EBS_SERVICE_AND_PRODUCT_LINE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf24d193-f937-4630-af22-455c2611b344
+          stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 00585397-4651-467e-8c31-380c48240dd3
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+          - columnReferences:
+              - columnCounter: 348e85df-42a0-427f-8b53-fbec289b4103
+                stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c485ef69-d97c-40b9-9ba6-5cf4811ca227
+          stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56ff4e1f-9460-4c50-96be-bd77083149f7
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+          - columnReferences:
+              - columnCounter: 6c2e3468-a691-46c9-b174-ef3f8b49ad0c
+                stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fa2ad1d-1572-43d2-acab-bdef3a15b49a
+          stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fea89795-337c-45ef-8c40-1e0e3de968ff
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+          - columnReferences:
+              - columnCounter: ce57d138-b94f-4e64-b9c8-242f599efcdb
+                stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          USCI_AMG_TASK_LOOKUP_V: 7648f374-f3a8-482d-9848-417d14730113
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: USCI_AMG_TASK_LOOKUP_V
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'USCI_AMG_TASK_LOOKUP_V') }} "USCI_AMG_TASK_LOOKUP_V"
+        name: STG_EBS_SERVICE_AND_PRODUCT_LINE
+        noLinkRefs: []
+      - aliases:
+          STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES: 84a0835d-a780-4501-b249-accbf7454bc0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES') }} "STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES"
+        name: STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+        noLinkRefs: []
+  name: STG_EBS_SERVICE_AND_PRODUCT_LINE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

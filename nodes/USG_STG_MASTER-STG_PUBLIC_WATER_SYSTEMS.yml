@@ -1,0 +1,580 @@
+fileVersion: 1
+id: f7ebdf2a-134f-4698-ad2e-782927d6f722
+name: STG_PUBLIC_WATER_SYSTEMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#PWS"
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f7e6f40-c0d8-48dd-8dfc-a27f87a86a54
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWS_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 520372f8-e64f-45aa-85fd-14b666dd1424
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 700e8c1f-7705-439b-a5af-4a58be171f5e
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bdb234c9-f1e0-4f9a-b2a0-340c2220dfdf
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1975bf9c-2088-4478-9e76-276b5debb107
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 408a2ac1-90f8-481d-a1cf-ce645c207151
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 632d1953-f6df-4d03-96f8-91ee4e868e78
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWS_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d3beb73-5858-4338-a1d4-18f2589f87d8
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8348d6d-8266-4440-8aca-97a3d0bdda79
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWS_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cde28253-9ee4-4ff5-a13c-4dfe00490802
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f191d8c7-2b1b-484f-9d71-082da05b80e3
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EPA_REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06be2129-686b-46c7-9038-bb66a1b18288
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eec241ff-d89a-492f-aea8-ace0fcaae8f0
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRIMACY_AGENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 500c805e-2dd0-4959-a601-6611533029d2
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24171575-330a-4f45-8b96-1391696924ae
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DBPR_SCHEDULE_CAT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42729459-68e4-4d61-bc88-9228515349fc
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 393e8ac4-62a3-40d6-bc6f-462accd71595
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CDS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e856239-3393-4160-b5e2-1f1e99484dcf
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: baa2f5a6-c355-4cfb-a4e3-85014867281b
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OWNER_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be3b9bd9-1ad8-4ae1-ae38-c606bc65b784
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: |-
+              CASE "STG_EPA_PUBLIC_WATER_SYSTEMS"."OWNER_TYPE_CODE"
+                  WHEN 'F' THEN 'Federal government'
+                  WHEN 'L' THEN 'Local government'
+                  WHEN 'M' THEN 'Public/Private'
+                  WHEN 'N' THEN 'Native American'
+                  WHEN 'P' THEN 'Private'
+                  WHEN 'S' THEN 'State government'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 075e740d-a98d-47b9-964e-3fe0a0ddefb1
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: POPULATION_SERVED_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a5014c0-4b47-4a39-8a60-b58a69de2a58
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fa06af1-36bb-4bf0-b27f-7f9e10f12196
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SERVICE_CONNECTIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4996d6b7-6425-49da-b794-9db3739c1a32
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24a99483-2a86-4906-932b-4095001b9a7f
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: POPULATION_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7fe03333-a5de-4122-a463-f4a1fe36a07f
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: |-
+              CASE "STG_EPA_PUBLIC_WATER_SYSTEMS"."POP_CAT_11_CODE"
+                  WHEN 1 THEN '<=100'
+                  WHEN 2 THEN '101 - 500'
+                  WHEN 3 THEN '501 - 1,000'
+                  WHEN 4 THEN '1,001 - 3,300'
+                  WHEN 5 THEN '3,301 - 10,000'
+                  WHEN 6 THEN '10,001 - 50,000'
+                  WHEN 7 THEN '50,001 - 100,000'
+                  WHEN 8 THEN '100,001 - 250,000'
+                  WHEN 9 THEN '250,001 - 500,000'
+                  WHEN 10 THEN '500,001 - 1,000,000'
+                  WHEN 11 THEN '>1,000,000'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42cddadc-5432-438a-af2a-11bc2bc98013
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SERVICE_CONNECTIONS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4996d6b7-6425-49da-b794-9db3739c1a32
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: |-
+              CASE
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" <= 100 THEN '<=100'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 101 AND 500 THEN '101 - 500'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 501 AND 1000 THEN '501 - 1,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 1001 AND 3300 THEN '1,001 - 3,300'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 3301 AND 10000 THEN '3,301 - 10,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 10001 AND 50000 THEN '10,001 - 50,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 50001 AND 100000 THEN '50,001 - 100,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 100001 AND 250000 THEN '100,001 - 250,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 250001 AND 500000 THEN '250,001 - 500,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" BETWEEN 500001 AND 1000000 THEN '500,001 - 1,000,000'
+                  WHEN "STG_EPA_PUBLIC_WATER_SYSTEMS"."SERVICE_CONNECTIONS_COUNT" > 1000000 THEN '>1,000,000'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d555f0d-2179-4bb4-9a33-c544ba7cbbbf
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LT2_SCHEDULE_CAT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04597939-05e2-4e23-9625-0fa03af8ea99
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b95c39bb-a06d-486c-86fe-dd0d2e0be568
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRIMACY_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74b623b5-f674-4357-bd7a-3232506ef20c
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2e34dc3-d1a9-455f-b0c7-40f9e0b8a74d
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: WATER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e95be62-4e1c-49b0-a342-ca1a158068a1
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: |-
+              CASE "STG_EPA_PUBLIC_WATER_SYSTEMS"."GW_SW_CODE"
+                  WHEN 'GW' THEN 'Ground water'
+                  WHEN 'SW' THEN 'Surface water'
+                  ELSE 'Other'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6623c409-ed57-491a-9d0d-edae5f3e691e
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: REDUCED_RTCR_MONITORING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e6328fd-669b-46bd-80d1-f4bc0fc08972
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d6060fb-59e6-446d-aa6b-b4460ac06e14
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SEASONAL_STARTUP_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2091225d-48df-4b9c-aa6e-14568481cf6f
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: TRIM(UPPER("STG_EPA_PUBLIC_WATER_SYSTEMS"."SEASONAL_STARTUP_SYSTEM"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 948b8b2f-5789-41d9-9088-d42fe5b2b2ed
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63c0b6f3-5b68-4a86-86d0-195ac3d86d05
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: COALESCE("STG_EPA_PUBLIC_WATER_SYSTEMS"."PWS_ACTIVITY_CODE" = 'A', FALSE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1285533a-be8c-4fcd-b9d2-7fd899b043d9
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_GRANT_ELIGIBLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8245e011-ae79-4b2a-9c6c-09b4ad7a667f
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: "\"STG_EPA_PUBLIC_WATER_SYSTEMS\".\"IS_GRANT_ELIGIBLE_IND\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd1f5aa9-5b2a-443b-9ea0-0c31003240f8
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_WHOLESALER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2a228e8-b690-4254-8bf5-4126557ba236
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: "\"STG_EPA_PUBLIC_WATER_SYSTEMS\".\"IS_WHOLESALER_IND\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ddc460f-568d-4175-9280-fd02e86b6e38
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_SCHOOL_OR_DAYCARE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1c2bf92-089e-437e-ad09-dafce023e6b3
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: "\"STG_EPA_PUBLIC_WATER_SYSTEMS\".\"IS_SCHOOL_OR_DAYCARE_IND\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a955f73f-7257-4856-ae18-337eff4573af
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_SOURCE_WATER_PROTECTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 393df0be-d982-4d49-bf29-7f6587b3e7b6
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: "\"STG_EPA_PUBLIC_WATER_SYSTEMS\".\"SOURCE_WATER_PROTECTION_CODE\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9c42600-d54d-42b2-a952-2d55c6db879b
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_OUTSTANDING_PERFORMER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4804a67d-c384-4b58-91a1-2fa9cad536b6
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: "\"STG_EPA_PUBLIC_WATER_SYSTEMS\".\"OUTSTANDING_PERFORMER\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d4564a7-99ee-41b4-981c-a532b0770f82
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SOURCE_PROTECTION_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16a06a03-adb6-4d8b-8d6d-f174e380762a
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f71220fa-1491-4e21-b1ac-57cd55869233
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: OUTSTANDING_PERFORMER_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 00567381-f0fa-4a00-a5a2-9422864f2cd4
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ae7e44d-cdb1-45dd-861b-06068bb00091
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REDUCED_MONITORING_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64cdc191-414f-4a12-bbc6-8266d628b9ec
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 784b05a4-6a78-4e55-977a-5093a085f6a2
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REDUCED_MONITORING_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b6f8445-50af-43b1-8bcc-7547c51e55d2
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27305a5c-8957-4790-960b-58a612b397fe
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SEASON_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 275a2561-33ca-4655-95c0-d0f0c0720546
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bea55faf-92e8-4d86-8a03-b99985f219f8
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SEASON_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ec69a37-0c19-416e-be50-296c7696e211
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 597fd0dd-6d76-4ad2-bf94-5119b199784c
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: FIRST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9792da42-1947-4adc-9f71-05b5c73bc2a1
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13e2a5f3-cdb1-41a0-b5f6-fe9fd3bd54cb
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a1466ea-2970-4124-a4e5-17e4a5bb2568
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e1dee6f-2578-4030-8f3e-afda8ea3fe00
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: DATE
+        description: ""
+        name: PWS_DEACTIVATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5ce2adb-ca99-4534-8c55-2825b9fabc21
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab213c13-b549-47e7-96c7-9e513e68fdc5
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f69e3d03-d78f-4473-93b0-28ed0065343d
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+          STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+          STG_EPA_PUBLIC_WATER_SYSTEMS: b72e8af7-d130-4674-9a40-72f45d2d239b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_PUBLIC_WATER_SYSTEMS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_CONTACT_KEYS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_PUBLIC_WATER_SYSTEMS') }} "STG_EPA_PUBLIC_WATER_SYSTEMS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS"
+                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_CONTACT_KEYS"."EPA_PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_ADDRESSES"."EPA_PWSID"
+        name: STG_PUBLIC_WATER_SYSTEMS
+        noLinkRefs: []
+  name: STG_PUBLIC_WATER_SYSTEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

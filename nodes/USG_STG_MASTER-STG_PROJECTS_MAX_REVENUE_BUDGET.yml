@@ -1,0 +1,135 @@
+fileVersion: 1
+id: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+name: STG_PROJECTS_MAX_REVENUE_BUDGET
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: This table shows each project’s tasks with the highest revenue budget and their corresponding service line.
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea6d043f-5402-43c5-b2d3-5e8d58bcf8e6
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76ad209d-758a-440b-8715-59bc1a204c20
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cda0470f-ed37-4fd3-a3f7-6b8637cd83bc
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3dd3bf73-8240-429f-9da2-1d192f333751
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d85afb21-ba7e-442c-ade9-35a3b6e6bbee
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab291217-a776-450c-861e-d1c915ae3887
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63faaa56-c4cf-464b-b0ac-3967431f2fef
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: NUMBER(38,4)
+        description: ""
+        name: REVENUE_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78d05763-503a-4c3e-9ca2-aeecd87f1b83
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7425f37c-f2c5-4728-8929-43f83805e753
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PNL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42f387a1-8e28-461c-a593-ff7b67e7df85
+                stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_SERVICE_LINE_BRIDGE_TABLE: 42db00ac-b4eb-41e8-91fe-48f041edf163
+          STG_SERVICE_AND_PRODUCT_LINE: d683a497-07b0-413e-ac8e-e18a4f3d58f1
+          STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EBS_SERVICE_LINE_BRIDGE_TABLE
+          - locationName: USG_STG_MASTER
+            nodeName: STG_SERVICE_AND_PRODUCT_LINE
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_SERVICE_AND_PRODUCT_LINE') }} "STG_SERVICE_AND_PRODUCT_LINE"
+                ON "STG_TASKS"."TASK_NAME" = "STG_SERVICE_AND_PRODUCT_LINE"."TASK_NAME"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EBS_SERVICE_LINE_BRIDGE_TABLE') }} "STG_EBS_SERVICE_LINE_BRIDGE_TABLE"
+                ON "STG_SERVICE_AND_PRODUCT_LINE"."PRODUCT_LINE" = "STG_EBS_SERVICE_LINE_BRIDGE_TABLE"."OPERATING_PRODUCT_LINE"
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY "STG_TASKS"."PROJECT_ID" ORDER BY "STG_TASKS"."REVENUE_BUDGET" DESC NULLS LAST, "STG_TASKS"."START_DATE" DESC) = 1
+            --QUALIFY "STG_TASKS"."REVENUE_BUDGET" = MAX("STG_TASKS"."REVENUE_BUDGET") OVER (PARTITION BY STG_TASKS."PROJECT_ID")
+        name: STG_PROJECTS_MAX_REVENUE_BUDGET
+        noLinkRefs: []
+  name: STG_PROJECTS_MAX_REVENUE_BUDGET
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

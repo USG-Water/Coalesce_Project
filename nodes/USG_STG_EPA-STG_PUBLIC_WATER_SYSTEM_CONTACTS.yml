@@ -1,0 +1,155 @@
+fileVersion: 1
+id: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+name: STG_PUBLIC_WATER_SYSTEM_CONTACTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bcee5c6a-f227-43e1-8a3b-12e7ee19f8bc
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 520372f8-e64f-45aa-85fd-14b666dd1424
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ed31e73-7cdb-44a0-9e23-56e8edf16a35
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_PUBLIC_WATER_SYSTEMS"."ADMIN_NAME", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ORG_NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ab5b8da-3175-4d99-8754-604d3441a00f
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7dca2131-6750-4a9f-993f-5e527b29dfc8
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3f94ec9-2900-4340-95bf-c74d6bde594d
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d8b94a43-3540-41f5-b482-161c8a0dfb02
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8a5a6a2-640f-40ba-98ed-a174f7809d90
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PHONE_EXT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa469ee6-077f-495e-9718-f407db6ae83e
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 871a14c8-47f7-47e4-9941-1200d718df6a
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ALT_PHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53d85733-2aed-4745-80a0-00d3f64aa872
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3737bf27-a159-47ad-a01d-2a0801c26d76
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FAX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0d70746-5a5b-4a76-8793-ba50911674a7
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc83fe71-6d42-405f-8949-89e427f244d5
+          stepCounter: da97068f-269d-45c7-a06a-1ccfc1b0b4db
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a1466ea-2970-4124-a4e5-17e4a5bb2568
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_PUBLIC_WATER_SYSTEMS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_EPA', 'STG_EPA_PUBLIC_WATER_SYSTEMS') }} "STG_EPA_PUBLIC_WATER_SYSTEMS"
+        name: STG_PUBLIC_WATER_SYSTEM_CONTACTS
+        noLinkRefs: []
+  name: STG_PUBLIC_WATER_SYSTEM_CONTACTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

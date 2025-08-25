@@ -75,10 +75,38 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 13ebe6a4-abd2-4fed-9c15-5d1817d28ada
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CARRYING_OUT_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0ab6dfa-a12a-4f08-8960-dc97eee78579
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4612145b-a4e3-4dd1-b3a5-5044f59bb8c1
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PM_TASK_REFERENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 935a7ba8-5e26-4991-85df-cb7b803c326b
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: ab291217-a776-450c-861e-d1c915ae3887
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR
         description: ""
         name: TASK_NAME
         nullable: true
@@ -92,7 +120,7 @@ operation:
           columnCounter: a6d51435-3630-4aae-854a-9cd0fef411dc
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR
         description: ""
         name: DESCRIPTION
         nullable: true
@@ -103,10 +131,102 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 3d3a033c-825b-44d6-b4ba-fa058a28a716
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RENOVATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92c2a448-fa22-4a9e-b9d3-43098a5a11d7
+                stepCounter: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+            transform: COALESCE("STG_EBS_TASK_GROUPS"."RENOVATION_TYPE", 'Other')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e746fa65-6d63-4cb4-8ede-34885420984d
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6860b61d-92cf-470a-b98a-b86e537d0ff5
+                stepCounter: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+            transform: COALESCE("STG_EBS_TASK_GROUPS"."INTERIOR_OR_EXTERIOR", 'Other')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8348933e-b224-4936-98e1-df924f4106ea
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COMMISSION_OR_BILL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: |-
+              CASE
+                  WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%CM%' THEN 'Commission'
+                  WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%COMM%' THEN 'Commission'
+                  WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%BILL%' THEN 'Bill'
+                  ELSE 'Other'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b3e848d-bf08-41a7-82db-e15b9e9891ab
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: |-
+              CASE
+                  WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%BILL%' THEN CASE
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%URMP%' THEN 'MP Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%UR%' THEN 'UR Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%MP%' THEN 'MP Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%CS%' THEN 'CS Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%NS%' THEN 'NS Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%CT%' THEN 'CT Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%TS%' THEN 'TS Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%BW%' THEN 'BW Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%OC%' THEN 'OC Bill'
+                      WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%RS%' THEN 'RS Bill'
+                      ELSE 'Other Bill'
+                  END
+                  ELSE 'Not Bill'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46eb7f22-f984-4c73-95bb-4661fa4dfd4b
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: COMMISSION_PREFIX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: LEFT("STG_EBS_TASKS"."TASK_NAME", 4)
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 3ac8f867-2127-47ab-a6da-b4ec1a61c8f1
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR
         description: ""
         name: SERVICE_TYPE_CODE
         nullable: true
@@ -127,6 +247,62 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: f9090185-9f4c-4cfe-864d-6eec7fae621c
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f129424c-1ad0-4853-b889-18abaed7d41d
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_ACCRUAL_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f8d0617-c4a3-4f8f-a0e9-c9d223ee7e6a
+                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ff003e1-cfa6-407c-b900-81763edc7c09
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_ACCUM_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86913e5b-c9ea-4ae6-bdec-1660d707e86b
+                stepCounter: f2a79e8c-00c4-403c-a6c0-cef6a075bef4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78d05763-503a-4c3e-9ca2-aeecd87f1b83
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: NUMBER(38,4)
+        description: ""
+        name: REVENUE_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3cec264c-bc47-4744-8211-90b95048df61
+                stepCounter: f2a79e8c-00c4-403c-a6c0-cef6a075bef4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a58ea6ec-bcb7-42b5-8415-89c7a7850255
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d08eb5bb-28c2-47c6-8b54-01f82a39c1ef
                 stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
             transform: ""
       - appliedColumnTests: {}
@@ -159,20 +335,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 13ebe6a4-abd2-4fed-9c15-5d1817d28ada
-          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: CARRYING_OUT_ORGANIZATION_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: c0ab6dfa-a12a-4f08-8960-dc97eee78579
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: b2812e37-afe4-42e4-bc77-22afa5a53530
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
@@ -201,18 +363,18 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4612145b-a4e3-4dd1-b3a5-5044f59bb8c1
+          columnCounter: 52010693-4d27-42dc-92b4-bd4aec41286b
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: BOOLEAN
         description: ""
-        name: PM_TASK_REFERENCE
+        name: ADJUSTMENT
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 935a7ba8-5e26-4991-85df-cb7b803c326b
+              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
                 stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
-            transform: ""
+            transform: COALESCE("STG_EBS_TASKS"."TASK_NAME" ILIKE '%adjustment%', FALSE)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: afb0f74c-8de9-4542-aedb-5d3347d5d6e1
@@ -229,38 +391,10 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f129424c-1ad0-4853-b889-18abaed7d41d
-          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
-        config: {}
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: REVENUE_ACCRUAL_METHOD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2f8d0617-c4a3-4f8f-a0e9-c9d223ee7e6a
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: a58ea6ec-bcb7-42b5-8415-89c7a7850255
-          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
-        config: {}
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: INVOICE_METHOD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: d08eb5bb-28c2-47c6-8b54-01f82a39c1ef
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 6441ecc5-1bd6-4890-9c70-c366010a6a9c
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: START_DATE
         nullable: true
@@ -274,7 +408,7 @@ operation:
           columnCounter: 0a4941c6-4435-49d5-8827-7b50fb120deb
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: COMPLETION_DATE
         nullable: true
@@ -288,7 +422,7 @@ operation:
           columnCounter: f2166d5a-2a03-48fd-a609-1f28f220de6c
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: LAST_UPDATE_DATE
         nullable: true
@@ -300,14 +434,27 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          STG_EBS_TASKS: 9edbdddd-54a6-4656-b678-edfe055191fb
+          STG_EBS_TASK_GROUPS: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+          STG_REVENUE_BUDGET: f2a79e8c-00c4-403c-a6c0-cef6a075bef4
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EBS_TASK_GROUPS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_REVENUE_BUDGET
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_TASKS
         join:
-          joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_TASKS') }} "STG_EBS_TASKS"
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_TASKS') }} "STG_EBS_TASKS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EBS_TASK_GROUPS') }} "STG_EBS_TASK_GROUPS"
+                ON "STG_EBS_TASKS"."TASK_NAME" = "STG_EBS_TASK_GROUPS"."TASK_NAME"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_REVENUE_BUDGET') }} "STG_REVENUE_BUDGET"
+                ON "STG_EBS_TASKS"."PROJECT_ID" = "STG_REVENUE_BUDGET"."PROJECT_ID"
+                AND "STG_EBS_TASKS"."TASK_ID" = "STG_REVENUE_BUDGET"."TASK_ID"
         name: STG_TASKS
         noLinkRefs: []
   name: STG_TASKS

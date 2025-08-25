@@ -123,6 +123,48 @@ operation:
               )
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 2ebf7ce5-235e-4a3d-b625-de8f1bf7f9ef
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."PWSID",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."PWSID" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07de566e-65e2-45d9-8f82-18b51cd57cef
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: WSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."WSC",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."WSC" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 9031b5a0-69d1-4b6b-a3a1-fbe4e50d6865
           stepCounter: e06a4544-2840-4718-ad43-831b10421819
         config: {}

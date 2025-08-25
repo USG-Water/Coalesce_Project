@@ -33,8 +33,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: ebda3a92-84b9-4fa2-9cdc-221a157ecb6e
-                stepCounter: 5bb84e4f-16f7-460f-8831-d90891fa9313
+              - columnCounter: bdb234c9-f1e0-4f9a-b2a0-340c2220dfdf
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
             transform: ""
         systemColumnType: None
       - appliedColumnTests: {}
@@ -112,7 +112,7 @@ operation:
     sourceMapping:
       - aliases:
           STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
-          STG_MERGE_CONTACTS: 5bb84e4f-16f7-460f-8831-d90891fa9313
+          STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
           STG_MERGE_CONTACT_COMPANY: 6f5c58f0-c821-4b18-b1fe-130fb3b3107b
         customSQL:
           customSQL: ""
@@ -120,15 +120,15 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_ACCOUNT_KEYS
           - locationName: USG_STG_MASTER
-            nodeName: STG_MERGE_CONTACT_COMPANY
+            nodeName: STG_CONTACT_KEYS
           - locationName: USG_STG_MASTER
-            nodeName: STG_MERGE_CONTACTS
+            nodeName: STG_MERGE_CONTACT_COMPANY
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACT_COMPANY') }} "STG_MERGE_CONTACT_COMPANY"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_MERGE_CONTACTS') }} "STG_MERGE_CONTACTS"
-                ON "STG_MERGE_CONTACT_COMPANY"."HUBSPOT_CONTACT_ID" = "STG_MERGE_CONTACTS"."HUBSPOT_ID"
-                OR "STG_MERGE_CONTACT_COMPANY"."OSC_PERSON_ID" = "STG_MERGE_CONTACTS"."OSC_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS"
+                ON "STG_MERGE_CONTACT_COMPANY"."HUBSPOT_CONTACT_ID" = "STG_CONTACT_KEYS"."HUBSPOT_CONTACT_ID"
+                OR "STG_MERGE_CONTACT_COMPANY"."OSC_PERSON_ID" = "STG_CONTACT_KEYS"."OSC_PARTY_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
                 ON "STG_MERGE_CONTACT_COMPANY"."HUBSPOT_COMPANY_ID" = "STG_ACCOUNT_KEYS"."HUBSPOT_COMPANY_ID"
                 OR "STG_MERGE_CONTACT_COMPANY"."OSC_ORGANIZATION_ID" = "STG_ACCOUNT_KEYS"."OSC_PARTY_ID"

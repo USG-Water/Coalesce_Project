@@ -1,0 +1,647 @@
+fileVersion: 1
+id: ac0fa577-bc74-4b13-a4e1-e796d8528470
+name: DIM_PUBLIC_WATER_SYSTEMS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: All public water systems provided by the EPA
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8166bc50-f2e5-43f1-88d8-980b33ae8ec0
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_PUBLIC_WATER_SYSTEMS_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd28e6a0-ada1-40cb-930b-046f51733869
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifying code for a public water system in SDWIS. The PWSID consists of a two-letter state or region code, followed by seven digits.
+        isBusinessKey: true
+        name: PWS_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7e6f40-c0d8-48dd-8dfc-a27f87a86a54
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19286c75-27de-45ac-9228-a211966e881f
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifier for the administrative contact associated with the public water system.
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 700e8c1f-7705-439b-a5af-4a58be171f5e
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f01f39e-6cc3-4ded-a3b5-bdb101de2fe5
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifier for the address associated with the public water system.
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1975bf9c-2088-4478-9e76-276b5debb107
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af2d55cd-a7f2-4492-b5fe-88643a821d1a
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Name of the public water system.
+        name: PWS_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 632d1953-f6df-4d03-96f8-91ee4e868e78
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e80ada7-2302-45d9-b7ec-c1e9f81f4781
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Indicates the type of public water system.
+        name: PWS_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8348d6d-8266-4440-8aca-97a3d0bdda79
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c82e96c-7d33-4483-a178-49d6367cee6b
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        description: A two-character code identifying the EPA Region in which the system is located.
+        name: EPA_REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f191d8c7-2b1b-484f-9d71-082da05b80e3
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aae4fae2-fd18-40c4-84bf-febb17faf5b5
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Two-character state code or EPA Region number.
+        name: PRIMACY_AGENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eec241ff-d89a-492f-aea8-ace0fcaae8f0
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a238cee-1b0f-43ba-8f9b-ea68f7400026
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Stage 2 Disinfectant Byproducts Rule schedule category code.
+        name: DBPR_SCHEDULE_CAT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24171575-330a-4f45-8b96-1391696924ae
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98c36a93-102a-4136-a7dd-e4efd291ef2d
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Combined distribution system identifier.
+        name: CDS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 393e8ac4-62a3-40d6-bc6f-462accd71595
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7160a75-577a-4a6e-827b-ca4a68d2212c
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Ownership category of the water system.
+        name: OWNER_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: baa2f5a6-c355-4cfb-a4e3-85014867281b
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4c52f08-3d27-4035-9615-eb087e2d50a8
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        description: Estimated average daily population served by a system.
+        name: POPULATION_SERVED_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 075e740d-a98d-47b9-964e-3fe0a0ddefb1
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f868c0ac-b4e8-453b-adc6-1f246b8a1b6e
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        description: Number of service connections to the water system.
+        name: SERVICE_CONNECTIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fa06af1-36bb-4bf0-b27f-7f9e10f12196
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf3809db-06c9-4f03-94f2-8f82d4ffabb6
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: 11 service population categories.
+        name: POPULATION_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24a99483-2a86-4906-932b-4095001b9a7f
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fc282c8-de68-4e7e-a447-fbf220e30fd2
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: 11 service connection categories.
+        name: SERVICE_CONNECTIONS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42cddadc-5432-438a-af2a-11bc2bc98013
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83d500bd-605f-44a3-a51d-0d9089223603
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        description: Single-digit code to identify the category for Long Term 2 Enhanced Surface Water Treatment (LT2).
+        name: LT2_SCHEDULE_CAT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d555f0d-2179-4bb4-9a33-c544ba7cbbbf
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 132f3df0-dbcb-4a03-a57e-278d782751cd
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Indicates whether the water system is regulated by a state, tribal, or territorial primacy program. Note that EPA direct implementation programs, except for Wyoming, are tribal primacy programs.
+        name: PRIMACY_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b95c39bb-a06d-486c-86fe-dd0d2e0be568
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dcbf4c2-c749-4e84-875d-cbf0d3c3f5fb
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Identifies whether a system's water source is ground water or surface water.
+        name: WATER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2e34dc3-d1a9-455f-b0c7-40f9e0b8a74d
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 792c5011-26bf-423a-a788-d7e549b7c03f
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Frequency of Revised Total Coliform Rule (RTCR) monitoring, which could be annually, quarterly, or semi-annually.
+        name: REDUCED_RTCR_MONITORING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6623c409-ed57-491a-9d0d-edae5f3e691e
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ecd06faa-0442-4819-a0a8-073318b2203d
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Indicates whether the system pressurized including during the offseason or whether the system was not pressurized all year. Only pertains to seasonal systems.
+        name: SEASONAL_STARTUP_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d6060fb-59e6-446d-aa6b-b4460ac06e14
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d3f0c79-05ff-44fa-94f2-030107bec92b
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates the current status of the system.
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 948b8b2f-5789-41d9-9088-d42fe5b2b2ed
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77f1e6fc-28c5-4542-9800-843e8bb2710b
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the primacy agency has reported the minimum necessary data elements for this water system to include it in grant calculations.
+        name: IS_GRANT_ELIGIBLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1285533a-be8c-4fcd-b9d2-7fd899b043d9
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78f479a4-7c7c-4f7e-85d7-1b4f0686a200
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the system is a wholesaler of water.
+        name: IS_WHOLESALER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd1f5aa9-5b2a-443b-9ea0-0c31003240f8
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fa4081e-6349-47c2-a571-e2a0a8db5db1
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates if the water system’s primary service area is a school or daycare, as defined by EPA/OGWDW.
+        name: IS_SCHOOL_OR_DAYCARE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ddc460f-568d-4175-9280-fd02e86b6e38
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7153059-b626-47ee-9f4a-09162c635204
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the water system has implemented source water protection according to state policy.
+        name: IS_SOURCE_WATER_PROTECTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a955f73f-7257-4856-ae18-337eff4573af
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cde11fa6-f619-42d5-8c45-65de6a126617
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the system met the outstanding performer criteria according to state policy.
+        name: IS_OUTSTANDING_PERFORMER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9c42600-d54d-42b2-a952-2d55c6db879b
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 666add7a-6266-4405-bb95-da4b899ca1b1
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: Date water system substantially implemented source water protection according to state policy.
+        name: SOURCE_PROTECTION_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d4564a7-99ee-41b4-981c-a532b0770f82
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d28eee4-8fec-4c79-a5f9-e9cbfa4dc8dd
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: Date water system met the outstanding performer criteria according to state policy.
+        name: OUTSTANDING_PERFORMER_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f71220fa-1491-4e21-b1ac-57cd55869233
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 324a307d-6ee6-490f-a755-63551a9b615c
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: Initial date of reduced monitoring.
+        name: REDUCED_MONITORING_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ae7e44d-cdb1-45dd-861b-06068bb00091
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 113f92b3-63e3-4916-8540-4d4ee81033c5
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: Reduced monitoring end date.
+        name: REDUCED_MONITORING_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 784b05a4-6a78-4e55-977a-5093a085f6a2
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95ac7302-739b-4292-9798-d7263a64dafa
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The opening month and day of the period of time when the water system serves water for those systems that operate seasonally (DD-MONTH format).
+        name: SEASON_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27305a5c-8957-4790-960b-58a612b397fe
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b316d354-6a01-4820-be49-89128443f707
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ending month and day of the period of time when the water system serves water for those systems that operate seasonally (DD-MONTH format).
+        name: SEASON_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bea55faf-92e8-4d86-8a03-b99985f219f8
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbbabc9f-a761-4173-b79c-1a4641816c33
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: First reported date for the system.
+        name: FIRST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 597fd0dd-6d76-4ad2-bf94-5119b199784c
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcde4e2f-6bf5-4a10-9b56-970b79bf3359
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: Last reported date for the system.
+        name: LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13e2a5f3-cdb1-41a0-b5f6-fe9fd3bd54cb
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2ba0e5a-1828-4f05-b2bc-70163cb5c924
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: DATE
+        description: The date in which the water system was reported as being closed/deactivated.
+        name: PWS_DEACTIVATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e1dee6f-2578-4030-8f3e-afda8ea3fe00
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4fc7e4f-d41d-4da8-8010-cbe269dfc894
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The fiscal year and quarter when the event took place.
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab213c13-b549-47e7-96c7-9e513e68fdc5
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d069ff9-66b4-40b5-bb88-76eecdf32da9
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 891117be-edbf-40f3-bd95-43b830bc15d6
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 284f44f2-351f-4ba5-a4d3-d2ba4bbf837f
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6da7215-851a-4544-811c-8078307bdcf3
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9111d891-c072-4398-a2a6-5d727a4c9278
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8b047e4-3cca-44b0-a347-2764d814498d
+          stepCounter: ac0fa577-bc74-4b13-a4e1-e796d8528470
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PUBLIC_WATER_SYSTEMS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_PUBLIC_WATER_SYSTEMS') }} "STG_PUBLIC_WATER_SYSTEMS"
+        name: DIM_PUBLIC_WATER_SYSTEMS
+        noLinkRefs: []
+  name: DIM_PUBLIC_WATER_SYSTEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

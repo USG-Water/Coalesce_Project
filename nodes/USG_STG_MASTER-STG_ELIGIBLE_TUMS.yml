@@ -1,0 +1,194 @@
+fileVersion: 1
+id: 51b470a9-98e7-4cef-8b04-c6838d160f23
+name: STG_ELIGIBLE_TUMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pre-processes all the static criteria for determining a tank under management
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4864719-2d48-4a2b-afe8-1cb41beff916
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b86b2ea-2c0a-4d65-bdb3-7554e9dd173a
+                stepCounter: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69531f08-b3b6-4962-b5e0-bd82c1869109
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3dd3bf73-8240-429f-9da2-1d192f333751
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ef7adde-cdcb-4bfa-9616-88a8b347ce58
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ASSET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5baddb33-31b4-45e9-a187-dbe35e70bdad
+                stepCounter: 71247957-c2ca-4285-b03d-5cb2109869da
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3da5f52-025e-424c-a45a-2cf0039246d5
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ASSET_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9e9f718-e481-4bdd-a7ab-603b73f4d10c
+                stepCounter: 71247957-c2ca-4285-b03d-5cb2109869da
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20f4947f-40e6-442e-94ce-e0d2449bde07
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PNL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7425f37c-f2c5-4728-8929-43f83805e753
+                stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09a9571b-c4e5-46d8-8e1b-8357240a3f53
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: RENOVATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d3a033c-825b-44d6-b4ba-fa058a28a716
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a7d3213-b671-4e42-a764-3440966cf487
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: TASK_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6441ecc5-1bd6-4890-9c70-c366010a6a9c
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
+          STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+          STG_PROJECT_CUSTOMERS: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+          STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ASSETS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CUSTOMERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS_MAX_REVENUE_BUDGET
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ASSETS') }} "STG_ASSETS"
+                ON "STG_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID" = "STG_ASSETS"."EBS_CUSTOMER_SITE_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS_MAX_REVENUE_BUDGET') }} "STG_PROJECTS_MAX_REVENUE_BUDGET"
+                ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
+                ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_TASKS"."PROJECT_ID"
+            WHERE "STG_ASSETS"."ASSET_TYPE" NOT IN ('Well', 'Not Specified')
+                  AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE" != 'Metering'
+                  AND "STG_TASKS"."START_DATE" IS NOT NULL
+                  AND "STG_TASKS"."RENOVATION_TYPE" IN (
+                      'MP Interior'
+                    , 'MP Exterior'
+                    , 'CS Exterior'
+                    , 'CS Interior'
+                    , 'CS Repair'
+                    , 'CS Pressure Wash'
+                    , 'MP TS CT Bill'
+                    , 'UR Interior'
+                    , 'UR Exterior'
+                    , 'UR Interior and Exterior'
+                    , 'UR Concrete Interior'
+                    , 'UR Concrete Exterior'
+                    , 'UR Concrete Interior and Exterior'
+                    , 'CS Interior and Exterior'
+                    , 'MP Visual'
+                    , 'MP Washout'
+                    , 'MP Pressure Wash'
+                    , 'CS Washout'
+                    , 'CS Visual'
+                    , 'CT Washout'
+                    , 'CT Visual'
+                    , 'TS Washout'
+                    , 'TS Visual'
+                  )
+        name: STG_ELIGIBLE_TUMS
+        noLinkRefs: []
+  name: STG_ELIGIBLE_TUMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

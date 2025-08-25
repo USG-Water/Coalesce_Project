@@ -1,0 +1,171 @@
+fileVersion: 1
+id: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+name: DATA_PROFILING_EPA_REF_CODE_VALUES
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04d4009d-2e62-4f70-bebe-fe7307ec7be5
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VALUE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7ae08741-f9b2-4966-ba54-f2068a432ab9
+                stepCounter: 5e8612aa-d158-4fc4-a6de-f60004cd9274
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d4a7f3d-975b-429e-9a5f-c3d302fb7206
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VALUE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e002f7c-decc-4031-b72a-edd654ba3a94
+                stepCounter: 5e8612aa-d158-4fc4-a6de-f60004cd9274
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4a1ec58-75b1-4e75-b1c2-2168256f203e
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VALUE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db97686e-1330-4c3e-8ad3-9816e5caef04
+                stepCounter: 5e8612aa-d158-4fc4-a6de-f60004cd9274
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 048a5ac7-6142-4267-ac71-86d636d4ac94
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LOAD_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20619b0f-5666-4d60-8bf5-6a6c17f47c33
+                stepCounter: 5e8612aa-d158-4fc4-a6de-f60004cd9274
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f01c9b5-8dc2-43fc-bf62-1e509281099b
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LOAD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82354090-654a-4f26-bc4b-a21d5a5e524c
+                stepCounter: 5e8612aa-d158-4fc4-a6de-f60004cd9274
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7fb7f2e-99d4-4b90-823e-64fb13420cbf
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b41f054e-c8c4-466c-ac96-6223ed014443
+          stepCounter: dd7e9707-d38d-4b8a-9f90-681f1bf9b643
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EPA
+            nodeName: EPA_SDWA_SDWA_REF_CODE_VALUES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_EPA', 'EPA_SDWA_SDWA_REF_CODE_VALUES') }} "EPA_SDWA_SDWA_REF_CODE_VALUES"
+        name: DATA_PROFILING_EPA_REF_CODE_VALUES
+        noLinkRefs: []
+  name: DATA_PROFILING_EPA_REF_CODE_VALUES
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,136 @@
+fileVersion: 1
+id: 42db00ac-b4eb-41e8-91fe-48f041edf163
+name: STG_EBS_SERVICE_LINE_BRIDGE_TABLE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdd1aa7d-031e-45da-83cb-b5f6f3794bd9
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OPERATING_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4bf6ddd-0c43-4294-8219-0964dcc3e170
+                stepCounter: 0443c471-40a8-4840-a42f-e292e5abd677
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d40043b-dc5f-420d-a0e2-8aa21e836237
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OPERATING_PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef38dd9e-fa11-416e-a672-cc11c4ec408f
+                stepCounter: 0443c471-40a8-4840-a42f-e292e5abd677
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 874346b9-e9c4-404f-8695-60e33084056f
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FINANCIAL_PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18be8e18-1991-4fcb-813a-084ae1b51594
+                stepCounter: 0443c471-40a8-4840-a42f-e292e5abd677
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42f387a1-8e28-461c-a593-ff7b67e7df85
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PNL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3bce1039-e161-420b-99ec-68075d7c015b
+                stepCounter: 0443c471-40a8-4840-a42f-e292e5abd677
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59921f5d-aa00-4605-8554-7f03ec60ccf9
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FINANCIAL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 078b5d42-f055-49e4-b8c5-42b1ae15e3da
+                stepCounter: dbd897e4-052d-47c4-9d1b-c7a92154a4e5
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72226ef6-93ee-47d5-9bc0-219b1a539aba
+          stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_FRIENDLY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7a6aa45-fbc9-4b80-9263-791601dfc596
+                stepCounter: 0443c471-40a8-4840-a42f-e292e5abd677
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          EBS_SERVICE_LINE_BRIDGE_TABLE: 0443c471-40a8-4840-a42f-e292e5abd677
+          STG_EBS_SERVICE_AND_PRODUCT_LINE_FINANCIALS: dbd897e4-052d-47c4-9d1b-c7a92154a4e5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_MAPPING
+            nodeName: EBS_SERVICE_LINE_BRIDGE_TABLE
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EBS_SERVICE_AND_PRODUCT_LINE_FINANCIALS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_MAPPING', 'EBS_SERVICE_LINE_BRIDGE_TABLE') }} "EBS_SERVICE_LINE_BRIDGE_TABLE"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EBS_SERVICE_AND_PRODUCT_LINE_FINANCIALS') }} "STG_EBS_SERVICE_AND_PRODUCT_LINE_FINANCIALS"
+                ON "EBS_SERVICE_LINE_BRIDGE_TABLE"."FINANCIAL_PRODUCT_LINE" = "STG_EBS_SERVICE_AND_PRODUCT_LINE_FINANCIALS"."PRODUCT_LINE"
+        name: STG_EBS_SERVICE_LINE_BRIDGE_TABLE
+        noLinkRefs: []
+  name: STG_EBS_SERVICE_LINE_BRIDGE_TABLE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

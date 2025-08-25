@@ -1,0 +1,245 @@
+fileVersion: 1
+id: e7932a47-bf0d-47d6-98a1-df53f56bd811
+name: STG_EPA_FRS_ADDRESSES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b32a40b4-99a1-4637-84fa-2b623bc37b29
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd4098cb-6d38-4ff3-af90-5ab2a6d11bb5
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e891ac9-3390-46be-af8b-7bba52822a56
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8224cf5-9699-434f-954c-cb82656ef1e9
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."ADDRESS_1",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."ADDRESS_1" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a9b689b-f4bc-461f-a692-06e783d8b38e
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0037e1b-7585-4ac3-8b2f-ccee9fa093d5
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."ADDRESS_2",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."ADDRESS_2" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53479747-3693-4db7-8c02-4b0a1bf8fcef
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CITY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a30dac3a-1de2-4bdd-891d-ebb1d668e71d
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."CITY_NAME",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."CITY_NAME" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18d77356-f707-48a2-b8b1-889ed265d24b
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e753abc7-a340-4df6-a6b4-e5cafdb81379
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."POSTAL_CODE",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."POSTAL_CODE" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5725c3d8-a14a-449f-b2d2-fce8e5d6a13b
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2865c678-9694-44fa-a92e-bccc3c9bdb6b
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."COUNTY_NAME",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."COUNTY_NAME" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5984910c-caae-422c-8d6a-185df9ddce62
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43c06233-84f7-4426-8c57-7886fe33d156
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."STATE_CODE",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."STATE_CODE" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc6e81ae-7041-4ddd-8b6b-1136726d88ec
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12640774-96c9-4d90-9fad-191a272a4928
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."COUNTRY_NAME",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."COUNTRY_NAME" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a07040b7-7130-4e98-bf2d-73d4d57f5644
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE83
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd72cc68-4e3f-4675-8f7b-5792972cb49d
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."LATITUDE83",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."LATITUDE83" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4dd1d83-3d6f-44ab-9680-744bbb4dea18
+          stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE83
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58959a65-b828-4843-b7f5-4fd27e2ce8cb
+                stepCounter: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+            transform: |-
+              MAX_BY(
+                  "STG_EPA_FRS_FACILITIES"."LONGITUDE83",
+                  CASE 
+                      WHEN "STG_EPA_FRS_FACILITIES"."LONGITUDE83" IS NOT NULL 
+                      THEN "STG_EPA_FRS_FACILITIES"."UPDATE_DATE"
+                  END
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_FRS_FACILITIES: 16342e06-67de-4c7b-ab7e-bb6f4ea34e36
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_FRS_FACILITIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_FRS_FACILITIES') }} "STG_EPA_FRS_FACILITIES"
+            GROUP BY "STG_EPA_FRS_FACILITIES"."PWSID"
+        name: STG_EPA_FRS_ADDRESSES
+        noLinkRefs: []
+  name: STG_EPA_FRS_ADDRESSES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

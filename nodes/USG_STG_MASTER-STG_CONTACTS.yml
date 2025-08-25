@@ -33,64 +33,22 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6cc7e285-8a12-4956-91d0-dfa50454d74d
-          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: FIRST_NAME
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: bd3e5047-0ddc-4e30-ab4b-9b559c794dc4
-                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
-            transform: |-
-              MAX_BY(
-                  "STG_CONTACT_KEYS"."FIRST_NAME",
-                  CASE 
-                      WHEN "STG_CONTACT_KEYS"."FIRST_NAME" IS NOT NULL 
-                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
-                  END
-              )
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: c39b56ed-1950-452e-8b9b-68394b198f8e
-          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: MIDDLE_NAME
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 25bdc161-771b-438f-9b95-0d4c3742d98e
-                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
-            transform: |-
-              MAX_BY(
-                  "STG_CONTACT_KEYS"."MIDDLE_NAME",
-                  CASE 
-                      WHEN "STG_CONTACT_KEYS"."MIDDLE_NAME" IS NOT NULL 
-                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
-                  END
-              )
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: a1a8bf7c-a53a-4029-a774-f078eabdd12b
           stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
         config: {}
         dataType: VARCHAR(256)
         description: ""
-        name: LAST_NAME
+        name: FULL_NAME
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 356aa1f0-608d-475a-8009-c36a0418e2e6
+              - columnCounter: 6414f253-ad3b-4f64-b3db-d2f296169605
                 stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
             transform: |-
               MAX_BY(
-                  "STG_CONTACT_KEYS"."LAST_NAME",
+                  "STG_CONTACT_KEYS"."NAME",
                   CASE 
-                      WHEN "STG_CONTACT_KEYS"."LAST_NAME" IS NOT NULL 
+                      WHEN "STG_CONTACT_KEYS"."NAME" IS NOT NULL 
                       THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
                   END
               )

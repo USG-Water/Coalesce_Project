@@ -1,0 +1,137 @@
+fileVersion: 1
+id: b06fec20-a95c-4f5c-8722-371d879a8756
+name: DATA_PROFILING_EBS_SERVICE_AND_PRODUCT_LINE
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4de5a69-e49e-4e8e-954f-3c47cc0db5e4
+          stepCounter: b06fec20-a95c-4f5c-8722-371d879a8756
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 00585397-4651-467e-8c31-380c48240dd3
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85217d86-3926-450e-8631-5260096bb8d4
+          stepCounter: b06fec20-a95c-4f5c-8722-371d879a8756
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56ff4e1f-9460-4c50-96be-bd77083149f7
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17d725c9-af88-4abe-b974-5d11ec48dd1f
+          stepCounter: b06fec20-a95c-4f5c-8722-371d879a8756
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fea89795-337c-45ef-8c40-1e0e3de968ff
+                stepCounter: 7648f374-f3a8-482d-9848-417d14730113
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7ae3cba-51eb-4e3a-9fce-4e11049a426a
+          stepCounter: b06fec20-a95c-4f5c-8722-371d879a8756
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44c8424a-aa76-48b9-9665-1426102f74da
+          stepCounter: b06fec20-a95c-4f5c-8722-371d879a8756
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: USCI_AMG_TASK_LOOKUP_V
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'USCI_AMG_TASK_LOOKUP_V') }} "USCI_AMG_TASK_LOOKUP_V"
+        name: DATA_PROFILING_EBS_SERVICE_AND_PRODUCT_LINE
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_SERVICE_AND_PRODUCT_LINE
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

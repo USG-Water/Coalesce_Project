@@ -1,0 +1,217 @@
+fileVersion: 1
+id: 90c55720-8cd9-48bc-8dd5-c8230027a269
+name: STG_FEDERAL_SITE_VISITS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#site-visits"
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6af9dfd6-2f95-4b9a-8721-97c3801b72cc
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d175c36e-f5ef-4903-8889-e3175d286679
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f176415b-da1f-438f-921d-6818e36322a9
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VISIT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff9dda57-57be-4263-a8b2-7075d1cbf021
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68abe184-4da3-404b-a2f5-b1fda195292e
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VISIT_REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1e8cb0a-806c-4f24-bce6-bd5a63751761
+                stepCounter: 7166001d-71a7-4662-ac1d-86447360fc40
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ea0af4d-98c9-4865-af5c-cdee7502a663
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VISIT_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23cf15f6-9cbf-4352-98df-b8477fe96e6a
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a96171fb-78ca-4143-b884-254be87e917a
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: AGENCY_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23122869-be89-4f4b-af0a-a0afcad938c6
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: |-
+              CASE "UPVT_SITE_VISITS"."AGENCY_TYPE_CODE"
+                  WHEN 'AR' THEN 'Alaskan Remote Village'
+                  WHEN 'AT' THEN 'Authority'
+                  WHEN 'BR' THEN 'Borough'
+                  WHEN 'CM' THEN 'Commission'
+                  WHEN 'CN' THEN 'County'
+                  WHEN 'CT' THEN 'City'
+                  WHEN 'DS' THEN 'District'
+                  WHEN 'FD' THEN 'Federal'
+                  WHEN 'MN' THEN 'Municipality'
+                  WHEN 'NA' THEN 'Native American Tribe'
+                  WHEN 'PR' THEN 'Parish'
+                  WHEN 'RG' THEN 'Region'
+                  WHEN 'SA' THEN 'State Administrative District'
+                  WHEN 'SD' THEN 'School District'
+                  WHEN 'SR' THEN 'State Administrative Region'
+                  WHEN 'ST' THEN 'State'
+                  WHEN 'TW' THEN 'Town'
+                  WHEN 'WD' THEN 'Water District'
+                  WHEN 'SC' THEN 'State Contractor'
+                  WHEN 'TA' THEN 'Non-State Provider Engineering/Technical Assistance Firm'
+                  WHEN 'WS' THEN 'Water System'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3980ca33-8c00-480c-a0aa-4ed89dc209ff
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVALUATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d96a84c6-ae4f-4433-9d4d-7cc207b5e873
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: |-
+              CASE "UPVT_SITE_VISITS"."EVALUATION_TYPE"
+                  WHEN 'MANAGEMENT_OPS_EVAL_CODE' THEN 'Management operations'
+                  WHEN 'SOURCE_WATER_EVAL_CODE' THEN 'Source water'
+                  WHEN 'SECURITY_EVAL_CODE' THEN 'Security'
+                  WHEN 'PUMPS_EVAL_CODE' THEN 'Pumps'
+                  WHEN 'OTHER_EVAL_CODE' THEN 'Other facility equipment/management'
+                  WHEN 'COMPLIANCE_EVAL_CODE' THEN 'Compliance'
+                  WHEN 'DATA_VERIFICATION_EVAL_CODE' THEN 'Data verification'
+                  WHEN 'TREATMENT_EVAL_CODE' THEN 'Treatment'
+                  WHEN 'FINISHED_WATER_STOR_EVAL_CODE' THEN 'Water storage'
+                  WHEN 'DISTRIBUTION_EVAL_CODE' THEN 'Distribution system'
+                  WHEN 'FINANCIAL_EVAL_CODE' THEN 'Financial'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61a8bbe0-8367-4151-8366-f8d7f686afdf
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVALUATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 338a60c6-d606-4b90-ac22-2bde94fc3236
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: |-
+              CASE "UPVT_SITE_VISITS"."EVALUATION"
+                  WHEN 'M' THEN 'Minor deficiencies'
+                  WHEN 'N' THEN 'No deficiencies or recommendations'
+                  WHEN 'R' THEN 'Recommendations made'
+                  WHEN 'S' THEN 'Significant deficiencies'
+                  WHEN 'X' THEN 'Not evaluated'
+                  WHEN 'Z' THEN 'Not applicable'
+                  WHEN 'D' THEN 'Sanitary defect'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c128df02-dab4-459e-9ba0-f33cc8b04075
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: DATE
+        description: ""
+        name: VISIT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d83b6d0-f3ff-4a63-8216-d001cf9e8456
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26955de3-1c06-4b65-a44c-dd1ee9f29613
+          stepCounter: 90c55720-8cd9-48bc-8dd5-c8230027a269
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d4123b3-d312-42ea-b0fc-b23954410714
+                stepCounter: f8c003a4-977a-4546-aee9-998f24504b64
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_REF_CODE_VISIT_REASON: 7166001d-71a7-4662-ac1d-86447360fc40
+          UPVT_SITE_VISITS: f8c003a4-977a-4546-aee9-998f24504b64
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_REF_CODE_VISIT_REASON
+          - locationName: USG_STG_MASTER
+            nodeName: UPVT_SITE_VISITS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'UPVT_SITE_VISITS') }} "UPVT_SITE_VISITS"
+            LEFT JOIN {{ ref('USG_STG_EPA', 'STG_EPA_REF_CODE_VISIT_REASON') }} "STG_EPA_REF_CODE_VISIT_REASON"
+                ON "UPVT_SITE_VISITS"."VISIT_REASON_CODE" = "STG_EPA_REF_CODE_VISIT_REASON"."VALUE_CODE"
+        name: STG_FEDERAL_SITE_VISITS
+        noLinkRefs: []
+  name: STG_FEDERAL_SITE_VISITS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

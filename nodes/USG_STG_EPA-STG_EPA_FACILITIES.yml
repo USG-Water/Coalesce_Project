@@ -1,0 +1,375 @@
+fileVersion: 1
+id: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+name: STG_EPA_FACILITIES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#facilities"
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58052248-131f-4f31-8f70-8b45f51e5819
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e43f6d2-9f80-4792-ac21-c8dffd3b74da
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f22cfaa-c104-4742-bed3-d990e4bff397
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 408a2ac1-90f8-481d-a1cf-ce645c207151
+                stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee1b614a-e21a-4283-bb36-83a5c4228682
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SELLER_PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d03d526b-8094-4c2d-b047-b6e40753dd72
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a65db3c8-a96f-4959-a7ee-503897e86b52
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 80f34f99-0747-4ed2-ad1d-ce1db6646216
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bda39b19-c909-4cb2-958e-e630b34e151b
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATE_FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b064511-2e03-40bd-bf9e-fab5bb15f1c7
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 734d69f3-f45c-4b05-86df-29bae105efce
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26a0cc51-b43f-45e3-9dfd-6ad0f752b7d8
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b66e5cb-477a-4452-b6ed-5a507e3266ff
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af053e0a-c9b5-436a-9135-f3cd278782a4
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: |-
+              CASE "EPA_SDWA_SDWA_FACILITIES"."FACILITY_TYPE_CODE"
+                  WHEN 'CC' THEN 'Consecutive Connection'
+                  WHEN 'CH' THEN 'Common Headers'
+                  WHEN 'CS' THEN 'Cistern'
+                  WHEN 'CW' THEN 'Clear Well'
+                  WHEN 'DS' THEN 'Distribution System System/Zone'
+                  WHEN 'IG' THEN 'Infiltration Gallery'
+                  WHEN 'IN' THEN 'Intake'
+                  WHEN 'NN' THEN 'Non-piped, Non-purchased'
+                  WHEN 'NP' THEN 'Non-piped'
+                  WHEN 'OT' THEN 'Other'
+                  WHEN 'PC' THEN 'Pressure Control'
+                  WHEN 'PF' THEN 'Pump Facility'
+                  WHEN 'RC' THEN 'Roof Catchment'
+                  WHEN 'RS' THEN 'Reservoir'
+                  WHEN 'SI' THEN 'Surface Impoundment'
+                  WHEN 'SP' THEN 'Spring'
+                  WHEN 'SS' THEN 'Sampling Station'
+                  WHEN 'ST' THEN 'Storage'
+                  WHEN 'TM' THEN 'Transmission Main (Manifold)'
+                  WHEN 'TP' THEN 'Treatment Plant'
+                  WHEN 'WH' THEN 'Wellhead'
+                  WHEN 'WL' THEN 'Well'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e14b6bb-688c-4b78-9b5f-7aced1f8baf5
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SUBMISSION_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a437b0f-5486-41c0-93f6-df23bab8c463
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: |-
+              CASE "EPA_SDWA_SDWA_FACILITIES"."SUBMISSION_STATUS_CODE"
+                  WHEN 'Y' THEN 'Reported and accepted'
+                  WHEN 'U' THEN 'Unreported'
+                  WHEN 'R' THEN 'Reported, but rejected'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c42febe-4412-42da-afc3-9e56718c5517
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: WATER_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2da16f6b-7d28-413f-9eaa-c1c9b22edf11
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82b81781-d39e-4a11-8bc9-2e7e6cfdeb09
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: AVAILABILITY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25d8fb3b-3a8a-48a1-ae60-8d9bfbfcea36
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: |-
+              CASE "EPA_SDWA_SDWA_FACILITIES"."AVAILABILITY_CODE"
+                  WHEN 'E' THEN 'Emergency'
+                  WHEN 'I' THEN 'Interim'
+                  WHEN 'P' THEN 'Permanent'
+                  WHEN 'O' THEN 'Other'
+                  WHEN 'S' THEN 'Seasonal'
+                  WHEN 'U' THEN 'Unknown'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d78f3f74-1e5d-4525-961e-438c9664f87e
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SELLER_TREATMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bdb620b4-a178-4253-92e5-1ab9faf318bd
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: |-
+              CASE "EPA_SDWA_SDWA_FACILITIES"."SELLER_TREATMENT_CODE"
+                  WHEN 'F' THEN 'Filtered'
+                  WHEN 'G' THEN 'Treated by seller including 4-log for the Ground Water Rule'
+                  WHEN 'Y' THEN 'Partially treated by seller'
+                  WHEN 'N' THEN 'Not treated'
+                  WHEN 'U' THEN 'Unknown'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19326157-50d8-4996-9feb-6e3dedcaaa23
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FILTRATION_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22f36ed8-a85d-4a3e-a1b4-e09c1055c0b6
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: |-
+              CASE "EPA_SDWA_SDWA_FACILITIES"."FILTRATION_STATUS_CODE"
+                  WHEN 'MIF' THEN 'Must install filtration'
+                  WHEN 'SAF' THEN 'Successfully avoiding filtration'
+                  WHEN 'FIL' THEN 'Filtration already in place'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c011c65e-feb7-46d9-8555-7c9a23265f17
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dee69c0-2798-4011-8f86-6bd68cf4932c
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: COALESCE("EPA_SDWA_SDWA_FACILITIES"."FACILITY_ACTIVITY_CODE" = 'A', FALSE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d43b796d-04f8-4914-a6df-a27aee9912fb
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_WATER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 809f6383-9646-4856-b514-6ccee60c8e2d
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: "\"EPA_SDWA_SDWA_FACILITIES\".\"IS_SOURCE_IND\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c37f573-18d8-418d-8d5c-e338a14bf50f
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_SOURCE_TREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 67e5170f-f32b-4a14-9603-ef274a2e4779
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: "\"EPA_SDWA_SDWA_FACILITIES\".\"IS_SOURCE_TREATED_IND\" = 'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1e9b930-ba57-46ae-a85a-952860912561
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: FIRST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 87858978-2ecb-402c-b944-2ea8a8b309f3
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e262b42e-18c5-4716-8ed4-033dd01aa8c9
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13b20eb4-9b39-47ab-9fc1-b7fbe0660114
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 549ffe4e-f523-42ed-af65-a79ac38fea48
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: FACILITY_DEACTIVATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b8f1f81-7405-4410-9ccb-09c4702317be
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 351d087b-be86-429f-b350-fe92ae2be2f0
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LOAD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 992c775b-9a16-4bf2-9630-2d2b14c878bd
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e9f28e2-a12d-418b-a66a-f9a96227945b
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92226ace-b80c-451b-bcc9-02500ba8bf88
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          EPA_SDWA_SDWA_FACILITIES: dac0680f-68ad-41ba-85f9-56d61a41611f
+          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EPA
+            nodeName: EPA_SDWA_SDWA_FACILITIES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_EPA', 'EPA_SDWA_SDWA_FACILITIES') }} "EPA_SDWA_SDWA_FACILITIES"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+                ON "EPA_SDWA_SDWA_FACILITIES"."PWSID" = "STG_ADDRESSES"."EPA_PWSID"
+        name: STG_EPA_FACILITIES
+        noLinkRefs: []
+  name: STG_EPA_FACILITIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

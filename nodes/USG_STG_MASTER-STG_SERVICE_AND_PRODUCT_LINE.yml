@@ -1,0 +1,84 @@
+fileVersion: 1
+id: d683a497-07b0-413e-ac8e-e18a4f3d58f1
+name: STG_SERVICE_AND_PRODUCT_LINE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f53b978a-e9bb-4da6-995c-7a4191c44655
+          stepCounter: d683a497-07b0-413e-ac8e-e18a4f3d58f1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bf24d193-f937-4630-af22-455c2611b344
+                stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93aac256-f532-4615-84e2-be8acec950f3
+          stepCounter: d683a497-07b0-413e-ac8e-e18a4f3d58f1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c485ef69-d97c-40b9-9ba6-5cf4811ca227
+                stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c796b4e-726e-4dab-b012-aea3c27fd50f
+          stepCounter: d683a497-07b0-413e-ac8e-e18a4f3d58f1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fa2ad1d-1572-43d2-acab-bdef3a15b49a
+                stepCounter: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_SERVICE_AND_PRODUCT_LINE: aa6cba05-d62f-4a03-9d49-19e7cb860eff
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_SERVICE_AND_PRODUCT_LINE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_SERVICE_AND_PRODUCT_LINE') }} "STG_EBS_SERVICE_AND_PRODUCT_LINE"
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY "STG_EBS_SERVICE_AND_PRODUCT_LINE"."TASK_NAME" ORDER BY "STG_EBS_SERVICE_AND_PRODUCT_LINE"."TASK_NAME") = 1
+        name: STG_SERVICE_AND_PRODUCT_LINE
+        noLinkRefs: []
+  name: STG_SERVICE_AND_PRODUCT_LINE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

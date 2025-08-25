@@ -288,7 +288,7 @@ operation:
           columnCounter: cfa75294-6d25-437c-8f61-83d0a4092e8b
           stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: START_DATE
         nullable: true
@@ -296,13 +296,13 @@ operation:
           - columnReferences:
               - columnCounter: 4015c6fc-d5a0-4efd-8464-01dffac2c26f
                 stepCounter: 4dfff4b7-1dc9-453b-bdad-67981836940c
-            transform: ""
+            transform: TO_DATE("PA_TASKS"."START_DATE", 'MM/DD/YYYY HH24:MI')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 9458867b-f3ae-46f1-967e-63cd6d6f5853
           stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: COMPLETION_DATE
         nullable: true
@@ -310,13 +310,13 @@ operation:
           - columnReferences:
               - columnCounter: b32b63de-121e-4361-81e0-e3dd45d29d95
                 stepCounter: 4dfff4b7-1dc9-453b-bdad-67981836940c
-            transform: ""
+            transform: TO_DATE("PA_TASKS"."COMPLETION_DATE", 'MM/DD/YYYY HH24:MI')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0a59be4f-f5ee-4a40-b462-b970dbd1e566
           stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         description: ""
         name: LAST_UPDATE_DATE
         nullable: true
@@ -324,7 +324,7 @@ operation:
           - columnReferences:
               - columnCounter: ece0a366-92ac-4249-9a99-c3d2547e3eff
                 stepCounter: 4dfff4b7-1dc9-453b-bdad-67981836940c
-            transform: ""
+            transform: TO_DATE("PA_TASKS"."LAST_UPDATE_DATE", 'MM/DD/YYYY HH24:MI')
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

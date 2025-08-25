@@ -1,0 +1,2219 @@
+fileVersion: 1
+id: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+name: STG_PROJECT_CLASSES_UNIQUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Consolidate all the rows by PROJECT_ID and pick the latest non-null value by LAST_UPDATE_DATE for each category
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ab7203c-c068-406d-82d3-f1cc56d8fb86
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01039cb8-0eff-465c-9848-c2c8e2d89d9b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4115b74d-3651-484f-9dd9-626a795e885d
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b3926d2-79e0-443d-a483-5de9de961229
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Contract Type'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Contract Type'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dc1db72-1c29-4be4-9e51-4d0863e7b533
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'%EXT%LEAD%'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1312a582-4a8f-482f-9f7c-34a8c2475e40
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'%EXT%LEAD%'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'%EXT%LEAD%'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee047874-2437-4de9-88c5-e3a90c3dd396
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'%INT%LEAD%'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 253849bc-69f6-42a7-b2c1-96ea879a7313
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'%INT%LEAD%'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'%INT%LEAD%'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f08c9e4-756c-484c-9bd4-b77d5487fe39
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'BASE FEE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25af607b-3a39-4790-ba7e-29b292fa74f8
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'BASE FEE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'BASE FEE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 888632a3-e2eb-4388-b888-54cb72c72bbd
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'BILL INCR MONTH'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97ea2db4-0626-49e1-8706-0d28ce78ca34
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'BILL INCR MONTH'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'BILL INCR MONTH'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95d68745-6c43-4a96-93af-c2d508d82ed4
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'BILL INCR YEAR START POINT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e41e17ba-d19d-4355-99b1-2d9b67e6bd66
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'BILL INCR YEAR START POINT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'BILL INCR YEAR START POINT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b591379e-a949-4cff-ac1d-a197a97757d8
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'BILLING FREQUENCY'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2f6f635-a515-496a-b2e5-38c0fa248996
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'BILLING FREQUENCY'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'BILLING FREQUENCY'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61e2ce05-5e88-4e92-9568-07e428972617
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'BUDGET LETTER'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b8123a60-e389-4b81-bcfa-f58be830725f
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'BUDGET LETTER'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'BUDGET LETTER'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 101d677e-8eec-4db3-bec0-add4d1725191
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CANCELLATION_FINAL_APPROVAL_DT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82da2bcd-8be2-478c-a92f-c0e1928fa33d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CANCELLATION_FINAL_APPROVAL_DT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CANCELLATION_FINAL_APPROVAL_DT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4496d2ce-891c-4cd4-8011-59e5428a709f
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CANCELLATION_NOTIFICATION_DATE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aee63ca9-829d-4b6d-9991-2abb8ea7f30c
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CANCELLATION_NOTIFICATION_DATE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CANCELLATION_NOTIFICATION_DATE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a3c9174-15f0-474a-b7a9-917e389b5a32
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CANCELLATION_REASON_CODE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a239f577-aaf4-48d4-b3c2-5d7a155777f8
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CANCELLATION_REASON_CODE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CANCELLATION_REASON_CODE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96bff000-8ad3-4595-a43c-dd8f3c9ea813
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CANCELLATION_STATUS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 875b24b6-fa8a-4bcd-b4c2-4317be365487
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CANCELLATION_STATUS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CANCELLATION_STATUS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6884b77-2fe7-4b20-a859-b2e0b4e5c0f1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'COASTAL TANK'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63bbd838-451a-4722-9583-cacd4c5de79d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'COASTAL TANK'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'COASTAL TANK'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08b7e0ed-8830-4f15-9709-7feefd8d152c
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CONTRACT CONDITIONS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 529f923f-4ee3-469c-ac72-b7a27c47567c
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CONTRACT CONDITIONS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CONTRACT CONDITIONS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73223b20-a199-4b61-afef-ca450157538a
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CONTRACT END DATE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96c59978-4632-4473-b559-2f24b7739b0b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CONTRACT END DATE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CONTRACT END DATE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58e12eb5-bd5e-48ee-854f-cc17d7cb75e4
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CONTRACT LENGTH - TS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 589bb18b-9980-43a0-b067-6d2b35ea320d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CONTRACT LENGTH - TS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CONTRACT LENGTH - TS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46d2744d-6798-4d2c-a40f-111f1f801123
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CONTRACT YEARS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed830eaf-caf5-44a6-9e5d-6b586580bd8a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CONTRACT YEARS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CONTRACT YEARS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e91c6057-e732-405b-a5d2-11d737683979
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CORRAL MOUNT DIAMETER'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29f8af0e-684e-45bb-9b4e-9a16b4c47d83
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CORRAL MOUNT DIAMETER'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CORRAL MOUNT DIAMETER'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fee93938-d071-4d7d-ac3b-3c8dbd10871e
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'COST INFLATION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e0cb264-61d8-44d8-9bb3-710172f04467
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'COST INFLATION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'COST INFLATION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6675c860-3d36-4959-8e04-617ed975d843
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'CSM SITE ID'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d7acfd2-f3f8-4ec4-8cf2-53036d090b97
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'CSM SITE ID'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'CSM SITE ID'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46a8cc99-948b-46f5-8ca8-eec280eca9e5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Concrete'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34b816d6-3209-46dd-9129-348c963e2cf0
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Concrete'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Concrete'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 240402eb-0237-457f-a655-7645df20c5e8
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'DISCOUNTED'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 514ae366-f772-47ec-93d3-af49ffb155d2
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'DISCOUNTED'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'DISCOUNTED'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e1c7303-a2df-4195-8cd1-2994dda976a1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'EXT LEAD'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e61a8009-c860-4ee4-b2a1-53816f6000d1
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'EXT LEAD'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'EXT LEAD'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3713ecc7-5755-4762-8719-44cabb1d3a7c
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'EXT%LEAD'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6cc6626-3fbe-4ca5-a876-aae6a994b3a1
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'EXT%LEAD'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'EXT%LEAD'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94776f2f-4e14-4554-8da6-f02baf37c59c
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FA-ASSETS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ff8ca86-0a55-4a0e-8216-3dde919351b9
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FA-ASSETS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FA-ASSETS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71df4593-ca23-45a7-9d2e-effd227612e1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FEE INCREASE CYCLE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 946198cc-8f98-49de-add7-1ab32ee6850b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FEE INCREASE CYCLE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FEE INCREASE CYCLE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d63f7c53-00b1-4e37-94bb-efb9e551ac41
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FILTER'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af2086e0-fd59-4a2b-8bda-f56233b6e984
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FILTER'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FILTER'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abfc9725-62b9-40be-b03c-a8171ad30971
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FIRST WO YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6e502c6-32ff-444b-8421-d4ec7d2d5474
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FIRST WO YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FIRST WO YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfa573fd-d5b7-4dd8-9ca8-dceb66340762
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FOR INVOICE ACCOUNT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71a7757c-9d24-4ebb-bdf7-bfac3b487d8e
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FOR INVOICE ACCOUNT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FOR INVOICE ACCOUNT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c850eeb-fa39-4b9b-a678-9d558c94875b
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'FREQ'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 515c16a6-84e7-417c-a56c-f943a34c6741
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'FREQ'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'FREQ'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11eed07f-8c32-4516-b287-7a9f970b863a
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'GENERAL ANTENNA INFO'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2990ea40-62ec-42f8-981e-b2e0b2cbb9d6
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'GENERAL ANTENNA INFO'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'GENERAL ANTENNA INFO'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9725dd50-37fe-4c30-8db7-7ab1854062f3
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'GENERAL TANK INFORMATION'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cbda1652-f853-4b33-bc5b-a6f734fb4eca
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'GENERAL TANK INFORMATION'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'GENERAL TANK INFORMATION'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4726f08-3ead-4c0d-a1b7-46373623544e
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'INFLATED BASE FEE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47af5eb6-9eb7-4db7-967b-0d2bec6b78ab
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'INFLATED BASE FEE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'INFLATED BASE FEE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51865954-84d4-4c5c-8e8e-347b7defab4e
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'INT LEAD'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dba2a74-f213-4642-a0d1-9a4fe17812b4
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'INT LEAD'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'INT LEAD'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b365d1d-7fba-4681-8bf7-10ce20e44fe6
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'LWL'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7cdb202e-d47c-4f3b-8b98-0db0b91ceedf
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'LWL'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'LWL'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1fc337e-a516-404f-a4b1-19c27d83a435
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'MAP LOCATION'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ce72e25-a03f-4bab-b868-ad728b432423
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'MAP LOCATION'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'MAP LOCATION'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c24a5486-93d8-487e-a5a3-ec2276161180
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'MARKET'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84fccc76-adcd-43ea-aa77-5a7795b404a8
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'MARKET'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'MARKET'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8045fe72-a0ee-46aa-aadd-688376524d4b
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'METERS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 593ac286-dab3-4b70-9e81-51e8b7569b13
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'METERS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'METERS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d9c25c5-c0b8-43c2-aa65-7b9d169316b7
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'MPPE YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8408c1f-ced3-4987-889b-eb23822554cf
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'MPPE YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'MPPE YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae91361b-d334-4906-be1e-1d6242fcabc8
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'MPPI YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94f0be9a-1e4c-4d84-9517-681f5b06f71e
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'MPPI YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'MPPI YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0994fca2-e0c7-45ed-8faf-e82afe6028bb
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'NEEDS CASCADING?'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a065bcb-358f-4892-8dc8-1987a94f1666
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'NEEDS CASCADING?'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'NEEDS CASCADING?'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02832282-4506-4c45-9f35-ef2d0bfbcce9
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'NSC'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9da3c5c7-603e-49f9-bcea-f636445168a5
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'NSC'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'NSC'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e20c8fe-02dc-4f8d-ac65-3cbbe91a0bf6
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'NUMBER OF FEES IN SPREAD'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d82ef382-7fb0-4235-8f9d-977ceef41196
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'NUMBER OF FEES IN SPREAD'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'NUMBER OF FEES IN SPREAD'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71ef07f1-2b9d-4e59-9f17-f196d4fad4bb
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'OPS-Work Status'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82f34949-7927-43f8-9978-cf0eb06018d4
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'OPS-Work Status'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'OPS-Work Status'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7644e93f-b5e3-4916-87d7-8027f2648f76
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Overflow Pipe Diameter'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa86c41b-37be-4e58-96bb-a96978a9f38f
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Overflow Pipe Diameter'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Overflow Pipe Diameter'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2fe001d-8bc7-43cf-8111-75d8dc1e6dd7
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Ownership Status'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 54271226-fc7f-4a20-a2da-c1aad91285c3
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Ownership Status'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Ownership Status'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2e6fba6-fd2a-4a98-ad9a-67d6119dddb5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PAINT TYPE EXTERIOR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9c15086-9760-42b6-a242-eec74c314e75
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PAINT TYPE EXTERIOR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PAINT TYPE EXTERIOR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8f672ba-3326-4e64-b18c-7cab2faedc24
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PAINT TYPE INTERIOR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9fac4591-54f7-4b62-a77b-7ff245aa4d21
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PAINT TYPE INTERIOR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PAINT TYPE INTERIOR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5890460d-c3ca-4c52-b269-f0e050d92fce
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PE FREQUENCY'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c7effa1-c6ec-4ed5-9f88-da923a1d130a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PE FREQUENCY'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PE FREQUENCY'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b647bc8d-1afc-4719-8775-6bb490ed1144
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PERCENT MP FEE INCREASE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e4678f8-5ec0-41e8-8fb7-b184d6710637
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PERCENT MP FEE INCREASE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PERCENT MP FEE INCREASE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9adaacfa-fd29-4730-985e-41b4543b40a5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PHOENIX TANK CONTRACT NUMBER'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4caa75cf-6371-440c-a27d-7dce2363667b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PHOENIX TANK CONTRACT NUMBER'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PHOENIX TANK CONTRACT NUMBER'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff6bcb2f-a6cf-4a2c-a9d5-cd3280874ce5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'PI FREQUENCY'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 691d9a6e-8125-4d2b-a854-8194562661e8
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'PI FREQUENCY'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'PI FREQUENCY'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3edce428-4ce0-4089-909a-a9747818678d
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Pipe Diameter'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13e326f6-8f47-4f9a-afdd-60f1a2ef0b0a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Pipe Diameter'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Pipe Diameter'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72644d31-71b4-44af-b2eb-895d775b7594
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Pipe Diameter 2'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 779a179a-ab2e-4d9a-b561-aa3adced5b34
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Pipe Diameter 2'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Pipe Diameter 2'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09691ad6-9d64-4448-9705-1ccc2aad3674
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Pipe Diameter 3'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4903ec1-a4d1-4ec9-8e87-c668f3e8bac4
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Pipe Diameter 3'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Pipe Diameter 3'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1189d9e9-67c1-4afc-915b-de32b49d7a00
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Pipe Rehab Region'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e5ace0b-dc07-4805-b256-66fb8b6e5692
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Pipe Rehab Region'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Pipe Rehab Region'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 110c0021-2401-423b-bbcf-e8d309f1d114
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'REBUILD EVENTS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6601e440-8be2-4339-8928-38194340707d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'REBUILD EVENTS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'REBUILD EVENTS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 366b52ba-228a-44cb-93ec-7315e052c36f
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'RED_FLAG'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba58d18a-2bd5-4087-90b4-00c832026b9a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'RED_FLAG'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'RED_FLAG'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c154ff84-750f-48fc-ba98-5c236bd5d2a6
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'RED_FLAG_APPROVAL'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9635918-3766-483a-b558-006e7015d5d1
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'RED_FLAG_APPROVAL'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'RED_FLAG_APPROVAL'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77eca017-38a7-41e0-b19a-9107758edff6
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'RED_FLAG_NOTIFICATON'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c61b78b-7505-48c5-93ac-74c49bd46937
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'RED_FLAG_NOTIFICATON'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'RED_FLAG_NOTIFICATON'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a734ddc-ee07-41b5-993f-d554cc8a7b09
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'RED_FLAG_REASON'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: abcd4918-8762-4ef4-aba5-5d1e314b0523
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'RED_FLAG_REASON'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'RED_FLAG_REASON'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2136528-2281-4006-b681-a1f691d195a1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'REGION CODE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9d9afbf4-57c2-4a63-8d29-4811f808e3f4
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'REGION CODE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'REGION CODE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 465ced0d-187c-4037-b654-1c7d26dd7007
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'REV INCREASE PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 642f2351-784d-4489-bf21-240af5efed45
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'REV INCREASE PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'REV INCREASE PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43a3f11d-0b07-446a-9027-57a6725b3360
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Riser/Fill Pipe Diameter'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69cb83cd-b5e8-4f18-a5c4-474372e99561
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Riser/Fill Pipe Diameter'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Riser/Fill Pipe Diameter'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 307676d3-cdfe-474e-9330-799da980ae22
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Riser/Shell Manway Diameter'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 666f6a0f-6308-4ada-aefe-b58de492d8db
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Riser/Shell Manway Diameter'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Riser/Shell Manway Diameter'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af91cc63-becd-4e47-b8b4-aa9a269a8468
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Roof Hatch Diameter'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39f6a997-402d-4bc9-b893-431038a2ddb2
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Roof Hatch Diameter'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Roof Hatch Diameter'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad80ca0e-2f36-4535-824b-4d1890fa2e4e
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'SBT Project Number'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81ee72b7-67af-4e5d-9e45-15f29505622c
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'SBT Project Number'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'SBT Project Number'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea5c7b1b-8d65-407b-98e9-0398805b75f1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'SCOPE OF WORK'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63145d3d-f139-47a6-b09b-623453757a1d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'SCOPE OF WORK'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'SCOPE OF WORK'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e50319ef-a38b-45dd-841e-bf95993b499d
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'SPECIAL PROJECT CLASS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4bdc6860-5d78-4573-942a-8e61bc51b2d0
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'SPECIAL PROJECT CLASS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'SPECIAL PROJECT CLASS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba1d9e3-4f9a-4e50-82b1-555af8710467
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'State'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 874550f9-5311-4d7b-a4ff-f7134b862dab
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'State'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'State'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 575d7e25-078c-4a4f-a6d9-14d9030418ba
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TANK DIAMETER'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f442f5fb-80d6-4de3-be7e-d64571ab6193
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TANK DIAMETER'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TANK DIAMETER'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4719695-9ee4-4a85-aea2-c6c7fcfc5a19
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TANK HEIGHT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 781bb8d0-371e-4d4b-ab33-c14ab0cce9ab
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TANK HEIGHT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TANK HEIGHT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac1ae9d6-c8bb-47db-884d-7a519b103d64
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TANK UNDER MAINTENANCE PROGRAM'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29badf6c-15b2-45d1-8fa4-b3e9f7bded0d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TANK UNDER MAINTENANCE PROGRAM'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TANK UNDER MAINTENANCE PROGRAM'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: add68780-d9e8-46f2-9e67-dabdb9eeab8d
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TASK CASCADE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91939808-2c54-4d69-83f1-d057f70ce93b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TASK CASCADE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TASK CASCADE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b94f180d-743d-4768-8a12-b764849657ce
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TOWER HEIGHT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90acef6d-592e-405c-b9a4-c4da9c6a88f4
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TOWER HEIGHT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TOWER HEIGHT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1aed5370-a700-49fd-b721-1d95e7339ff5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'TRANSFERRED FROM PROJECT #'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6d79631-4b04-40e2-8faf-57d592db80db
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'TRANSFERRED FROM PROJECT #'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'TRANSFERRED FROM PROJECT #'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e975d5e-0a42-4ebf-b0d0-8937bc2d5e5c
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Tank Construction'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e2cdf83-8e37-408e-9681-74bd009b82bc
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Tank Construction'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Tank Construction'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53abbeaf-5525-45a1-b4f0-4bc9d1666e61
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Tank Height'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da0dddec-7825-414a-906b-e5b89acda199
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Tank Height'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Tank Height'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c68a8d8c-5c75-465c-a33e-67de2611ae00
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Tank Number'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7630f22a-ca01-43a7-8b28-5a774ae7d374
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Tank Number'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Tank Number'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aceed8e3-ccb7-4551-b038-cbd6f55c800c
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Tank Size'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d22a2bda-fe04-49f0-a3f4-805b4af65dda
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Tank Size'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Tank Size'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e2b4d50-2cdb-4e03-8b14-7d66b7cf565d
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Tank Style'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9174b508-2eb9-4923-8114-550d5d005b1a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Tank Style'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Tank Style'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2108e74-ad9a-45e2-929e-ab2416f8556a
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Task Cascade'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e94aa24d-15d6-4603-ab54-b86f41d45ddb
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Task Cascade'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Task Cascade'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb2a0bf4-9c8d-4d12-8faa-c4e430705913
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Technology'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 848bf062-f8ba-4e6e-8aa4-66ca1dca1c98
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Technology'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Technology'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6713a421-0ddf-4ad9-b464-86d5b8cb6de6
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Technology 2'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 773f382c-64ff-431d-9021-b029eb9dbe02
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Technology 2'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Technology 2'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bc18a60-dab9-42ee-bf67-2e304770e4f3
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Technology 3'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e69e123-92ae-4fe2-acf1-a01e9dc4adcc
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Technology 3'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Technology 3'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68c17fa3-902d-4b9d-9200-84da466969c5
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'UPON COMPLETION TASK'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53ffed77-f986-4359-a7e8-50f39bf56d88
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'UPON COMPLETION TASK'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'UPON COMPLETION TASK'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24f326c2-28f5-49d8-bc2e-27512b6c55af
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'UPON COMPLETION YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: abefae66-b3f8-419f-aff6-b74bde757b92
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'UPON COMPLETION YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'UPON COMPLETION YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3c32787-3f18-46c4-b2a3-a46512dbe52b
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'UR SPREAD YEARS'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a817d7a0-0a50-425f-9335-da1737d7be0c
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'UR SPREAD YEARS'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'UR SPREAD YEARS'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 606b8ce9-eb0c-42b5-8ad9-387a3a5fdaa4
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'URMP FEE INCREASE PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7727104-1983-4127-ad03-e46da913eb25
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'URMP FEE INCREASE PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'URMP FEE INCREASE PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73dea1c5-8218-4f77-bec2-ca06027a4912
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'URPE YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 977596f5-7503-41c7-a3c5-4529b1085082
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'URPE YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'URPE YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18f40c8a-3abd-4665-a9bc-2626fcdb4ef1
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'URPI YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb69800a-226b-4c42-a45f-d5b0d222f855
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'URPI YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'URPI YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 427711b3-3d44-44a4-9de1-68c22eb81e94
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'URREPR YEAR'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f33fdd6-6da4-4260-9dd5-eb8d3940cf95
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'URREPR YEAR'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'URREPR YEAR'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09db3555-5893-46d3-8be1-fe510c734c7a
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'URREPR YEAR#2'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 37d8c8e0-31fe-4d7f-9645-1dc1fd55c59e
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'URREPR YEAR#2'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'URREPR YEAR#2'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99137505-d5c1-499c-afc4-6aad5c3fe105
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'USCI Project'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 738dafd6-b592-4348-9c3a-d7ce47cb9b89
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'USCI Project'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'USCI Project'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e57ca4e9-cb69-45e1-a72e-b19dcbb00e51
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'VISUAL FREQUENCY'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64a202d4-63d3-4b1b-ba81-3f1a0a466f17
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'VISUAL FREQUENCY'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'VISUAL FREQUENCY'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b909dfd3-6bea-43b0-a30a-d3469fea73f2
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'WO CYCLE'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 870159fb-e37b-4533-9945-99fc36da0d3c
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'WO CYCLE'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'WO CYCLE'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c0d5a5e-de77-4366-b10e-299cd06dfdc8
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Y2Y_REVENUE_RECOGNITION'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b83f9c3-bddd-488c-93b9-375a8139228b
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Y2Y_REVENUE_RECOGNITION'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Y2Y_REVENUE_RECOGNITION'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aefd3407-fab9-4d9e-88c2-245dcabf3010
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 1 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71e21675-a95e-49ef-aa38-47225ea1cf1a
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 1 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 1 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58454ff5-c099-4fe2-bece-cb3214007139
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 2 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b72754c-232f-4331-8195-06986090bde5
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 2 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 2 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3ea30b4-88ba-4b31-a399-681434161edd
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 3 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8fa2fa0a-457e-43a7-a6ca-1d684035c46d
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 3 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 3 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20cb2df9-1399-4d93-aa52-3d47a39de4fd
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 4 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b70a4702-569f-44c7-8f56-cbf9c3aa3721
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 4 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 4 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c9889d7-4e02-49fe-8897-62925c33364f
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 5 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d2d165d-5efd-423b-bb19-5a5a08232b01
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 5 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 5 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b6f474d-a6f2-4668-9baf-ac134a15d386
+          stepCounter: b1b74b3f-ba8a-4657-9cb2-37518594c7eb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'YEAR 6 COLLECTION PERCENT'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4c78030-2579-4b0c-85a6-1319b6d7a3a0
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'YEAR 6 COLLECTION PERCENT'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'YEAR 6 COLLECTION PERCENT'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PVT_PROJECT_CLASSES: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: PVT_PROJECT_CLASSES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'PVT_PROJECT_CLASSES') }} "PVT_PROJECT_CLASSES"
+            GROUP BY "PVT_PROJECT_CLASSES"."PROJECT_ID"
+        name: STG_PROJECT_CLASSES_UNIQUE
+        noLinkRefs: []
+  name: STG_PROJECT_CLASSES_UNIQUE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

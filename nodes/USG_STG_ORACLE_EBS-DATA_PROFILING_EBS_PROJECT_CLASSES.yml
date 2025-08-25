@@ -1,0 +1,205 @@
+fileVersion: 1
+id: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+name: DATA_PROFILING_EBS_PROJECT_CLASSES
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6aea3b25-a695-41ef-9706-b286d56e30cc
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de0f8670-6b38-4145-b4fe-84537cc59d43
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c337de99-b02a-4a44-a327-8363606ed6c7
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLASS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 745e022c-686e-482d-b81c-cb611bf3c5bc
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30ee608b-8ff3-4166-84d9-b520d97689a8
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLASS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49fa436e-c4fd-4193-a2fd-c0e7654a1505
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 901387a5-5284-4681-8425-f34688ef9560
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7fdc4b86-a9a4-4d0e-83c3-2d0d51512d62
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8acd34c9-2d79-4114-8a3e-5b6700af99f6
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb5c6401-dcfb-4756-8c37-f4da17616703
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bbeab78-eacb-45e7-bfcc-d4020fb70da4
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OBJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f989d699-8c71-49dc-9ebe-ca96f87ba1c8
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8933bf4a-9352-46cd-a07b-f31a6cbfe981
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OBJECT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4bf0baf0-afab-4524-8589-7881abddf752
+                stepCounter: 42ece205-ea0a-4273-baca-7960cfd71e65
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0318eef9-ecc0-4aca-9c03-b7e1f1fd74bd
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e37f2a23-2048-4c9f-af9f-6a3672dd0da9
+          stepCounter: 9f09396b-6db8-47f3-a26f-0fe9fb04b91d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: PA_PROJECT_CLASSES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'PA_PROJECT_CLASSES') }} "PA_PROJECT_CLASSES"
+        name: DATA_PROFILING_EBS_PROJECT_CLASSES
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_PROJECT_CLASSES
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

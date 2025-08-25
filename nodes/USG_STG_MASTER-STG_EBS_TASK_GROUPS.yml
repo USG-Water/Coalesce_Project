@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+name: STG_EBS_TASK_GROUPS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Contains mappings for various fields relating to EBS tasks
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d947a47-8129-4dc9-a339-42e4d82107d6
+          stepCounter: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 80d5f9d8-9de8-4f7a-b45e-a780b07441f1
+                stepCounter: bd6aad72-aea0-4e43-99f0-6a685306dd9b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92c2a448-fa22-4a9e-b9d3-43098a5a11d7
+          stepCounter: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RENOVATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0499b3c7-aaf9-40ea-ad5c-0279049ef486
+                stepCounter: bd6aad72-aea0-4e43-99f0-6a685306dd9b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6860b61d-92cf-470a-b98a-b86e537d0ff5
+          stepCounter: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5866814c-1aef-48c4-a42e-9d5db3c8c736
+                stepCounter: bd6aad72-aea0-4e43-99f0-6a685306dd9b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_MAPPING
+            nodeName: EBS_TASK_GROUPS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_MAPPING', 'EBS_TASK_GROUPS') }} "EBS_TASK_GROUPS"
+        name: STG_EBS_TASK_GROUPS
+        noLinkRefs: []
+  name: STG_EBS_TASK_GROUPS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

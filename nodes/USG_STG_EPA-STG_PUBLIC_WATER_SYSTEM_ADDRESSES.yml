@@ -1,0 +1,174 @@
+fileVersion: 1
+id: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+name: STG_PUBLIC_WATER_SYSTEM_ADDRESSES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09cbec11-433a-4db4-b0be-69503ae8b02b
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 520372f8-e64f-45aa-85fd-14b666dd1424
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1abd15e6-0b23-4a8e-aa0d-177cb560a4cc
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_LINE1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."ADDRESS_1", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ADDRESS_LINE1")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a188ef71-beb4-4def-8179-6a33e69faa9f
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_LINE2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."ADDRESS_2", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ADDRESS_LINE2")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d2786ad-c11f-4724-85a2-b2d0ef376b1e
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CITY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."CITY_NAME", "STG_EPA_PUBLIC_WATER_SYSTEMS"."CITY_NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c13475a-7e3f-48a4-9677-fd03b7484ee0
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e039c8b-9264-4495-8858-f4ab1bb0b70f
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5725c3d8-a14a-449f-b2d2-fce8e5d6a13b
+                stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5dcae56-62ee-41c1-907f-3b13f455bac7
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."STATE_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."STATE_CODE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18218ffa-622b-4817-93dc-6c50879df98b
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."COUNTRY_NAME", "STG_EPA_PUBLIC_WATER_SYSTEMS"."COUNTRY_CODE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3715652-0b3d-42b2-bba5-0c0fa7441a41
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE83
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a07040b7-7130-4e98-bf2d-73d4d57f5644
+                stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7f8306a-e1fb-42db-a02f-11eb0d4656c4
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE83
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4dd1d83-3d6f-44ab-9680-744bbb4dea18
+                stepCounter: e7932a47-bf0d-47d6-98a1-df53f56bd811
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_FRS_ADDRESSES: e7932a47-bf0d-47d6-98a1-df53f56bd811
+          STG_EPA_PUBLIC_WATER_SYSTEMS: b72e8af7-d130-4674-9a40-72f45d2d239b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_FRS_ADDRESSES
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_PUBLIC_WATER_SYSTEMS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_PUBLIC_WATER_SYSTEMS') }} "STG_EPA_PUBLIC_WATER_SYSTEMS"
+            LEFT JOIN {{ ref('USG_STG_EPA', 'STG_EPA_FRS_ADDRESSES') }} "STG_EPA_FRS_ADDRESSES"
+                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_EPA_FRS_ADDRESSES"."PWSID"
+        name: STG_PUBLIC_WATER_SYSTEM_ADDRESSES
+        noLinkRefs: []
+  name: STG_PUBLIC_WATER_SYSTEM_ADDRESSES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

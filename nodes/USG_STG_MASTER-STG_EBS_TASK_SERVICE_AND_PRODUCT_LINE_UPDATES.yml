@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 84a0835d-a780-4501-b249-accbf7454bc0
+name: STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 348e85df-42a0-427f-8b53-fbec289b4103
+          stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0574f312-0d19-47ad-98c5-8ba1e78b3436
+                stepCounter: 9816f564-f9dc-4518-b7a8-1124d154588a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c2e3468-a691-46c9-b174-ef3f8b49ad0c
+          stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1498bfb6-7ed2-460c-975b-3c44650e4e30
+                stepCounter: 9816f564-f9dc-4518-b7a8-1124d154588a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce57d138-b94f-4e64-b9c8-242f599efcdb
+          stepCounter: 84a0835d-a780-4501-b249-accbf7454bc0
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8de5211-1784-4651-bfc5-c4a3bd74ef37
+                stepCounter: 9816f564-f9dc-4518-b7a8-1124d154588a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_MAPPING
+            nodeName: EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_MAPPING', 'EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES') }} "EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES"
+        name: STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+        noLinkRefs: []
+  name: STG_EBS_TASK_SERVICE_AND_PRODUCT_LINE_UPDATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
