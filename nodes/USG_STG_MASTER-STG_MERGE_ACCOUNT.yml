@@ -40,6 +40,10 @@ operation:
             transform: ""
           - columnReferences: []
             transform: ""
+          - columnReferences:
+              - columnCounter: 003c6cca-0042-4570-9f9b-98a53a1e6929
+                stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+            transform: TO_NUMBER("STG_CUSTOMERS"."PARTY_ID")
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -63,6 +67,8 @@ operation:
           - columnReferences:
               - columnCounter: 0ca5d12b-0320-47f7-b92a-aca3b3b3aa39
                 stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
             transform: ""
           - columnReferences: []
             transform: ""
@@ -92,6 +98,34 @@ operation:
               - columnCounter: 5506fed9-4ef8-4b78-8dde-f1201c2061f1
                 stepCounter: 8874d40a-ba49-40b8-a0b2-c02c55048898
             transform: ""
+          - columnReferences: []
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0092abf-a77e-453d-a3bc-353f173d44fb
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SQL_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 6e8c5317-43d7-4451-96ac-f30f6b9990f1
+                stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+            transform: TO_NUMBER("STG_CUSTOMERS"."CUSTOMERID")
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -120,6 +154,10 @@ operation:
               - columnCounter: dafa6424-839b-4924-b108-776e2b4ecb23
                 stepCounter: 7adca5ad-7edb-466f-a1c5-3b51140bb18f
             transform: UPPER(TRIM("STG_EBS_CUST_ACCOUNTS"."PARTY_NAME"))
+          - columnReferences:
+              - columnCounter: 72ef940e-e1a5-4051-bbca-48b3332787f7
+                stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+            transform: ""
         systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
@@ -141,6 +179,8 @@ operation:
             transform: ""
           - columnReferences: []
             transform: ""
+          - columnReferences: []
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: eb12d115-b51f-4d32-9663-724b9fa7fe6b
@@ -156,6 +196,8 @@ operation:
           - columnReferences:
               - columnCounter: 211391b0-a693-4e80-846f-25dd169b0ada
                 stepCounter: a485b708-19e1-449a-bb15-89f3638f951e
+            transform: ""
+          - columnReferences: []
             transform: ""
           - columnReferences: []
             transform: ""
@@ -179,6 +221,8 @@ operation:
             transform: ""
           - columnReferences: []
             transform: ""
+          - columnReferences: []
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 260babf5-b14c-45a7-870c-89ab9fe0eae9
@@ -197,6 +241,8 @@ operation:
             transform: ""
           - columnReferences: []
             transform: ""
+          - columnReferences: []
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: d68a374d-2b7f-47bf-a081-ea05d8f6d837
@@ -210,6 +256,8 @@ operation:
           - columnReferences:
               - columnCounter: f43a93c9-70a3-4e53-9663-af040b2af031
                 stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+            transform: ""
+          - columnReferences: []
             transform: ""
           - columnReferences: []
             transform: ""
@@ -240,6 +288,36 @@ operation:
               - columnCounter: 0c2a38ff-d604-4454-a176-3c53fd30d16e
                 stepCounter: 8874d40a-ba49-40b8-a0b2-c02c55048898
             transform: ""
+          - columnReferences:
+              - columnCounter: 2521a446-14c1-4b35-ac26-367b380c79d3
+                stepCounter: 61a9e224-6c37-4f3a-8958-9963b2420c63
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef360f6d-5241-4066-a714-cf7397610379
+          stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'OSC'"
+          - columnReferences: []
+            transform: "'HubSpot'"
+          - columnReferences: []
+            transform: "'EBS'"
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'SQL'"
         systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
@@ -275,6 +353,17 @@ operation:
         join:
           joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_CUST_ACCOUNTS') }} "STG_EBS_CUST_ACCOUNTS"
         name: STG_EBS_CUST_ACCOUNTS
+        noLinkRefs: []
+      - aliases:
+          STG_CUSTOMERS: 61a9e224-6c37-4f3a-8958-9963b2420c63
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_SQL_SERVER
+            nodeName: STG_CUSTOMERS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_SQL_SERVER', 'STG_CUSTOMERS') }} "STG_CUSTOMERS"
+        name: STG_SQL_CUSTOMERS
         noLinkRefs: []
   name: STG_MERGE_ACCOUNT
   overrideSQL: false
