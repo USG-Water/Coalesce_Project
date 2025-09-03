@@ -133,13 +133,16 @@ operation:
       - aliases:
           STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
           STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
-          STG_PROJECT_CUSTOMERS: 5ea74a2e-d16f-4f29-a6c8-22c11f57fb9e
+          STG_PROJECT_CLASSES: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+          STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
           STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
             nodeName: STG_ASSETS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CLASSES
           - locationName: USG_STG_MASTER
             nodeName: STG_PROJECT_CUSTOMERS
           - locationName: USG_STG_MASTER
@@ -155,7 +158,10 @@ operation:
                 ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
                 ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_TASKS"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECT_CLASSES') }} "STG_PROJECT_CLASSES"
+                ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
             WHERE "STG_ASSETS"."ASSET_TYPE" NOT IN ('Well', 'Not Specified')
+                  AND "STG_PROJECT_CLASSES"."CONTRACT_TYPE" NOT IN ('NS', 'OC')
                   AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE" != 'Metering'
                   AND "STG_TASKS"."START_DATE" IS NOT NULL
                   AND "STG_TASKS"."RENOVATION_TYPE" IN (

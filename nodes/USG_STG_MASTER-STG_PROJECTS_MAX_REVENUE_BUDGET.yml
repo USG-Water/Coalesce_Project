@@ -99,6 +99,26 @@ operation:
                 stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
             transform: ""
         systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d48bcb67-c550-4197-a966-105ad6ff69bd
+          stepCounter: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FINANCIAL_PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 874346b9-e9c4-404f-8695-60e33084056f
+                stepCounter: 42db00ac-b4eb-41e8-91fe-48f041edf163
+            transform: ""
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -123,7 +143,6 @@ operation:
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EBS_SERVICE_LINE_BRIDGE_TABLE') }} "STG_EBS_SERVICE_LINE_BRIDGE_TABLE"
                 ON "STG_SERVICE_AND_PRODUCT_LINE"."PRODUCT_LINE" = "STG_EBS_SERVICE_LINE_BRIDGE_TABLE"."OPERATING_PRODUCT_LINE"
             QUALIFY ROW_NUMBER() OVER (PARTITION BY "STG_TASKS"."PROJECT_ID" ORDER BY "STG_TASKS"."REVENUE_BUDGET" DESC NULLS LAST, "STG_TASKS"."START_DATE" DESC) = 1
-            --QUALIFY "STG_TASKS"."REVENUE_BUDGET" = MAX("STG_TASKS"."REVENUE_BUDGET") OVER (PARTITION BY STG_TASKS."PROJECT_ID")
         name: STG_PROJECTS_MAX_REVENUE_BUDGET
         noLinkRefs: []
   name: STG_PROJECTS_MAX_REVENUE_BUDGET
