@@ -56,7 +56,11 @@ operation:
           - columnReferences:
               - columnCounter: 4609dd90-3bd6-4a56-b068-c8757e47b249
                 stepCounter: 9c872515-9b64-4554-9114-31dcc24267e7
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_PROJECT_CLASSES_UNIQUE"."CONTRACT_TYPE" ILIKE 'MP%' THEN 'MP'
+                  ELSE "STG_PROJECT_CLASSES_UNIQUE"."CONTRACT_TYPE"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 3920ed76-6258-4c1b-8a1d-83be4df67920
