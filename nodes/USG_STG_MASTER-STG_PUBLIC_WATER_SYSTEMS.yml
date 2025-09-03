@@ -324,6 +324,34 @@ operation:
             transform: TRIM(UPPER("STG_EPA_PUBLIC_WATER_SYSTEMS"."SEASONAL_STARTUP_SYSTEM"))
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 7f624903-71bf-43a8-bf7b-863024d6f161
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SEASONAL_STARTUP_SYSTEM1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2091225d-48df-4b9c-aa6e-14568481cf6f
+                stepCounter: b72e8af7-d130-4674-9a40-72f45d2d239b
+            transform: TRIM(UPPER("STG_EPA_PUBLIC_WATER_SYSTEMS"."SEASONAL_STARTUP_SYSTEM"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c26449c2-ca0f-4150-9897-831ce7879df7
+          stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: FACILITY_STORAGE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bfd7670c-a0f0-4a00-a4ef-3a9fd106bdc7
+                stepCounter: ec84ea80-3194-4651-b198-433b1ef0e2cb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 948b8b2f-5789-41d9-9088-d42fe5b2b2ed
           stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
         config: {}
@@ -552,6 +580,7 @@ operation:
       - aliases:
           STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
           STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+          STG_EPA_FACILITIES_CLEAN: ec84ea80-3194-4651-b198-433b1ef0e2cb
           STG_EPA_PUBLIC_WATER_SYSTEMS: b72e8af7-d130-4674-9a40-72f45d2d239b
         customSQL:
           customSQL: ""
@@ -562,6 +591,8 @@ operation:
             nodeName: STG_ADDRESSES
           - locationName: USG_STG_MASTER
             nodeName: STG_CONTACT_KEYS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EPA_FACILITIES_CLEAN
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_EPA', 'STG_EPA_PUBLIC_WATER_SYSTEMS') }} "STG_EPA_PUBLIC_WATER_SYSTEMS"
@@ -569,6 +600,8 @@ operation:
                 ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_CONTACT_KEYS"."EPA_PWSID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
                 ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_ADDRESSES"."EPA_PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EPA_FACILITIES_CLEAN') }} "STG_EPA_FACILITIES_CLEAN"
+                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_EPA_FACILITIES_CLEAN"."PWSID"
         name: STG_PUBLIC_WATER_SYSTEMS
         noLinkRefs: []
   name: STG_PUBLIC_WATER_SYSTEMS

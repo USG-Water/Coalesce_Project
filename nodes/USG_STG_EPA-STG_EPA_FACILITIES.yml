@@ -19,6 +19,20 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 59a2e9ec-3f0c-46e4-956b-8139c186660a
+          stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e43f6d2-9f80-4792-ac21-c8dffd3b74da
+                stepCounter: dac0680f-68ad-41ba-85f9-56d61a41611f
+            transform: MD5("EPA_SDWA_SDWA_FACILITIES"."PWSID" || '|' || "EPA_SDWA_SDWA_FACILITIES"."FACILITY_ID")
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 58052248-131f-4f31-8f70-8b45f51e5819
           stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
         config: {}
@@ -66,7 +80,7 @@ operation:
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
-        name: FACILITY_ID
+        name: EPA_FACILITY_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:

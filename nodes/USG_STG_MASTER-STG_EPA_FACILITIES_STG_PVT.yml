@@ -1,0 +1,84 @@
+fileVersion: 1
+id: 74debbaa-f2a0-49f7-b81a-ae55a39153aa
+name: STG_EPA_FACILITIES_STG_PVT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Get the table ready for pivoting by removing any columns that don't need to be grouped by
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d3b9764-c973-4a99-8d75-6fb7f65e4555
+          stepCounter: 74debbaa-f2a0-49f7-b81a-ae55a39153aa
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58052248-131f-4f31-8f70-8b45f51e5819
+                stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d140ef-dc2e-4fa2-80ac-f023c9e57985
+          stepCounter: 74debbaa-f2a0-49f7-b81a-ae55a39153aa
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59a2e9ec-3f0c-46e4-956b-8139c186660a
+                stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc64e7dc-16be-44ff-92b8-66863ddbd6a4
+          stepCounter: 74debbaa-f2a0-49f7-b81a-ae55a39153aa
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b66e5cb-477a-4452-b6ed-5a507e3266ff
+                stepCounter: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_FACILITIES: 95f2eb99-5379-4b79-af3b-2c3fe1b6620c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_FACILITIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_FACILITIES') }} "STG_EPA_FACILITIES"
+            WHERE "STG_EPA_FACILITIES"."IS_ACTIVE" = TRUE
+        name: STG_EPA_FACILITIES_STG_PVT
+        noLinkRefs: []
+  name: STG_EPA_FACILITIES_STG_PVT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
