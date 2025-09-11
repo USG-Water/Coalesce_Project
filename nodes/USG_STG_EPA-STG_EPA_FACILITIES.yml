@@ -365,19 +365,19 @@ operation:
     sourceMapping:
       - aliases:
           EPA_SDWA_SDWA_FACILITIES: dac0680f-68ad-41ba-85f9-56d61a41611f
-          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+          STG_ADDRESSES_CLEAN: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_RAW_EPA
             nodeName: EPA_SDWA_SDWA_FACILITIES
           - locationName: USG_STG_MASTER
-            nodeName: STG_ADDRESSES
+            nodeName: STG_ADDRESSES_CLEAN
         join:
           joinCondition: |-
             FROM {{ ref('USG_RAW_EPA', 'EPA_SDWA_SDWA_FACILITIES') }} "EPA_SDWA_SDWA_FACILITIES"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
-                ON "EPA_SDWA_SDWA_FACILITIES"."PWSID" = "STG_ADDRESSES"."EPA_PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES_CLEAN') }} "STG_ADDRESSES_CLEAN"
+                ON "EPA_SDWA_SDWA_FACILITIES"."PWSID" = "STG_ADDRESSES_CLEAN"."EPA_PWSID"
         name: STG_EPA_FACILITIES
         noLinkRefs: []
   name: STG_EPA_FACILITIES

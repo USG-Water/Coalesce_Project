@@ -1,0 +1,100 @@
+fileVersion: 1
+id: 5e972471-b82f-4630-aaae-b0194e681eac
+name: STG_UNTRACKED_PUBLIC_WATER_SYSTEMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Retrieve all public water systems that are not tracked in our systems
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3214210-7a25-4cb4-ba0f-7f046d34b5d3
+          stepCounter: 5e972471-b82f-4630-aaae-b0194e681eac
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7e6f40-c0d8-48dd-8dfc-a27f87a86a54
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c896ee5b-97b2-4fe5-8640-a2cb83bcb3c8
+          stepCounter: 5e972471-b82f-4630-aaae-b0194e681eac
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWS_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 632d1953-f6df-4d03-96f8-91ee4e868e78
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc3e038a-282f-4ad1-a260-93a2af7e8e4a
+          stepCounter: 5e972471-b82f-4630-aaae-b0194e681eac
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab213c13-b549-47e7-96c7-9e513e68fdc5
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: |-
+              TO_DATE(
+                  SUBSTRING("STG_PUBLIC_WATER_SYSTEMS"."SUBMISSIONYEARQUARTER", 1, 4) || '-' ||
+                  CASE SUBSTRING("STG_PUBLIC_WATER_SYSTEMS"."SUBMISSIONYEARQUARTER", 6, 1)
+                      WHEN '1' THEN '01-01'
+                      WHEN '2' THEN '04-01' 
+                      WHEN '3' THEN '07-01'
+                      WHEN '4' THEN '10-01'
+                  END
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_CUST_ACCOUNTS: 8874d40a-ba49-40b8-a0b2-c02c55048898
+          STG_PUBLIC_WATER_SYSTEMS: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PUBLIC_WATER_SYSTEMS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_CUST_ACCOUNTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PUBLIC_WATER_SYSTEMS') }} "STG_PUBLIC_WATER_SYSTEMS"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_CUST_ACCOUNTS') }} "STG_EBS_CUST_ACCOUNTS"
+                ON "STG_PUBLIC_WATER_SYSTEMS"."PWS_ID" = "STG_EBS_CUST_ACCOUNTS"."PWSID"
+            WHERE "STG_EBS_CUST_ACCOUNTS"."PWSID" IS NULL
+            AND "STG_PUBLIC_WATER_SYSTEMS"."IS_ACTIVE" = TRUE
+            AND "STG_PUBLIC_WATER_SYSTEMS"."PWS_ID" IS NOT NULL
+        name: STG_UNTRACKED_PUBLIC_WATER_SYSTEMS
+        noLinkRefs: []
+  name: STG_UNTRACKED_PUBLIC_WATER_SYSTEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

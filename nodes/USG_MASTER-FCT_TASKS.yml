@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 9e8763b9-ad16-48b3-a060-0b1d9bb54270
-name: DIM_TASKS
+name: FCT_TASKS
 operation:
   config:
     postSQL: ""
@@ -553,12 +553,12 @@ operation:
             nodeName: STG_TASKS_W_TUM_FLAG
         join:
           joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
-        name: DIM_TASKS
+        name: FCT_TASKS
         noLinkRefs: []
-  name: DIM_TASKS
+  name: FCT_TASKS
   overrideSQL: false
   schema: ""
-  sqlType: Dimension
+  sqlType: Fact
   type: sql
   version: 1
 type: Node

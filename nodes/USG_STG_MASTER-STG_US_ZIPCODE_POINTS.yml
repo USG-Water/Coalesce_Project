@@ -1,0 +1,130 @@
+fileVersion: 1
+id: dbcc38a5-1fe3-42bf-9371-3e522548c470
+name: STG_US_ZIPCODE_POINTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latitude and longitude centered by zip codes in the US
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e559690-313b-40aa-9ece-a467185f9c5d
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05ab8094-78de-4a20-ac31-e309d3cd6a76
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: LPAD("US_ZIPCODE_POINTS"."ZIP_CODE", 5, '0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f6dee72-19b3-45b8-ae79-6757446b1fac
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6eacc8b9-b8c4-4040-8788-6e70b6b8b867
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fc08ab9-7c3d-4e77-9b1f-dc1cd1d778e3
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 707b26b5-f1d0-4671-92b3-a2b81aa032c6
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 728d6726-3bc3-4d4c-9185-3a2acdbc755f
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0185034-ae26-4803-92b2-797956906a5c
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 504f8c6e-6305-4e92-b4ce-663062e9075a
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf84135e-4c19-470b-ac9d-b25868c0d622
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: SPLIT_PART(TRIM("US_ZIPCODE_POINTS"."GEO_POINT"), ',', 1)
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4a7141d-fa18-4bb4-9bef-c8630d48e808
+          stepCounter: dbcc38a5-1fe3-42bf-9371-3e522548c470
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf84135e-4c19-470b-ac9d-b25868c0d622
+                stepCounter: a2a184f9-e443-4c87-9a84-26bd092f5418
+            transform: SPLIT_PART(TRIM("US_ZIPCODE_POINTS"."GEO_POINT"), ',', 2)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          US_ZIPCODE_POINTS: a2a184f9-e443-4c87-9a84-26bd092f5418
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_MAPPING
+            nodeName: US_ZIPCODE_POINTS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_MAPPING', 'US_ZIPCODE_POINTS') }} "US_ZIPCODE_POINTS"
+        name: STG_US_ZIPCODE_POINTS
+        noLinkRefs: []
+  name: STG_US_ZIPCODE_POINTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

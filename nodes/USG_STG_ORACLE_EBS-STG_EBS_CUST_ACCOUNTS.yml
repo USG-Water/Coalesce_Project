@@ -103,6 +103,25 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: c7e2bc7c-5761-48e5-8e6d-f2fa255b5461
+          stepCounter: 8874d40a-ba49-40b8-a0b2-c02c55048898
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5af74af3-12f4-4a29-a978-721ecac38b94
+                stepCounter: 7fb41a52-6e24-44aa-ae59-f17ddfc5a7fe
+            transform: |
+              CASE 
+                  WHEN LENGTH(COALESCE("STG_EBS_PARTIES"."ATTRIBUTE1", "STG_EBS_PARTIES"."ATTRIBUTE3")) = 9 
+                  THEN COALESCE("STG_EBS_PARTIES"."ATTRIBUTE1", "STG_EBS_PARTIES"."ATTRIBUTE3")
+                  ELSE NULL
+              END
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 2dba8025-07e8-4604-a8b6-c0f76c4a46ef
           stepCounter: 8874d40a-ba49-40b8-a0b2-c02c55048898
         config: {}

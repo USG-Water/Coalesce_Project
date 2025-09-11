@@ -578,7 +578,7 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+          STG_ADDRESSES_CLEAN: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
           STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
           STG_EPA_FACILITIES_CLEAN: ec84ea80-3194-4651-b198-433b1ef0e2cb
           STG_EPA_PUBLIC_WATER_SYSTEMS: b72e8af7-d130-4674-9a40-72f45d2d239b
@@ -588,7 +588,7 @@ operation:
           - locationName: USG_STG_EPA
             nodeName: STG_EPA_PUBLIC_WATER_SYSTEMS
           - locationName: USG_STG_MASTER
-            nodeName: STG_ADDRESSES
+            nodeName: STG_ADDRESSES_CLEAN
           - locationName: USG_STG_MASTER
             nodeName: STG_CONTACT_KEYS
           - locationName: USG_STG_MASTER
@@ -598,8 +598,8 @@ operation:
             FROM {{ ref('USG_STG_EPA', 'STG_EPA_PUBLIC_WATER_SYSTEMS') }} "STG_EPA_PUBLIC_WATER_SYSTEMS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS"
                 ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_CONTACT_KEYS"."EPA_PWSID"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
-                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_ADDRESSES"."EPA_PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES_CLEAN') }} "STG_ADDRESSES_CLEAN"
+                ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_ADDRESSES_CLEAN"."EPA_PWSID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EPA_FACILITIES_CLEAN') }} "STG_EPA_FACILITIES_CLEAN"
                 ON "STG_EPA_PUBLIC_WATER_SYSTEMS"."PWSID" = "STG_EPA_FACILITIES_CLEAN"."PWSID"
         name: STG_PUBLIC_WATER_SYSTEMS

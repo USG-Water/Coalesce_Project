@@ -1,0 +1,152 @@
+fileVersion: 1
+id: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+name: STG_SALES_STAGE_SNAPSHOTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4aa2430e-b4bd-48ed-a94d-8bc744111f5a
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPTY_STG_SNAPSHOT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71cde066-e6d4-4405-af48-a29babe7195d
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8ab43b9-ed0b-4718-b53f-ea1ef22f1d30
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9fa7fea2-cc04-4317-a5f0-77cc377cfe71
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da42df04-8ba6-4310-9e14-2534c1cedbfb
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: STAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af2ee0e4-4cb8-425f-a492-c7dc540bc6a8
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 000f17c4-5380-4165-a83a-04b776bddd8c
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DAYS_IN_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1fbdf8a2-0cab-4ec0-95b4-0536ae9f37da
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: DATEDIFF(DAY, "STG_OSC_SALES_STAGE_SNAPSHOTS"."STG_ENTER_DATE", COALESCE("STG_OSC_SALES_STAGE_SNAPSHOTS"."STG_EXIT_DATE", CURRENT_DATE))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09b20bff-3e2b-457f-be0d-e5ec22f08ecd
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STAGE_ENTER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2cacb674-c48f-413e-acc6-270b26848c1c
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3eef5013-660d-4cf5-a94d-4d156605f109
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STAGE_EXIT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1fbdf8a2-0cab-4ec0-95b4-0536ae9f37da
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e17ce25f-51ed-4f84-a9f2-4ac4f0e8be64
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5679aaa2-e72d-4f6e-aeb3-f5de91c72e45
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21842245-f535-41a1-bbc2-e7fb066d8efb
+          stepCounter: 520b8b72-d0f0-41b5-9c7f-7d73fb65bdfb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e01a79d2-7bfe-409a-bfc0-259e48551cef
+                stepCounter: 6266d1d4-c3d5-4385-90a1-f90382da6510
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OSC_SALES_STAGE_SNAPSHOTS: 6266d1d4-c3d5-4385-90a1-f90382da6510
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_SALES_STAGE_SNAPSHOTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_SALES_STAGE_SNAPSHOTS') }} "STG_OSC_SALES_STAGE_SNAPSHOTS"
+        name: STG_SALES_STAGE_SNAPSHOTS
+        noLinkRefs: []
+  name: STG_SALES_STAGE_SNAPSHOTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,6 +1,6 @@
 fileVersion: 1
 id: fc617d68-d460-4c62-adeb-2b17123ccd1c
-name: DIM_OPPORTUNITIES
+name: FCT_OPPORTUNITIES
 operation:
   config:
     postSQL: ""
@@ -82,11 +82,25 @@ operation:
         config: {}
         dataType: VARCHAR
         description: The unique identifier of the primary contact associated with the opportunity.
-        name: CONTACT_ID
+        name: CONTACT_ID_CUSTOMER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 394b713c-d762-42ef-9806-337de84793cd
+              - columnCounter: 6dc121e0-bf37-4ff9-90e6-b1a79e9438db
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f435d9e-103b-42dc-a201-ef100a20143f
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: VARCHAR
+        description: The unique identifier of the resource owner associated with the opportunity.
+        name: CONTACT_ID_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db1fdc4e-ac67-4ede-8d7d-6a92efe6fac7
                 stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
             transform: ""
       - appliedColumnTests: {}
@@ -129,6 +143,34 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 15fc11ba-c91e-4b7b-a99f-2aa1406ed7ba
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04792af3-e657-464c-9bbc-e4e482277101
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The amount of revenue that is earned from this opportunity.
+        name: REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f3fbd83-7b2a-442f-8118-9668f99c4c56
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a374b6a-6bcc-4314-8f58-abd57f5bbfaf
+          stepCounter: fc617d68-d460-4c62-adeb-2b17123ccd1c
+        config: {}
+        dataType: FLOAT
+        description: The estimated probability of winning the opportunity.
+        name: WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fb1c5f9-e6b8-4744-ae0c-f06b6f84f095
                 stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
             transform: ""
       - appliedColumnTests: {}
@@ -356,12 +398,12 @@ operation:
             nodeName: STG_OPPORTUNITIES
         join:
           joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_OPPORTUNITIES') }} "STG_OPPORTUNITIES"
-        name: DIM_OPPORTUNITIES
+        name: FCT_OPPORTUNITIES
         noLinkRefs: []
-  name: DIM_OPPORTUNITIES
+  name: FCT_OPPORTUNITIES
   overrideSQL: false
   schema: ""
-  sqlType: Dimension
+  sqlType: Fact
   type: sql
   version: 1
 type: Node

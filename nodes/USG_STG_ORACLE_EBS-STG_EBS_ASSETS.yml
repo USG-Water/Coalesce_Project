@@ -206,16 +206,16 @@ operation:
     sourceMapping:
       - aliases:
           STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
-          STG_ADDRESSES: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-          STG_EBS_CUSTOMER_SITES: 1509d3ca-819b-489e-b07c-d9d79f3b52fb
-          STG_EBS_PARTY_SITES: 417b4df2-6bfc-42b1-aae4-40bf81f49b71
+          STG_ADDRESSES_CLEAN: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+          STG_EBS_CUSTOMER_SITES: 7ff97544-da76-45e1-92bb-18a6ef6cf0b3
+          STG_EBS_PARTY_SITES: f5b804ff-6ba7-471b-87e2-e38f99155375
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
             nodeName: STG_ACCOUNT_KEYS
           - locationName: USG_STG_MASTER
-            nodeName: STG_ADDRESSES
+            nodeName: STG_ADDRESSES_CLEAN
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_CUSTOMER_SITES
           - locationName: USG_STG_ORACLE_EBS
@@ -227,8 +227,8 @@ operation:
                 ON "STG_EBS_CUSTOMER_SITES"."PARTY_SITE_ID" = "STG_EBS_PARTY_SITES"."PARTY_SITE_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
                 ON "STG_EBS_CUSTOMER_SITES"."CUST_ACCOUNT_ID" = "STG_ACCOUNT_KEYS"."EBS_CUSTOMER_ID"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
-                ON "STG_EBS_PARTY_SITES"."LOCATION_ID" = "STG_ADDRESSES"."EBS_LOCATION_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES_CLEAN') }} "STG_ADDRESSES_CLEAN"
+                ON "STG_EBS_PARTY_SITES"."LOCATION_ID" = "STG_ADDRESSES_CLEAN"."EBS_LOCATION_ID"
         name: STG_EBS_ASSETS
         noLinkRefs: []
   name: STG_EBS_ASSETS

@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
-name: PA_DRAFT_REVENUES_ALL
+id: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+name: OPTY_STG_SNAPSHOT
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: USG_RAW_ORACLE_EBS
+  locationName: USG_RAW_ORACLE_SC_OPPORTUNITY
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4d3a7554-af5b-498b-ae3f-32018691d563
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: edc4f7b3-8b86-4271-8cd3-151caa1131d6
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: PROJECT_ID
+        name: OPTY_STG_SNAPSHOT_ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 094fcae9-0333-4477-9810-5cab414b1873
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: CREATED_BY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9d7e4c65-4898-4227-a426-1208270ca998
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 796f64a1-eabc-40b8-ba24-e1eb1dae418e
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: TIMESTAMP_TZ(9)
         defaultValue: ""
         description: ""
-        name: DRAFT_REVENUE_NUM
+        name: CREATION_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,10 +70,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c58000b9-8309-4d61-86c2-0912e9ab0a39
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 72f39bde-7c54-414b-aca5-5da3585f4aa5
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: DATE
+        dataType: TIMESTAMP_TZ(9)
         defaultValue: ""
         description: ""
         name: LAST_UPDATE_DATE
@@ -70,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37ef3d15-8be5-4f63-8641-2143a8f30653
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 0dcb21f9-0fc0-4cab-b143-50f3d8c5dcf4
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: DATE
+        dataType: VARCHAR(256)
         defaultValue: ""
         description: ""
-        name: PA_DATE
+        name: LAST_UPDATED_BY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c2312a68-a584-4b3e-b844-9eec622691cf
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: d03d3b02-3ae5-424e-ba41-82bac3d9ab8d
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: NUMBER(38,2)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: UNBILLED_RECEIVABLE_DR
+        name: OPTY_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +127,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 50407af2-1009-41b1-ad8f-a3801e5d8c76
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 5be5d896-7507-4b27-8552-59e5c23961be
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: NUMBER(38,2)
+        dataType: TIMESTAMP_TZ(9)
         defaultValue: ""
         description: ""
-        name: UNEARNED_REVENUE_CR
+        name: STG_ENTER_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -127,13 +146,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: af41dc25-4617-4c02-be7b-1e0ef86dc725
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 951e5eba-478c-41c1-8a68-7792a469b00d
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: DATE
+        dataType: TIMESTAMP_TZ(9)
         defaultValue: ""
         description: ""
-        name: GL_DATE
+        name: STG_EXIT_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -146,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: bb905482-b691-4133-b6b9-6df75f067aea
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 506b3bef-20c4-404a-897c-cb70ea2eb3af
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: GL_PERIOD_NAME
+        name: STG_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -165,13 +184,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d0bbf6e0-fd08-4384-a756-9b4f95db30bb
-          stepCounter: 67ccdef2-ce52-4eb0-9083-dc667387d1ae
+          columnCounter: 07f7a74e-41b5-482f-96cd-f921f5780ad2
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: TIMESTAMP_TZ(9)
         defaultValue: ""
         description: ""
-        name: PA_PERIOD_NAME
+        name: USER_LAST_UPDATE_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -179,7 +198,45 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: PA_DRAFT_REVENUES_ALL
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3053f4f6-c1e5-499a-a8be-7450cd6efd01
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 23d90467-b604-478a-8d15-1376bb8d1e67
+          stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: OPTY_STG_SNAPSHOT
   schema: ""
   sqlType: Source
   type: sourceInput

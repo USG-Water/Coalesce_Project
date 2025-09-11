@@ -74,11 +74,34 @@ operation:
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
-        name: ZIP_CODE
+        name: POSTAL_CODE
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")
+            transform: |-
+              CASE 
+                  WHEN POSITION('-' IN COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")) > 0
+                  THEN LEFT(COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE"),
+                            POSITION('-' IN COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")) - 1)
+                  ELSE LEFT(COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE"), 5)
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55078ba0-599c-46e8-8aea-ae5fa987f66e
+          stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: POSTAL_PLUS_4_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE 
+                  WHEN POSITION('-' IN COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")) > 0
+                  THEN COALESCE("STG_EPA_FRS_ADDRESSES"."POSTAL_CODE", "STG_EPA_PUBLIC_WATER_SYSTEMS"."ZIP_CODE")
+                  ELSE NULL
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2e039c8b-9264-4495-8858-f4ab1bb0b70f

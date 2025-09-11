@@ -1,0 +1,284 @@
+fileVersion: 1
+id: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+name: DIM_SALES_STAGE_SNAPSHOTS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot stage dates for each opportunity
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b32bf91-d565-4e53-b4d3-d0fed5498989
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_SALES_STAGE_SNAPSHOTS_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb49f0a8-9ce6-468e-9d41-8d32a81ed1c5
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: OPTY_STG_SNAPSHOT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1dc5f147-edaa-4630-a09d-6e2b3ca62362
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2769c0fe-e857-42ce-a1ee-f6c840b7008b
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 40d5ea1e-915f-4eb6-9254-f320599aca27
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faa9c1dd-7a29-4814-a66e-a80c1a6d3bea
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: STAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: deade083-d705-4d93-ab44-0233be3c4690
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1021bbb-bf91-4d99-b1a5-6f4f3c64cb4f
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DAYS_IN_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4771c9b-3749-449e-8ce7-5cc28147e6b0
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0fee7ab-d017-4b28-ab78-43542d9a89c2
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DAYS_IN_STAGE_BUCKETS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4af914e-9fbb-4e42-8be8-564696dc0bee
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b5d17ab-9a35-475c-a250-0acfebbe3c63
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STAGE_ENTER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be327c1f-ec1f-4fa1-bb72-536e2f217bce
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d941427-ce37-41d3-a540-2e0be649eebd
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STAGE_EXIT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cde92427-51a6-4e47-ab9d-f4fec7d4de4f
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a78465b-4d04-4a0f-bdfe-9174d2ae41c5
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f94ca5ad-4836-4fd0-9856-c264559af84c
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69f8db5f-d870-4461-9bd6-4b4b861c78ef
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 83840e44-63b9-46d5-8e55-d58f2fc7a0c0
+                stepCounter: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: add100f5-a5db-4779-9678-4633c414811c
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4efa8b71-6e96-416d-8951-b55b00109b5f
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d460353-85fd-474a-ad6e-53c4d3a1d9d0
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a9731b6-ed12-42de-bfcb-9e4b86730f62
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 264bcf62-5a7c-4013-a22c-5f9aa211487f
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f953aa77-df07-484c-8dbf-da25dbd1967c
+          stepCounter: 42f15f0a-8afe-47ef-bb38-f656b7028cc7
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SALES_STAGE_SNAPSHOT_BUCKETS: 17f2c48a-9471-4c48-adbb-3cdc4f300f90
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_SALES_STAGE_SNAPSHOT_BUCKETS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_SALES_STAGE_SNAPSHOT_BUCKETS') }} "STG_SALES_STAGE_SNAPSHOT_BUCKETS"
+        name: DIM_SALES_STAGE_SNAPSHOTS
+        noLinkRefs: []
+  name: DIM_SALES_STAGE_SNAPSHOTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

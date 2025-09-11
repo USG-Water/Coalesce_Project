@@ -185,40 +185,6 @@ operation:
               - columnCounter: 5c312695-8452-4914-a69c-1fc4242f50dd
                 stepCounter: f0dd1ee6-0544-4b22-ae19-fef319af78db
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 27cf98d5-598b-4970-8a7b-4262596a18e9
-          stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: ""
-        keyColumnType: None
-        name: PWSID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 30c7cf95-c66c-4864-a231-70f15046dfc2
-                stepCounter: ae7f732a-24e5-4a14-b910-89f0a1e2034a
-            transform: ""
-        systemColumnType: None
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: f43a93c9-70a3-4e53-9663-af040b2af031
-          stepCounter: 01b7102b-ee82-491c-a933-a7c409ea5f5e
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: WSC
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 55916ebb-49f8-42a3-9f4d-f134ab489d49
-                stepCounter: ae7f732a-24e5-4a14-b910-89f0a1e2034a
-            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 9530b415-6f17-4c08-ad2b-3cbf0b3cf940
@@ -321,14 +287,11 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_MANUAL_PWS_ACCOUNT_MAPPING: ae7f732a-24e5-4a14-b910-89f0a1e2034a
           STG_OSC_LOCATION: bcd98b5e-be38-4635-967b-89574c0c5ec0
           STG_OSC_PARTY: f0dd1ee6-0544-4b22-ae19-fef319af78db
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: USG_STG_MASTER
-            nodeName: STG_MANUAL_PWS_ACCOUNT_MAPPING
           - locationName: USG_STG_ORACLE_SALES_CLOUD
             nodeName: STG_OSC_LOCATION
           - locationName: USG_STG_ORACLE_SALES_CLOUD
@@ -338,9 +301,6 @@ operation:
             FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY') }} "STG_OSC_PARTY"
             LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_LOCATION') }} "STG_OSC_LOCATION"
                 ON "STG_OSC_PARTY"."LOCATION_ID" = "STG_OSC_LOCATION"."LOCATION_ID"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_MANUAL_PWS_ACCOUNT_MAPPING') }} "STG_MANUAL_PWS_ACCOUNT_MAPPING"
-                ON "STG_OSC_PARTY"."PARTY_NAME" = "STG_MANUAL_PWS_ACCOUNT_MAPPING"."ACCOUNT"
-                AND "STG_OSC_LOCATION"."STATE" = "STG_MANUAL_PWS_ACCOUNT_MAPPING"."STATE"
             WHERE "STG_OSC_PARTY"."PARTY_TYPE" = 'ORGANIZATION'
         name: STG_OSC_ACCOUNT
         noLinkRefs: []

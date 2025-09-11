@@ -92,7 +92,7 @@ operation:
           columnCounter: d2ef8d33-7415-4cb7-ab28-35edd2ad5b8b
           stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
         config: {}
-        dataType: FLOAT
+        dataType: NUMBER(38,0)
         description: ""
         name: ORDER
         nullable: true
@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 53143342-976a-469d-8c84-1e6f476c3b20
                 stepCounter: fa876a2b-a6ac-472f-9e5c-f3b9d71cbdea
-            transform: ""
+            transform: ROW_NUMBER() OVER (ORDER BY "SALES_STAGE_EXTRACT_PVO"."STG_ORDER", "SALES_STAGE_EXTRACT_PVO"."SALES_STAGE_TRNSLTN_NAME")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e4e1b0eb-c4e3-4ae5-a4d1-f2cfce41958d

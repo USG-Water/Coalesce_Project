@@ -61,18 +61,28 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 394b713c-d762-42ef-9806-337de84793cd
+          columnCounter: 6dc121e0-bf37-4ff9-90e6-b1a79e9438db
           stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
         config: {}
         dataType: VARCHAR
         description: ""
-        name: CONTACT_ID
+        name: CONTACT_ID_CUSTOMER
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: bdb234c9-f1e0-4f9a-b2a0-340c2220dfdf
-                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
-            transform: ""
+          - columnReferences: []
+            transform: "\"STG_CONTACT_KEYS_CUSTOMER\".\"CONTACT_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db1fdc4e-ac67-4ede-8d7d-6a92efe6fac7
+          stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTACT_ID_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG_CONTACT_KEYS_OWNER\".\"CONTACT_ID\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 066853e5-ab88-460e-a6d9-b073b0eac63f
@@ -159,6 +169,34 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 4f3fbd83-7b2a-442f-8118-9668f99c4c56
+          stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dbedc5c-4063-44b1-bb32-404fc7c92d10
+                stepCounter: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fb1c5f9-e6b8-4744-ae0c-f06b6f84f095
+          stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7dee948-c5d8-4e38-84b5-80a0913f5094
+                stepCounter: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 2bef8de2-1303-4411-8c3f-46116fe3cebb
           stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
         config: {}
@@ -232,7 +270,8 @@ operation:
     sourceMapping:
       - aliases:
           STG_ACCOUNT_KEYS: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
-          STG_CONTACT_KEYS: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+          STG_CONTACT_KEYS_CUSTOMER: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+          STG_CONTACT_KEYS_OWNER: 610787cd-c11d-464f-b8cb-4b8145ee35ed
           STG_OSC_OPPORTUNITY: a5e8cc5a-0bda-44ab-979f-2b95ade8785a
           STG_OSC_REVENUE: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
         customSQL:
@@ -251,8 +290,10 @@ operation:
             FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_OPPORTUNITY') }} "STG_OSC_OPPORTUNITY"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_KEYS') }} "STG_ACCOUNT_KEYS"
                 ON "STG_OSC_OPPORTUNITY"."CUST_PARTY_ID" = "STG_ACCOUNT_KEYS"."OSC_PARTY_ID"
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS"
-                ON "STG_OSC_OPPORTUNITY"."PR_CON_PARTY_ID" = "STG_CONTACT_KEYS"."OSC_PARTY_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS_CUSTOMER"
+                ON "STG_OSC_OPPORTUNITY"."PR_CON_PARTY_ID" = "STG_CONTACT_KEYS_CUSTOMER"."OSC_PARTY_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_CONTACT_KEYS') }} "STG_CONTACT_KEYS_OWNER"
+                ON "STG_OSC_OPPORTUNITY"."OWNER_RESOURCE_ID" = "STG_CONTACT_KEYS_OWNER"."OSC_PARTY_ID"
             LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_REVENUE') }} "STG_OSC_REVENUE"
                 ON "STG_OSC_OPPORTUNITY"."SUM_REVN_ID" = "STG_OSC_REVENUE"."REVN_ID"
         name: STG_OPPORTUNITIES

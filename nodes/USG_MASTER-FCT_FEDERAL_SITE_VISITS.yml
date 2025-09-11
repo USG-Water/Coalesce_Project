@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 1a76bb0b-3273-47d8-8e9f-682ec10748d8
-name: DIM_FEDERAL_SITE_VISITS
+name: FCT_FEDERAL_SITE_VISITS
 operation:
   config:
     postSQL: ""
@@ -274,12 +274,12 @@ operation:
             nodeName: STG_FEDERAL_SITE_VISITS
         join:
           joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FEDERAL_SITE_VISITS') }} "STG_FEDERAL_SITE_VISITS"
-        name: DIM_FEDERAL_SITE_VISITS
+        name: FCT_FEDERAL_SITE_VISITS
         noLinkRefs: []
-  name: DIM_FEDERAL_SITE_VISITS
+  name: FCT_FEDERAL_SITE_VISITS
   overrideSQL: false
   schema: ""
-  sqlType: Dimension
+  sqlType: Fact
   type: sql
   version: 1
 type: Node

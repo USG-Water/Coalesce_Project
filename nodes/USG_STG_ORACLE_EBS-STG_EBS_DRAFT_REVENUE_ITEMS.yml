@@ -1,0 +1,252 @@
+fileVersion: 1
+id: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+name: STG_EBS_DRAFT_REVENUE_ITEMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9da3b2dc-126d-45d6-8f3f-8f6c5d653fdf
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b8519e68-77c8-4b9e-9b1f-79c96a2f95e5
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17e5697c-4c27-483b-8d32-2ec295ce70ec
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROGRAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d0b9b34-dd9a-40ab-a2c8-bbdb1bb1efcc
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52ddfe6b-feb9-4a0c-966a-e67bee2eb018
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d48da666-d8bc-4746-8896-896640aa0b92
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ecbb6da-0252-4e1d-96ed-bb612a5ce4ec
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REQUEST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6529e4ff-709d-4e4a-8583-e540228296c0
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48416711-88b5-4342-a841-4de8cff2989f
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LINE_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d321a1b-cedf-436d-9338-dd7923680a68
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 195c084d-f91f-4bf8-868e-e2222c90fa30
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REVENUE_CATEGORY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 02aa4f72-f108-416b-8830-777e4f504a94
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74b3eeb6-238b-4b2a-99c5-14f530408a0c
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REVENUE_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c03576d0-6a94-4c32-86d9-12a13a475373
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44468f9b-5db0-40d6-80bd-91ded5c1ca49
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DRAFT_REVENUE_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b0589c7-7965-4b07-9be9-da40c79c2bfe
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4bba237-790a-4255-8e40-4c66b901ac34
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        name: PROJECT_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7468d4f6-e5fc-4bd1-8df3-95228e23f19b
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3f22faf-5a0d-4062-b027-2f86d6993f33
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        name: PROJFUNC_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad74a9c4-0a70-46da-9f51-0bbf3f204b6b
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5aa56fc3-a7df-4a3b-9701-73aaa67949f8
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        name: FUNDING_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 322dad4f-5267-4210-aec6-b41c8786963e
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12348892-f42b-4b81-b97c-f6ade7cd0f92
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        name: REVTRANS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba0376de-825a-4a94-853f-178339e45163
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 337c8a2e-1979-4abb-ab1f-d10c401eeb10
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: NUMBER(22,5)
+        description: ""
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fca84c54-8037-4126-96b2-7d94994316f5
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf3ec960-ab35-4ec9-80a0-00deccddf4bd
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a1e2ad4-ceda-4f2e-a475-3bf05c92ce29
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c051ec62-dec9-4422-bb99-ca91cf59c308
+          stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9555605c-1f02-4c6c-97fa-335cac9e8dea
+                stepCounter: fd930af2-f04f-4610-a882-25868425d67b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PA_DRAFT_REVENUE_ITEMS: fd930af2-f04f-4610-a882-25868425d67b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EBS_PA
+            nodeName: PA_DRAFT_REVENUE_ITEMS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_EBS_PA', 'PA_DRAFT_REVENUE_ITEMS') }} "PA_DRAFT_REVENUE_ITEMS"
+            WHERE "PA_DRAFT_REVENUE_ITEMS"."_FIVETRAN_DELETED" = FALSE
+        name: STG_EBS_DRAFT_REVENUE_ITEMS
+        noLinkRefs: []
+  name: STG_EBS_DRAFT_REVENUE_ITEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,291 @@
+fileVersion: 1
+id: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+name: DATA_PROFILING_SALES_STAGE_SNAPSHOTS
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79bb6e6d-11cc-45cf-9088-eeb007d84e91
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPTY_STG_SNAPSHOT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edc4f7b3-8b86-4271-8cd3-151caa1131d6
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e75c961-2ee3-4c93-979b-8687ef921608
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 094fcae9-0333-4477-9810-5cab414b1873
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 822b3bee-72d8-41c8-aed4-559a0a00c65a
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 796f64a1-eabc-40b8-ba24-e1eb1dae418e
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38698272-f715-4f85-8f50-893846949b2e
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72f39bde-7c54-414b-aca5-5da3585f4aa5
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab22fe68-aa2d-4c36-9768-bbd787446eef
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dcb21f9-0fc0-4cab-b143-50f3d8c5dcf4
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5282b142-6e43-46f3-87db-29863c2cabc4
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d03d3b02-3ae5-424e-ba41-82bac3d9ab8d
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a836d29-ffd6-4c95-be9e-f8409338c41c
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STG_ENTER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5be5d896-7507-4b27-8552-59e5c23961be
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3fddf966-ac74-40ea-a300-24370aa96557
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STG_EXIT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 951e5eba-478c-41c1-8a68-7792a469b00d
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 954bed97-86d8-48ac-aa54-6147ca3aa4eb
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: STG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 506b3bef-20c4-404a-897c-cb70ea2eb3af
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19401d08-d191-42d7-9bc5-c2c64b5fb684
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: USER_LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 07f7a74e-41b5-482f-96cd-f921f5780ad2
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52eaf4ab-b1e5-43fc-8b76-5c0b8171b66a
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3053f4f6-c1e5-499a-a8be-7450cd6efd01
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1de43f2b-5c79-42c1-803d-ede89a550b9a
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23d90467-b604-478a-8d15-1376bb8d1e67
+                stepCounter: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9630bff-b439-42a5-ac09-bc8cb8b27480
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 132da0b4-6e84-4651-b1b6-b8916416035d
+          stepCounter: 80323f98-53ca-4ada-81ea-d4768e34a8d8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          OPTY_STG_SNAPSHOT: 28dc554a-b6ea-444d-9ac8-be7f23f2d369
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_SC_OPPORTUNITY
+            nodeName: OPTY_STG_SNAPSHOT
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_SC_OPPORTUNITY', 'OPTY_STG_SNAPSHOT') }} "OPTY_STG_SNAPSHOT"
+        name: DATA_PROFILING_SALES_STAGE_SNAPSHOTS
+        noLinkRefs: []
+  name: DATA_PROFILING_SALES_STAGE_SNAPSHOTS
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node
