@@ -363,6 +363,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: e846963e-df57-45a6-b213-6d6a47434b20
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: BEFORE_PROJECT_CLOSE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d54cd2c-492a-4fe5-bd71-2d7f61f4fccc
+                stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
+            transform: ("STG_PROJECTS"."CLOSED_DATE" IS NULL) OR ("STG_EBS_TASKS"."START_DATE" < "STG_PROJECTS"."CLOSED_DATE")
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 52010693-4d27-42dc-92b4-bd4aec41286b
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
@@ -435,8 +449,9 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_EBS_TASKS: 9edbdddd-54a6-4656-b678-edfe055191fb
+          STG_EBS_TASKS: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
           STG_EBS_TASK_GROUPS: 1cc8c826-94c7-4459-96d8-3258ae2b1f13
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
           STG_REVENUE_BUDGET: f2a79e8c-00c4-403c-a6c0-cef6a075bef4
         customSQL:
           customSQL: ""
@@ -455,6 +470,8 @@ operation:
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_REVENUE_BUDGET') }} "STG_REVENUE_BUDGET"
                 ON "STG_EBS_TASKS"."PROJECT_ID" = "STG_REVENUE_BUDGET"."PROJECT_ID"
                 AND "STG_EBS_TASKS"."TASK_ID" = "STG_REVENUE_BUDGET"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                ON "STG_EBS_TASKS"."PROJECT_ID" = "STG_PROJECTS"."PROJECT_ID"
         name: STG_TASKS
         noLinkRefs: []
   name: STG_TASKS
