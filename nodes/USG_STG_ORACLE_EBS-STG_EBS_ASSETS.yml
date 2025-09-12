@@ -145,7 +145,7 @@ operation:
           - columnReferences:
               - columnCounter: 4093a7e1-c50d-440d-a1ee-01bfbfae4abc
                 stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-            transform: TRIM(UPPER("STG_ADDRESSES"."ADDRESS_3"))
+            transform: TRIM(UPPER("STG_ADDRESSES_CLEAN"."ADDRESS_3"))
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -165,7 +165,7 @@ operation:
           - columnReferences:
               - columnCounter: c9a429d7-26aa-4dc0-84b7-be6efcc2879a
                 stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-            transform: TRIM(UPPER("STG_ADDRESSES"."ADDRESS_2"))
+            transform: TRIM(UPPER("STG_ADDRESSES_CLEAN"."ADDRESS_2"))
         systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
@@ -180,7 +180,7 @@ operation:
           - columnReferences:
               - columnCounter: c9a429d7-26aa-4dc0-84b7-be6efcc2879a
                 stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-            transform: TRY_CAST(REGEXP_REPLACE(REPLACE(SPLIT_PART(TRIM(UPPER("STG_ADDRESSES"."ADDRESS_2")), ' ', 1),'0K','0000'), '[^0-9]', '') AS INT)
+            transform: TRY_CAST(REGEXP_REPLACE(REPLACE(SPLIT_PART(TRIM(UPPER("STG_ADDRESSES_CLEAN"."ADDRESS_2")), ' ', 1),'0K','0000'), '[^0-9]', '') AS INT)
       - acceptedValues:
           strictMatch: true
           values: []
