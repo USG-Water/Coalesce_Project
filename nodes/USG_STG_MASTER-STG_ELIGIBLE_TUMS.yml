@@ -127,11 +127,32 @@ operation:
                 stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
             transform: ""
         systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb0a4a00-9a7b-4072-9cd8-64c0c8944670
+          stepCounter: 51b470a9-98e7-4cef-8b04-c6838d160f23
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PROJECT_CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c721cc1-1d10-4882-a8d7-2d34c23eed36
+                stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+            transform: ""
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
           STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
           STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
           STG_PROJECT_CLASSES: fba952f9-d30d-4dce-8c6e-1252050cb1c0
           STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
@@ -146,12 +167,16 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_PROJECT_CUSTOMERS
           - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
+          - locationName: USG_STG_MASTER
             nodeName: STG_PROJECTS_MAX_REVENUE_BUDGET
           - locationName: USG_STG_MASTER
             nodeName: STG_TASKS
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_PROJECTS"."PROJECT_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ASSETS') }} "STG_ASSETS"
                 ON "STG_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID" = "STG_ASSETS"."EBS_CUSTOMER_SITE_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS_MAX_REVENUE_BUDGET') }} "STG_PROJECTS_MAX_REVENUE_BUDGET"
@@ -164,6 +189,7 @@ operation:
                   AND "STG_PROJECT_CLASSES"."CONTRACT_TYPE" NOT IN ('NS', 'OC')
                   AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE" != 'Metering'
                   AND "STG_TASKS"."START_DATE" IS NOT NULL
+                  AND (("STG_PROJECTS"."CLOSED_DATE" IS NULL) OR ("STG_TASKS"."START_DATE" < "STG_PROJECTS"."CLOSED_DATE"))
                   AND "STG_TASKS"."RENOVATION_TYPE" IN (
                       'MP Interior'
                     , 'MP Exterior'
