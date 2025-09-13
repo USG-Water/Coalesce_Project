@@ -1,0 +1,347 @@
+fileVersion: 1
+id: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+name: STG_FEDERAL_VIOLATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#vio-enf"
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 187d4e55-05ac-4598-bb7a-fd8e3214e696
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f061d84-0325-4809-8095-7d23e8f8c45c
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f835407d-72fc-4897-b759-a4dcb321b746
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2b965b0-3b7c-4fec-b98a-4bd67f1648ed
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93e9dcf6-4389-4530-b0ac-7c06c274c24e
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VIOLATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: efd5e26a-de07-442e-b0d4-a7ae195dd763
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c50907bc-7554-4a72-886d-aec4804c693f
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VIOLATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84ebfc5d-f7a5-4d95-b7dd-24fe23d9a2c0
+                stepCounter: cc517106-00c0-44b3-a647-47d55925d312
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bccd3e89-f046-4f49-bf2f-410bbb5a0423
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VIOLATION_CATEGORY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa1d5d26-3120-449a-8496-599aa80ada11
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."VIOLATION_CATEGORY_CODE"
+                  WHEN 'TT' THEN 'Treatment Technique Violation'
+                  WHEN 'MRDL' THEN 'Maximum Residual Disinfectant Level'
+                  WHEN 'Other' THEN 'Other Violation'
+                  WHEN 'MCL' THEN 'Maximum Contaminant Level Violation'
+                  WHEN 'MR' THEN 'Monitoring and Reporting Violation'
+                  WHEN 'MON' THEN 'Monitoring Violation'
+                  WHEN 'RPT' THEN 'Reporting Violation'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 477c09e8-1239-4e30-a097-6db60977d64e
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: RULE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d24e286-9c48-4ae2-beef-d27da64e5c70
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."RULE_CODE"
+                  WHEN 110 THEN 'Total Coliform Rule'
+                  WHEN 111 THEN 'Revised Total Coliform Rule'
+                  WHEN 121 THEN 'Surface Water Treatment Rule'
+                  WHEN 122 THEN 'Long Term 1 Enhanced Surface Water Treatment Rule'
+                  WHEN 123 THEN 'Long Term 2 Enhanced Surface Water Treatment Rule'
+                  WHEN 130 THEN 'Filter Backwash Rule'
+                  WHEN 140 THEN 'Ground Water Rule'
+                  WHEN 210 THEN 'Stage 1 Disinfectants and Disinfection Byproducts Rule'
+                  WHEN 220 THEN 'Stage 2 Disinfectants and Disinfection Byproducts Rule'
+                  WHEN 230 THEN 'Total Trihalomethanes'
+                  WHEN 310 THEN 'Volatile Organic Chemicals'
+                  WHEN 320 THEN 'Synthetic Organic Chemicals'
+                  WHEN 331 THEN 'Nitrates'
+                  WHEN 332 THEN 'Arsenic'
+                  WHEN 333 THEN 'Inorganic Chemicals'
+                  WHEN 340 THEN 'Radionuclides'
+                  WHEN 350 THEN 'Lead and Copper Rule'
+                  WHEN 410 THEN 'Public Notice Rule'
+                  WHEN 420 THEN 'Consumer Confidence Rule'
+                  WHEN 430 THEN 'Miscellaneous'
+                  WHEN 500 THEN 'Not Regulated'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f374eef-806d-426a-b813-ec222f782a5e
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: RULE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c88fac04-c35b-4bf7-996d-1be1522f065f
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."RULE_FAMILY_CODE"
+                  WHEN 110 THEN 'Total Coliform Rules'
+                  WHEN 120 THEN 'Surface Water Treatment Rules'
+                  WHEN 130 THEN 'Filter Backwash Rule'
+                  WHEN 140 THEN 'Groundwater Rule'
+                  WHEN 210 THEN 'Stage 1 Disinfectants and Disinfection Byproducts Rule'
+                  WHEN 220 THEN 'Stage 2 Disinfectants and Disinfection Byproducts Rule'
+                  WHEN 230 THEN 'Total Trihalomethanes'
+                  WHEN 310 THEN 'Volatile Organic Chemicals'
+                  WHEN 320 THEN 'Synthetic Organic Chemicals'
+                  WHEN 330 THEN 'Inorganic Chemicals'
+                  WHEN 340 THEN 'Radionuclides'
+                  WHEN 350 THEN 'Lead and Copper Rule'
+                  WHEN 400 THEN 'Other'
+                  WHEN 410 THEN 'Public Notice Rule'
+                  WHEN 420 THEN 'Consumer Confidence Rule'
+                  WHEN 430 THEN 'Miscellaneous'
+                  WHEN 500 THEN 'Not Regulated'
+                  ELSE 'Unknown Rule'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a331095-aa16-4b91-b1c4-aad9892c8770
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: RULE_FAMILY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dbe6a290-d46f-40b1-a8c0-f4c14bf5bf95
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."RULE_GROUP_CODE"
+                  WHEN 100 THEN 'Microbials'
+                  WHEN 200 THEN 'Disinfectants and Disinfection Byproducts Rule'
+                  WHEN 300 THEN 'Chemicals'
+                  WHEN 400 THEN 'Other'
+                  WHEN 500 THEN 'Not Regulated'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 502fd709-c704-4dd7-94b2-5a2c1fbd07cb
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VIOLATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d69dfda-321e-45f6-ac8f-c96bf811b366
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 977e5e24-8f59-4dca-b4fc-6e4175872583
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_HEALTH_BASED_IND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a250ede-458d-4b13-bd60-0122b1906413
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."IS_HEALTH_BASED_IND"
+                  WHEN 'Y' THEN TRUE
+                  ELSE FALSE
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d4ec94b-9beb-4661-81c0-fdda1016ad1d
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CALCULATED_RTC_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30a7d318-d92d-4ba0-9714-6fa6e6e6426c
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."CALCULATED_RTC_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eac1ec5e-544c-4616-ad1b-582780f2c1bd
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: PWS_DEACTIVATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b229d55-b4ca-4de8-b308-e33264a675bf
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."PWS_DEACTIVATION_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9753414-33a1-47a2-8ed2-d5838d6d4803
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: VIOL_FIRST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6feb3dd9-ba9e-4b30-806a-c548173d17b0
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."VIOL_FIRST_REPORTED_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76277a05-c1ef-45d6-ab4a-46c2f8c0ab47
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: VIOL_LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e6f5334-e745-4b82-94a2-f9c1335347e0
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."VIOL_LAST_REPORTED_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cc401f08-f73b-4ea7-974f-7fec788fd3b9
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: NON_COMPL_PER_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43df74ab-d499-4dfd-aa4b-7297b9d11d5b
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."NON_COMPL_PER_BEGIN_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a12e499-e3a6-44f9-9269-f86cb7627160
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: DATE
+        description: ""
+        name: NON_COMPL_PER_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fda33cd7-9d80-4a5b-8d49-0c5c2639e198
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: TRY_CAST("STG_EPA_VIOLATIONS"."NON_COMPL_PER_END_DATE" AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbb456d6-344a-437c-88b1-548fd5ba4b9d
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de3574c3-3cd2-4f2f-bb58-22b461a972a1
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_REF_CODE_VIOLATION_CODE: cc517106-00c0-44b3-a647-47d55925d312
+          STG_EPA_VIOLATIONS: f70262e0-8ab6-4550-a980-203dbd06d785
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_REF_CODE_VIOLATION_CODE
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_VIOLATIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_VIOLATIONS') }} "STG_EPA_VIOLATIONS"
+            LEFT JOIN {{ ref('USG_STG_EPA', 'STG_EPA_REF_CODE_VIOLATION_CODE') }} "STG_EPA_REF_CODE_VIOLATION_CODE"
+                ON "STG_EPA_VIOLATIONS"."VIOLATION_CODE" = "STG_EPA_REF_CODE_VIOLATION_CODE"."VALUE_CODE"
+        name: STG_FEDERAL_VIOLATIONS
+        noLinkRefs: []
+  name: STG_FEDERAL_VIOLATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

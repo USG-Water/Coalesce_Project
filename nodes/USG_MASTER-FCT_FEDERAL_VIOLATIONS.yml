@@ -1,0 +1,312 @@
+fileVersion: 1
+id: 89f2e13f-4b0c-46ce-abde-16848e97162f
+name: FCT_FEDERAL_VIOLATIONS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Reported public water system violations
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae72d52d-e712-4df4-8311-69ec37da40e0
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifying code for a public water system in SDWIS. The PWSID consists of a two-letter state or region code, followed by seven digits.
+        isBusinessKey: true
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 187d4e55-05ac-4598-bb7a-fd8e3214e696
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 351d3d79-2fb8-42bf-870d-5c481ca1b044
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Facility ID that, when used with the PWSID, uniquely identifies a water system facility.
+        name: FACILITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f835407d-72fc-4897-b759-a4dcb321b746
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58e53703-8803-425f-bf24-44f47aa0aec8
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: System-generated identifier for a violation.
+        isBusinessKey: true
+        name: VIOLATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93e9dcf6-4389-4530-b0ac-7c06c274c24e
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5aab94b2-163d-4d85-acef-704fdb16c5cb
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifying code for the violation.
+        name: VIOLATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c50907bc-7554-4a72-886d-aec4804c693f
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38d27b7d-95ad-4d29-9b77-98c33ae0e1d2
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Category of the violation.
+        name: VIOLATION_CATEGORY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bccd3e89-f046-4f49-bf2f-410bbb5a0423
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 463d9cca-86e3-4bf9-84ee-d506168033da
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Code for a National Drinking Water rule.
+        name: RULE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 477c09e8-1239-4e30-a097-6db60977d64e
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 445aa95a-5763-4f7f-aa42-27aee6e0829d
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Code that uniquely identifies a rule group.
+        name: RULE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f374eef-806d-426a-b813-ec222f782a5e
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3318b88c-f137-48e4-a6fb-8a55b579e5ec
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Code for rule family.
+        name: RULE_FAMILY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a331095-aa16-4b91-b1c4-aad9892c8770
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9983f5c8-8992-4d60-86c4-109ec2beb026
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Current status of the violation.
+        name: VIOLATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 502fd709-c704-4dd7-94b2-5a2c1fbd07cb
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5902c558-40c5-412e-8fe9-72e6c84cc671
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates if this is a health based violation.
+        name: IS_HEALTH_BASED_IND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 977e5e24-8f59-4dca-b4fc-6e4175872583
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3df529bd-a9d9-401a-a728-c641a4a5be26
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: The date in which the water system was reported as being closed/deactivated.
+        name: PWS_DEACTIVATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eac1ec5e-544c-4616-ad1b-582780f2c1bd
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9e73d35-e8e1-49bd-ad43-6a3a4bc4228a
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: Date when the violation was first reported.
+        name: VIOL_FIRST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9753414-33a1-47a2-8ed2-d5838d6d4803
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777b8cb4-65e0-4c28-b8b4-bf2a78735537
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: Date when the violation was last reported.
+        name: VIOL_LAST_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76277a05-c1ef-45d6-ab4a-46c2f8c0ab47
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69425b28-f608-4970-a6b1-08ca6fd5ee57
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: Begin date of the noncompliance period during which a violation was identified.
+        name: NON_COMPL_PER_BEGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc401f08-f73b-4ea7-974f-7fec788fd3b9
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9079633-4af6-4aaf-acc1-4a8ed176829a
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: End date of the noncompliance period during which a violation was identified. Note that open-ended violations are listed using the later resolving action date, if the earlier resolving action is followed by certain types of enforcement actions that indicate continued enforcement activity. For unresolved violations, the NON_COMPL_PER_END_DATE is listed as null.
+        name: NON_COMPL_PER_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a12e499-e3a6-44f9-9269-f86cb7627160
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 329f8bad-7524-4af3-a985-e92dd004ae51
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: DATE
+        description: The date the system returned to compliance.
+        name: CALCULATED_RTC_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d4ec94b-9beb-4661-81c0-fdda1016ad1d
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 121a4f90-997f-4b57-a4e9-228850f8d62c
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Fiscal year and quarter of the quarterly snapshot of SDWIS.
+        name: SUBMISSIONYEARQUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cbb456d6-344a-437c-88b1-548fd5ba4b9d
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b02da22-f9c5-4a40-a1a5-9255b6ffeaa4
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d8362a8-0fc5-4282-9c6d-3c5928c7904f
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FEDERAL_VIOLATIONS: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FEDERAL_VIOLATIONS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FEDERAL_VIOLATIONS') }} "STG_FEDERAL_VIOLATIONS"
+        name: FCT_FEDERAL_VIOLATIONS
+        noLinkRefs: []
+  name: FCT_FEDERAL_VIOLATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

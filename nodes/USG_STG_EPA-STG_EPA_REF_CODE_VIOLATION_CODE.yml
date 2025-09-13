@@ -1,0 +1,70 @@
+fileVersion: 1
+id: cc517106-00c0-44b3-a647-47d55925d312
+name: STG_EPA_REF_CODE_VIOLATION_CODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#ref"
+  isMultisource: false
+  locationName: USG_STG_EPA
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e5a9f44-8034-4497-97ce-2b2600cde38f
+          stepCounter: cc517106-00c0-44b3-a647-47d55925d312
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VALUE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16093842-2b1b-4a84-947b-f9a550927590
+                stepCounter: ca493ae2-d9de-4140-8fff-5759b7930a85
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84ebfc5d-f7a5-4d95-b7dd-24fe23d9a2c0
+          stepCounter: cc517106-00c0-44b3-a647-47d55925d312
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VALUE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e389dd94-b908-4bd5-bc58-16f450fbd5e0
+                stepCounter: ca493ae2-d9de-4140-8fff-5759b7930a85
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_REF_CODE_VALUES: ca493ae2-d9de-4140-8fff-5759b7930a85
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_EPA
+            nodeName: STG_EPA_REF_CODE_VALUES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_EPA', 'STG_EPA_REF_CODE_VALUES') }} "STG_EPA_REF_CODE_VALUES"
+            WHERE "STG_EPA_REF_CODE_VALUES"."VALUE_TYPE" = 'VIOLATION_CODE'
+        name: STG_EPA_REF_CODE_VIOLATION_CODE
+        noLinkRefs: []
+  name: STG_EPA_REF_CODE_VIOLATION_CODE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
