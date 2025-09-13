@@ -17,6 +17,20 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: c1c0df07-8d30-475b-937e-d8967749d719
+          stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique identifier of a violation per PWSID.
+        name: UNIQUE_VIOLATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 187d4e55-05ac-4598-bb7a-fd8e3214e696
+                stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+            transform: CONCAT("STG_FEDERAL_VIOLATIONS"."PWSID", '|', "STG_FEDERAL_VIOLATIONS"."VIOLATION_ID")
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: ae72d52d-e712-4df4-8311-69ec37da40e0
           stepCounter: 89f2e13f-4b0c-46ce-abde-16848e97162f
         config: {}
