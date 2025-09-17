@@ -222,6 +222,24 @@ operation:
               END
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: b5c9bba7-2d53-4db1-930b-aa7d826bc824
+          stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_MAJOR_VIOL_IND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c071f909-7f5b-48c0-9227-7d586f5cb516
+                stepCounter: f70262e0-8ab6-4550-a980-203dbd06d785
+            transform: |-
+              CASE "STG_EPA_VIOLATIONS"."IS_MAJOR_VIOL_IND"
+                  WHEN 'Y' THEN TRUE
+                  ELSE FALSE
+              END
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 8d4ec94b-9beb-4661-81c0-fdda1016ad1d
           stepCounter: 9bac1fa1-1ec9-46e1-9eda-eb4d1843dc79
         config: {}
