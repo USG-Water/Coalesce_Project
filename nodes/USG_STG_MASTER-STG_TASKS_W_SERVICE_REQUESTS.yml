@@ -1,0 +1,56 @@
+fileVersion: 1
+id: a59324fe-df54-436d-95ba-5393c4fe490c
+name: STG_TASKS_W_SERVICE_REQUESTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Retrieve all tasks that have a service request. Tasks can have multiple incidents, and we just need to see if a draft revenue row is associated with a service request
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fff142a-47db-420e-bdf4-bdca6bfdd4f4
+          stepCounter: a59324fe-df54-436d-95ba-5393c4fe490c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ba92322-2f39-485a-a130-085ef5169473
+                stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_SERVICE_REQUESTS: ec5d7b44-15ec-4f87-afaa-fe418542c372
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_SERVICE_REQUESTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_SERVICE_REQUESTS') }} "STG_EBS_SERVICE_REQUESTS"
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY "STG_EBS_SERVICE_REQUESTS"."TASK_ID" ORDER BY "STG_EBS_SERVICE_REQUESTS"."LAST_UPDATE_DATE" DESC) = 1
+        name: STG_TASKS_W_SERVICE_REQUESTS
+        noLinkRefs: []
+  name: STG_TASKS_W_SERVICE_REQUESTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

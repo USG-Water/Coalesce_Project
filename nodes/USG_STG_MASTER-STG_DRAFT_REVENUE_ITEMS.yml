@@ -157,6 +157,26 @@ operation:
               - columnCounter: 337c8a2e-1979-4abb-ab1f-d10c401eeb10
                 stepCounter: 6a5d095b-6adb-4967-9875-ff6ee229ce82
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18b768b1-f779-40a9-8502-057115e772bc
+          stepCounter: dc46e717-829f-4c48-8aec-2003143a6be1
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: HAS_SERVICE_REQUEST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fff142a-47db-420e-bdf4-bdca6bfdd4f4
+                stepCounter: a59324fe-df54-436d-95ba-5393c4fe490c
+            transform: "\"STG_TASKS_W_SERVICE_REQUESTS\".\"TASK_ID\" IS NOT NULL"
+        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
           columnCounter: aeaaf2b1-3d13-4afa-945b-05ed840c0eb7
@@ -190,13 +210,19 @@ operation:
     sourceMapping:
       - aliases:
           STG_EBS_DRAFT_REVENUE_ITEMS: 6a5d095b-6adb-4967-9875-ff6ee229ce82
+          STG_TASKS_W_SERVICE_REQUESTS: a59324fe-df54-436d-95ba-5393c4fe490c
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS_W_SERVICE_REQUESTS
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_DRAFT_REVENUE_ITEMS
         join:
-          joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_DRAFT_REVENUE_ITEMS') }} "STG_EBS_DRAFT_REVENUE_ITEMS"
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_DRAFT_REVENUE_ITEMS') }} "STG_EBS_DRAFT_REVENUE_ITEMS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TASKS_W_SERVICE_REQUESTS') }} "STG_TASKS_W_SERVICE_REQUESTS"
+                ON "STG_EBS_DRAFT_REVENUE_ITEMS"."TASK_ID" = "STG_TASKS_W_SERVICE_REQUESTS"."TASK_ID"
         name: STG_DRAFT_REVENUE_ITEMS
         noLinkRefs: []
   name: STG_DRAFT_REVENUE_ITEMS
