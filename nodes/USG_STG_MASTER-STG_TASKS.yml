@@ -167,9 +167,7 @@ operation:
         name: COMMISSION_OR_BILL
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+          - columnReferences: []
             transform: |-
               CASE
                   WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%CM%' THEN 'Commission'
@@ -187,9 +185,7 @@ operation:
         name: BILL_TYPE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+          - columnReferences: []
             transform: |-
               CASE
                   WHEN "STG_EBS_TASKS"."TASK_NAME" ILIKE '%BILL%' THEN CASE
@@ -217,9 +213,7 @@ operation:
         name: COMMISSION_PREFIX
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+          - columnReferences: []
             transform: LEFT("STG_EBS_TASKS"."TASK_NAME", 4)
       - appliedColumnTests: {}
         columnReference:
@@ -385,9 +379,7 @@ operation:
         name: ADJUSTMENT
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6f16a9ec-968a-4536-ab9b-bb8c19a98076
-                stepCounter: 9edbdddd-54a6-4656-b678-edfe055191fb
+          - columnReferences: []
             transform: COALESCE("STG_EBS_TASKS"."TASK_NAME" ILIKE '%adjustment%', FALSE)
       - appliedColumnTests: {}
         columnReference:
