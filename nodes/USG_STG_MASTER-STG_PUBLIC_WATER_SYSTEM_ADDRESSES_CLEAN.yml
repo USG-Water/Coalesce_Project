@@ -156,7 +156,7 @@ operation:
           - columnReferences:
               - columnCounter: c3715652-0b3d-42b2-bba5-0c0fa7441a41
                 stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
-            transform: ""
+            transform: COALESCE("STG_US_ZIPCODE_POINTS"."LATITUDE", "STG_PUBLIC_WATER_SYSTEM_ADDRESSES"."LATITUDE83")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a1c18752-3d3d-4d02-a219-92b8c613955c
@@ -170,7 +170,7 @@ operation:
           - columnReferences:
               - columnCounter: e7f8306a-e1fb-42db-a02f-11eb0d4656c4
                 stepCounter: 72cc47b8-11e4-4998-9f65-f7ee1eaecbb6
-            transform: ""
+            transform: COALESCE("STG_US_ZIPCODE_POINTS"."LONGITUDE", "STG_PUBLIC_WATER_SYSTEM_ADDRESSES"."LONGITUDE83")
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
