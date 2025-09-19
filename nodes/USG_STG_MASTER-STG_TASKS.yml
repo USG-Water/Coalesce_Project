@@ -117,6 +117,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 0339d2b9-97ca-4e8e-a745-049d0d9eb678
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        name: TASK_SHORT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2467fe79-77a3-4cc9-a590-8429a602a3b6
+                stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: a6d51435-3630-4aae-854a-9cd0fef411dc
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
@@ -458,7 +472,7 @@ operation:
           joinCondition: |-
             FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_TASKS') }} "STG_EBS_TASKS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_EBS_TASK_GROUPS') }} "STG_EBS_TASK_GROUPS"
-                ON "STG_EBS_TASKS"."TASK_NAME" = "STG_EBS_TASK_GROUPS"."TASK_NAME"
+                ON "STG_EBS_TASKS"."TASK_SHORT_NAME" = "STG_EBS_TASK_GROUPS"."TASK_NAME"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_REVENUE_BUDGET') }} "STG_REVENUE_BUDGET"
                 ON "STG_EBS_TASKS"."PROJECT_ID" = "STG_REVENUE_BUDGET"."PROJECT_ID"
                 AND "STG_EBS_TASKS"."TASK_ID" = "STG_REVENUE_BUDGET"."TASK_ID"

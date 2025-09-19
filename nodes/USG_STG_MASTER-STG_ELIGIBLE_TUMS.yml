@@ -150,7 +150,7 @@ operation:
                   AND "STG_PROJECT_CLASSES"."CONTRACT_TYPE" NOT IN ('NS', 'OC')
                   AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE" != 'Metering'
                   AND "STG_TASKS"."START_DATE" IS NOT NULL
-                  AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE
+            --      AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE (Not including considering close date is sometimes wrong)
                   AND "STG_TASKS"."RENOVATION_TYPE" IN (
                       'MP Interior'
                     , 'MP Exterior'

@@ -103,6 +103,33 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 2467fe79-77a3-4cc9-a590-8429a602a3b6
+          stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        name: TASK_SHORT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9fd25c6c-b9dc-4dad-8b29-5848480361f8
+                stepCounter: 3d046297-956a-4455-8fe7-51e523f5af9f
+            transform: |-
+              CASE
+                  WHEN "PA_TASKS"."TASK_NAME" = 'MPTX' THEN "PA_TASKS"."TASK_NAME"
+              
+                  -- if last char is numeric
+                  WHEN TRY_TO_NUMBER(RIGHT("PA_TASKS"."TASK_NAME", 1)) IS NOT NULL 
+                       THEN LEFT("PA_TASKS"."TASK_NAME", LENGTH("PA_TASKS"."TASK_NAME") - 1)
+              
+                  -- if last char is 'X'
+                  WHEN RIGHT("PA_TASKS"."TASK_NAME", 1) = 'X' 
+                       THEN LEFT("PA_TASKS"."TASK_NAME", LENGTH("PA_TASKS"."TASK_NAME") - 1)
+              
+                  ELSE "PA_TASKS"."TASK_NAME"
+              END
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 5542c1c8-7369-47fa-96d4-3a8b99f672f1
           stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
         config: {}
