@@ -1,0 +1,124 @@
+fileVersion: 1
+id: a13c7648-4eeb-481a-9b90-152a7248439b
+name: STG_MASTER_MAPPING_MASTER_MAPPING_FILE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e32c159-dcf9-46c2-906e-b66e212c8568
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: _LINE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f6a81f8-e21e-4ef4-ac17-fd9d77c56e5d
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bea1510-1cda-43bb-84c9-75bd517954f3
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d88cb13b-680d-4755-bc4e-8c1d0b0fb9e6
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e77f29e-03b7-4f7b-bd25-53a2cea1ce08
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0337e8f-48b4-4f15-9bd2-b07e203ee08f
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39e8d86e-97fc-41c8-84a3-31ffb94061ac
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PURPOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71690b63-2b66-469d-8091-4b9c4346aa7d
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8583c2c4-be79-445a-85d7-4bddae789f6f
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FILE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f66a615-191d-43f0-ba1a-35adae8f6b73
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95f0d597-c617-499d-bd5c-e9e44480dbaf
+          stepCounter: a13c7648-4eeb-481a-9b90-152a7248439b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LINK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 14ce4022-f70d-4ea3-8010-10311dfb15fe
+                stepCounter: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          MASTER_MAPPING_MASTER_MAPPING_FILE: 270f9d16-cd29-48d1-94ee-ebba729b28e7
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: MASTER_MAPPING_MASTER_MAPPING_FILE
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'MASTER_MAPPING_MASTER_MAPPING_FILE') }} "MASTER_MAPPING_MASTER_MAPPING_FILE"
+        name: STG_MASTER_MAPPING_MASTER_MAPPING_FILE
+        noLinkRefs: []
+  name: STG_MASTER_MAPPING_MASTER_MAPPING_FILE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

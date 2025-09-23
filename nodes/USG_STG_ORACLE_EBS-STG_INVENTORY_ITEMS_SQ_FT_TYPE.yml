@@ -1,0 +1,225 @@
+fileVersion: 1
+id: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+name: STG_INVENTORY_ITEMS_SQ_FT_TYPE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f758e383-f2c3-4252-8a7a-76b07419015b
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: INVENTORY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68e721a9-f339-4349-8e7c-649e358db66e
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea6b3847-5966-4ce2-9f6e-e5d25bd50f14
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33b2e8a6-4969-4ace-b69d-66a23c702241
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b115c14-6cf7-4d07-a78a-7910db796430
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de6d784f-485d-4f51-aebf-4e380075a10f
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7352734d-a265-4010-b4bd-568ff7bd6203
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INVENTORY_ITEM_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53224277-e0d4-473c-ad64-e4aef55748ab
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d37980aa-d5d2-42f0-aebc-67897a536ad7
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INVENTORY_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 99a10927-3cdf-4e2e-9407-7ddd8c5ad3a9
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e4092f4-4151-4341-a6f6-549d4048e750
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: PURCHASING_ITEM_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b442a96-d69c-46f8-8f70-8ae0feb7d354
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df582824-cb89-4f82-8317-e3d40cf3adb0
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: INVENTORY_ITEM_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f08586c-4b4f-4815-8670-1ec9989fd0ed
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd17fb86-d1de-4753-8224-b685efeb67f8
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: PURCHASING_ENABLED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 242e9c96-a01f-4c5b-9ca9-06020c6fd861
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d653e28d-5d65-46e6-82ae-3fee19b5be3d
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: NUMBER(38,6)
+        description: ""
+        name: LIST_PRICE_PER_UNIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8eeb9b16-da31-4922-a475-bd3d6759ccfa
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a9189c3-6dca-4b1d-8c28-dc4a550fe3a0
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: UNIT_OF_MEASURE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9628a04e-0784-4a76-b2cd-8a4fe36ee9ab
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e46c842b-f3b8-4e0d-912e-c6d40e596131
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: UNIT_OF_MEASURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ef92c61-8ee3-4cd8-941d-61f83baa2b12
+                stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2d47130-e2da-4f1f-8379-9c13c8fe1e04
+          stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              CASE
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION"ILIKE '%DRY INTERIOR%'        THEN 'Dry Interior'
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION" ILIKE '%EXTERIOR%'            THEN 'Exterior'
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION" ILIKE '%INTERIOR%'            THEN 'Interior'
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION" ILIKE '%I INT BLAST 100\%%%'  THEN 'Interior'   -- matches literal 100%
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION" ILIKE '%OVERCOAT%'            THEN 'Exterior'
+                WHEN "STG_INVENTORY_ITEMS_SQ_FT"."INVENTORY_ITEM_DESCRIPTION" ILIKE '%I #10, 2 COAT EPOXY%' THEN 'Interior'
+                ELSE 'Other'
+              END
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_INVENTORY_ITEMS_SQ_FT: 259425f4-ea17-4c4b-884f-cac3498470fc
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_INVENTORY_ITEMS_SQ_FT
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_INVENTORY_ITEMS_SQ_FT') }} "STG_INVENTORY_ITEMS_SQ_FT"
+            WHERE "STG_INVENTORY_ITEMS_SQ_FT"."UNIT_OF_MEASURE_CODE" = 'SQF'
+        name: STG_INVENTORY_ITEMS_SQ_FT_TYPE
+        noLinkRefs: []
+  name: STG_INVENTORY_ITEMS_SQ_FT_TYPE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
