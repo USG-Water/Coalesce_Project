@@ -148,9 +148,9 @@ operation:
                 ON "STG_PROJECT_CUSTOMERS"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
             WHERE "STG_ASSETS"."ASSET_TYPE" NOT IN ('Well', 'Not Specified')
                   AND "STG_PROJECT_CLASSES"."CONTRACT_TYPE" NOT IN ('NS', 'OC')
-                  AND COALESCE("STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE", '') != 'Metering' -- WARNING: We are keeping null service lines
+                  AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE" != 'Metering'
                   AND "STG_TASKS"."START_DATE" IS NOT NULL
-                  AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE -- WARNING: We keep only open projects based on closed date, but closed date is unreliable
+                  AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE --WARNING: We keep only open projects based on closed date, but closed date is unreliable
                   AND "STG_TASKS"."RENOVATION_TYPE" IN (
                       'MP Interior'
                     , 'MP Exterior'
