@@ -116,14 +116,15 @@ operation:
                 stepCounter: 3d046297-956a-4455-8fe7-51e523f5af9f
             transform: |-
               CASE
-                  WHEN "PA_TASKS"."TASK_NAME" = 'MPTX' THEN "PA_TASKS"."TASK_NAME"
+                  WHEN "PA_TASKS"."TASK_NAME" = 'MPTX' 
+                       THEN "PA_TASKS"."TASK_NAME"
               
-                  -- if last char is numeric
-                  WHEN TRY_TO_NUMBER(RIGHT("PA_TASKS"."TASK_NAME", 1)) IS NOT NULL 
+                  -- if last char is a digit
+                  WHEN RIGHT("PA_TASKS"."TASK_NAME", 1) REGEXP '^[0-9]$'
                        THEN LEFT("PA_TASKS"."TASK_NAME", LENGTH("PA_TASKS"."TASK_NAME") - 1)
               
                   -- if last char is 'X'
-                  WHEN RIGHT("PA_TASKS"."TASK_NAME", 1) = 'X' 
+                  WHEN RIGHT("PA_TASKS"."TASK_NAME", 1) = 'X'
                        THEN LEFT("PA_TASKS"."TASK_NAME", LENGTH("PA_TASKS"."TASK_NAME") - 1)
               
                   ELSE "PA_TASKS"."TASK_NAME"
