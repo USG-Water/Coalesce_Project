@@ -1,0 +1,133 @@
+fileVersion: 1
+id: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+name: PVT_SQUARE_FOOTAGE
+operation:
+  config:
+    Colvol1: ""
+    aggfunc:
+      items:
+        - {}
+    aggfunc1:
+      items:
+        - funcname1: MAX
+    defaultval: ""
+    defvalue: false
+    excolval: false
+    exlcol:
+      items:
+        - {}
+    inferPivot: true
+    samKeyColval: false
+    sincol: true
+    subqueryval1: ""
+    tabKeyColumn:
+      items:
+        - keyColDropdown: null
+          keyColTextBox: INTERIOR_OR_EXTERIOR
+    tabValueColumn:
+      items:
+        - valColDropdown: null
+          valColTextBox: QUANTITY_REQUIRED
+    testsEnabled: false
+    trunc: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d57bf98-34dd-40e7-a362-7d10530561dd
+          stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24e2f4ef-e3dd-46e3-8080-59ab58bef4fd
+                stepCounter: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+            transform: TO_VARCHAR("STG_SQUARE_FOOTAGE"."PROJECT_NUMBER")
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4396ad8a-4ba5-455f-9cac-e50bbe611938
+          stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+        config: {}
+        dataType: NUMBER(38,5)
+        defaultValue: ""
+        description: ""
+        name: "'Dry Interior'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 484d7138-7be1-4e5e-a143-e451d7695217
+          stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+        config: {}
+        dataType: NUMBER(38,5)
+        defaultValue: ""
+        description: ""
+        name: "'Exterior'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 216e2a8e-ba66-42c2-ab71-3cd2c4953011
+          stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+        config: {}
+        dataType: NUMBER(38,5)
+        defaultValue: ""
+        description: ""
+        name: "'Interior'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SQUARE_FOOTAGE: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_SQUARE_FOOTAGE
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_SQUARE_FOOTAGE') }} "STG_SQUARE_FOOTAGE"
+        name: PVT_SQUARE_FOOTAGE
+        noLinkRefs: []
+  name: PVT_SQUARE_FOOTAGE
+  overrideSQL: false
+  schema: ""
+  sqlType: FunctionalNodeTypes:::409
+  type: sql
+  version: 1
+type: Node

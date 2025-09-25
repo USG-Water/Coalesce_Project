@@ -1,0 +1,93 @@
+fileVersion: 1
+id: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+name: STG_SQUARE_FOOTAGE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests:
+      - continueOnFailure: true
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: |-
+          SELECT PROJECT_NUMBER, INTERIOR_OR_EXTERIOR, COUNT (*)
+          FROM {{ ref_no_link('USG_STG_ORACLE_EBS','STG_SQUARE_FOOTAGE')}}
+          GROUP BY ALL
+          HAVING COUNT (*) > 1
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24e2f4ef-e3dd-46e3-8080-59ab58bef4fd
+          stepCounter: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 384306b9-6a5c-4c12-a884-6f088f11ad9b
+                stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8691750-7296-489a-ba01-bbc026ed6416
+          stepCounter: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 785b86b0-0454-4ad6-9150-7ed5774ed3f6
+                stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d33a4af-791c-4922-a347-4c30910fe9a7
+          stepCounter: ce4040d8-9efd-4958-8bab-7c466c4b7a83
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: QUANTITY_REQUIRED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b03d0576-b7e1-40fd-a427-d909cef8ca2f
+                stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+            transform: MAX("STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS"."QUANTITY_REQUIRED")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS') }} "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS"
+            GROUP BY ALL
+        name: STG_SQUARE_FOOTAGE
+        noLinkRefs: []
+  name: STG_SQUARE_FOOTAGE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

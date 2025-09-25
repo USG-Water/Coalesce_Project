@@ -1,0 +1,282 @@
+fileVersion: 1
+id: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+name: STG_ACCOUNTS_QA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0a48aab-7b3d-4039-b36c-3456b208d616
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSC_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 362cbe01-21d9-4d06-ae80-85452683ac39
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c959a7fe-4dc4-48a5-94be-92a56031e3ff
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HUBSPOT_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf8aff69-83ca-40f7-bdd8-d14d8b0929e3
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4836ba2-517e-42f0-9da8-c16348ceccbe
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f345bcaa-4a6e-4e92-a902-0ae31dd4284e
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fd0576a-3e78-4460-a343-30946c92adaa
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SQL_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0092abf-a77e-453d-a3bc-353f173d44fb
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55a76f0b-de84-42fa-b700-1404f38a6554
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 260babf5-b14c-45a7-870c-89ab9fe0eae9
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5580d7fb-a5f6-4fdd-8b5b-8ecc94946283
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82189f6a-d649-4c65-ac07-37250d6425eb
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e5f723f-2cb9-4351-997a-0e155ce62bac
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              COALESCE(
+                  "STG_ADDRESSES_OSC"."CITY",
+                  "STG_ADDRESSES_HUBSPOT"."CITY",
+                  "STG_EBS_PARTIES"."CITY"
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 317d2fd1-d22a-4eca-bb48-9b88c3d4a240
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ZIP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              COALESCE(
+                  "STG_ADDRESSES_OSC"."POSTAL_CODE",
+                  "STG_ADDRESSES_HUBSPOT"."POSTAL_CODE",
+                  "STG_EBS_PARTIES"."POSTAL_CODE"
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 917dbda0-b1c5-4c9c-a6aa-18199b078ee7
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              COALESCE(
+                  "STG_ADDRESSES_OSC"."STATE",
+                  "STG_ADDRESSES_HUBSPOT"."STATE",
+                  "STG_EBS_PARTIES"."STATE",
+                  "STG_CUSTOMERS"."STATE",
+                  -- Fallback: extract state from NAME field
+                  CASE 
+                      WHEN REGEXP_SUBSTR(
+                          "STG_MERGE_ACCOUNT"."NAME", 
+                          -- Pattern: comma, optional spaces, then 2 uppercase letters
+                          -- followed by a non-letter or end of string
+                          ',\\s*([A-Z]{2})([^A-Z]|$)', 
+                          1,  -- Start position
+                          1,  -- Occurrence (first match)
+                          'e',  -- Extract sub-expression
+                          1   -- Sub-expression group number (we want the first group - the state code)
+                      ) IN ('AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
+                            'HI','ID','IL','IN','IA','KS','KY','LA','ME','MD',
+                            'MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
+                            'NM','NY','NC','ND','OH','OK','OR','PA','RI','SC',
+                            'SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC')
+                      THEN REGEXP_SUBSTR(
+                          "STG_MERGE_ACCOUNT"."NAME", 
+                          ',\\s*([A-Z]{2})([^A-Z]|$)', 
+                          1, 1, 'e', 1
+                      )
+                  END
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba212ea8-3d3f-4d46-91c5-22872ab34a92
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: BAD_RECORD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "\"STG_MERGE_ACCOUNT\".\"NAME\" ILIKE '%DNU%' OR \"STG_MERGE_ACCOUNT\".\"NAME\" ILIKE '%DUPLICATE%' OR \"STG_MERGE_ACCOUNT\".\"NAME\" ILIKE '%TEST%'"
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a8bf531-15b6-49a8-b58d-4b690a86ba4f
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4aa2028c-0265-4046-b7ea-35a44ff6c8f5
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec6be567-f609-4599-bad8-709b02016060
+          stepCounter: 8f7381c9-f54f-4933-8f52-ea4b02fb3c84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef360f6d-5241-4066-a714-cf7397610379
+                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ADDRESSES_HUBSPOT: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+          STG_ADDRESSES_OSC: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+          STG_CUSTOMERS: 61a9e224-6c37-4f3a-8958-9963b2420c63
+          STG_EBS_CUST_ACCOUNTS: 8874d40a-ba49-40b8-a0b2-c02c55048898
+          STG_EBS_PARTIES: 9e59c17e-ea80-4ee2-9258-c651bd9add99
+          STG_MERGE_ACCOUNT: 3af125b2-fd19-4626-91c5-83491903aba0
+          STG_OSC_ACCOUNT: 01b7102b-ee82-491c-a933-a7c409ea5f5e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_MERGE_ACCOUNT
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_CUST_ACCOUNTS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_PARTIES
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_ACCOUNT
+          - locationName: USG_STG_SQL_SERVER
+            nodeName: STG_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_ACCOUNT') }} "STG_MERGE_ACCOUNT"
+            
+            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_ACCOUNT') }} "STG_OSC_ACCOUNT"
+                ON "STG_MERGE_ACCOUNT"."OSC_PARTY_ID" = "STG_OSC_ACCOUNT"."PARTY_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES_OSC"
+                ON "STG_OSC_ACCOUNT"."LOCATION_ID" = "STG_ADDRESSES_OSC"."OSC_LOCATION_ID"
+            
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES_HUBSPOT"
+                ON "STG_MERGE_ACCOUNT"."HUBSPOT_COMPANY_ID" = "STG_ADDRESSES_HUBSPOT"."HUBSPOT_COMPANY_ID"
+            
+            LEFT JOIN {{ ref('USG_STG_SQL_SERVER', 'STG_CUSTOMERS') }} "STG_CUSTOMERS"
+                ON "STG_MERGE_ACCOUNT"."SQL_CUSTOMER_ID" = "STG_CUSTOMERS"."CUSTOMERID"
+            
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_CUST_ACCOUNTS') }} "STG_EBS_CUST_ACCOUNTS"
+                ON "STG_MERGE_ACCOUNT"."EBS_CUSTOMER_ID" = "STG_EBS_CUST_ACCOUNTS"."CUST_ACCOUNT_ID"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PARTIES') }} "STG_EBS_PARTIES"
+                ON "STG_EBS_CUST_ACCOUNTS"."PARTY_ID" = "STG_EBS_PARTIES"."PARTY_ID"
+            
+            WHERE "STG_MERGE_ACCOUNT"."SOURCE" != 'EPA'
+            AND "STG_MERGE_ACCOUNT"."NAME" IS NOT NULL
+        name: STG_ACCOUNTS_QA
+        noLinkRefs: []
+  name: STG_ACCOUNTS_QA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

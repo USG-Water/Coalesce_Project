@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 259425f4-ea17-4c4b-884f-cac3498470fc
-name: STG_INVENTORY_ITEMS_SQ_FT
+name: STG_INVENTORY_ITEMS_1
 operation:
   config:
     insertStrategy: INSERT
@@ -33,34 +33,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 33b2e8a6-4969-4ace-b69d-66a23c702241
-          stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
-        config: {}
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: LAST_UPDATE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2febd974-6782-4636-b0fc-bd520b935c94
-                stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: de6d784f-485d-4f51-aebf-4e380075a10f
-          stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
-        config: {}
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: CREATION_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 53199f5f-6875-4c02-b9e6-d39a7628b993
-                stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 53224277-e0d4-473c-ad64-e4aef55748ab
           stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
         config: {}
@@ -85,48 +57,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 4437d080-29cf-4e73-aeff-410727649c99
-                stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1b442a96-d69c-46f8-8f70-8ae0feb7d354
-          stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
-        config: {}
-        dataType: BOOLEAN
-        description: ""
-        name: PURCHASING_ITEM_FLAG
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 7af161d7-ccca-4d29-98d8-aeeab8fe3eb9
-                stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 2f08586c-4b4f-4815-8670-1ec9989fd0ed
-          stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
-        config: {}
-        dataType: BOOLEAN
-        description: ""
-        name: INVENTORY_ITEM_FLAG
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 258a7295-ce82-4176-9b65-5a076f2fb0c4
-                stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 242e9c96-a01f-4c5b-9ca9-06020c6fd861
-          stepCounter: 259425f4-ea17-4c4b-884f-cac3498470fc
-        config: {}
-        dataType: BOOLEAN
-        description: ""
-        name: PURCHASING_ENABLED_FLAG
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6774a141-26a6-4635-8b8c-f32786edce22
                 stepCounter: 67baa290-82ee-421b-8008-6f70746caad7
             transform: ""
       - appliedColumnTests: {}
@@ -187,9 +117,9 @@ operation:
             nodeName: INVENTORY_ITEMS
         join:
           joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'INVENTORY_ITEMS') }} "INVENTORY_ITEMS"
-        name: STG_INVENTORY_ITEMS_SQ_FT
+        name: STG_INVENTORY_ITEMS_1
         noLinkRefs: []
-  name: STG_INVENTORY_ITEMS_SQ_FT
+  name: STG_INVENTORY_ITEMS_1
   overrideSQL: false
   schema: ""
   sqlType: Stage

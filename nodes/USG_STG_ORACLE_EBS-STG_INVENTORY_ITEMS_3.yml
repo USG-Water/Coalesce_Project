@@ -1,6 +1,6 @@
 fileVersion: 1
 id: e1c83dea-0861-4ed4-89c1-c8568a62da54
-name: STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
+name: STG_INVENTORY_ITEMS_3
 operation:
   config:
     insertStrategy: INSERT
@@ -59,23 +59,37 @@ operation:
               - columnCounter: d37980aa-d5d2-42f0-aebc-67897a536ad7
                 stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e156a32-c0e4-4de2-a4a7-fe5be47ad690
+          stepCounter: e1c83dea-0861-4ed4-89c1-c8568a62da54
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2d47130-e2da-4f1f-8379-9c13c8fe1e04
+                stepCounter: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_INVENTORY_ITEMS_SQ_FT_TYPE: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
+          STG_INVENTORY_ITEMS_2: 9b0b17e3-903e-48f8-a222-0fcba8b40fd8
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_ORACLE_EBS
-            nodeName: STG_INVENTORY_ITEMS_SQ_FT_TYPE
+            nodeName: STG_INVENTORY_ITEMS_2
         join:
           joinCondition: |-
-            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_INVENTORY_ITEMS_SQ_FT_TYPE') }} "STG_INVENTORY_ITEMS_SQ_FT_TYPE"
-            WHERE "STG_INVENTORY_ITEMS_SQ_FT_TYPE"."INTERIOR_OR_EXTERIOR" <> 'Other'
-        name: STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_INVENTORY_ITEMS_2') }} "STG_INVENTORY_ITEMS_2"
+            WHERE "STG_INVENTORY_ITEMS_2"."INTERIOR_OR_EXTERIOR" <> 'Other'
+        name: STG_INVENTORY_ITEMS_3
         noLinkRefs: []
-  name: STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
+  name: STG_INVENTORY_ITEMS_3
   overrideSQL: false
   schema: ""
   sqlType: Stage

@@ -89,20 +89,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6f2f3e06-f6da-4dab-873d-a2981850d42d
-          stepCounter: 7d45dd52-1469-47f2-a2ee-63878b1a13e9
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: SHIP_TO_ORG_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: e68fc149-0cb2-4a7c-b434-0897728ce1cc
-                stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 765e2de7-2afd-42dc-896e-7801709b6d6d
           stepCounter: 7d45dd52-1469-47f2-a2ee-63878b1a13e9
         config: {}
@@ -164,20 +150,20 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_CS_ESTIMATE_DETAILS: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+          STG_CS_ESTIMATE_DETAILS_1: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
           STG_PAINT_RENOVATION_INVENTORY_ITEMS_1: a98c9590-4d9e-4f0d-9d07-8af8bff46204
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_ORACLE_EBS
-            nodeName: STG_CS_ESTIMATE_DETAILS
+            nodeName: STG_CS_ESTIMATE_DETAILS_1
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_PAINT_RENOVATION_INVENTORY_ITEMS_1
         join:
           joinCondition: |-
-            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_CS_ESTIMATE_DETAILS') }} "STG_CS_ESTIMATE_DETAILS"
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_CS_ESTIMATE_DETAILS_1') }} "STG_CS_ESTIMATE_DETAILS_1"
             INNER JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_PAINT_RENOVATION_INVENTORY_ITEMS_1') }} "STG_PAINT_RENOVATION_INVENTORY_ITEMS_1"
-            ON "STG_CS_ESTIMATE_DETAILS"."INVENTORY_ITEM_ID"= "STG_PAINT_RENOVATION_INVENTORY_ITEMS_1"."INVENTORY_ITEM_ID_RENOVATION"
+            ON "STG_CS_ESTIMATE_DETAILS_1"."INVENTORY_ITEM_ID"= "STG_PAINT_RENOVATION_INVENTORY_ITEMS_1"."INVENTORY_ITEM_ID_RENOVATION"
         name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1
         noLinkRefs: []
   name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1

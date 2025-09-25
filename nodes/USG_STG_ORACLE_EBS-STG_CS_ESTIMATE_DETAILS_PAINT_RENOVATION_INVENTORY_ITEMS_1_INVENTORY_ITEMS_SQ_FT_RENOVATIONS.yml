@@ -12,26 +12,11 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: USG_STG_ORACLE_SALES_CLOUD
+  locationName: USG_STG_ORACLE_EBS
   materializationType: table
   metadata:
     appliedNodeTests: []
     columns:
-      - appliedColumnTests:
-          hasNull: false
-        columnReference:
-          columnCounter: e4d254f8-3343-43a9-ab85-387805604c16
-          stepCounter: 81a06f4f-0e86-431a-93e9-109de5215e08
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: ESTIMATE_DETAIL_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 4bb11b61-1f07-4d4f-882b-ed020fc25efa
-                stepCounter: 7d45dd52-1469-47f2-a2ee-63878b1a13e9
-            transform: ""
       - appliedColumnTests:
           hasNull: false
         columnReference:
@@ -184,25 +169,42 @@ operation:
               - columnCounter: f3a48e95-023f-4e28-9b09-a49b94e969fe
                 stepCounter: 7d45dd52-1469-47f2-a2ee-63878b1a13e9
             transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08c0ecf2-f11e-470e-9cdd-7070f81309f7
+          stepCounter: 81a06f4f-0e86-431a-93e9-109de5215e08
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e156a32-c0e4-4de2-a4a7-fe5be47ad690
+                stepCounter: e1c83dea-0861-4ed4-89c1-c8568a62da54
+            transform: ""
     cteString: ""
     enabledColumnTestIDs:
       - hasNull
     sourceMapping:
       - aliases:
           STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1: 7d45dd52-1469-47f2-a2ee-63878b1a13e9
-          STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS: e1c83dea-0861-4ed4-89c1-c8568a62da54
+          STG_INVENTORY_ITEMS_3: e1c83dea-0861-4ed4-89c1-c8568a62da54
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1
           - locationName: USG_STG_ORACLE_EBS
-            nodeName: STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
+            nodeName: STG_INVENTORY_ITEMS_3
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1') }} "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1"
-            INNER JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS') }} "STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS"
-            ON "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1"."INVENTORY_ITEM_ID_ESTIMATE" = "STG_INVENTORY_ITEMS_SQ_FT_RENOVATIONS"."INVENTORY_ITEM_ID"
+            INNER JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_INVENTORY_ITEMS_3') }} "STG_INVENTORY_ITEMS_3"
+            ON "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1"."INVENTORY_ITEM_ID_ESTIMATE" = "STG_INVENTORY_ITEMS_3"."INVENTORY_ITEM_ID"
         name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
         noLinkRefs: []
   name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS

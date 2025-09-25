@@ -1,0 +1,124 @@
+fileVersion: 1
+id: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+name: STG_CS_ESTIMATE_DETAILS_1
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf17b67c-cf55-4bf1-a638-bfbd1f2158fb
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ESTIMATE_DETAIL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af23c919-fa74-4248-af5a-ae4cb16175e4
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5883f91b-d112-40ce-9617-6b3a0eac39ab
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: INVENTORY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29957075-3841-4fab-9b3a-9e019fca17c6
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d925a86-8564-4712-b20d-70f8cb7ecf61
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: QUANTITY_REQUIRED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 693673f7-351a-4a2c-b065-e7cadd572c37
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87d1ce08-bab1-4e36-a156-15db591c99f5
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: SELLING_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f0d7fa4-b496-4861-b3fd-4945c85ddf05
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 670c4f2c-2c64-450d-897e-123b7a752d96
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: INCIDENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f69e5ff-7b65-4536-afee-ba204c98b356
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef8a9e27-62e5-4bd8-8b6d-29925a29aec7
+          stepCounter: 7f3eb4cb-7496-4c1e-ab86-5a32765230b0
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: LIST_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2077ac65-9d90-4c79-b3ea-f48d5b8148bf
+                stepCounter: e1b57edc-a493-48e2-8bbf-a88892a50cef
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CS_ESTIMATE_DETAILS: e1b57edc-a493-48e2-8bbf-a88892a50cef
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: CS_ESTIMATE_DETAILS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'CS_ESTIMATE_DETAILS') }} "CS_ESTIMATE_DETAILS"
+        name: STG_CS_ESTIMATE_DETAILS_1
+        noLinkRefs: []
+  name: STG_CS_ESTIMATE_DETAILS_1
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

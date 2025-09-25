@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 384306b9-6a5c-4c12-a884-6f088f11ad9b
+          stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d43baa0-1002-44bd-9f91-9ce4ef1f9d0e
+                stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 785b86b0-0454-4ad6-9150-7ed5774ed3f6
+          stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08c0ecf2-f11e-470e-9cdd-7070f81309f7
+                stepCounter: 81a06f4f-0e86-431a-93e9-109de5215e08
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b03d0576-b7e1-40fd-a427-d909cef8ca2f
+          stepCounter: 7545cb5a-304f-44f4-9757-1a3e0e803fd0
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: QUANTITY_REQUIRED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 07296d98-6b9e-4db4-94f0-e013fe744d5d
+                stepCounter: 81a06f4f-0e86-431a-93e9-109de5215e08
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS: 81a06f4f-0e86-431a-93e9-109de5215e08
+          STG_EBS_SERVICE_REQUESTS: ec5d7b44-15ec-4f87-afaa-fe418542c372
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_SERVICE_REQUESTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS') }} "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS"
+            INNER JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_SERVICE_REQUESTS') }} "STG_EBS_SERVICE_REQUESTS"
+            ON "STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS"."INCIDENT_ID_ESTIMATE" = "STG_EBS_SERVICE_REQUESTS"."INCIDENT_ID"
+            WHERE "STG_EBS_SERVICE_REQUESTS"."CONTRACT_TYPE" NOT IN ('LM','IC','NI','ANT','OC','2551526')
+        name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS
+        noLinkRefs: []
+  name: STG_CS_ESTIMATE_DETAILS_PAINT_RENOVATION_INVENTORY_ITEMS_1_INVENTORY_ITEMS_SQ_FT_RENOVATIONS_EBS_SERVICE_REQUESTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

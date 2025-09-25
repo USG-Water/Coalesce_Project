@@ -311,6 +311,48 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 6443610b-313d-4af9-bb70-bb3f0f773d9d
+          stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: DRY_INTERIOR_SQ_FT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4396ad8a-4ba5-455f-9cac-e50bbe611938
+                stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74167c5c-6e6d-4d0b-8f77-75c4ff6e3780
+          stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: EXTERIOR_SQ_FT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 484d7138-7be1-4e5e-a143-e451d7695217
+                stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9d8bc47-837b-4a8c-b2ec-20800e30e2b3
+          stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: INTERIOR_SQ_FT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 216e2a8e-ba66-42c2-ab71-3cd2c4953011
+                stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: cbace67a-669b-4c81-8c24-92ed362ba6a6
           stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
         config: {}
@@ -397,7 +439,8 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_EBS_PROJECTS: 72521d13-7f7c-40c6-8134-aee6b8adeea6
+          PVT_SQUARE_FOOTAGE: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+          STG_EBS_PROJECTS: de051b7d-7e75-4c8e-816a-91e6105fc49c
           STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
         customSQL:
           customSQL: ""
@@ -405,12 +448,16 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_PROJECTS_MAX_REVENUE_BUDGET
           - locationName: USG_STG_ORACLE_EBS
+            nodeName: PVT_SQUARE_FOOTAGE
+          - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_PROJECTS
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PROJECTS') }} "STG_EBS_PROJECTS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS_MAX_REVENUE_BUDGET') }} "STG_PROJECTS_MAX_REVENUE_BUDGET"
                 ON "STG_EBS_PROJECTS"."PROJECT_ID" = "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'PVT_SQUARE_FOOTAGE') }} "PVT_SQUARE_FOOTAGE"
+            ON "STG_EBS_PROJECTS"."PROJECT_NUMBER" = "PVT_SQUARE_FOOTAGE"."PROJECT_NUMBER"::VARCHAR
         name: STG_PROJECTS
         noLinkRefs: []
   name: STG_PROJECTS
