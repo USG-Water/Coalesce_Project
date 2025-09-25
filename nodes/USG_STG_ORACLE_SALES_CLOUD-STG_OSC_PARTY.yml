@@ -61,6 +61,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: c1f00d29-ae87-499f-a95c-9d4713362907
+          stepCounter: f0dd1ee6-0544-4b22-ae19-fef319af78db
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALES_ACCOUNT_OWNER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c745cfa-95f6-4cc1-a642-d7720fc65890
+                stepCounter: f152dcb0-81c0-4f3b-b38e-942e7b486b53
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 339c9490-2d0b-4b13-985a-c101a90c91dd
           stepCounter: f0dd1ee6-0544-4b22-ae19-fef319af78db
         config: {}
@@ -490,14 +504,19 @@ operation:
     sourceMapping:
       - aliases:
           PARTY_EXTRACT_PVO: b1e8529b-d8ed-4833-a55f-83e187e4a072
+          STG_OSC_SALES_ACCOUNT_CUSTOMER: f152dcb0-81c0-4f3b-b38e-942e7b486b53
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_RAW_ORACLE_SC_HZBICCEXTRACT
             nodeName: PARTY_EXTRACT_PVO
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_SALES_ACCOUNT_CUSTOMER
         join:
           joinCondition: |-
             FROM {{ ref('USG_RAW_ORACLE_SC_HZBICCEXTRACT', 'PARTY_EXTRACT_PVO') }} "PARTY_EXTRACT_PVO"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_SALES_ACCOUNT_CUSTOMER') }} "STG_OSC_SALES_ACCOUNT_CUSTOMER"
+                ON "PARTY_EXTRACT_PVO"."SALES_ACCOUNT_ID" = "STG_OSC_SALES_ACCOUNT_CUSTOMER"."SALES_ACCOUNT_ID"
             WHERE "PARTY_EXTRACT_PVO"."_FIVETRAN_DELETED" = FALSE
             
             -- Uncomment to remove internal and inactive parties

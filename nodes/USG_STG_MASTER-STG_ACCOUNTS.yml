@@ -31,6 +31,27 @@ operation:
               - columnCounter: 53fa8969-0028-48da-8788-d18858d99786
                 stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec52f943-7d45-43da-b3ce-c1e393d90f4b
+          stepCounter: e06a4544-2840-4718-ad43-831b10421819
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 380fc34a-655e-4342-8c60-d6f19e9d5151
+                stepCounter: 76a88ce6-53a8-431d-8e3f-a03e60f827c9
+            transform: |-
+              MAX_BY(
+                  "STG_ACCOUNT_KEYS"."ACCOUNT_OWNER",
+                  CASE 
+                      WHEN "STG_ACCOUNT_KEYS"."ACCOUNT_OWNER" IS NOT NULL 
+                      THEN "STG_ACCOUNT_KEYS"."LAST_UPDATE" 
+                  END
+              )
       - acceptedValues:
           strictMatch: true
           values: []

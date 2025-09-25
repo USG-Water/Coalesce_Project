@@ -33,6 +33,27 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: a446c85c-d0cd-40ac-9199-ead3340afb30
+          stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTACT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47187bd4-06d9-4440-9bad-a5bac3f4ca2a
+                stepCounter: 610787cd-c11d-464f-b8cb-4b8145ee35ed
+            transform: |-
+              MAX_BY(
+                  "STG_CONTACT_KEYS"."CONTACT_OWNER",
+                  CASE 
+                      WHEN "STG_CONTACT_KEYS"."CONTACT_OWNER" IS NOT NULL 
+                      THEN "STG_CONTACT_KEYS"."LAST_UPDATE" 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: a1a8bf7c-a53a-4029-a774-f078eabdd12b
           stepCounter: d2598e7d-86ed-44b1-a733-e6dc36688569
         config: {}
