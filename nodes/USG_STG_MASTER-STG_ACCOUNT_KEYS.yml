@@ -30,8 +30,8 @@ operation:
           - columnReferences: []
             transform: |-
               CASE
-                  WHEN "STG_MERGE_ACCOUNT".NAME IS NOT NULL THEN MD5("STG_MERGE_ACCOUNT".NAME)
-                  ELSE MD5(COALESCE("STG_MERGE_ACCOUNT"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_ACCOUNT"."HUBSPOT_COMPANY_ID"::VARCHAR, '') || '|' || COALESCE("STG_MERGE_ACCOUNT"."EBS_CUSTOMER_ID"::VARCHAR, ''))
+                  WHEN "STG_ACCOUNT_CLEAN".NAME IS NOT NULL THEN MD5("STG_ACCOUNT_CLEAN".NAME)
+                  ELSE MD5(COALESCE("STG_ACCOUNT_CLEAN"."OSC_PARTY_ID"::VARCHAR, '') || '|' || COALESCE("STG_ACCOUNT_CLEAN"."HUBSPOT_COMPANY_ID"::VARCHAR, '') || '|' || COALESCE("STG_ACCOUNT_CLEAN"."EBS_CUSTOMER_ID"::VARCHAR, ''))
               END
       - appliedColumnTests: {}
         columnReference:
@@ -44,8 +44,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 362cbe01-21d9-4d06-ae80-85452683ac39
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: 3ec9d2d8-7455-462d-bfef-2a7ef74f9843
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -58,8 +58,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: cf8aff69-83ca-40f7-bdd8-d14d8b0929e3
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: dd4aa9f7-9c27-4cd7-a03c-b577cfe2fe8a
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -72,8 +72,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f345bcaa-4a6e-4e92-a902-0ae31dd4284e
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: 1e4340f3-e8cd-4cf5-9000-49554b7a80d5
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -86,8 +86,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 6cd5cfc4-3fca-49d9-af8d-7066777861c5
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: 2fcfff21-55b6-4068-bf2c-44ad20429c3e
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -100,8 +100,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 82189f6a-d649-4c65-ac07-37250d6425eb
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: ca0c8e2f-ede5-4939-890f-598db7592e74
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -114,8 +114,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8839b666-da5f-45c6-a56a-824a12f31d6d
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: b3186f80-e85e-45ef-a175-74763fd6c09f
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -128,8 +128,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: eb12d115-b51f-4d32-9663-724b9fa7fe6b
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: be819269-88aa-40e5-926b-38477af74564
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -142,8 +142,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 53e9b076-1113-4a8c-adbf-907e8104c285
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: 6402dfd3-2640-4ae2-af49-ed52ecce3938
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -156,8 +156,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 260babf5-b14c-45a7-870c-89ab9fe0eae9
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: a4fa10c6-1c81-4325-adb3-9f3f948e61c5
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -170,21 +170,21 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4aa2028c-0265-4046-b7ea-35a44ff6c8f5
-                stepCounter: 3af125b2-fd19-4626-91c5-83491903aba0
+              - columnCounter: 7b31df83-2f6a-447b-ae30-6410af3fb8e0
+                stepCounter: 001f59ff-a436-483a-8ea6-aa1044fa9202
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_MERGE_ACCOUNT: 3af125b2-fd19-4626-91c5-83491903aba0
+          STG_ACCOUNT_CLEAN: 001f59ff-a436-483a-8ea6-aa1044fa9202
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
-            nodeName: STG_MERGE_ACCOUNT
+            nodeName: STG_ACCOUNT_CLEAN
         join:
-          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_MERGE_ACCOUNT') }} "STG_MERGE_ACCOUNT"
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_ACCOUNT_CLEAN') }} "STG_ACCOUNT_CLEAN"
         name: STG_ACCOUNT_KEYS
         noLinkRefs: []
   name: STG_ACCOUNT_KEYS
