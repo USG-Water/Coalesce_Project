@@ -1,0 +1,676 @@
+fileVersion: 1
+id: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+name: DIM_CUSTOMER_TRANSACTION_TYPES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Stores information about each transaction type used for invoices, bills receivable, and credit memos.
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dca9bb31-2ab9-4367-bd06-b3ae76b6b1e3
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_CUSTOMER_TRANSACTION_TYPES_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ab1e058-19f3-4b78-9cdf-be6bb991111f
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Transaction type identifier.
+        isBusinessKey: true
+        name: CUST_TRX_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 458e4d78-e4bd-4110-ad48-db44b04084d1
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61841700-4e5f-4f87-a0db-d532b5736caa
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Indicates the identifier of the business unit associated to the row.
+        name: ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ade24ee9-52ee-4c6f-8b7a-f56ed235272e
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d362eff5-6ba1-4426-abbd-b62e88e9bd67
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Default legal entity assigned to transactions using this transaction type.
+        name: LEGAL_ENTITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b293c76e-4291-4b18-a091-17251dc70e18
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b44a29d3-5745-42e5-9102-df3e1cd17c99
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Transaction type identifier of subsequent credit memos.
+        name: CREDIT_MEMO_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22ceefcd-04f9-4fce-8186-10549655becc
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0d9e745-ce3a-4096-8b55-277b96a0461f
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(20)
+        description: Transaction type name.
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e700402-d6d2-4920-9824-8e355eb94595
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a336a7a3-bbee-4616-b60c-4c73deb4cf17
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: Transaction type status flag. Lookup code for CODE_STATUS.
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9171a92-cee6-464e-9ae2-f0638951a49d
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ce85c66-6fc6-460d-9abc-f5c514e3de72
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(20)
+        description: Transaction class, such as INV, CM, DM, or CB.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b279b31d-d0bf-4562-853e-f077f164e2fb
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d757530-f6b8-43ab-b745-d89cdb54e74d
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ZD_EDITION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b54ab782-7a1d-4987-a5ab-a5a642051577
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5146cd89-b224-4e9f-90aa-09b4b68efdc1
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_CLEARING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e635794-839c-4941-bae8-379cb87b8515
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b901f3cf-1c31-4865-9b08-851f04720ca5
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: Status to default for invoices of this type.
+        name: DEFAULT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a227979-5152-4205-a57f-558f4906288d
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 989a9735-94fa-48ec-9769-d51a4864be95
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_REC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9bcdb0ca-c5e0-4f78-8bc4-0f60dcbab200
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4acd11ab-72c9-4fbf-9515-d42dd06c6247
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_UNBILLED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6cd780d2-439d-45b8-bdf1-1754b1106a06
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c166b81d-cc85-4556-9a9a-db267b9ca09b
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: Determines allowable signs for transactions.
+        name: CREATION_SIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2b604ca-aa7c-44ec-9e8e-b971e42d334b
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16343aec-9857-4294-888f-6b82ba36c6b7
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if tax is allowed on transactions. Y for yes, N otherwise.
+        name: TAX_CALCULATION_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96255d08-fb10-4ef9-b37b-853c5e157f2d
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ddf8e54-b347-4ba9-a143-9912f9fb0024
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_REV
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba5c4cc6-3db9-4c72-8336-1fb84ecee065
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2aefe03-40f0-4fcb-9c4f-62359bf6cfc8
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: Control if late charge can be assessed.
+        name: EXCLUDE_FROM_LATE_CHARGES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61d46a03-18fe-4c5a-9214-ce2485a577a3
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0077664a-dc82-4f8a-88f0-d56e0a27130d
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_TAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6cb2b9b1-0545-484f-b2d6-ac599102e014
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebcf3c2d-1646-490e-b66d-45b49a0ed537
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SET_OF_BOOKS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7bbc127-1d00-4f5e-be41-35e1fb53adb2
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d6e1150-ad3e-48c7-a7b9-082f64cc9645
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if transactions should be posted to the General Ledger. Y for yes, N otherwise.
+        name: POST_TO_GL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f6c86f7-5b72-4835-a982-6cc26ace6f42
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b56c79e6-a7c7-458d-9198-23094ae3923d
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ZD_SYNC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b778cdba-215a-4e9f-94f4-8de6e7135c50
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2a128d0-dcd7-41bb-8a21-a8f36589f0af
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_UNEARNED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8de682f9-b562-4a59-9895-37dc5f1de00d
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1ed33c6-3a0d-4662-a1e7-bbd085e6a49f
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(20)
+        description: Printing option to default for invoices of this type.
+        name: DEFAULT_PRINTING_OPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 484b9404-7888-485a-8b11-966b313e7960
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43a480af-8b0d-4fa3-ae4b-7101ba394415
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: ADJ_POST_TO_GL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fba959e2-52ce-44b3-81ed-f1d35445e86b
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46b5f252-e303-42ea-8d88-e1ac802952b9
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(80)
+        description: Transaction type description.
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26e49822-3bcd-4ec0-b4af-2e97425a99c4
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49627139-6b00-465f-b46d-e0b30ba780fd
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Term to default for invoices of this type.
+        name: DEFAULT_TERM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 886114cd-b82f-4c36-bde5-13e399d149cd
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6db8a974-cca9-4b1a-a624-be1d12f3f73e
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GL_ID_FREIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ecf8f21-6ca7-4096-9f86-9a402a609afc
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 374da704-eb46-4637-9ee1-e2d650a51dfc
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER(1,0)
+        description: Application rule set ID for this transaction type.
+        name: RULE_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3efa711f-313e-4034-b444-b8e5dc8666a7
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faf3693b-b1a3-4086-aaaf-dce8a3cd603d
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if the drawee needs to accept the bills receivable. Y if acceptance is required, N otherwise.
+        name: SIGNED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0339e2a-8cb4-4173-b176-ac3dbf4c122c
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5726708a-0d9f-416f-8801-1ac6dea165ff
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates whether or not the drawee issues the bills receivable. If issued by the drawee, the value is Y, otherwise N.
+        name: DRAWEE_ISSUED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bacb9512-f213-45b0-a824-9dd9899d2cf1
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca61af5a-7214-492a-acdb-2b3e4d70d7e7
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if transactions affect open receivable balances. Y for yes, N otherwise.
+        name: ACCOUNTING_AFFECT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e074c78-ec6e-4f91-a315-3e70c8bd8fc6
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2949c437-00c1-4688-9619-241c5fd6a9e2
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if applications can exceed the transaction amount. Y for yes, N otherwise.
+        name: ALLOW_OVERAPPLICATION_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 436669ac-86ff-4021-89d1-a0456e58a959
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4da6fb6c-0d32-4811-aba6-85650e681d9e
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if freight is allowed with the transaction. Y for yes, N otherwise.
+        name: ALLOW_FREIGHT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b8896881-a00e-4b88-8bae-aa240eda522e
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abfe979e-2a06-4c06-861f-5d1d23e93e7b
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if you want to restrict the direction in which items with this transaction type can be updated by applications entered against them. Y for yes, N otherwise.
+        name: NATURAL_APPLICATION_ONLY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a52dca46-3d14-47b7-846a-1b458e911a81
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a8b1437-0858-40f4-9642-f2d56d3dbd29
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: DATE
+        description: Transaction type start date.
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb3f27a7-858d-4bf5-a863-06463748b1e5
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3191ac0-4c3a-47a6-b362-61a5a5eb6731
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: DATE
+        description: Transaction type end date.
+        name: END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 70f15d86-1cbd-4c54-9116-fe1719c7b8f7
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4cb141b-e096-46cd-a58c-9b974bb9e8ba
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Indicates the date and time of the creation of the row.
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2bb390d2-1e1c-4991-b94c-2e9457006719
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca60e5c3-ebf9-436f-bca6-21eb43bd9439
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Indicates the date and time of the last update of the row.
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3be973ed-b3f9-4a79-a82b-dc22cd9b2fd9
+                stepCounter: db82bc26-a5a2-4267-944d-d9a1f5e187df
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14946684-3e0f-4a6d-8f7a-d4d3ac231eb1
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a18eaf6c-6c6f-4403-a888-e7524122845a
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 729f414c-ef3a-4da8-a6c4-acd09efcaa6f
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb73fd59-ab6d-4074-92fb-5993b62990ad
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e2a2de1-cbcc-4c94-8179-fc257a5d30d2
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a4c3754-0250-400b-8be5-b606eeeb0344
+          stepCounter: 573bfce1-8f9f-4ded-9d47-d8fb705da3ad
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CUSTOMER_TRANSACTION_TYPES: db82bc26-a5a2-4267-944d-d9a1f5e187df
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_CUSTOMER_TRANSACTION_TYPES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_CUSTOMER_TRANSACTION_TYPES') }} "STG_CUSTOMER_TRANSACTION_TYPES"
+        name: DIM_CUSTOMER_TRANSACTION_TYPES
+        noLinkRefs: []
+  name: DIM_CUSTOMER_TRANSACTION_TYPES
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

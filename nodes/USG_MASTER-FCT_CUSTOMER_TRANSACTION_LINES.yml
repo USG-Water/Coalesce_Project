@@ -1,0 +1,1249 @@
+fileVersion: 1
+id: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+name: FCT_CUSTOMER_TRANSACTION_LINES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Stores line information about invoices, debit memos, credit memos, and bills receivable.
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e5e44be-7a8b-4201-b478-b425c0bb4b0b
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Transaction identifier.
+        name: CUSTOMER_TRX_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bea1dce-6910-497e-a65c-92325d8c0bce
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7cdcf1ba-03ac-41ff-aaca-731fac164342
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Transaction line identifier.
+        isBusinessKey: true
+        name: CUSTOMER_TRX_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c2be6b1-b372-4b85-9ce5-b5e3829fa06d
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f30e968b-e76b-4276-a408-e8b05c7817b0
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: Accounted original balance.
+        name: ACCTD_AMOUNT_DUE_ORIGINAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5be5554b-f326-43a8-83f8-76feffcc4cc4
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfb9af85-ee05-4a2a-854f-f54a20a9ec81
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: Accounted remaining balance.
+        name: ACCTD_AMOUNT_DUE_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b39ff77-3f0a-4090-b006-71d598efdcb3
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5193688a-ae56-48a8-ab4c-28b840dcee58
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: Original balance.
+        name: AMOUNT_DUE_ORIGINAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b133eef0-df98-4a81-80b1-ff9a6022c3f6
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8753d305-bfb4-42b6-a114-c5386ec2aa66
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: Remaining balance.
+        name: AMOUNT_DUE_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63d419e3-3676-447b-9385-948c3a270761
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2bc9ae30-3120-4707-82dd-5152258e24b1
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Yes or No flag that indicates if the tax is inclusive or exclusive. Yes (Y) indicates tax is inclusive, No (N) indicates tax is exclusive, and NULL for lines indicates that you cannot override tax or tax group. The value cannot be NULL for tax types.
+        name: AMOUNT_INCLUDES_TAX_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1b489a4-e4f5-4d14-a26e-5e9ecce37ebf
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4cfb7173-25a2-498f-8dfb-5deab71ea77b
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if all account assignments have been created. Y for yes, N otherwise.
+        name: AUTORULE_COMPLETE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a026320-233f-4607-a391-d4d92d109e01
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a910027e-9558-447b-b223-75fd1db89b18
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if this tax line was generated automatically by the tax engine. Y for yes, N otherwise.
+        name: AUTOTAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2ee17747-94fc-41c7-96bc-ee33eaeae93d
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76f36c33-5efd-4bcf-96d8-49ca02530a18
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Accounted charges balance on revenue line.
+        name: CHRG_ACCTD_AMOUNT_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a2a182a-fa5b-4be6-b257-ff496334fba1
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2eec735-bbea-4138-abfb-4d50c227f2b1
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Charges balance on revenue line.
+        name: CHRG_AMOUNT_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b9315ec-3663-4114-903b-721269794532
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d55fa7e-fa38-4a10-9456-7957f57affcf
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Indicates the date and time of the creation of the row.
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62411ba0-c905-45e9-906f-0cc0783452f5
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 090533a7-afd9-4908-933f-4d3d74fc3f85
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Excludes line from automated revenue deferral.
+        name: DEFERRAL_EXCLUSION_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2da668ed-5937-4e3c-88e4-cc277684f590
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65c35f02-00e6-43fb-bead-4e6fd90490f1
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(240)
+        description: Line description.
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d2272b5-a806-49ec-bae1-5292d903a1ed
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 904e55ec-7099-428f-8e6a-a268f41f0656
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(9,2)
+        description: Transaction line amount
+        name: EXTENDED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 252826cb-bdbe-4748-9a7b-f419549448c3
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f10b9fd5-bbd5-4d71-a25b-4bda83f6162d
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Freight adjusted accounted amount on revenue line.
+        name: FRT_ADJ_ACCTD_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df99606a-5581-4db7-a78f-b51c4cef5e06
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6459ff2-5b3d-42f1-a386-83d7f3f7d788
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Freight adjusted amount on revenue line.
+        name: FRT_ADJ_REMAINING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4640f05-b5fd-46a3-ad24-60d2f6a9dbbc
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79c1a5f0-980a-486e-953b-47f3d8dfb2d8
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Earned accounted discount on freight assigned to the revenue line.
+        name: FRT_ED_ACCTD_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a7ad92c0-74cb-4527-a6f9-2de0051da5ab
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4755cf0-0f57-4185-b6e9-f96a6decab95
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Earned discount on freight assigned to the revenue line.
+        name: FRT_ED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d76c9ba-2819-40a5-8ee2-c83bf60e99c3
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2416f55d-234e-450e-a51c-6ee60689ef58
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Unearned accounted discount on freight assigned to the revenue line.
+        name: FRT_UNED_ACCTD_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f30ead3-6083-4b96-af8f-c64aa881ff90
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d72c5c-5185-42d0-be96-28c39919cffb
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Unearned discount on freight assigned to the revenue line.
+        name: FRT_UNED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ca994344-4e63-4a96-818b-47796117f6a6
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf841df6-da35-4be6-82af-63f01cabc033
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Amount gross of inclusive tax amounts
+        name: GROSS_EXTENDED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a9f80bb-5013-4446-b410-4ff11eb197df
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68b8cc9c-b7bc-44d8-895c-61c10abed493
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Unit selling price inclusive of tax amounts.
+        name: GROSS_UNIT_SELLING_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 244c7f94-4957-47ae-967d-385bcb253256
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abd34b16-6939-4566-a56d-69acc63694b9
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Yes, No, or NULL flag indicates if the transaction line exists prior to EBS release 12.
+        name: HISTORICAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 289c6698-9501-47cb-82d4-74dbf4e8d018
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88d96ffb-a41f-4aa7-b75d-845fb0305672
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05c27c0a-11ef-4858-aaab-fb331fea5121
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 264f45d6-9e26-400e-b6c6-7deacc3f2284
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE10
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 154b3e47-3e12-4439-a75f-acd8f6f1baf8
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83129c05-fcb0-4cea-9ee9-c63bf08fd123
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE11
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 504a8cc9-c0f3-4313-992b-7b47b4bd7acb
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ccb37e5-4b69-4a3c-8b32-5b0848fe5e82
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE12
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e99119d-6211-4aa4-974b-7b05eb3e431d
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f92b993-751a-4b2a-a893-1d4e7c6f19e2
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE13
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c639c50-70c9-4416-a470-4fc8e205d0b3
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fea4481-69a5-4f14-bd19-55a9acb9fdd8
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE14
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb0bb0ff-7a64-4945-9b7d-5686923efdf4
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d11fa171-8fd0-4c5d-a1a8-54fe8128d2fb
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fafdf641-9760-48f9-b1ee-af7735ddf053
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cac75c24-57ca-4563-b597-4041d50d7110
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f417cb55-e11c-4029-9ed6-47cffe122586
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38777f9e-86d1-4d3e-8caf-b2bc0c959559
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a0ca783-aed8-423c-9077-817baecc4b0b
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 444b2d24-f6fc-4a3d-86cd-cd780f4055bf
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48be436c-3234-42b6-92d5-58a2134c98f0
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27a4601c-8404-4dd6-ba1b-6a71c7c44b70
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e5846d14-9de4-4ac2-867d-b967ade87bd2
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 010be346-7f5f-4649-92aa-ff5eccd24960
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE7
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29f30b18-43b8-486d-9da6-8676f0392a85
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ba1303a-04dc-40f2-8f74-10536a1e2408
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE8
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1355c6d-3d22-42b7-8ed9-f4f94825aa66
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f245765c-adcd-4ae4-84e3-ac0309b79499
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: INTERFACE_LINE_ATTRIBUTE9
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b779ee8c-a256-4ada-8d9f-3c61b7afa783
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dca3f4ee-1d62-488e-9525-99ffa3a0d880
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: INTERFACE_LINE_CONTEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30226d53-00e2-4ed8-afd1-d8a83d8389fd
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 05db5233-dea4-48ed-ad53-eb2592d13770
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Inventory item identifier. Mutually exclusive with the column MEMO_LINE_ID.
+        name: INVENTORY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 530dfadf-f1a2-42f6-a335-2972e635a112
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8cf2deb9-ca79-4e7e-95a6-4474586154b5
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Indicates the date and time of the last update of the row.
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ee86b71-9fe2-4bab-81eb-fd9903cd1664
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba2210f-ebf7-4d8e-bec3-139257a96393
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(2,0)
+        description: Transaction line number.
+        name: LINE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d618e6f-924e-40d0-8b64-08da7198c17f
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e0e1a35-9cb7-4cf2-94a1-2525497cbb77
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(9,2)
+        description: Transaction line amount which is considered to be recoverable during tax calculation.
+        name: LINE_RECOVERABLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 676bb7d7-4722-4220-b214-990619893ded
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9969c342-d8d1-4108-9ad0-e0e24d49dfd6
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(20)
+        description: Receivables lookup code for STD_LINE_TYPE.
+        name: LINE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f69abbe-186d-41d4-9182-f14be7aac322
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 616cd848-9d31-4996-9454-94a52ff4ba28
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Link to transaction line identifier.
+        name: LINK_TO_CUST_TRX_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d404cd43-ebce-4f74-b174-1e754d417d07
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52baa573-bc34-41d1-abb7-73a219c28999
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: This column points to the record in the AR_LOCATION_VALUES table from which AutoAccounting derived the tax account for this line.
+        name: LOCATION_SEGMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e1bc481-b0e5-4509-b369-f87bc755d4a4
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1c99a3-4d02-4751-90ef-22889493c93d
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: MEMO_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef237caa-a1c5-4310-9bee-8cacb622cf6f
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce5c0747-34bd-466c-9629-0e6bddd16212
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Indicates the identifier of the business unit associated to the row.
+        name: ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b8582db-ddfc-4bb6-a9fe-b1ab6162401c
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b412f1f-8ad8-4b12-90a7-4df8dca35352
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies the prepayment application's payment set.
+        name: PAYMENT_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f472261b-ccf7-4dd6-a2ca-5aa94bc94696
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ced4245-d0e4-4fc3-995b-bd184e273259
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Credit memo's invoice identifier.
+        name: PREVIOUS_CUSTOMER_TRX_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce4d21f4-4136-46dc-b1f9-0cde6646dae1
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ef2d754-b2e6-44af-9228-ad062a66e532
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Credit memo line's invoice line identifier.
+        name: PREVIOUS_CUSTOMER_TRX_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3bded3f4-6e6d-424a-a958-e7af4df389e8
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1daec017-a4ca-428b-8d0f-f4382b3d3840
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Concurrent Program who column - application id of the program that last updated this row (foreign key to FND_APPLICATION.APPLICATION_ID).
+        name: PROGRAM_APPLICATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7727e3c-218e-486d-a271-9bafcbeaebc4
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70342f06-0a2a-4451-8687-5a514ad08844
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Concurrent Program who column - program id of the program that last updated this row (foreign key to FND_CONCURRENT_PROGRAM.CONCURRENT_PROGRAM_ID).
+        name: PROGRAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b294be7-4a59-428c-a1f7-468f13f1fd55
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a97440-97fe-4a5c-8ed6-d2576dc44dea
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Concurrent Program who column - date when a program last updated this row).
+        name: PROGRAM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82eb99b8-44d4-411f-889b-dab8ee35131d
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e787a24f-42a8-443f-adfd-a4e63527324b
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(256)
+        description: Quantity credited.
+        name: QUANTITY_CREDITED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b594fefc-bade-4b84-bd69-b4e5f1df259f
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c306e100-1597-4731-9d55-38f4a6eecac7
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(6,2)
+        description: Quantity of invoice line.
+        name: QUANTITY_INVOICED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f4ce0a0-0aa6-468e-9c03-3f815c3bd4c1
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d34b5db7-f76b-495e-8eb3-f243830d45c8
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: Quantity of an order.
+        name: QUANTITY_ORDERED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef396fe7-8da5-4584-aefb-5cd28ef177a7
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e4273cc-a8a6-470c-a71f-b558deb15734
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(30)
+        description: Transaction line reason code.
+        name: REASON_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63076500-8666-4100-99da-32154247899e
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7d1ca46-2f5f-4394-beb5-8ced1669357d
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: "Enterprise Service Scheduler: indicates the request ID of the job that created or last updated the row."
+        name: REQUEST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a2fd450-15e5-443e-88ad-16a86c086013
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faa06695-ad64-48e8-b09a-9341b80df2d2
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(9,2)
+        description: Transaction line revenue amount.
+        name: REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9625a523-f2ee-4a25-be75-da3c22b93244
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1a9fe3c-5953-4110-ba54-27e19660af54
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(50)
+        description: Sales order.
+        name: SALES_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52488da7-cb6c-4b20-b37a-22b533067dd2
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55044938-2a79-4731-ba73-76d5705378b7
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: DATE
+        description: Sales order date.
+        name: SALES_ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58499b24-4334-4b46-93d9-13392a91e05c
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0749919-422a-4a53-b358-b99990f4376f
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(30)
+        description: Sales order line
+        name: SALES_ORDER_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed653e10-43c2-4f85-8cbf-6a52a8f549f0
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94c2944b-5ac4-4be0-b858-76cb0a7b1e3b
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(50)
+        description: The source of the sales order
+        name: SALES_ORDER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3633529e-a786-4b3f-8284-66c420f49df6
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82849dd7-0f94-4828-9579-976eb4d03cd8
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Not currently used in the production release - replaced by location_segment_id
+        name: SALES_TAX_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: acc55861-eefc-4cee-8b61-2cfedd95dc7d
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb8425a3-187d-40d0-bc9d-62978b00a8f0
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies the ledger associated with the transaction line.
+        name: SET_OF_BOOKS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8436080c-b646-4d03-8547-72f232b3520c
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25048a64-8226-4695-9f92-690d04175415
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies ship-to contact or recipient
+        name: SHIP_TO_CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 210cea10-41e7-488b-867d-bd5354b2cb38
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 141748fc-77eb-49a9-b32e-23f9f218dcc8
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies ship-to customer
+        name: SHIP_TO_CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab1d88d1-74a7-4d6d-9a5c-b7ca8dc230e6
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6094188-0f94-4f66-ad70-157a445cec51
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies ship-to site
+        name: SHIP_TO_SITE_USE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9f7c8a0-6399-4572-ab06-83a37976796e
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8788d895-02c6-4a9f-9954-0f5ef37e5b50
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ec97fc7-e6ad-41f6-831e-4d06ddc43fc3
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a40b1289-47c8-4d26-97ef-b5c719b450ff
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: ""
+        name: TAXABLE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 654ef402-26f3-4ea3-9ef5-81afc196d7b6
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67a4a8f1-7b86-4c3d-bf5e-463ecb8268a7
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(50)
+        description: Tax determining attribute used at transaction line level.
+        name: TAX_CLASSIFICATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2c23582-5deb-4952-8ed7-ca741efca503
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a71aca5-1a2a-4655-9294-55644ee5a0d5
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Tax exemption identifier.
+        name: TAX_EXEMPTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97424f74-b8ab-4598-a474-db07cfa67b14
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a75f3ba-a21a-4b5c-9e54-6e8f96dca2fc
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(1)
+        description: Tax Lines are controlled by the lookup (TAX_CONTROL_FLAG), which allows for standard tax, exempt tax, and required tax.
+        name: TAX_EXEMPT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82efd320-1e68-45be-892f-6b67baa48f07
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46b86aaf-4796-409a-a84b-f4bf384a0695
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(80)
+        description: Exemption certificate number for item lines that have TAX_EXEMPT_FLAG set to E for exempt
+        name: TAX_EXEMPT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19cf737a-43bb-4f1b-9904-bc5ff7a37b65
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52844d9f-bb16-414e-bf0b-24896a4f6e83
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(30)
+        description: Tax Exempt Reason, for item lines that have tax_exempt_flag set to "E" (exempt)
+        name: TAX_EXEMPT_REASON_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbe7b216-b1cf-4fdf-a442-21d5e8620bc5
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90a7345a-8846-4143-b5f5-1627870b094a
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifies the detail tax line in ZX_LINES table that corresponds to this tax line.
+        name: TAX_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22538030-75d6-4b2e-a995-ee1f16215921
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6dbb5aa-5d2a-4d13-a0c2-261204fccfd4
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(22,4)
+        description: Tax rate for a line.
+        name: TAX_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 699ab492-f89d-4b6b-ac5e-e7b76bb9ee35
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b61103fe-84a2-4709-8e13-ac386188b7ab
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(20,2)
+        description: Total tax recovery amount used for tax calculations.
+        name: TAX_RECOVERABLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a16351f-8d5b-4067-9961-56944a095d5a
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c0ca5d0-295d-4d32-a3fa-16b4a7b67972
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(30)
+        description: Warning code returned during vendor calculation of a sales tax rate, used for diagnostics and support.
+        name: TAX_VENDOR_RETURN_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e90f7db8-a6e1-4c3f-aded-3e601c2e7987
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 254419ef-dc87-4d16-8934-e60a9b63173e
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(12,5)
+        description: Selling price per unit for a transaction line.
+        name: UNIT_SELLING_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 201c60ac-4f86-4f88-8fe7-845c077db1a0
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c81c345b-ecb4-482f-a369-0de1d95e92e1
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(18,0)
+        description: List price per unit. Price is gross of inclusive taxes. There is no separate gross standard price.
+        name: UNIT_STANDARD_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1574728d-e4f6-435e-80f8-d523f4851229
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a304565-fdf8-4ef5-b40f-21545d77d74f
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: VARCHAR(3)
+        description: Unit of measure code.
+        name: UOM_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7ebf6b5a-302c-484f-a48a-b8443e19d0dc
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d449b2d7-17e8-4889-af53-d04a483b0247
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Unique identifier for AR_VAT_TAX.
+        name: VAT_TAX_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ec833913-866f-4490-9a32-c6b1530ea16e
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de04fb2f-2c09-4abc-9878-cfed98f71623
+          stepCounter: 08d94357-ffa3-4d7d-8d60-22cb5dab8231
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Foreign key to the HR_ORGANIZATIONS table. The warehouse identifies the ship-from location and can be used to control taxation. Within the US, the Warehouse ID is important when calculating tax on the origin/modified origin state sales tax. Outside the US you can use tax groups and conditions to build a schedule of multiple conditional taxes based on both the ship-from and ship-to county/county/state or provinces.
+        name: WAREHOUSE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe14c442-c20e-459a-a624-98d67ddd73d7
+                stepCounter: fa153eeb-48a1-4a99-87d5-673ca20063b2
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CUSTOMER_TRANSACTION_LINES: fa153eeb-48a1-4a99-87d5-673ca20063b2
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_CUSTOMER_TRANSACTION_LINES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_CUSTOMER_TRANSACTION_LINES') }} "STG_CUSTOMER_TRANSACTION_LINES"
+        name: FCT_CUSTOMER_TRANSACTION_LINES
+        noLinkRefs: []
+  name: FCT_CUSTOMER_TRANSACTION_LINES
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
