@@ -301,21 +301,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_OSC_LOCATION: bcd98b5e-be38-4635-967b-89574c0c5ec0
           STG_OSC_PARTY: f0dd1ee6-0544-4b22-ae19-fef319af78db
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_ORACLE_SALES_CLOUD
-            nodeName: STG_OSC_LOCATION
-          - locationName: USG_STG_ORACLE_SALES_CLOUD
             nodeName: STG_OSC_PARTY
         join:
-          joinCondition: |-
-            FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY') }} "STG_OSC_PARTY"
-            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_LOCATION') }} "STG_OSC_LOCATION"
-                ON "STG_OSC_PARTY"."LOCATION_ID" = "STG_OSC_LOCATION"."LOCATION_ID"
-            WHERE "STG_OSC_PARTY"."PARTY_TYPE" = 'ORGANIZATION'
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY') }} "STG_OSC_PARTY"
         name: STG_OSC_ACCOUNT
         noLinkRefs: []
   name: STG_OSC_ACCOUNT

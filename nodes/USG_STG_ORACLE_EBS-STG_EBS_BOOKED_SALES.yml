@@ -1,0 +1,224 @@
+fileVersion: 1
+id: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+name: STG_EBS_BOOKED_SALES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d763892c-7767-4196-8ee8-69b50cd68f54
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 259d3790-d2c0-4623-9fdc-581600d18884
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5d1f9cb-f1ee-4580-9d15-326e02033b90
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(7,0)
+        description: ""
+        name: BOOKED_SALES_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f85390d-2f90-4a11-bcb1-d775e9f4b375
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ab44926-953f-4db6-ba66-4e4d86f5ff1f
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(6,0)
+        description: ""
+        name: QUOTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f106cfb6-d749-4aa4-b597-2e30142ca58b
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da7370cc-f5ef-4713-8429-f8c01ff4e1ac
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 521bf813-4a8f-422f-89ee-6da63cfdcdeb
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6901adbd-de74-4d93-8b8b-627cd720de41
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8a03cf7-4bed-4d0b-a6a6-bda28aef4ec1
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95aac15b-ff83-435c-ad97-36582bb08bd9
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9aca098-e39f-47eb-9c06-e73f0b09246a
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c0920a3-0d2c-438e-b7c4-a4b3b8f05a7d
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c190c513-41d2-4999-8bc8-21ff98650dfc
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8275053-2f2a-4824-b914-3cd6f407822f
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d79f0da8-76e2-49ae-8078-3adbedd7c1e0
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f711c536-85c6-440a-a73d-f31d52a0f4bd
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        name: ESTIMATED_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 679d2c48-83ab-4ec7-af49-f19065b1ccf6
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad59ea13-b91d-4554-a8e9-8761a0e68abb
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: ESTIMATED_SERVICE_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66c95ece-15e5-47ff-beda-6d6dd720a510
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01d04754-cafc-4fd8-a256-288cf2d06864
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: LOCK_RECORD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65613c0a-ed2c-484d-97f3-6529369c66bb
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: COALESCE("USCI_AMG_BOOKED_SALES"."LOCK_RECORD_FLAG", '') = 'Y'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cee9d17f-3912-4e58-9ee9-ee6e28bca696
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93cbadcd-89f4-4ff1-a9f0-73a0595432ff
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58ae96d9-4e25-44d2-9b9c-70d9df6e6b30
+          stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c6f17f6-c97d-4d39-a2fc-c4b9e9b6245e
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          USCI_AMG_BOOKED_SALES: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS_CUSTOM
+            nodeName: USCI_AMG_BOOKED_SALES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_ORACLE_EBS_CUSTOM', 'USCI_AMG_BOOKED_SALES') }} "USCI_AMG_BOOKED_SALES"
+            WHERE "USCI_AMG_BOOKED_SALES"."_FIVETRAN_DELETED" = FALSE
+        name: STG_EBS_BOOKED_SALES
+        noLinkRefs: []
+  name: STG_EBS_BOOKED_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

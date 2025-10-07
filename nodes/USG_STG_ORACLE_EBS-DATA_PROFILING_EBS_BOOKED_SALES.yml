@@ -1,0 +1,393 @@
+fileVersion: 1
+id: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+name: DATA_PROFILING_EBS_BOOKED_SALES
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d02b85d-308c-4123-8f48-bf4bb9f08549
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(7,0)
+        description: ""
+        name: BOOKED_SALES_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f85390d-2f90-4a11-bcb1-d775e9f4b375
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2914aaa6-3d70-4b86-9e84-218e172d4661
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(150)
+        description: ""
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72a69d0d-9537-4022-961e-04f32a30706f
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d558a985-08b6-46df-9667-98d9ad2bea12
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(150)
+        description: ""
+        name: LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 285babf5-923b-4274-b7f0-e0173bec05f0
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f273030f-4fe0-48e1-807e-d6aa47d7ed7b
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(50)
+        description: ""
+        name: TASK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 521bf813-4a8f-422f-89ee-6da63cfdcdeb
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9fd6d83b-20dd-4eb9-a155-62c0f444535a
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93cbadcd-89f4-4ff1-a9f0-73a0595432ff
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da5476d7-e178-4ff4-bc49-13f0ee322e85
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9aca098-e39f-47eb-9c06-e73f0b09246a
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c66096f7-4dd0-4d46-b7c1-32f6ee008593
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(12,2)
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d79f0da8-76e2-49ae-8078-3adbedd7c1e0
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 10bec869-2fe4-4794-ae55-f99563632150
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c6f17f6-c97d-4d39-a2fc-c4b9e9b6245e
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35c68ce9-f272-4d38-8c84-69fef137e29d
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(13,3)
+        description: ""
+        name: ESTIMATED_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 679d2c48-83ab-4ec7-af49-f19065b1ccf6
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 407e3d50-c421-4a6c-9db9-eb81ee699bbb
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(50)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8a03cf7-4bed-4d0b-a6a6-bda28aef4ec1
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ff30e79-3711-4baf-9c98-d71ff568c0ac
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: PRODUCT_DETAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3f7514d-ed21-45a1-a857-5e139fb1bb29
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c54365-8f62-40c0-817b-36ff150cec58
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(1)
+        description: ""
+        name: LOCK_RECORD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65613c0a-ed2c-484d-97f3-6529369c66bb
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b309a00d-d570-4600-9a3b-1cd8be9d4def
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c190c513-41d2-4999-8bc8-21ff98650dfc
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f3ea0fe-e1bd-41a8-bf60-ba899154be78
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(1,0)
+        description: ""
+        name: ESTIMATED_SERVICE_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66c95ece-15e5-47ff-beda-6d6dd720a510
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bf88254-9e55-4c23-9330-fd88c36d7a31
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(6,0)
+        description: ""
+        name: QUOTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f106cfb6-d749-4aa4-b597-2e30142ca58b
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25c7927c-6a6b-4331-a06d-cf43aec87970
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae3485a0-1d8c-4a6d-a4cf-a51c499f3b96
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6c56e8b-7cbe-44ad-bbef-84f50e53677a
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dcce3487-5a1d-4b51-aad9-387877a394c8
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3fb1b6b8-877d-47ab-aafb-b55c369af606
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(18,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 259d3790-d2c0-4623-9fdc-581600d18884
+                stepCounter: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 624037e2-3e74-4be8-9245-8a836d4c4002
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b434c7c-4808-4568-b744-782a3672558a
+          stepCounter: 35d49bd5-e3c5-4798-8ec7-5a2c2cc4ad9c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          USCI_AMG_BOOKED_SALES: f3ab1799-57ed-40ab-ae53-9b0ff37934c0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS_CUSTOM
+            nodeName: USCI_AMG_BOOKED_SALES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS_CUSTOM', 'USCI_AMG_BOOKED_SALES') }} "USCI_AMG_BOOKED_SALES"
+        name: DATA_PROFILING_EBS_BOOKED_SALES
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_BOOKED_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

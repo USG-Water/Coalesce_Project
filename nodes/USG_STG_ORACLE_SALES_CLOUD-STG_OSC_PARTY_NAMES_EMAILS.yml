@@ -1,0 +1,68 @@
+fileVersion: 1
+id: d4c0feca-b4c3-4bb8-8518-859392e74f59
+name: STG_OSC_PARTY_NAMES_EMAILS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Data Dictionary: https://docs.oracle.com/en/cloud/saas/sales/oadcx/PartyExtractPVO.html"
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a11c2c46-3840-4a23-aa24-01bf9f31cfe2
+          stepCounter: d4c0feca-b4c3-4bb8-8518-859392e74f59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PARTY_UNIQUE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32b4baf-ae4b-4ea1-b7d1-443f11cb2c2b
+                stepCounter: f0dd1ee6-0544-4b22-ae19-fef319af78db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c40a7889-05a4-4c92-b046-1ef26431c6ea
+          stepCounter: d4c0feca-b4c3-4bb8-8518-859392e74f59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbffd869-3fc3-4a98-8fa9-67e11d45dda1
+                stepCounter: f0dd1ee6-0544-4b22-ae19-fef319af78db
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OSC_PARTY: f0dd1ee6-0544-4b22-ae19-fef319af78db
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_PARTY
+        join:
+          joinCondition: FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY') }} "STG_OSC_PARTY"
+        name: STG_OSC_PARTY_NAMES_EMAILS
+        noLinkRefs: []
+  name: STG_OSC_PARTY_NAMES_EMAILS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

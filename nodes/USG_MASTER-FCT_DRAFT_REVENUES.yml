@@ -1,5 +1,5 @@
 fileVersion: 1
-id: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+id: 1f7e7c61-3be5-4027-adf2-6329916152f0
 name: FCT_DRAFT_REVENUES
 operation:
   config:
@@ -17,22 +17,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7e475157-e917-4662-81a9-2e578f4ce1ea
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
-        config: {}
-        dataType: VARCHAR
-        description: Concatentation for PowerBI to build relationship with FCT_DRAFT_REVENUE_ITEMS
-        name: DRAFT_REVENUE_ITEM_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 509d391c-790f-4932-a41d-bf49e40d6c21
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
-            transform: CONCAT("STG_DRAFT_REVENUES"."PROJECT_ID", '|', "STG_DRAFT_REVENUES"."DRAFT_REVENUE_NUM")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: dc47b9b4-8225-4301-84ac-379273e0b7e4
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 64260412-c732-4330-840f-70fc00c1dc63
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(38,0)
         description: The identifier of the project for which the revenue is generated.
@@ -41,13 +27,27 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 509d391c-790f-4932-a41d-bf49e40d6c21
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 299492e0-8dd9-4858-80f0-cfbabf153ee1
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 87c2edff-5314-4342-83fe-dee947c35110
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: c74902c9-1ed1-47cc-b04a-e50709a0cd6d
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the project for which the revenue is generated.
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b94ead4-21e6-4636-8280-3d4cc409f65c
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4abaa8ba-c49a-455f-9e11-7f20ccb9ade1
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(38,0)
         description: The sequential number that identifies the draft revenue within a project.
@@ -56,13 +56,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: d6d65b6b-feed-4158-a2a7-75c18b450a68
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 50010664-064f-4f7e-902c-94cd7f747356
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f492a736-7902-4c33-b006-b0b334696480
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 6996a8b9-7ae8-493a-94b7-0e8725d7d14d
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(38,0)
         description: The draft revenue number that is credited by this draft revenue.
@@ -70,13 +70,125 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 41da55f1-85e6-4a13-aafc-937d655c6cf2
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: b324aa44-d485-4353-85bc-0a494c25bdda
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a4236326-47d1-48ca-b53a-a2a40831c952
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 8ca371a7-ed2d-4e37-b2bb-dec59ba324f1
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The sequential number that identifies and orders the draft revenue item for a draft revenue.
+        name: LINE_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aed4dfb7-eca7-4aa4-9397-72acd6f22e47
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fcdcab2-16c1-44f2-aea3-a49367e73a74
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: VARCHAR(30)
+        description: The revenue category of the expenditure items grouped into the revenue line.
+        name: REVENUE_CATEGORY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23e5f58d-d26a-4917-a697-2fb1d95bff09
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 230add13-7d06-4f9f-bc1d-3f898b55391e
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: VARCHAR(30)
+        description: The source from which the revenue for the revenue line is generated.
+        name: REVENUE_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1654983b-2a50-4695-b860-db950d447b9b
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ba477f5-8000-4dd7-945d-710615687da6
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(15,2)
+        description: Revenue amount in the project currency. This is calculated by applying the conversion rules set up for project currency during revenue generation.
+        name: PROJECT_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d19b06ee-141e-474b-96f2-ac938141462a
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37c91939-a3d9-45b9-ba53-7ab0c66cdd15
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(15,2)
+        description: Revenue amount in the project functional currency. This is calculated by applying the conversion rules set up for project functional currency during invoice generation.
+        name: PROJFUNC_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 574a80e6-3c8c-4821-ad54-8d40483a6f73
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6b3ae74-80a8-432b-bbd7-6ca47667c32e
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(15,2)
+        description: Revenue amount in the funding currency. This is calculated by applying the conversion rules set up for funding currency during revenue generation.
+        name: FUNDING_REVENUE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c5e8e960-0a5e-4620-a8e1-1d69d084abac
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21098354-091d-4480-a23a-9fd4dbdf12b5
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(15,2)
+        description: Transaction Amount in Revenue Currency.
+        name: REVTRANS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59449acb-18bb-4c1b-a194-5531529380fe
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72288a08-06fc-4966-a2f3-42a64c100862
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: NUMBER(22,5)
+        description: The revenue amount accrued for the draft revenue item.
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dcaf5aa-f071-4e3f-93f1-fecc20ef4198
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b4a2f52-2312-48c3-9cef-b3eb20237190
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(22,5)
         description: The amount of unbilled receivables debit by the draft revenue.
@@ -84,13 +196,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8b2436ad-2e94-4a36-9c4f-1dc3637e0b23
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: f9ea0852-bfa3-4546-a69e-758bc3337650
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4833081a-9a6f-4a81-8c87-d03bd2fd5b57
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 6ada1016-8245-427d-93b5-1d491f3d3e70
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(22,5)
         description: The amount of unearned revenue credited by this draft revenue.
@@ -98,13 +210,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c5954beb-41b3-4f5f-a075-f618fe3da314
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 31a0071d-a466-4141-8f61-cc7044de055a
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 47c8f6b3-938b-4a09-9feb-0d57ae846ea1
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: c30d7d01-a685-4eea-9ffd-feafb7e68040
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(20,2)
         description: UBR debit amount in Revenue Transaction Currency.
@@ -112,13 +224,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 76ca5d8f-e4e6-4f89-858a-741366417e7d
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 16fc7af3-268b-4e28-ae43-898eec167b25
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 26c49d87-0b76-4961-a31d-aebd2213fc45
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 3dbb0170-e4c2-4ef5-91ad-8f3c1487aa15
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(20,2)
         description: UER credit amount in Revenue Transaction Currency.
@@ -126,13 +238,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 327c9dff-d794-4de8-aa3f-9eb1608d92c5
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 7470154b-ca9f-4b23-871e-eabfdd141b53
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 09df3d97-e889-40e0-a003-f4eb2f44e79c
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 161bd971-b2fd-417a-a0af-806b0dd0192a
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: NUMBER(7,4)
         description: The percentage of the total project revenue that the customer is funding on the draft revenue.
@@ -140,13 +252,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 7cffdf42-66e2-401d-a975-bbca5aecd7f8
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 89a66b0b-ebc4-4de7-8d55-db6a7d803f98
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e9038649-7003-479e-b3b3-3be78e1cc404
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 33aa3bd1-8354-4ae7-b376-bfb9337746b1
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(250)
         description: The reason why the draft revenue was rejected by the Transfer Revenue program or rejected by the General Ledger interface program, EZLink.
@@ -154,13 +266,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 18206077-e082-4eac-a11b-0394f4b0c3d4
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: da6ea956-9020-4f5f-afb1-5fbab41ba61c
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 59de6083-30bd-45a1-ab45-48182d0b5553
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 21ec7f06-8204-4e93-809c-658cdeb47ea8
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(30)
         description: The identifier of the GL je line in which the UBR amount is included when posted to GL. This value is a concatenation of the UBR ccid, draft revenue gl date, transfer request id separated by hyphens.
@@ -168,13 +280,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 799803f3-2151-4499-a8d3-f9fef2dec833
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 7c98ef47-de21-4ced-9a5d-3d10c2caa529
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 05c45390-55fa-4998-a47a-1854dba5a6c9
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 63849415-c3c0-489b-a54a-eb39bae10103
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(30)
         description: The identifier of the GL je line in which the UER amount is included when posted to GL. This value is a concatenation of UER ccid, draft revenue gl date, transfer request id separated by hyphens.
@@ -182,13 +294,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2131a9f6-b2fa-4344-bcea-6fe038acc7e5
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 11c4b087-73b8-49f5-bd81-1f44041cbfb5
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 36664f87-847a-49a7-a903-125270a940a3
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: c16ac071-8946-4686-9fa8-00cb554f9197
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: ""
@@ -196,13 +308,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 35489d8e-214f-431a-84bf-c8471635a50a
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 74fe6db9-78c2-4337-9bcb-e5eed415d455
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 69c8204a-1a8f-4971-bb9e-c341fd0197c9
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: eb8a90f9-bd2e-4b57-8ebb-5d2873746d17
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: Indicate that the event is an adjusting revenue event.
@@ -210,13 +322,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f39f7b0f-21d1-4861-9169-c430a4bb3e17
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 2a3e2484-294c-4abc-b723-0934a171be05
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 48f7c111-b8c6-4a1a-a18f-d9ec7c0ba400
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 41bb0f1b-42b7-4e94-bf7b-05c90711235b
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: Flag that indicates that an error was encountered during the Generate Draft Revenue program that caused the draft revenue to not be successfully generated.
@@ -224,13 +336,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: debc4a23-4d2f-4793-a510-af84ea54ea12
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: a370c498-94d7-434e-80ad-23284255d489
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b8e3bd7c-1f4d-444b-90a9-7f334880f93a
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 3c89ccdd-133e-4ed3-afb4-96e608adb81e
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: ""
@@ -238,13 +350,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: aed37c6b-3931-45ee-b711-3b0bf93aeccd
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 067d72eb-6f0c-47a4-8077-f9eb9a48f60c
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 80186a6e-bcb5-4aa4-8802-e1472701b95f
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 50a66846-b485-4d01-9dd3-e77c5f01d31a
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: Flag to indicate whether this cost distribution lines is resource accumulated or not. The cost distribution line may be accumulated in the current reporting period or future periods. In both cases the resource accum flag will be = 'Y'
@@ -252,13 +364,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e53da82c-fb36-40bf-aa3c-688da1433503
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 2478ce04-f313-4496-a3d4-8c7ba5c18a4b
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 5e78898d-96a5-4a30-8134-a09dfb933a80
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 7781e349-8b9c-4d9c-bc92-8e0f47c8e1c1
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: Flag indicating whether the revenue amounts of the draft revenue are included in the accumulator tables. (Obsolete in Version 4 with the new project summary amounts.)
@@ -266,13 +378,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 94899614-b132-4693-8cc0-5cb5ef4e68c8
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 04952b6c-55d0-4944-ad06-1f2d28a14d2f
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: c9eb563b-035f-4b04-bc0e-bfdaa3c3971e
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 02d7e012-dadb-4cd9-a85f-d9411c65848a
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(1)
         description: The status of the revenue as it is transferred to General Ledger.
@@ -280,13 +392,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2d524838-79dc-45cd-a598-3407af6b3a73
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 8c9014c4-0ee0-44de-85ae-a229b23b110b
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 2808919e-b9c9-4adf-8aaa-e697a025fd2d
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 0d277912-77a0-408a-bc68-0bf4b766f5ae
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(15)
         description: The PA period in which the revenue is posted.
@@ -294,13 +406,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 674f9986-89ee-41a4-b0c7-9730e43fd806
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: d83d0a0a-85fd-488a-8cb9-5b7700d32760
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 524398bd-07f6-42c7-bd24-4bbea3d860b1
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 15d59437-224a-4a2f-b0f6-00f75a1b6475
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: VARCHAR(15)
         description: The GL period in which the revenue is posted.
@@ -308,13 +420,27 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: ca21826a-0af7-481e-a6d3-163727e23786
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 4d510fb6-f783-4b00-bfc2-91dc55e12c2e
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4e36636b-8fe8-4fa3-9a91-710a8f7cdb93
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: ecdeb78e-754c-4757-b5fa-3cbd284fb9f2
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates if the task associated with the draft revenue row has a service request.
+        name: HAS_SERVICE_REQUEST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56e6d980-b197-4637-a205-1380cbbbba0b
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dbff13a9-8088-4252-8925-e4bf766cfb1b
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: DATE
         description: The end date of the PA period in which the revenue is generated. The PA period is the open or future PA period on or after the latest date of the expenditure item dates and the event completion dates included on the revenue.
@@ -322,13 +448,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c416347e-eef9-4a87-a363-94bbfbd9ffb1
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 4423a327-014a-44e3-b71b-6f91519fc865
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 990c3fe3-ee21-4e20-bcf2-4006bf703fe8
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: a8c303e1-dd91-4029-9b84-fbead12540df
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: DATE
         description: The end date of the GL accounting period to which to post the draft revenue transactions. The GL period is determined by the Transfer Revenue program from the first open or future GL period on or after the PA date of the draft revenue.
@@ -336,13 +462,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e4b6d06f-94a2-4ae7-8a9f-c5b62437b3e0
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: fb56dcdf-cda5-42a2-bf8c-62b2267e2f9c
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b87dfec2-ce4b-412b-a0af-482b42e699fc
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 7e764c58-63a8-452e-8dbe-9b302dba8e11
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         description: The date on which the draft revenue is released.
@@ -350,13 +476,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: ae95237e-0bc1-4292-8cff-f3ea66b7f833
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: c456c20b-1194-464c-acff-57eeb04d708e
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a59c083c-7fb8-48db-810e-6adeedc669d4
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 34ae7830-328e-4389-9ae7-4be51b6ad196
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         description: The date that the draft revenue was transferred to General Ledger.
@@ -364,13 +490,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2d5551df-867f-471f-bfc1-ba8eeffd1956
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: f4e29348-083d-4203-b2a7-c41dea7baa9f
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a3f29dcf-426c-4f38-a941-9ec3e318abd8
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 2148889e-3932-473a-a8ce-565af75e01c0
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: DATE
         description: The date through which to accrue revenue for the project. Expenditure items with item date and events with completion date on or before the accrue through date are included on a revenue. For cost-to-cost accrual, the item PA date is used.
@@ -378,44 +504,44 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: da514ea3-e676-4cdb-a140-70ba02e7865b
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 1232796e-f2fe-4e05-870b-7d2b5937db19
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0fecd87d-81f7-4255-a6e7-be9ca5a2fdbe
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 23ab513c-7c56-4947-a367-e37d58c7063b
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP_NTZ(9)
-        description: Date the row was created in EBS.
+        description: ""
         name: CREATION_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 6f03f9f4-d293-4e12-ba62-05bf050f0462
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: 8fa250b7-df91-49ec-bfe1-75c90b071d3b
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: bbd6d793-753d-4fce-a969-616c3038b681
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: f946f828-0d58-4eee-b0f6-9b5798c45603
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP_NTZ(9)
-        description: Date the row was last updated in EBS.
+        description: ""
         name: LAST_UPDATE_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: bb0c5b65-2ecf-45df-8063-bd93e2aef8df
-                stepCounter: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+              - columnCounter: dbad67db-a480-4507-91b0-bdb349ef4209
+                stepCounter: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
             transform: ""
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c9fc61b6-dd0f-4918-91d6-4ebaf96ebbe1
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: 71374dd2-1600-42f0-8fc4-818d7f3eceac
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -431,8 +557,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 89f3ae14-af1c-4729-a6b2-a5fba900cd60
-          stepCounter: ab9fd05c-d599-4a4a-8d67-951a9c163c36
+          columnCounter: ed726c69-3ea2-420d-a1c9-e0e88a0d6eee
+          stepCounter: 1f7e7c61-3be5-4027-adf2-6329916152f0
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -447,14 +573,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_DRAFT_REVENUES: 1b46e5a7-7c90-41e7-bc63-3a88bf197dd8
+          STG_DRAFT_REVENUES_COMBINED: 74bb5500-a5d8-4e51-a1d2-e085792cb43e
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
-            nodeName: STG_DRAFT_REVENUES
+            nodeName: STG_DRAFT_REVENUES_COMBINED
         join:
-          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_DRAFT_REVENUES') }} "STG_DRAFT_REVENUES"
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_DRAFT_REVENUES_COMBINED') }} "STG_DRAFT_REVENUES_COMBINED"
         name: FCT_DRAFT_REVENUES
         noLinkRefs: []
   name: FCT_DRAFT_REVENUES
