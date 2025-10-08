@@ -1,0 +1,68 @@
+fileVersion: 1
+id: eba5794a-cbae-49b8-88c7-a89b54878256
+name: STG_TANK_ASSESSMENT_NOTES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de504d49-f9db-4f77-8a47-516990399056
+          stepCounter: eba5794a-cbae-49b8-88c7-a89b54878256
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ASSESSMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b20107a-4860-4485-9286-ec13303702ac
+                stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da4b26b3-c026-4033-8ff6-94b3ec6d1033
+          stepCounter: eba5794a-cbae-49b8-88c7-a89b54878256
+        config: {}
+        dataType: VARCHAR(1024)
+        description: ""
+        name: ASSESSMENT_NOTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c09e893c-0d4a-44f5-b2a3-88a26e4c747c
+                stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SHAREPOINT_TAI_NOTES: 9d757824-fea9-4aa6-91f4-b3c523928a55
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_SHAREPOINT
+            nodeName: STG_SHAREPOINT_TAI_NOTES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_SHAREPOINT', 'STG_SHAREPOINT_TAI_NOTES') }} "STG_SHAREPOINT_TAI_NOTES"
+        name: STG_TANK_ASSESSMENT_NOTES
+        noLinkRefs: []
+  name: STG_TANK_ASSESSMENT_NOTES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

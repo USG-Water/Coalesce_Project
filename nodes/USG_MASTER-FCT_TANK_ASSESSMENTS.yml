@@ -1,0 +1,213 @@
+fileVersion: 1
+id: f5098286-3a5e-48c0-9b78-587b704c465e
+name: FCT_TANK_ASSESSMENTS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Question and answers from tank assessment index forms
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f535c6a-0a7f-4560-894a-f3083b5d55e4
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Identifier for the individual assessment.
+        name: ASSESSMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41766c1f-5b83-47e9-9f0a-8eb50ebf4f11
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cc70273c-061a-47aa-9d9f-4da3949693b2
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Identifier for the assessment and question.
+        isBusinessKey: true
+        name: ASSESSMENT_INDEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 98f0dff2-2ec5-4e8a-b716-9d808884db3b
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 021dddd2-b4b5-4f20-8b8a-74f183af3a03
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: User who filled out the form.
+        name: ASSESSMENT_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e658b62-6cd8-4557-87d3-b498bc264e20
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ad1369d-d665-4dc2-914d-e7a8a9d957f1
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Indicates the part of the tank being assessed.
+        name: INTERIOR_EXTERIOR_INTERIOR_DRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e689f9b-1528-43c3-9556-ae0c2e7768bb
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 720d75b7-8585-455d-83aa-d4eb9b788f94
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Question section of the assessment.
+        name: SECTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b3b0a1b-b923-4eb6-829f-910bf7d357ba
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 076e8cbf-4cb1-444d-9628-da26ee48de8d
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Specific inspection item or condition being evaluated.
+        name: TANK_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: acb2beeb-7540-4b62-8ede-c4bf11c4d5e8
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a01dc5f5-20e7-4134-914f-32459dbb3a24
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: VARCHAR(256)
+        description: Actual score given based on the observed condition.
+        name: QUESTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed626a12-f4c7-4064-9ea8-73ce9692022b
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60c3ff6a-3db8-4fbd-94cb-2265b439b274
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Maximum possible score for the question.
+        name: SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9518739-4e12-4f7f-bdab-490cd431ab06
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e90e4ad8-9210-4db1-ba08-b9309a7750ff
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: FLOAT
+        description: The maximum score that could be inputted.
+        name: MAX_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01203ecd-f108-4550-bb8b-ea43c248dc8c
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4670971c-e307-4532-a586-af64c0016eb6
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: Date the tank assessment form was filled out.
+        name: ASSESSMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f34e59ca-0884-43f2-a38b-c506ef0f16d0
+                stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fd97a7e-cc44-4ea7-a688-f5e504708e3f
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad653f59-ab1e-451d-8945-e72c47f47832
+          stepCounter: f5098286-3a5e-48c0-9b78-587b704c465e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TANK_ASSESSMENTS: 02ac953e-0373-40b5-81e6-f78a302fec88
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TANK_ASSESSMENTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TANK_ASSESSMENTS') }} "STG_TANK_ASSESSMENTS"
+        name: FCT_TANK_ASSESSMENTS
+        noLinkRefs: []
+  name: FCT_TANK_ASSESSMENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
