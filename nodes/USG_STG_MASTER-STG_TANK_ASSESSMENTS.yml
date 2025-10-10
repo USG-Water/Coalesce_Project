@@ -19,6 +19,40 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 90bde71e-7035-4059-9b10-34b98d4cbb0a
+          stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f258a38f-9af8-49d8-8fae-f4b2eb3c45c6
+                stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97f40601-dc61-42be-b6a3-6261147347c2
+          stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64027107-0fd0-4e95-882e-fb0e0585cb22
+                stepCounter: ef8053f7-a305-419c-837c-ae1b0b30f71c
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 41766c1f-5b83-47e9-9f0a-8eb50ebf4f11
           stepCounter: 02ac953e-0373-40b5-81e6-f78a302fec88
         config: {}
@@ -173,11 +207,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
           STG_SHAREPOINT_TAI_SCORING_QUESTIONS: 97195349-6669-4e29-b685-36d06decb525
           STG_SHAREPOINT_TANK_ASSESSMENTS: ef8053f7-a305-419c-837c-ae1b0b30f71c
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
           - locationName: USG_STG_SHAREPOINT
             nodeName: STG_SHAREPOINT_TAI_SCORING_QUESTIONS
           - locationName: USG_STG_SHAREPOINT
@@ -187,6 +224,8 @@ operation:
             FROM {{ ref('USG_STG_SHAREPOINT', 'STG_SHAREPOINT_TANK_ASSESSMENTS') }} "STG_SHAREPOINT_TANK_ASSESSMENTS"
             LEFT JOIN {{ ref('USG_STG_SHAREPOINT', 'STG_SHAREPOINT_TAI_SCORING_QUESTIONS') }} "STG_SHAREPOINT_TAI_SCORING_QUESTIONS"
                 ON "STG_SHAREPOINT_TANK_ASSESSMENTS"."QUESTION_ID" = "STG_SHAREPOINT_TAI_SCORING_QUESTIONS"."QUESTION_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                ON "STG_SHAREPOINT_TANK_ASSESSMENTS"."TITLE"::VARCHAR = "STG_PROJECTS"."PROJECT_NUMBER"
         name: STG_TANK_ASSESSMENTS
         noLinkRefs: []
   name: STG_TANK_ASSESSMENTS
