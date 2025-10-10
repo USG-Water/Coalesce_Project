@@ -1,0 +1,1291 @@
+fileVersion: 1
+id: cb194181-1483-4bb7-8ba9-115c7954f520
+name: FCT_EXPENDITURE_ITEMS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Holds individual project cost transactions used for costing, billing, and accounting.
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75ef3312-3812-435d-8214-de5f3b4de97c
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the expenditure to which the expenditure item belongs.
+        name: EXPENDITURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a95a126-d9e6-49ec-aaf1-33779bc794ce
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad025e7d-7a3c-4ff9-8aab-3940ed5b8f7b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The system-generated number that uniquely identifies the expenditure item.
+        isBusinessKey: true
+        name: EXPENDITURE_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c71a960-69b2-401a-99c9-ff68355030d0
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9f67b17-b632-48bb-b27b-e200a158c446
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The project_id of the event that the expenditure item is marked by.
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 227a2455-0082-4ba7-9314-87f91d473822
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85347332-5852-4c0a-ab16-af9db7a455cd
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the task to which the expenditure item is charged.
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35f09973-3721-42e6-a939-43e25b68beed
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 154ee682-745b-4dc5-8efe-0c2b0a3d174c
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Operating unit identifier for multi-organization installations.
+        name: ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f49b237-3575-40ec-b384-3ea9e84e17d8
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d447c221-aab6-46bd-876c-549bb92a4365
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Identifier for an assignment associated with the transaction.
+        name: ASSIGNMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: efc7c76c-c4e1-43b3-9048-8fb0a88e87a0
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e88623a-30bf-4a51-8554-1efb77c748b5
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Enables traceability between a data row and the batch process that affected it (e.g., Cost Import, Cost Distribution, Interface Supplier Costs). Used for diagnostics and rollback.
+        name: REQUEST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce6f6974-787d-4cbb-9a92-576e9edf42b4
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bd4936d-9c33-4bd5-ae4a-bb94212ff3d3
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Allows identification of which concurrent program performed the update (e.g., PAXTRTRX Transaction Import, PAXDISBR Distribute Costs).
+        name: PROGRAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ac89f2d6-03cb-48b2-a1f1-fa1f97d945a2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44be236c-2206-4c1a-b3fc-c2e68433dd9a
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(7,0)
+        description: This column indicates the vendor identifier for supplier cost transactions. If the expenditure item originated in Oracle Payables, it holds the AP_INVOICES_ALL.VENDOR_ID. If the expenditure item originated in Oracle Purchasing, it holds the PO_HEADERS_ALL.VENDOR_ID. This column is not used for labor and usage expenditure items.
+        name: VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66b9800e-dc0f-44a0-bd0a-6a8167f0a8d2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 948ea47e-d2f5-4b48-a27b-5b6b8377a066
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the job of an employee as of the expenditure item date. Required for all items incurred by an employee. This may be used in the mapping of the transaction to a resource for project summary amounts.
+        name: JOB_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fef5282f-cfdb-4746-ad92-73f17e9a82dc
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c8c2c7b-c273-414f-a890-21f0514708e2
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Costing Job ID.
+        name: COST_JOB_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b4516f0-dd90-4b7a-8526-157f3286653c
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d374fd6-9130-4e53-8d0a-8c56dfb986ff
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the compiled set that is used to calculate the cost amount of the expenditure item.
+        name: COST_IND_COMPILED_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a037da77-39d8-4bc7-bdee-2b4dd089dc90
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: daed7e8c-1212-4889-99e4-3649e3916268
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the organization that the cost and revenue for this item are charged to by a cost distribution override entered for the project. For supplier invoices, the expenditure organization entered in Oracle Payables.
+        name: OVERRIDE_TO_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0301e0c-9d0d-44ab-9bf4-34ba61712146
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8630aa0a-a787-410d-9bd6-fcb8f426a432
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the expenditure item from which this expenditure item originated. This expenditure item is the new item that is system created when an item is transferred and is charged to the new project/task.
+        name: TRANSFERRED_FROM_EXP_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a7a8bd67-f7a0-4f31-8756-df5f6546f0a8
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eab52479-8ad4-44fa-89b9-481b286591b0
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Used by Subledger Accounting (SLA) to determine which legal entity books the accounting entries for this expenditure. Enables proper intercompany accounting between legal entities.
+        name: RECEIVER_LEGAL_ENTITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6fb7e76-262a-46c4-9462-502f7d49ead4
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59aea5ee-7598-4c42-94af-5eaf3fe2b939
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The identifier of the expenditure item adjusted by this expenditure item. Adjustment items are entered by users with negative amounts to fully reverse an item, or are system created to reverse a transferred item.
+        name: ADJUSTED_EXPENDITURE_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a260afc-663a-46b6-bd65-74f74b695ae1
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73fa29d8-db06-41d5-8c18-de6769a0f2c1
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: This column refers to a header-level record identifier in another application. If the expenditure item originated in Oracle Payables, it holds the AP_INVOICES_ALL.INVOICE_ID. If the expenditure item originated in Oracle Purchasing, it holds the PO_HEADERS_ALL.PO_HEADER_ID. This column is not used for labor and usage expenditure items.
+        name: DOCUMENT_HEADER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 640a1d73-02e2-495a-96a0-09b519cc83c3
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 672bd66e-7ce0-4672-bfe6-bc6fc78f4a7d
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Burden summarization run id. Id will identify all the expenditure items created by burden component summarization process. This is used to identify all the Cost distribution lines summarized together to create expenditure item.
+        name: BURDEN_SUM_DEST_RUN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9ad949c-f548-41d0-9ad6-90e931908990
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0fefe37-cbd4-4ff7-919e-0f56b943889a
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(1,0)
+        description: Receiver Operating Unit Identifier.
+        name: RECVR_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7346925a-69a7-4325-9c2b-9a0a72f366d3
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b618407-be5e-4c47-b41b-a03bde3beb47
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(6,0)
+        description: Inventory item identifier.
+        name: INVENTORY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d24ff43-4e65-45c6-957b-d86afddcd274
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 687e7785-1284-42d1-9d30-d45bf31b87cc
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(3,0)
+        description: Identifier of the receiver organization. This may be different than the project organization, if it is overridden by the client extension to derive receiver organization.
+        name: CC_RECVR_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19bf9bdb-1521-425f-b019-3495f37766c6
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 219cb889-9a64-47aa-8a72-f17fa319f405
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(3,0)
+        description: Identifier of the provider organization. This may be different than the expenditure organization or the non-labor resource organization, if it is overridden by the client extension to derive provider organization.
+        name: CC_PRVDR_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edba243f-8035-4b40-9ca9-2b89ba4636e2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d98cd6f-179a-4e75-8028-af8ef95c2bb1
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: This column refers to a distribution-level record identifier in another application. If the expenditure item originated in Oracle Payables, it holds the AP_INVOICE_DISTRIBUTIONS_ALL.INVOICE_DISTRIBUTION_ID. If the expenditure item originated in Oracle Purchasing, it holds the RCV_TRANSACTIONS.TRANSACTION_ID. This column is not used for labor and usage expenditure items.
+        name: DOCUMENT_DISTRIBUTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cbc9c865-f828-4a4f-b71a-ee74893e4da8
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7f5599d-b281-49a4-8672-a05b2b3f591e
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Acts as a foreign key to the accounting entity in SLA, connecting this expenditure item to the corresponding SLA transaction.
+        name: LEGAL_ENTITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c15063f-5734-4915-a3bd-f02c1dc8fdfe
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e4ab065-98c3-492a-b744-c00f251e07e5
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Used in joins with FND_APPLICATION to determine owning module (e.g., 275 = Projects).
+        name: PROGRAM_APPLICATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc399979-832f-4a8b-b082-8e7b1b72a1ee
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adf7f2e2-fbb9-4f4f-805f-283d96fa6495
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(50)
+        description: Only populated for expenditure items created from transactions imported into PA from an external system. The TRANSACTION_SOURCE and ORIG_TRANSACTION_REFERENCE columns together identify the expenditure item created after import.
+        name: ORIG_TRANSACTION_REFERENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7af447cc-c201-4741-84ac-21ed36496d5b
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7375e694-a95e-42a6-b9d3-bc61ee2f8e6a
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: The expenditure type that classifies the type of work performed.
+        name: EXPENDITURE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a9859ce-3f53-4a2a-ace0-8e5c02cc825a
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 36d6af13-a4a7-4490-8403-1bc6cebe54b0
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Groups expenditure types for costing, burdening, and reporting; determines accounting treatment.
+        name: EXPENDITURE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d11152c-a278-4448-a41d-14785de83f55
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7bdfbee4-4950-4cbb-bed7-44759cfd737c
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(150)
+        description: Custom field grouping.
+        name: EXPENDITURE_CATEGORY_OTHER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ea19679-19dd-4c30-afaa-ba650213314c
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d76a0ac9-7c86-478e-98ed-c69b76363bb3
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Raw cost in project Currency.
+        name: RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a54c49b-a896-41c3-99c2-48577563a229
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 998214ca-d299-41e5-8ea9-eb8671a93b4f
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Raw cost in project currency.
+        name: PROJECT_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df2eec77-e29f-4516-9646-7a0cabd2c8d2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88600682-d993-4219-80e1-6a03bafb04d5
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Burdened cost in project currency.
+        name: PROJECT_BURDENED_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56231d62-d407-4514-a78a-8790f0c8fca5
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a7a3545-54b6-4c75-a8a9-1eb55a7c5f17
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Raw cost in Functional Currency.
+        name: ACCT_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9acf9da-fa8e-425d-aaf6-83ba7ece843a
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a569b9aa-5e25-48a1-9763-5c3825209e7b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Burdened Cost in Functional Currency.
+        name: ACCT_BURDENED_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b20cc18-a904-4204-96d1-2cb8e4d09cea
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9639313-1c00-47db-87dc-dfd869c985fe
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: The total raw cost of the expenditure item in transaction currency Raw cost = (quantity * cost rate) This value should always equal the sum of the items raw cost distribution lines.
+        name: DENOM_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3509997b-8193-4bdf-99f6-523271313f37
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9c0acc3-fe23-4de6-8564-66f4d6c99849
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: Total burdened cost of the expenditure item in transaction currency Burdened cost = (raw cost * (1 + burden cost multiplier)) This must equal the sum of the items burden debit cost distribution lines For non-burdened items, burdened cost = raw cost.
+        name: DENOM_BURDENED_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2d5dbb5-248e-46c8-9ae7-24fdf2fa8b54
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0249ad6f-b0ef-45e4-b645-64b7bd7c0a1a
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(11,2)
+        description: The burden cost in project currency.
+        name: BURDEN_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81eec9dd-c79e-431e-b1c3-62f0becaddda
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32cdab2e-2a67-4921-8287-c321f7166034
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates if the cost for the expenditure item is reclassified for intercompany billing.
+        name: CC_PRVDR_COST_RECLASS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8013dc2-0f05-48f3-9b6e-0b700b7a9226
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2337a18d-bad7-4506-82f0-0403f0c8ccf7
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates the processing status of the Expenditure Item by the Distribute Borrowed and Lent Accounts process.
+        name: CC_BL_DISTRIBUTED_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8084e888-8631-495a-aed1-2c066b6a5769
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27ca80d8-ae9a-42f2-9b93-6787b2563816
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates the method of cross charge processing that will be or has been performed on an Expenditure Item.
+        name: CC_CROSS_CHARGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 452b6982-7c1e-452b-b0d9-5f73e0ba9636
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0aa4bc71-5a71-4c9b-be07-65f5b7e0144b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates the processing status of the Expenditure Item by the Generate Intercompany Invoice process.
+        name: CC_IC_PROCESSED_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6d93d8c-1611-48c9-87c0-3d7496144267
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b0c9553-50a9-407b-82a8-c8d8049d1df1
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Project functional currency code.
+        name: PROJFUNC_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0af9020-4903-4af7-ae63-ffa32c6c3bff
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51f75132-7a19-4706-83fb-fabb66d01491
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: The reason why the expenditure item was rejected during cost distribution.
+        name: COST_DIST_REJECTION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea8505c6-9fc5-49da-9079-2370e605bb80
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d398c4d-ce81-4c06-9d5d-6474aaf373b4
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Bill transaction currency code for the expenditure item for accrued revenue and bill amounts.
+        name: BILL_TRANS_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9f47e6e-4f9a-48de-82dc-58c9e792c799
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d001421-79b2-4164-95f7-07dbb95403a4
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Bill transaction currency code for the expenditure item for forecast revenue.
+        name: BILL_TRANS_FORECAST_CURR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b84bda9e-8d8b-416f-83f3-4745c191c640
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 574ccf37-ac5c-429e-beab-1b0e7822f5f3
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Transaction Currency code of the transaction.
+        name: DENOM_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 990f31d7-787a-4e2e-92a8-b8aa5d707eec
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6a1b729-a876-4789-aad2-2c70357e0ebb
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Invoice Processing Currency.
+        name: INVPROC_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1423bea-fe58-445d-88ea-9404c84d2ba3
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 237ee9f7-38e9-42a8-b2fc-99f5747fe4a8
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: The reason why the expenditure item was rejected during revenue distribution.
+        name: REV_DIST_REJECTION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96c4b7d6-b12b-4a5f-8dde-7e62c56dab72
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25aec479-1c87-4780-837c-758899c358b5
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: The reason why the expenditure item was rejected during total burden distribution.
+        name: IND_COST_DIST_REJECTION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23f42bba-85f4-4c66-b808-5093fdba0a7e
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ec6293c-e98d-4b53-8737-bb04fb3beb7e
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Audit Column for rate derivation. Valid values are Indirect(I), Overrides(O), Extension (E), Bill rates (B) , Labor Multiplier (L).
+        name: AMOUNT_CALCULATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d51f2e7-6b58-4330-8e0e-1a9e750a0c98
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a433bd49-102b-4b63-829d-cfe38e20341d
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Project Currency Code of the Transaction.
+        name: PROJECT_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd877c71-316a-4d8e-b296-35d53d91e628
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7533632c-49b9-41a7-b94c-b73bfdb1869b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Account currency code of the transaction.
+        name: ACCT_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4aa03af6-82b9-49d5-940c-58c069e567c3
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a15b933-d193-488f-bbc2-fca9f2dc67bb
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Name of the source from which employee rates are derived.
+        name: RATE_SOURCE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94808d69-942f-4a60-b203-bca48d6e7ada
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0edda11-d2c4-4cca-b3ba-6a00553d303b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(15)
+        description: Revenue Processing Currency Code.
+        name: REVPROC_CURRENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6108aaca-1277-436a-9ea3-3fb1e73ed74f
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17e524d0-829f-4058-9097-1ce538b330ba
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: ATTRIBUTE1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8217aa46-acde-4422-9686-0ca76899b57f
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d26718f2-83ec-4a6a-8346-c41c491b1bce
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(150)
+        description: ""
+        name: ATTRIBUTE10
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9b12288-7aef-4b16-800e-5ecf0ce1f6fa
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b159f0a-3881-45a4-bc9e-586eb7da2a9b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(150)
+        description: Adjustment Type Code.
+        name: ADJUSTMENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6ff47b1-994d-495b-8de0-85317167ad42
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62da0813-84ab-4458-9e36-a83989ae53a1
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(256)
+        description: The raw cost rate used to cost the item.
+        name: RAW_COST_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 378400e2-1f1f-4efa-999f-22e983c78ee1
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c4cf207-2302-49bc-b73b-5b0b06cfeacb
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(2)
+        description: Cross Charge Type.
+        name: CC_CROSS_CHARGE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 251b4c1d-b30a-47f7-b3c2-8d3ecbc41ec2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f390ae0a-c454-4994-81c5-f8f8d5257db3
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Rate type used to convert costs from the transaction currency to the project functional currency.
+        name: PROJFUNC_COST_RATE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3e70ca1-287a-4eb8-9fde-fbce8703532d
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60c9b04c-c798-4cff-9b52-6041b5d7e738
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(13,4)
+        description: The number of units of the work performed.
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e3cfa327-49a7-4f3a-a460-050a00ed0ad2
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec4a5e96-e2f7-47c6-937a-9a802edbb57e
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(256)
+        description: The burdened cost rate of the item. Burdened cost rate = (burden cost / quantity ).
+        name: BURDEN_COST_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6b29c35-f5eb-4deb-9ab0-7fd3d0dbbc15
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cc47238-c282-461a-81a2-7cccf596b178
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Only populated for expenditure items created from transactions imported into PA from an external system; used by PA's expenditure item adjustment modules and costing programs to ensure the proper processing on imported items.
+        name: TRANSACTION_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68f9cf4d-eacc-4f36-abde-4f8b294d5fb9
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 986ccdc1-5685-4146-a718-b05ea85b0809
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(150)
+        description: The method used to cost the expenditure item.
+        name: COSTING_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 032adfc3-68dd-4b10-81a4-aef1a47af525
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3577a9c7-ca10-4cfe-b25b-eec18b31088b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(38,0)
+        description: This column refers to a line-level record identifier in another application. If the expenditure item originated in Oracle Payables, it holds the AP_INVOICE_LINES_ALL.LINE_NUMBER. If the expenditure item originated in Oracle Purchasing, it holds the PO_DISTRIBUTIONS_ALL.PO_DISTRIBUTION_ID. This column is not used for labor and usage expenditure items.
+        name: DOCUMENT_LINE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34f016d6-089d-4130-b98e-26cc5919618b
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd567d51-7399-401a-97f1-0c90e3aa4173
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: NUMBER(1,0)
+        description: Rounding limit for imported transaction.
+        name: ACCT_EXCHANGE_ROUNDING_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a123612-808c-44c7-9b6a-a9b41c4c4e07
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d056661-8f9c-47a1-8488-2eda6e24e932
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Base unit of measure.
+        name: UNIT_OF_MEASURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9a04449-82e7-4978-941a-95b8558a4d59
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74758ca3-7776-40be-a070-38817969bf90
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: "The supplier cost interface process uses this column to indicate the transaction type of the distribution. Valid values are as follows: Payables, Purchasing, or Receiving."
+        name: DOCUMENT_DISTRIBUTION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 783b1ba9-abf8-472c-925b-6eb060d56852
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78ddb86d-1921-4729-b8be-191f9b78e6db
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: Project Rate Type for the Transaction.
+        name: PROJECT_RATE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 693e8434-2f32-464f-b9aa-da2abae8ce23
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5231a6b-314c-4371-88c5-c565ca9c29ec
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(20)
+        description: The labor cost multiplier specified for a premium labor expenditure item in order to determine the premium labor cost. Cost = (cost rate*quantity*LCM). This is populated by the timecard entry forms or the Overtime Calculation program.
+        name: LABOR_COST_MULTIPLIER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3fe584b-a920-48d1-9c0f-3c6f40dc5b38
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6b62a6a-fa99-47cc-b1f0-39b4248832c1
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(30)
+        description: "The supplier cost interface process uses this column to indicate the transaction type. Valid values are as follows: Payables, Purchasing, or Receiving."
+        name: DOCUMENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9e8a6a1-2389-4407-ac61-1af6372eda2e
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 264964ec-be2e-4187-b40a-e5ff03647238
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(3)
+        description: Identifies the functional source of the expenditure (Labor, Expense, Usage, Inventory, Supplier Invoice, etc.) and determines how the system processes and accounts for it.
+        name: SYSTEM_LINKAGE_FUNCTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0da6c627-a43b-413f-8cd2-b67c5b3e4d01
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b177ad43-e197-4bda-98cf-c2d31c518f1b
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Historical Flag.
+        name: HISTORICAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a111bfc-ec4a-4e13-ba14-745486a62d64
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c57bb37-9ce4-4499-b818-f4e0ac7db07c
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag to indicate if the labor costs are accrued to a project.
+        name: PAYROLL_ACCRUAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f314bcef-8a8c-45db-a157-f6ed9aa5042f
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2dc91081-409e-43de-a64f-e5466605eba7
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag that indicates if the item can accrue revenue. Upon entry, this flag is defaulted from the task to which the item is charged, or is based on transaction controls.
+        name: BILLABLE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5112c968-1bd1-4ad2-8f03-d017a8c75573
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ecb280d-4208-45a5-9df2-f767e53bf878
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Indicates whether the expenditure item is placed on hold from revenue generation. When set to ‘Y’, the item is excluded from revenue distribution until the hold is released.
+        name: REVENUE_HOLD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7bb7fd4b-1a74-46b1-baf8-c25d957c5789
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1de7e8ea-81af-4d9c-8646-288d33b6e349
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag that indicates whether the item is revenue distributed. Upon entry, this flag is set to 'N'. When the item is revenue distributed, the flag is set to 'Y' or 'P'.
+        name: REVENUE_DISTRIBUTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e0dd29a-3d7e-4de0-bef0-958bc0dab6e3
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85d4ff28-98f8-4749-9629-2c3fe35a35bd
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag that indicates if the item is held from invoicing. Upon entry, this flag is defaulted to 'N'.
+        name: BILL_HOLD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6c02896-4581-434d-93c7-fb018545e858
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a51b9d7-9788-4b60-80bb-6a697c985d34
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag that indicates whether the item is fully reversed or the item is one of the adjusting items that fully reverse another item. Generate Draft Invoice uses the flag to exclude fully reversed, uninvoiced items from a customer invoice.
+        name: NET_ZERO_ADJUSTMENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d5940da-b0b7-4c6c-a078-58dbfd1394c0
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 897cd120-3aed-4b67-9b8e-18a3bd4b041f
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag that indicates whether the item has been cost distributed. When 'N' the item is marked for cost distribution. When the item is cost distributed, the flag is set to 'Y'.
+        name: COST_DISTRIBUTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2062a631-0b0f-4d05-bf4e-a4d2c9f37f10
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e0f8755-6087-4234-8d0f-8388636d5e25
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: VARCHAR(1)
+        description: Flag indicates whether the expenditure item is burden distributed.
+        name: COST_BURDEN_DISTRIBUTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 46b76f2c-ae48-4ab0-a090-9ae6dfc97355
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c5e813b-3efe-4a6d-8283-9afa1c924082
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: DATE
+        description: Project Rate date for the Transaction.
+        name: PROJECT_RATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fed53b26-b179-47bd-bdbf-cb8b6a897173
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8133ce07-304b-43a0-a5c9-8d8fdc032948
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date and time when the record was last updated by a concurrent program. Used with PROGRAM_ID and REQUEST_ID for audit tracking of automated processes.
+        name: PROGRAM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c5fa823d-c484-4515-a7a4-18e2a7deac88
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1fdbfedb-3054-4bf3-ad4c-575043889e8f
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: DATE
+        description: The date on which the work occurred.
+        name: EXPENDITURE_ITEM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 157f56ae-8eef-4b22-a13f-cd94236b8f11
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f675a1e-3607-424e-9471-af2e2bf5d1a0
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: DATE
+        description: Rate date used to convert costs from the transaction currency to the project functional currency.
+        name: PROJFUNC_COST_RATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 87c81b75-ba42-4d50-bbab-db71167c71f1
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac7fbdfb-521b-4398-8f59-ce3393bde50a
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date and time when the record was first inserted into the table.
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3973b07d-4a11-4860-8e1c-1d1748021a25
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac62b333-88b1-4cb0-a3a2-68d4d55a14d6
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date and time when the record was most recently modified by any user or process.
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9d6a86bf-9d7f-41b7-a1ba-62750bee7e77
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58f6b364-b346-4296-8b36-0021dffb12e5
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c290c8f8-7bfc-47f7-ba8d-676b3f39f2eb
+          stepCounter: cb194181-1483-4bb7-8ba9-115c7954f520
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EXPENDITURE_ITEMS: 4380bad7-de21-44f6-82ac-a07ae5add711
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EXPENDITURE_ITEMS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_EXPENDITURE_ITEMS') }} "STG_EXPENDITURE_ITEMS"
+        name: FCT_EXPENDITURE_ITEMS
+        noLinkRefs: []
+  name: FCT_EXPENDITURE_ITEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
