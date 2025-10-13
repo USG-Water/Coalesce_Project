@@ -1,0 +1,186 @@
+fileVersion: 1
+id: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+name: FCT_COST_BUDGET
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01bd82af-9461-48b8-8cd8-5376ba3d553c
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a7294bc1-1935-47c1-bfb5-902c3948cc14
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6f2045d-da82-4e48-bb83-fce9b3c92588
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ACCUM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd0974ed-c32c-43a8-ad5f-24ce655d36df
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: baf6c81e-81e8-432c-8214-a119a5512a2e
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e8a3f8b-45b8-4195-a4e9-ced2add39507
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ad58445-fc11-43b6-881b-57b8f6845b45
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0080370-b56c-466e-a5a8-e912441df299
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ecf8730a-ffb4-4632-8ef8-0af4c217e5f0
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TASK_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7c48dd9-e2aa-4620-8519-c3140078c174
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4bf9fb7a-5d73-47e6-ad4a-43c1d4447cf2
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: COST_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e42970d-42fc-4131-92bc-310ad2d9297c
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94f2f709-0335-46a2-8477-013cab291c9f
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACCUM_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da766985-1294-4ddc-be14-3ece12817072
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed83ced0-e030-4d08-98ae-8e5b4aedf416
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 294e6ff1-9cac-42fa-9eda-1795670a48f8
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d37fe15-bc4d-48d0-bb23-584e9a18770c
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2dbb3bdc-cbd8-449b-bbf3-3658a1074748
+          stepCounter: 06e5c42f-e2f1-430a-913c-64abc65b5d33
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_COST_BUDGET: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_COST_BUDGET
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_COST_BUDGET') }} "STG_COST_BUDGET"
+        name: FCT_COST_BUDGET
+        noLinkRefs: []
+  name: FCT_COST_BUDGET
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
