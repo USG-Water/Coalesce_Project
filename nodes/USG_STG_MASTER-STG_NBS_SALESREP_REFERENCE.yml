@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 74eecbf5-2163-48a2-a7c7-63d82bbb160e
+name: STG_NBS_SALESREP_REFERENCE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bebedec-98af-485a-a85a-829ec39a8fe5
+          stepCounter: 74eecbf5-2163-48a2-a7c7-63d82bbb160e
+        config: {}
+        dataType: NUMBER(9,0)
+        description: ""
+        name: SALESREP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2ea4ae2a-8021-4c92-9cda-1502d80123bb
+                stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a94e6c11-6fea-44f7-81c7-3d56facdaaa2
+          stepCounter: 74eecbf5-2163-48a2-a7c7-63d82bbb160e
+        config: {}
+        dataType: VARCHAR(360)
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e3db2f23-6377-488a-a49b-a8e9c5c58a08
+                stepCounter: a976d2fa-0046-4d8b-8ad4-aeb130d77ff1
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_RS_RESOURCE_EXTNS: a976d2fa-0046-4d8b-8ad4-aeb130d77ff1
+          STG_EBS_RS_SALESREPS: a83891e3-b438-45a8-8569-704be1b3f69a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_RS_RESOURCE_EXTNS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_RS_SALESREPS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_RS_SALESREPS') }} "STG_EBS_RS_SALESREPS"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_RS_RESOURCE_EXTNS') }} "STG_EBS_RS_RESOURCE_EXTNS"
+                ON "STG_EBS_RS_SALESREPS"."RESOURCE_ID" = "STG_EBS_RS_RESOURCE_EXTNS"."RESOURCE_ID"
+            WHERE "STG_EBS_RS_SALESREPS"."ORG_ID" = 0
+        name: STG_NBS_SALESREP_REFERENCE
+        noLinkRefs: []
+  name: STG_NBS_SALESREP_REFERENCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

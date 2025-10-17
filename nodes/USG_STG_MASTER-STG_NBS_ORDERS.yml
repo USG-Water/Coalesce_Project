@@ -1,0 +1,84 @@
+fileVersion: 1
+id: b616fc3e-04bb-4397-b7ee-2828050a80bd
+name: STG_NBS_ORDERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: deb4357a-fb34-41b5-9208-06a531c7ba12
+          stepCounter: b616fc3e-04bb-4397-b7ee-2828050a80bd
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: afbdc0c7-0068-456d-a29e-037fbc08be2c
+                stepCounter: 58139dfc-9491-45a3-98ba-4d0408a3ba71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b70523c0-bdc8-4a6e-9354-4d4257eacbe0
+          stepCounter: b616fc3e-04bb-4397-b7ee-2828050a80bd
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50da44d8-121b-4f01-95e3-518055db88ad
+                stepCounter: 58139dfc-9491-45a3-98ba-4d0408a3ba71
+            transform: MAX_BY("STG_EBS_ORDER_HEADERS_ALL"."ORDER_NUMBER", "STG_EBS_ORDER_HEADERS_ALL"."HEADER_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e626c17f-ac3c-4cb4-8ea2-3176adc4dd1e
+          stepCounter: b616fc3e-04bb-4397-b7ee-2828050a80bd
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALESREP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b06207e1-41d3-4dd0-b1a3-11b04c652b7b
+                stepCounter: 58139dfc-9491-45a3-98ba-4d0408a3ba71
+            transform: MAX_BY("STG_EBS_ORDER_HEADERS_ALL"."SALESREP_ID", "STG_EBS_ORDER_HEADERS_ALL"."HEADER_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_ORDER_HEADERS_ALL: 58139dfc-9491-45a3-98ba-4d0408a3ba71
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_ORDER_HEADERS_ALL
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_ORDER_HEADERS_ALL') }} "STG_EBS_ORDER_HEADERS_ALL"
+            GROUP BY "STG_EBS_ORDER_HEADERS_ALL"."ATTRIBUTE10"
+        name: STG_NBS_ORDERS
+        noLinkRefs: []
+  name: STG_NBS_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

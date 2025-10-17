@@ -1,0 +1,261 @@
+fileVersion: 1
+id: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+name: STG_NEW_BOOKED_SALES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd58fc42-433a-480f-8e01-33c8c37e2303
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ee370a3-7adc-411a-8e5b-1159ccc3e53c
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42dfe1d3-e3f6-4ba2-a355-b6dab81e8a6c
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cdb1854c-033b-4b92-be64-8c88d3a95260
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83cd3e60-b50d-44bd-86a7-addd889feb54
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ced522dd-da76-437d-b209-a67a32461e97
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd0e8491-1ec0-4a23-8fef-fbde0f38b3d2
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6c275c2-b4d2-4656-998b-9df7444e42cf
+                stepCounter: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: edc240dc-2ee0-4be0-ac06-ec0ed2018b48
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: CLASS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a5a6688e-e9ca-4e6d-aa42-a10f327842ea
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd51afef-3823-4121-bf73-8f9b2f350ce3
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da0bfb5c-ed4b-4f17-b12f-54cdec086e4d
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fc62678-d7a6-4a6a-a65d-b245ca98afce
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(360)
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a94e6c11-6fea-44f7-81c7-3d56facdaaa2
+                stepCounter: 74eecbf5-2163-48a2-a7c7-63d82bbb160e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2509d8e9-8a47-487c-bda7-522e681e0d1a
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb141ff5-7e49-436d-93aa-2f427aa61a05
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: efc01f7e-b87d-42fe-8e84-a5dd5474e8ab
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc4a3b1d-d720-4124-9f80-74dcfd7fdb44
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53283dc1-dee9-4fa0-9d27-4bea07baacd4
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2daebce7-101e-4c96-bbc7-0f9a7c71191e
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7bc48f3d-1c4d-46b9-8b9a-50ecec8a7829
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f58eb470-8812-4653-bda6-2f80683f8ee8
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79a62bc1-42cd-45d2-9a5f-be8f97b0eeeb
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: EST_SERVICE_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88a636ee-1b37-43e2-9ac1-5224794a95cf
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47e8f635-3278-4220-9166-e52f857d9650
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        name: EST_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0476f94-56c6-41ed-b0d4-f636a9d1d824
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58570063-3b22-41d4-8a3c-3860cd4b47a5
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6c62f76-96d5-43b3-8165-93a5b3fc376d
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4351bc6f-5d13-4624-8ba4-448f9f7b6681
+          stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: PROJECT_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6bf8d90-2b34-4b5b-82e8-a5c7074d6ca1
+                stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_PROJECT_COST_AND_CLASSES: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+          STG_NBS_PROJECT_TO_ORDER_MAPPING: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+          STG_NBS_SALESREP_REFERENCE: 74eecbf5-2163-48a2-a7c7-63d82bbb160e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_PROJECT_COST_AND_CLASSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_PROJECT_TO_ORDER_MAPPING
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_SALESREP_REFERENCE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_NBS_PROJECT_COST_AND_CLASSES') }} "STG_NBS_PROJECT_COST_AND_CLASSES"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_NBS_PROJECT_TO_ORDER_MAPPING') }} "STG_NBS_PROJECT_TO_ORDER_MAPPING"
+                ON "STG_NBS_PROJECT_COST_AND_CLASSES"."PROJECT_NUMBER" = "STG_NBS_PROJECT_TO_ORDER_MAPPING"."PROJECT_NUMBER"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_NBS_SALESREP_REFERENCE') }} "STG_NBS_SALESREP_REFERENCE"
+                ON "STG_NBS_PROJECT_TO_ORDER_MAPPING"."SALESREP_ID" = "STG_NBS_SALESREP_REFERENCE"."SALESREP_ID"
+        name: STG_NEW_BOOKED_SALES
+        noLinkRefs: []
+  name: STG_NEW_BOOKED_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

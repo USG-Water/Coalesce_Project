@@ -1,0 +1,266 @@
+fileVersion: 1
+id: a83891e3-b438-45a8-8569-704be1b3f69a
+name: STG_EBS_RS_SALESREPS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d0f6afb-b9d0-4681-8600-91c1fce76043
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(4,0)
+        description: ""
+        name: ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 789292be-8f2e-4394-9a5e-68228e7aee79
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ce1d56d-9b42-4c67-8c22-324914d1a6e6
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(9,0)
+        description: ""
+        name: RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1402c75e-0d26-4ca4-9668-a449663336a5
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ea4ae2a-8021-4c92-9cda-1502d80123bb
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(9,0)
+        description: ""
+        name: SALESREP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e24de976-6437-45fc-b408-81240ae9a79c
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a11bc0b-649d-440c-9c56-1a058921bf38
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(5,0)
+        description: ""
+        name: PERSON_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34e55c16-e478-42e1-9ac0-fb0c24de4dcd
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9ddd622-2134-45fc-acc8-6a660a098ae4
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: SET_OF_BOOKS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d3d33b4-b6b9-4b52-abed-bfa4751c28bf
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5151e8d-f2c2-46d0-95be-9b2961ff28dd
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: SALES_CREDIT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 641dd05b-76af-4d17-81a3-a61b56000bca
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b530468e-3209-4f11-a4e2-afd787e1dfa2
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SALESREP_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41c081cc-e621-406e-ab5a-170f9823175e
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0620d7e0-9152-41a2-adb4-7b7c12001781
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: OBJECT_VERSION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32a98681-78da-4a5b-97d3-008fcb5f1344
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31352e35-8476-4ee5-9659-bdf7197e39aa
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9967ada9-711f-4a15-9813-306a6f4ba4ef
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06f64a92-0f57-4d5e-808c-f8071a2a1b2c
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41049e06-913d-4a64-8933-bc7c261c8736
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d0edb15-8d53-419c-8ef6-dab284561c79
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3bada094-532c-485a-92d9-478d16894b0a
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af6efebc-411f-4453-84c8-6e25eb0b05d9
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: SALES_TAX_INSIDE_CITY_LIMITS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08320a16-950c-42c0-a163-0bc5c2efa0a5
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c07dd95c-2c3d-4584-93d7-8de4d011edd9
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: START_DATE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8dbc5804-0fb1-4737-a06f-866231cea8ec
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e29183f5-39c8-497a-937d-31d4c030c1a4
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: END_DATE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b7af56d-75d6-4006-9dd5-c029b149207e
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6451380-9520-4bf1-af2b-6e2d9141bc3d
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1041bd90-a3c5-4cad-aca7-83890cbd6634
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 630045db-fcf0-4109-8f19-748c1cf216e4
+          stepCounter: a83891e3-b438-45a8-8569-704be1b3f69a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52af612c-45be-4f35-afe2-64640a2f6338
+                stepCounter: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          JTF_RS_SALESREPS: 788f1080-b4d2-493c-a5f2-1d636a28fd92
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EBS_JTF
+            nodeName: JTF_RS_SALESREPS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_EBS_JTF', 'JTF_RS_SALESREPS') }} "JTF_RS_SALESREPS"
+            WHERE "JTF_RS_SALESREPS"."_FIVETRAN_DELETED" = FALSE
+        name: STG_EBS_RS_SALESREPS
+        noLinkRefs: []
+  name: STG_EBS_RS_SALESREPS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

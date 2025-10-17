@@ -1,0 +1,102 @@
+fileVersion: 1
+id: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+name: STG_NBS_PROJECT_TO_ORDER_MAPPING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90390bff-8b6b-4a0d-8a4d-5dc4ee8a2c2d
+          stepCounter: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f258a38f-9af8-49d8-8fae-f4b2eb3c45c6
+                stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 889ae418-760c-4221-913d-7b25f3ed6e02
+          stepCounter: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e55a3fe-0d02-4c90-99e3-a37e27ee0636
+                stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6c275c2-b4d2-4656-998b-9df7444e42cf
+          stepCounter: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b70523c0-bdc8-4a6e-9354-4d4257eacbe0
+                stepCounter: b616fc3e-04bb-4397-b7ee-2828050a80bd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5deffe54-6f73-43f4-80c1-6fe90eac6e4b
+          stepCounter: 4f8ef6af-2c73-4b74-9c3c-96d1a65ceaf0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALESREP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e626c17f-ac3c-4cb4-8ea2-3176adc4dd1e
+                stepCounter: b616fc3e-04bb-4397-b7ee-2828050a80bd
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_ORDERS: b616fc3e-04bb-4397-b7ee-2828050a80bd
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_ORDERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_NBS_ORDERS') }} "STG_NBS_ORDERS"
+                ON "STG_PROJECTS"."PROJECT_ID" = "STG_NBS_ORDERS"."PROJECT_ID"
+        name: STG_NBS_PROJECT_TO_ORDER_MAPPING
+        noLinkRefs: []
+  name: STG_NBS_PROJECT_TO_ORDER_MAPPING
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
