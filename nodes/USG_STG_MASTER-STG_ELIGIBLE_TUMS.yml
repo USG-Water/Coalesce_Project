@@ -150,7 +150,7 @@ operation:
                   AND "STG_PROJECT_CLASSES"."CONTRACT_TYPE" NOT IN ('NS', 'OC')
                   AND COALESCE("STG_PROJECTS_MAX_REVENUE_BUDGET"."PNL_SERVICE_LINE", '') != 'Metering' -- WARNING: We are keeping null service lines
                   AND "STG_TASKS"."START_DATE" IS NOT NULL
-                  AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE -- WARNING: We keep only open projects based on closed date, but closed date is unreliable
+                  AND "STG_TASKS"."BEFORE_PROJECT_CLOSE_FLAG" = TRUE -- WARNING: We keep only open projects based on closed date, but closed date is unreliable.
                   AND "STG_TASKS"."RENOVATION_TYPE" IN (
                       'MP Interior'
                     , 'MP Exterior'

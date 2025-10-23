@@ -1,0 +1,189 @@
+fileVersion: 1
+id: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+name: DATA_PROFILING_EBS_INCIDENT_STATUSES_TL
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80cb372f-1c7a-4bf3-b345-d1aefca7d1f6
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: INCIDENT_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1833fb4f-3443-434c-9ad6-58cb7c614002
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cb201a3-1818-4052-97e3-46b524ef96ad
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05bca1e6-5fde-4cb2-86d8-6d1f5f64f88b
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d014bf7e-cdc9-444e-8bc0-52c2682af196
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8975de7-8ab5-4d10-9f7d-885965e6a945
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb601ba7-9274-4719-93b5-7662ec5c8f79
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LAST_UPDATE_LOGIN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4307991-8f32-4cd9-9074-4b6b88cd0da4
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a85d20c6-332f-47a5-87d4-c5ec5f55cee2
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c9bfea0-7aa2-43eb-89dc-cad2fb0e50ea
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2607611-bce9-4f0f-aa79-dccbe014aeb8
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72a25cae-245d-4478-9e4b-be608013a48e
+                stepCounter: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64d550cb-13c2-4d9e-97f7-de0c46b61b3c
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6aaea8b3-03cd-4b71-b7e9-2bcd3a292197
+          stepCounter: 2c6b37ed-83e1-43ed-b8f6-88af5e156020
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CS_INCIDENT_STATUSES_TL: ee12b266-de8b-4ce0-af6f-aa53fdf77b5c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_EBS
+            nodeName: CS_INCIDENT_STATUSES_TL
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'CS_INCIDENT_STATUSES_TL') }} "CS_INCIDENT_STATUSES_TL"
+        name: DATA_PROFILING_EBS_INCIDENT_STATUSES_TL
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_INCIDENT_STATUSES_TL
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node
