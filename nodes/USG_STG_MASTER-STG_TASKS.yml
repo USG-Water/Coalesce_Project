@@ -159,6 +159,76 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 1f0746df-5845-4d8d-958f-e56b2b6ebee1
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06345cd5-51b4-4241-ba9d-cef90dff515c
+                stepCounter: 4652e9e1-bffa-43e1-8485-d0980a85e19f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b237f0f2-8cf2-45b2-b848-028b99cc6eeb
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 285885d1-8330-44d5-b6d2-ce99ab8402dd
+                stepCounter: 4652e9e1-bffa-43e1-8485-d0980a85e19f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 049c9a84-1e0c-4b2f-9dda-2bd9df07b6f8
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 032cd5d4-ac75-4371-b41c-1b00175bfa8d
+                stepCounter: 4652e9e1-bffa-43e1-8485-d0980a85e19f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c67d8668-6929-418e-80c4-2f7092ff929a
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TASK_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19b7bab6-f594-4c98-b563-09d9486b77b0
+                stepCounter: 4652e9e1-bffa-43e1-8485-d0980a85e19f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0259be0a-a5f8-42ca-91b9-02c7425eb87c
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TASK_NAME_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16389817-3c7f-4af9-93d0-30521fd914f2
+                stepCounter: 4652e9e1-bffa-43e1-8485-d0980a85e19f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: a6d51435-3630-4aae-854a-9cd0fef411dc
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
@@ -488,6 +558,7 @@ operation:
           STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
           STG_REVENUE_BUDGET: f2a79e8c-00c4-403c-a6c0-cef6a075bef4
           STG_SERVICE_REQUESTS: 74ab8def-0ae0-4300-9902-c29c43a1c567
+          STG_TASK_NAME_MAPPING: 4652e9e1-bffa-43e1-8485-d0980a85e19f
         customSQL:
           customSQL: ""
         dependencies:
@@ -497,6 +568,8 @@ operation:
             nodeName: STG_REVENUE_BUDGET
           - locationName: USG_STG_MASTER
             nodeName: STG_SERVICE_REQUESTS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASK_NAME_MAPPING
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_TASKS
         join:
@@ -511,6 +584,8 @@ operation:
                 ON "STG_EBS_TASKS"."PROJECT_ID" = "STG_PROJECTS"."PROJECT_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_SERVICE_REQUESTS') }} "STG_SERVICE_REQUESTS"
                 ON "STG_EBS_TASKS"."TASK_ID" = "STG_SERVICE_REQUESTS"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TASK_NAME_MAPPING') }} "STG_TASK_NAME_MAPPING"
+                ON "STG_EBS_TASKS"."TASK_NAME" = "STG_TASK_NAME_MAPPING"."TASK_NAME"
         name: STG_TASKS
         noLinkRefs: []
   name: STG_TASKS
