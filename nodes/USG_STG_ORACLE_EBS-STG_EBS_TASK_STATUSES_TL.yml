@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 81703794-35c9-4064-8881-0294503da519
+name: STG_EBS_TASK_STATUSES_TL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5ebefe2-02df-44ce-99d7-8cc7da26a100
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: NUMBER(5,0)
+        description: ""
+        name: TASK_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1808b8be-afaa-45f1-bdba-f36525c679d3
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ef90a19-f942-4f35-9124-32df4681c3b2
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6894f8e-9a21-4aa5-a42a-07793711be41
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65848c52-c480-4c04-a556-a8d78143e964
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 15fe0f35-13b4-4ae2-b377-70c715340736
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ea50a0e-4fb1-41f5-bd15-602e06bd7cd8
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: LANGUAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b827036-58b0-44ec-904e-f86545b16319
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38802cca-dd75-4df9-8a27-76ecc8170904
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: SOURCE_LANG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 28575594-e87c-4a30-ae3c-7d6c140c6f76
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 208e6911-e677-4ad3-b295-9b1ae34a5342
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ZD_SYNC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e60e8de9-6381-4295-8a96-a913b0ab0d39
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7d2abd5-490a-4409-8cfb-6c1db1661355
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ZD_EDITION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16934cbe-3959-42e7-a61c-239c8e8885e8
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbd074e2-1633-488b-af44-1d2657e404e7
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4342b8fd-6f38-4d47-b719-3447be67d18b
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d92639de-3cb8-4025-b65e-44931d016e34
+          stepCounter: 81703794-35c9-4064-8881-0294503da519
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82cbb8c2-090e-42e6-b1f3-b1e4c3b89248
+                stepCounter: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          JTF_TASK_STATUSES_TL: 3698d962-1d73-4ed6-a415-13e2bfffb4cd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EBS_JTF
+            nodeName: JTF_TASK_STATUSES_TL
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_EBS_JTF', 'JTF_TASK_STATUSES_TL') }} "JTF_TASK_STATUSES_TL"
+            WHERE "JTF_TASK_STATUSES_TL"."_FIVETRAN_DELETED" = FALSE
+        name: STG_EBS_TASK_STATUSES_TL
+        noLinkRefs: []
+  name: STG_EBS_TASK_STATUSES_TL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

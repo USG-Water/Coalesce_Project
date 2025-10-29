@@ -658,6 +658,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: b1f19096-fc11-49ae-8ad0-661942b66f0f
+          stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: TASK_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 764a2581-9e2e-4373-9bfe-763e6958d7c9
+                stepCounter: 8a0edb2f-9814-49ef-8821-6e4c789ddac9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 28797039-eeae-46ea-b6d5-a6f9d41a87d1
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
@@ -873,9 +887,12 @@ operation:
           STG_EBS_CS_SR: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
           STG_EBS_INCIDENT_STATUSES_TL: e3532a6b-19c5-4052-a136-b3be12f66d9c
           STG_EBS_SERVICE_REQUESTS: ec5d7b44-15ec-4f87-afaa-fe418542c372
+          STG_SR_STATUS_AND_REPAIR: 8a0edb2f-9814-49ef-8821-6e4c789ddac9
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_SR_STATUS_AND_REPAIR
           - locationName: USG_STG_ORACLE_EBS
             nodeName: STG_EBS_CS_SR
           - locationName: USG_STG_ORACLE_EBS
@@ -889,8 +906,11 @@ operation:
                 ON "STG_EBS_SERVICE_REQUESTS"."SERVICE_REQUEST_NUMBER" = "STG_EBS_CS_SR"."SR_NUMBER"
             LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_INCIDENT_STATUSES_TL') }} "STG_EBS_INCIDENT_STATUSES_TL"
                 ON "STG_EBS_SERVICE_REQUESTS"."INCIDENT_STATUS_ID" = "STG_EBS_INCIDENT_STATUSES_TL"."INCIDENT_STATUS_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_SR_STATUS_AND_REPAIR') }} "STG_SR_STATUS_AND_REPAIR"
+                ON "STG_EBS_SERVICE_REQUESTS"."SERVICE_REQUEST_NUMBER" = "STG_SR_STATUS_AND_REPAIR"."SERVICE_REQUEST_NUMBER"
             WHERE "STG_EBS_SERVICE_REQUESTS"."TASK_ID" IS NOT NULL
-            AND "STG_EBS_INCIDENT_STATUSES_TL"."NAME" NOT IN ('Cancelled by User', 'Cancelled-(Closed)', 'Void')
+            AND ("STG_EBS_INCIDENT_STATUSES_TL"."NAME" NOT IN ('Cancelled by User', 'Cancelled-(Closed)', 'Void') OR "STG_SR_STATUS_AND_REPAIR"."TASK_STATUS" IS NULL)
+            AND ("STG_SR_STATUS_AND_REPAIR"."TASK_STATUS" NOT IN ('Cancelled', 'Recall') OR "STG_SR_STATUS_AND_REPAIR"."TASK_STATUS" IS NULL)
             QUALIFY ROW_NUMBER() OVER (
                 PARTITION BY "STG_EBS_SERVICE_REQUESTS"."TASK_ID"
                 ORDER BY "STG_EBS_SERVICE_REQUESTS"."SERVICE_REQUEST_NUMBER" DESC
