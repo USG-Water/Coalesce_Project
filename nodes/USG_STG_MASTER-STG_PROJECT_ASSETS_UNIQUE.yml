@@ -1,0 +1,84 @@
+fileVersion: 1
+id: b6bab86f-a00d-4421-b412-992d702c9e42
+name: STG_PROJECT_ASSETS_UNIQUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64b75dfd-dc95-4a1a-a703-6a118880be16
+          stepCounter: b6bab86f-a00d-4421-b412-992d702c9e42
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3660808-5a10-4716-bc60-7705ecc3c42f
+                stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df811db4-a699-4982-9079-a703a008bcaa
+          stepCounter: b6bab86f-a00d-4421-b412-992d702c9e42
+        config: {}
+        dataType: VARCHAR(256)
+        description: Contains mapping to normalize asset types
+        name: ASSET_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e5d3aca-5245-4051-8a4e-2526f6d712df
+                stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+            transform: MAX("STG_PROJECT_ASSETS"."ASSET_TYPE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4418ed71-1d61-45cf-82f5-1b0890130788
+          stepCounter: b6bab86f-a00d-4421-b412-992d702c9e42
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ASSET_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa50256f-5382-4864-8ff1-bf0be15a14ff
+                stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+            transform: MAX("STG_PROJECT_ASSETS"."ASSET_SIZE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_PROJECT_ASSETS: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_ASSETS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_ASSETS') }} "STG_PROJECT_ASSETS"
+            GROUP BY "STG_PROJECT_ASSETS"."PROJECT_ID"
+        name: STG_PROJECT_ASSETS_UNIQUE
+        noLinkRefs: []
+  name: STG_PROJECT_ASSETS_UNIQUE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
