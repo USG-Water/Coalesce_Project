@@ -1,0 +1,137 @@
+fileVersion: 1
+id: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+name: STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3660808-5a10-4716-bc60-7705ecc3c42f
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fd1d846-de97-473a-b726-0973b958d06c
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92936619-1e0c-4511-953c-4469c0aeef9a
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2687b46f-0398-4da3-9df4-a8a37e26b5dd
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e5d3aca-5245-4051-8a4e-2526f6d712df
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: VARCHAR(256)
+        description: Contains mapping to normalize asset types
+        name: ASSET_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9e9f718-e481-4bdd-a7ab-603b73f4d10c
+                stepCounter: 71247957-c2ca-4285-b03d-5cb2109869da
+            transform: MAX("STG_ASSETS"."ASSET_TYPE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa50256f-5382-4864-8ff1-bf0be15a14ff
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ASSET_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b590db7-dc3c-40b9-b481-eff52255090d
+                stepCounter: 71247957-c2ca-4285-b03d-5cb2109869da
+            transform: MAX("STG_ASSETS"."ASSET_SIZE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 816c78ab-30c0-412c-a8a9-33afca755fe9
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AVERAGE_INTERIOR_SQUARE_FOOTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 85736654-a1b6-4dbe-b374-c108e7e580bf
+                stepCounter: a3eb4526-1d96-46d5-891c-d66b256b3f3a
+            transform: MAX("STG_AVERAGE_TANK_SQUARE_FOOTAGE"."AVERAGE_INTERIOR_SQUARE_FOOTAGE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1495d50f-cf61-4fe0-a533-a6b132d5966e
+          stepCounter: 4b4d41a0-5861-44b6-a4f1-8193fada4032
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AVERAGE_EXTERIOR_SQUARE_FOOTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 665352f6-f764-4c05-83d6-4dfe20295d54
+                stepCounter: a3eb4526-1d96-46d5-891c-d66b256b3f3a
+            transform: MAX("STG_AVERAGE_TANK_SQUARE_FOOTAGE"."AVERAGE_EXTERIOR_SQUARE_FOOTAGE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
+          STG_AVERAGE_TANK_SQUARE_FOOTAGE: a3eb4526-1d96-46d5-891c-d66b256b3f3a
+          STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ASSETS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_AVERAGE_TANK_SQUARE_FOOTAGE
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ASSETS') }} "STG_ASSETS"
+                ON "STG_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID" = "STG_ASSETS"."EBS_CUSTOMER_SITE_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_AVERAGE_TANK_SQUARE_FOOTAGE') }} "STG_AVERAGE_TANK_SQUARE_FOOTAGE"
+                ON "STG_ASSETS"."ASSET_TYPE" = "STG_AVERAGE_TANK_SQUARE_FOOTAGE"."TANK_TYPE"
+                AND "STG_ASSETS"."ASSET_SIZE" = "STG_AVERAGE_TANK_SQUARE_FOOTAGE"."TANK_SIZE"
+            GROUP BY "STG_PROJECT_CUSTOMERS"."PROJECT_ID", "STG_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID"
+        name: STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT
+        noLinkRefs: []
+  name: STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -336,7 +336,7 @@ operation:
           - columnReferences:
               - columnCounter: 484d7138-7be1-4e5e-a143-e451d7695217
                 stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
-            transform: ""
+            transform: COALESCE("PVT_SQUARE_FOOTAGE"."'Exterior'", "STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT"."AVERAGE_EXTERIOR_SQUARE_FOOTAGE")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c9d8bc47-837b-4a8c-b2ec-20800e30e2b3
@@ -350,7 +350,7 @@ operation:
           - columnReferences:
               - columnCounter: 216e2a8e-ba66-42c2-ab71-3cd2c4953011
                 stepCounter: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
-            transform: ""
+            transform: COALESCE("PVT_SQUARE_FOOTAGE"."'Interior'", "STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT"."AVERAGE_INTERIOR_SQUARE_FOOTAGE")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: cbace67a-669b-4c81-8c24-92ed362ba6a6
@@ -440,11 +440,14 @@ operation:
     sourceMapping:
       - aliases:
           PVT_SQUARE_FOOTAGE: af8ff870-d5f2-4804-a6a5-f7daddde5ce4
+          STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT: 4b4d41a0-5861-44b6-a4f1-8193fada4032
           STG_EBS_PROJECTS: de051b7d-7e75-4c8e-816a-91e6105fc49c
           STG_PROJECTS_MAX_REVENUE_BUDGET: 0513c67d-56a8-4f7a-b39f-2cad96e707f5
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT
           - locationName: USG_STG_MASTER
             nodeName: STG_PROJECTS_MAX_REVENUE_BUDGET
           - locationName: USG_STG_ORACLE_EBS
@@ -457,7 +460,9 @@ operation:
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS_MAX_REVENUE_BUDGET') }} "STG_PROJECTS_MAX_REVENUE_BUDGET"
                 ON "STG_EBS_PROJECTS"."PROJECT_ID" = "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID"
             LEFT JOIN {{ ref('USG_STG_ORACLE_EBS', 'PVT_SQUARE_FOOTAGE') }} "PVT_SQUARE_FOOTAGE"
-            ON "STG_EBS_PROJECTS"."PROJECT_NUMBER" = "PVT_SQUARE_FOOTAGE"."PROJECT_NUMBER"::VARCHAR
+                ON "STG_EBS_PROJECTS"."PROJECT_NUMBER" = "PVT_SQUARE_FOOTAGE"."PROJECT_NUMBER"::VARCHAR
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT') }} "STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT"
+                ON "STG_EBS_PROJECTS"."PROJECT_ID" = "STG_AVERAGE_SQUARE_FOOTAGE_BY_PROJECT"."PROJECT_ID"
         name: STG_PROJECTS
         noLinkRefs: []
   name: STG_PROJECTS
