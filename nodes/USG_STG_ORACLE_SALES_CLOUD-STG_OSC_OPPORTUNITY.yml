@@ -47,6 +47,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: fa262e79-9410-4f50-a450-4b7910dac40b
+          stepCounter: a5e8cc5a-0bda-44ab-979f-2b95ade8785a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALESFORCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03ef78b6-ebf2-432e-ba06-61c949d7ccb7
+                stepCounter: 2d36c116-3051-45a8-8434-2b41417af350
+            transform: REGEXP_SUBSTR("OPPORTUNITY_EXTRACT_PVO"."NAME", 'SFID\\s+[0-9]{1,6}\\b')
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 1f7087f4-8b98-4662-8776-dd2033bdb5d6
           stepCounter: a5e8cc5a-0bda-44ab-979f-2b95ade8785a
         config: {}

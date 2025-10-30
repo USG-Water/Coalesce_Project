@@ -50,15 +50,15 @@ operation:
           columnCounter: 98fd6be1-9318-4f41-92fc-cfeccfaaa92b
           stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
         config: {}
-        dataType: VARCHAR(256)
+        dataType: NUMBER
         description: ""
         name: SALESFORCE_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: ad61681c-2905-4fc3-8263-13aa0c0acee4
+              - columnCounter: fa262e79-9410-4f50-a450-4b7910dac40b
                 stepCounter: a5e8cc5a-0bda-44ab-979f-2b95ade8785a
-            transform: REGEXP_SUBSTR("STG_OSC_OPPORTUNITY"."NAME", 'SFID\\s*(\\d+)', 1, 1, 'e', 1)
+            transform: TRIM(REPLACE("STG_OSC_OPPORTUNITY"."SALESFORCE_ID", 'SFID ', ''))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: ebd1d977-67e9-41eb-bec5-6db334a31250
