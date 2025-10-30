@@ -1,0 +1,99 @@
+fileVersion: 1
+id: f111f97a-dbca-42d2-9754-c720e23a3b40
+name: STG_PAINT_CONDITION_CODES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7286d8de-2856-4475-b6e3-da0b0ff8a12a
+          stepCounter: f111f97a-dbca-42d2-9754-c720e23a3b40
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9952d6d-d7fa-4ae3-9176-63fbb616ced0
+                stepCounter: dc3a20d8-a5b0-4d56-8085-029c85b25503
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5cc692b-5cb2-44f8-b705-3ab14efc2d36
+          stepCounter: f111f97a-dbca-42d2-9754-c720e23a3b40
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 245dd611-68cc-40c8-8851-37d0024fa53c
+                stepCounter: dc3a20d8-a5b0-4d56-8085-029c85b25503
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8935af07-c4d6-4207-9eea-bbe44ff95253
+          stepCounter: f111f97a-dbca-42d2-9754-c720e23a3b40
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: EVALUATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4adc307b-8e4c-4b71-9dab-de2fcfe4a265
+                stepCounter: dc3a20d8-a5b0-4d56-8085-029c85b25503
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20ae1c3f-08e8-40c3-81a6-95493dab433f
+          stepCounter: f111f97a-dbca-42d2-9754-c720e23a3b40
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 38daffe3-c194-496f-bea4-94b9ed12224e
+                stepCounter: dc3a20d8-a5b0-4d56-8085-029c85b25503
+            transform: MIN("STG_EBS_PAINTRANK"."CODE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_PAINTRANK: dc3a20d8-a5b0-4d56-8085-029c85b25503
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_PAINTRANK
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PAINTRANK') }} "STG_EBS_PAINTRANK"
+            WHERE "STG_EBS_PAINTRANK"."CODE" IS NOT NULL
+            GROUP BY "STG_EBS_PAINTRANK"."PROJECT_ID", "STG_EBS_PAINTRANK"."TASK_ID", "STG_EBS_PAINTRANK"."EVALUATOR"
+        name: STG_PAINT_CONDITION_CODES
+        noLinkRefs: []
+  name: STG_PAINT_CONDITION_CODES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

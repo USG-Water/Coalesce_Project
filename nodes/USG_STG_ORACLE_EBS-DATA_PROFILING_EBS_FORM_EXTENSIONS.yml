@@ -1,0 +1,274 @@
+fileVersion: 1
+id: 8104a05f-90a3-46c7-a35b-167746dd7c01
+name: DATA_PROFILING_EBS_FORM_EXTENSIONS
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f335dfd-38d6-4fcc-9d09-023521ee34cd
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: _FIVETRAN_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88304047-f3c8-4684-b30c-394bafde89b9
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae4d11bf-7f8f-4b59-a874-086e82a2bece
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(30)
+        description: ""
+        name: EXTENSION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bc7059d-451a-433d-87a4-1c792a432f2d
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57f8051a-4b8a-46c9-83bd-c0f0161a8e09
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(60)
+        description: ""
+        name: EXTENSION_LINK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1315d722-e8bf-481a-b5e9-7c82ae6e9f0f
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23c9de2-2b59-4fe0-b847-cb57c3e5adea
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 619562de-9504-4549-b472-f832ed20167f
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89ae3080-ecf3-44dc-bcc2-f8df57301f77
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(7,0)
+        description: ""
+        name: EXTENSION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c15b869-99b8-4634-9da2-15616a4a5b53
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b108fb84-5f7e-4732-885a-7bd99324b73a
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d2b6db1-27e6-46dd-92b1-cd7fecc2e6f9
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf935c71-fae4-4610-b368-37400edf0f6e
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(240)
+        description: ""
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da85b378-9aed-4c86-bc84-00cad64e8c62
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1881b8ab-4e0c-48bd-8557-9aba829edea4
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5686dc78-43ad-42e8-8a98-09fbecf261d3
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93fbc69c-2523-444b-8544-9043dd84715c
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 843e93a2-9db5-45b8-9220-b7cd38bc3498
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 520d93bb-95c6-4918-bb95-0db118364dc2
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d50811e-c669-4d64-bcdf-139771ebba16
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa993cce-2444-4f71-b9fd-6726fcc42de7
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52fe93d9-d89f-41e1-8cd9-507f15a15aec
+                stepCounter: 89eb748b-40b1-4625-85dc-2382470e93a6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9a9d34b-440c-4640-ab13-d41defdf863b
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 619cca2b-8003-4f7f-97c9-dadd9baa6f30
+          stepCounter: 8104a05f-90a3-46c7-a35b-167746dd7c01
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LA_FORM_EXTENSIONS: 89eb748b-40b1-4625-85dc-2382470e93a6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EBS_XXLAAPPS
+            nodeName: LA_FORM_EXTENSIONS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_EBS_XXLAAPPS', 'LA_FORM_EXTENSIONS') }} "LA_FORM_EXTENSIONS"
+        name: DATA_PROFILING_EBS_FORM_EXTENSIONS
+        noLinkRefs: []
+  name: DATA_PROFILING_EBS_FORM_EXTENSIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

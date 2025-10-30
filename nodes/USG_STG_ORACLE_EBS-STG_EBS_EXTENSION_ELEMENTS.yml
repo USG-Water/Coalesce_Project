@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+name: STG_EBS_EXTENSION_ELEMENTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_EBS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6cfb54f5-a4ad-450c-af20-9dbc0d17dbae
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: NUMBER(7,0)
+        description: ""
+        name: EXTENSION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6fb3755-23d6-4dd4-bad9-9d066049dc7e
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69d6ea46-9edb-4b78-af94-988d863e873e
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: NUMBER(7,0)
+        description: ""
+        name: EXTENSION_ELEMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a92b6ce-823f-4787-915c-1dd0cac539ee
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 337c6873-7f98-4143-8b06-52aa8a03d207
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: ENABLE_LOV
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eab801fe-1d37-455f-a453-70c5ec6a4ce8
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2aad178c-f888-47d6-91c5-f50f92d62ba2
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ATTRIBUTE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9390b7da-5ae5-41c2-a5c7-2e4ece434c5d
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb7238aa-b646-4dda-9c9a-ab4cecdca8b8
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: ATTRIBUTE_LABEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1fa6271-55b4-4b8f-a0db-d1ff2a4ccecd
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1912b5c-ebe2-4c8f-a290-112f8cc44d58
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: ENABLED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2e90a33-fe44-43c4-8440-718ae64035bb
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54658b6e-fb49-45bc-8cea-9971c037d618
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: REQUIRED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc118d36-314f-4b23-9e68-ad087c247bfc
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 56255fc2-3e0b-4f5c-845c-7703ec5313d4
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c034e52-9954-4850-b02f-9f8422671e76
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93d4aacc-37e7-45c7-8deb-b37f3dc0a102
+          stepCounter: 2ff9180f-921a-4e4e-8f30-6dde2a1d5b4b
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce105e7e-881d-4163-9fd9-1ca59c71cf83
+                stepCounter: 374fb873-7758-4461-b8fd-4aa1a55c9711
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LA_EXTENSION_ELEMENTS: 374fb873-7758-4461-b8fd-4aa1a55c9711
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_EBS_XXLAAPPS
+            nodeName: LA_EXTENSION_ELEMENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_EBS_XXLAAPPS', 'LA_EXTENSION_ELEMENTS') }} "LA_EXTENSION_ELEMENTS"
+            WHERE "LA_EXTENSION_ELEMENTS"."_FIVETRAN_DELETED" = FALSE
+        name: STG_EBS_EXTENSION_ELEMENTS
+        noLinkRefs: []
+  name: STG_EBS_EXTENSION_ELEMENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
