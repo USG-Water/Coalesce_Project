@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 4adc307b-8e4c-4b71-9dab-de2fcfe4a265
                 stepCounter: dc3a20d8-a5b0-4d56-8085-029c85b25503
-            transform: ""
+            transform: MIN_BY("STG_EBS_PAINTRANK"."EVALUATOR", STG_EBS_PAINTRANK."CODE")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 20ae1c3f-08e8-40c3-81a6-95493dab433f
@@ -87,7 +87,7 @@ operation:
           joinCondition: |-
             FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_PAINTRANK') }} "STG_EBS_PAINTRANK"
             WHERE "STG_EBS_PAINTRANK"."CODE" IS NOT NULL
-            GROUP BY "STG_EBS_PAINTRANK"."PROJECT_ID", "STG_EBS_PAINTRANK"."TASK_ID", "STG_EBS_PAINTRANK"."EVALUATOR"
+            GROUP BY "STG_EBS_PAINTRANK"."PROJECT_ID", "STG_EBS_PAINTRANK"."TASK_ID"
         name: STG_PAINT_CONDITION_CODES
         noLinkRefs: []
   name: STG_PAINT_CONDITION_CODES
