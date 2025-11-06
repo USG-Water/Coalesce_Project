@@ -1,0 +1,75 @@
+fileVersion: 1
+id: f1af632c-2bcf-4852-8662-01ce08593692
+name: STG_FF_TOTAL_TASK_COSTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7339b2e7-72f1-4ab7-8f2f-0d14f40eb2fd
+          stepCounter: f1af632c-2bcf-4852-8662-01ce08593692
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARENT_TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8b0b58b-06fd-40aa-92cb-e1a2cea478ac
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3d1ac4b-9618-406b-8371-abce0952e04d
+          stepCounter: f1af632c-2bcf-4852-8662-01ce08593692
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a54c49b-a896-41c3-99c2-48577563a229
+                stepCounter: 4380bad7-de21-44f6-82ac-a07ae5add711
+            transform: SUM("STG_EXPENDITURE_ITEMS"."RAW_COST")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EXPENDITURE_ITEMS: 4380bad7-de21-44f6-82ac-a07ae5add711
+          STG_TASKS_W_TUM_FLAG: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EXPENDITURE_ITEMS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS_W_TUM_FLAG
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_EXPENDITURE_ITEMS') }} "STG_EXPENDITURE_ITEMS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
+                ON "STG_EXPENDITURE_ITEMS"."TASK_ID" = "STG_TASKS_W_TUM_FLAG"."TASK_ID"
+            GROUP BY "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID"
+        name: STG_FF_TOTAL_TASK_COSTS
+        noLinkRefs: []
+  name: STG_FF_TOTAL_TASK_COSTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

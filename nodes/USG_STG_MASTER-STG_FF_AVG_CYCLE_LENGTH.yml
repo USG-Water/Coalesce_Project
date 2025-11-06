@@ -1,0 +1,77 @@
+fileVersion: 1
+id: 135eb8ad-5c99-48c3-b951-419a886df2fc
+name: STG_FF_AVG_CYCLE_LENGTH
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ff61124-17c5-4790-b074-8831d9287fac
+          stepCounter: 135eb8ad-5c99-48c3-b951-419a886df2fc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78746f56-8e1f-490d-a364-25aeccd47338
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79cd36d0-2ef2-44e3-b5b5-ae5f6564b922
+          stepCounter: 135eb8ad-5c99-48c3-b951-419a886df2fc
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: AVG_CYCLE_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: AVG(DATEDIFF('year', "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_COMPLETION_DATE", "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."COMPLETION_DATE"))
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_HISTORICAL_PAINT_COSTS_W_LAG: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_COSTS_W_LAG') }} "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"
+            WHERE "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_COMPLETION_DATE" IS NOT NULL
+            GROUP BY "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."INTERIOR_OR_EXTERIOR"
+        name: STG_FF_AVG_CYCLE_LENGTH
+        noLinkRefs: []
+  name: STG_FF_AVG_CYCLE_LENGTH
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+name: STG_FF_FUTURE_PAINT_TASK_CYCLES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2656264e-573d-4f89-840c-2a4021776c7c
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c17a2a68-a66a-45fe-9a78-0288198c2b56
+                stepCounter: 9bd90279-970e-4201-b23e-3b282d82ce22
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a47a05e-af6e-4d33-81c9-bec90638dccc
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8929def9-38db-41b9-bef7-11305e24766b
+                stepCounter: 9bd90279-970e-4201-b23e-3b282d82ce22
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c018a5a6-32d4-4db2-9a67-d540eecf247c
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c9320cc-69f7-4dd6-834c-0121c8cc7689
+                stepCounter: 9bd90279-970e-4201-b23e-3b282d82ce22
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9233e32a-ccdd-4ef5-a400-f55ef7a634c9
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PAINT_CONDITION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69e1ecf9-9b50-4f96-800c-5b18894f3539
+                stepCounter: 9bd90279-970e-4201-b23e-3b282d82ce22
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4ac445-1e0c-48d9-a2f1-e4b5da41ff37
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: DATE
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0172d293-7526-4ec9-9ecd-bb6deb253a90
+                stepCounter: 9bd90279-970e-4201-b23e-3b282d82ce22
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e362a34-11fd-4c5f-b675-e27ea6339f89
+          stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: CYCLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ROW_NUMBER() OVER (PARTITION BY "STG_FF_FUTURE_PAINT_TASKS"."PROJECT_ID", "STG_FF_FUTURE_PAINT_TASKS"."INTERIOR_OR_EXTERIOR" ORDER BY "STG_FF_FUTURE_PAINT_TASKS"."START_DATE") -1
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_FUTURE_PAINT_TASKS: 9bd90279-970e-4201-b23e-3b282d82ce22
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FUTURE_PAINT_TASKS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_PAINT_TASKS') }} "STG_FF_FUTURE_PAINT_TASKS"
+        name: STG_FF_FUTURE_PAINT_TASK_CYCLES
+        noLinkRefs: []
+  name: STG_FF_FUTURE_PAINT_TASK_CYCLES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

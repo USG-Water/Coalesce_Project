@@ -1,0 +1,176 @@
+fileVersion: 1
+id: b1ad7f65-4465-4df0-8c97-709a5564e27a
+name: PVT_FF_FORECAST_PARAMETERS
+operation:
+  config:
+    Colvol1: ""
+    aggfunc:
+      items:
+        - {}
+    aggfunc1:
+      items:
+        - funcname1: MAX
+    defaultval: ""
+    defvalue: false
+    excolval: false
+    exlcol:
+      items:
+        - {}
+    inferPivot: true
+    samKeyColval: false
+    sincol: true
+    subqueryval1: "'Cost Escalation Rate','Base Budget Cutoff','Budget Escalation Rate','Forecast Years','Minimum Cost Sample','Historical Cost Inflation'"
+    tabKeyColumn:
+      items:
+        - keyColDropdown: null
+          keyColTextBox: METRIC
+    tabValueColumn:
+      items:
+        - valColDropdown: null
+          valColTextBox: VALUE
+    testsEnabled: false
+    trunc: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91ca9edf-1a5c-431a-9590-2a44e6705ab3
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Cost Escalation Rate'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 239f7d81-e93b-473b-a1f0-783f0ebc511a
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Base Budget Cutoff'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bcea1356-1415-4092-bf61-5dd81656b5ed
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Budget Escalation Rate'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44e00765-3ced-4b10-81db-65204012b517
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Forecast Years'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f55c8a8-8e21-4c53-9e4b-acd71302f1f8
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Minimum Cost Sample'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb513650-97c9-43ff-ad4c-ff6d3ce84227
+          stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Historical Cost Inflation'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAI_FORECAST_PARAMETERS_FORECAST: 9030f18b-704b-4f6b-aaad-f1295ee1bf91
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAI_FORECAST_PARAMETERS_FORECAST
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TAI_FORECAST_PARAMETERS_FORECAST') }} "STG_TAI_FORECAST_PARAMETERS_FORECAST"
+        name: PVT_FF_FORECAST_PARAMETERS
+        noLinkRefs: []
+  name: PVT_FF_FORECAST_PARAMETERS
+  overrideSQL: false
+  schema: ""
+  sqlType: FunctionalNodeTypes:::409
+  type: sql
+  version: 1
+type: Node

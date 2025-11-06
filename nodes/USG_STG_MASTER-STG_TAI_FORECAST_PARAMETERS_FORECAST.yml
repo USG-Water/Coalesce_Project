@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 9030f18b-704b-4f6b-aaad-f1295ee1bf91
+name: STG_TAI_FORECAST_PARAMETERS_FORECAST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd4d4b54-f5e2-45e7-8bc8-3419e1e7ce1e
+          stepCounter: 9030f18b-704b-4f6b-aaad-f1295ee1bf91
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f5ba501-cef1-4fad-a019-30f9c87c1b66
+                stepCounter: fbbd379c-8f4b-4bd0-8382-c7e6f0fa4dc8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43262ab7-4a21-4ef9-87b9-06ebb2f5ef42
+          stepCounter: 9030f18b-704b-4f6b-aaad-f1295ee1bf91
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 428cd827-1214-4ccc-afcf-cd7038320b49
+                stepCounter: fbbd379c-8f4b-4bd0-8382-c7e6f0fa4dc8
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TAI_FORECAST_PARAMETERS_FORECAST: fbbd379c-8f4b-4bd0-8382-c7e6f0fa4dc8
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: TAI_FORECAST_PARAMETERS_FORECAST
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'TAI_FORECAST_PARAMETERS_FORECAST') }} "TAI_FORECAST_PARAMETERS_FORECAST"
+        name: STG_TAI_FORECAST_PARAMETERS_FORECAST
+        noLinkRefs: []
+  name: STG_TAI_FORECAST_PARAMETERS_FORECAST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

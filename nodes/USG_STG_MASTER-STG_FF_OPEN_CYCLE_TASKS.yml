@@ -1,0 +1,472 @@
+fileVersion: 1
+id: 3415b682-4023-40ff-963b-e99731c7becc
+name: STG_FF_OPEN_CYCLE_TASKS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed0e5276-85c0-42a5-9f0c-89efed3e5c2f
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05fa7a14-2712-4655-b0ae-04d7cd0c1bd5
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 463e8297-2b02-4e86-b7ca-d86e29dd8d68
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c114357-6a2d-4747-aa16-6ba93533b814
+                stepCounter: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65d70d24-7113-4645-8f52-1f23ed26ec77
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41fc4c8b-8d25-4329-a716-d0cfdd719130
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0b4204f-c717-495f-b2d3-b6407d0b5ecf
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 718bdfb7-d6e2-4da4-b411-41a4f7ce6f53
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47fc0f6f-864f-45c9-856a-65c47332968b
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96e37844-e063-4243-88bc-b7a8788165e1
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d57e7ecc-ae60-46d9-ac56-22235ac94b81
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f946b64-c712-4c6f-8a33-c8745984de96
+                stepCounter: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+            transform: |-
+              CASE "STG_PROJECT_CLASSES"."REGION_CODE"
+                  WHEN '01' THEN 'South'
+                  WHEN '02' THEN 'Central'
+                  WHEN '03' THEN 'West'
+                  WHEN '04' THEN 'North'
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c7570b4-47b7-44e4-9a2e-220f7dff4079
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24842036-13bd-4a15-8610-2552404eccfa
+                stepCounter: e5c6e19a-1b53-4029-8f1c-388f16c158ab
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdea62ed-f35b-45dd-8f49-06cc8cfc0fe1
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: TANK_STYLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 907640c4-e1b6-4789-9f96-7381556ce514
+                stepCounter: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a1a184c-26a8-4128-85d3-1a08813e32c5
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: TANK_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74d4752d-f0b2-4bfd-a509-78bf0c379cae
+                stepCounter: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b06b5dd-f348-4a97-9df6-4d56a51054a4
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PAINT_CONDITION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9233e32a-ccdd-4ef5-a400-f55ef7a634c9
+                stepCounter: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b2e8e0b-d4a9-48e5-bb99-a0fb6f78419e
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: SQUARE_FOOTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR"
+                  WHEN 'Interior' THEN "STG_PROJECTS"."INTERIOR_SQ_FT"
+                  WHEN 'Exterior' THEN "STG_PROJECTS"."EXTERIOR_SQ_FT"
+              END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0effd9d7-a4f9-477a-9f88-8a0dc3af4db1
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: TAI_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR"
+                  WHEN 'Interior' THEN "STG_FF_TAI_SCORES_LATEST"."INTERIOR_SCORE"
+                  WHEN 'Exterior' THEN "STG_FF_TAI_SCORES_LATEST"."EXTERIOR_SCORE"
+              END
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 911472ae-572e-4c1d-9035-331a89f3421e
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACCOUNT_ASSET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c114357-6a2d-4747-aa16-6ba93533b814
+                stepCounter: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+            transform: |-
+              COUNT(DISTINCT "STG_FF_PROJECT_CUSTOMERS"."PROJECT_ID") 
+                  OVER (PARTITION BY "STG_FF_PROJECT_CUSTOMERS"."ACCOUNT_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81b0aba5-2bf8-4a91-9881-b9c81fc1388b
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d34cedd-5b5c-4c15-b3d5-235281877229
+                stepCounter: bf826ca1-8a98-47e0-85d4-bd31c90fae84
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bcacd0d-876f-4a78-9523-3d5019d21ccd
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_ANNUAL_LOG_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81d15581-4f77-47ba-96b9-84f80a9f5a0e
+                stepCounter: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce5b18d6-b582-44e4-8d40-664ac9607be1
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_ANNUAL_PCT_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e912e382-58b0-4d3c-9253-b43099647ca2
+                stepCounter: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e93a233-4e65-43fe-b61d-96b37efc698d
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: COST_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e42970d-42fc-4131-92bc-310ad2d9297c
+                stepCounter: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dda13351-5c0a-4234-9e38-73d424ac59d2
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: COASTAL_TANK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30f0565b-7ed3-4f64-be75-f4d7cf7270de
+                stepCounter: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+            transform: "\"STG_PROJECT_CLASSES\".\"COASTAL_TANK\" IS NOT NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71636d87-27e3-4a37-a86d-d71ce3eb259d
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: DATE_CONTRACT_OBLIGATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 718bdfb7-d6e2-4da4-b411-41a4f7ce6f53
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: RIGHT("STG_TASKS_W_TUM_FLAG"."TASK_NAME", 1) = 'X'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b2f5042-bfa8-4ace-89fb-211072f72e8b
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_CYCLE_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79cd36d0-2ef2-44e3-b5b5-ae5f6564b922
+                stepCounter: 135eb8ad-5c99-48c3-b951-419a886df2fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bab2a328-947a-449c-839d-0d3b99422aad
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0d9b045-7477-4b4e-9b99-1869ace2036f
+                stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
+            transform: GREATEST(YEAR(CURRENT_DATE()) - YEAR("STG_FF_LAST_COMPLETION_DATES"."COMPLETION_DATE"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c862ddcf-927b-4372-b175-7b4ac749582f
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TAI_ASSESSMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 453e0d8a-0372-41e1-88d6-d42259935fd2
+                stepCounter: 43834967-8b78-40bf-82d4-821fef51d18f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0ec9002-8aad-446d-ab3c-4bd1ebf84311
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: DATE
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 103d09a9-f457-4fa2-bb5d-a21715be4845
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b8d9adc-a5bf-4faf-b7f4-37563adb393f
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 103d09a9-f457-4fa2-bb5d-a21715be4845
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: YEAR("STG_TASKS_W_TUM_FLAG"."START_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c353180-9975-4190-a6a9-f9a2d6e4f87a
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0d9b045-7477-4b4e-9b99-1869ace2036f
+                stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_COST_BUDGET: eacc65bb-fb88-4a69-9fbd-e884ed92cc34
+          STG_FF_AVG_CYCLE_LENGTH: 135eb8ad-5c99-48c3-b951-419a886df2fc
+          STG_FF_AVG_YEARLY_BILLINGS: bf826ca1-8a98-47e0-85d4-bd31c90fae84
+          STG_FF_DEGREDATION_RISK_RATE_ANNUAL: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+          STG_FF_FUTURE_PAINT_TASK_CYCLES: 6c0c2308-71ee-40a4-892f-589f866b5d9d
+          STG_FF_LAST_COMPLETION_DATES: 78259d1b-d867-4737-ab5e-78458b651033
+          STG_FF_PROJECT_CUSTOMERS: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+          STG_FF_PROJECT_STATES: e5c6e19a-1b53-4029-8f1c-388f16c158ab
+          STG_FF_TAI_SCORES_LATEST: 43834967-8b78-40bf-82d4-821fef51d18f
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+          STG_PROJECT_CLASSES: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+          STG_TASKS_W_TUM_FLAG: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_COST_BUDGET
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_AVG_CYCLE_LENGTH
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_AVG_YEARLY_BILLINGS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_DEGREDATION_RISK_RATE_ANNUAL
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FUTURE_PAINT_TASK_CYCLES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_LAST_COMPLETION_DATES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_PROJECT_CUSTOMERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_PROJECT_STATES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_TAI_SCORES_LATEST
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CLASSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS_W_TUM_FLAG
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
+            INNER JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_PAINT_TASK_CYCLES') }} "STG_FF_FUTURE_PAINT_TASK_CYCLES"
+                ON "STG_TASKS_W_TUM_FLAG"."TASK_ID" = "STG_FF_FUTURE_PAINT_TASK_CYCLES"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECT_CLASSES') }} "STG_PROJECT_CLASSES"
+                ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_PROJECTS"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_COST_BUDGET') }} "STG_COST_BUDGET"
+                ON "STG_TASKS_W_TUM_FLAG"."TASK_ID" = "STG_COST_BUDGET"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_PROJECT_STATES') }} "STG_FF_PROJECT_STATES"
+                ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_FF_PROJECT_STATES"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_PROJECT_CUSTOMERS') }} "STG_FF_PROJECT_CUSTOMERS"
+                ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_FF_PROJECT_CUSTOMERS"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_TAI_SCORES_LATEST') }} "STG_FF_TAI_SCORES_LATEST"
+                ON "STG_PROJECTS"."PROJECT_ID" = "STG_FF_TAI_SCORES_LATEST"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_AVG_YEARLY_BILLINGS') }} "STG_FF_AVG_YEARLY_BILLINGS"
+                ON "STG_FF_PROJECT_CUSTOMERS"."ACCOUNT_ID" = "STG_FF_AVG_YEARLY_BILLINGS"."ACCOUNT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_LAST_COMPLETION_DATES') }} "STG_FF_LAST_COMPLETION_DATES"
+                ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_FF_LAST_COMPLETION_DATES"."PROJECT_ID"
+                AND "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = "STG_FF_LAST_COMPLETION_DATES"."INTERIOR_OR_EXTERIOR"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_DEGREDATION_RISK_RATE_ANNUAL') }} "STG_FF_DEGREDATION_RISK_RATE_ANNUAL"
+                ON "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = "STG_FF_DEGREDATION_RISK_RATE_ANNUAL"."INTERIOR_OR_EXTERIOR"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_AVG_CYCLE_LENGTH') }} "STG_FF_AVG_CYCLE_LENGTH"
+                ON "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = "STG_FF_AVG_CYCLE_LENGTH"."INTERIOR_OR_EXTERIOR"
+            WHERE "STG_TASKS_W_TUM_FLAG"."RENOVATION_TYPE" IN ('MP Interior', 'MP Exterior')
+            AND "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID" IS NULL
+            AND "STG_TASKS_W_TUM_FLAG"."START_DATE" IS NOT NULL
+            AND "STG_TASKS_W_TUM_FLAG"."START_DATE" >= CURRENT_DATE()
+            AND "STG_FF_FUTURE_PAINT_TASK_CYCLES"."CYCLE" = 0
+        name: STG_FF_OPEN_CYCLE_TASKS
+        noLinkRefs: []
+  name: STG_FF_OPEN_CYCLE_TASKS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

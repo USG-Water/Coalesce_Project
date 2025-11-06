@@ -1,0 +1,84 @@
+fileVersion: 1
+id: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+name: STG_FF_SQUARE_FOOTAGE_VARIATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c229e54-66bb-43d4-9fb1-5b65a880b164
+          stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 740e9fda-ff52-40ca-90d9-c31adc979e82
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa101b5d-f14a-4e9a-94fd-f9beced0d030
+          stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2915750-c644-41eb-aed7-61453753e25a
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4006a270-99ae-428f-82d4-0418798c4dc8
+          stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MAX_COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f5539d6-b2ed-420a-b1c7-b7a4c61467f7
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: MAX("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }} "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
+            GROUP BY "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE", "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR"
+        name: STG_FF_SQUARE_FOOTAGE_VARIATIONS
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_VARIATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

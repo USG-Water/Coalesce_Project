@@ -1,0 +1,130 @@
+fileVersion: 1
+id: d90807c2-0156-4ba9-a700-57e562e94ea3
+name: STG_FF_WEIGHTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adbd3e24-4365-49a0-a1c2-3ca5b7861149
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_AVG_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35a8a3fa-556d-4bbb-9fb3-d859f2b7edb5
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffcb0402-dc77-4ebf-9499-7ac8b1c55699
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_COASTAL_TANK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65d44c5c-29b8-43b3-b98e-cdb5be58cc2f
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca952b32-6ecc-4848-9e16-bd5f07b1bae7
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_DEGREDATION_RISK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04001ff9-7f4f-4f8e-9092-45c5ff11d495
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f54dc652-ef11-44e9-9dc2-ed6d3735eba1
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_TAI_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ba4a6a8-91d4-4aef-a8c1-41cb9ae11839
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8be5bb4-59d1-4fde-925c-b22f68c9321c
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d03fe6b4-b62b-48c4-a4fc-6327265a7bbe
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdd15c21-0a8f-4a9c-ac32-572f3aa0c02b
+          stepCounter: d90807c2-0156-4ba9-a700-57e562e94ea3
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: WEIGHT_ASSET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7d3c967-59cd-4a1c-bdc7-5213cdf1e71a
+                stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PVT_FF_WEIGHTS: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: PVT_FF_WEIGHTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'PVT_FF_WEIGHTS') }} "PVT_FF_WEIGHTS"
+        name: STG_FF_WEIGHTS
+        noLinkRefs: []
+  name: STG_FF_WEIGHTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

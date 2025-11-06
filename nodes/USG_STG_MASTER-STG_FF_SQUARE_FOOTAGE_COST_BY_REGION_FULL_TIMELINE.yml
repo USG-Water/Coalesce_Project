@@ -1,0 +1,145 @@
+fileVersion: 1
+id: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f901afd2-218a-4559-ab9e-4c78cfa64ea0
+          stepCounter: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b75e3151-6786-4d58-a922-b79e4240f697
+                stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+            transform: ""
+          - columnReferences:
+              - columnCounter: 29eb8edd-8e58-4b11-9cfa-2860fd9b1a51
+                stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b60c518a-8c28-4e39-ac04-fdd0061da0d7
+          stepCounter: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 335ed9ca-f4c8-42f6-b07d-3d6b33e4fe49
+                stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+            transform: ""
+          - columnReferences:
+              - columnCounter: 02ad0ce0-5d7c-4ad9-abba-faf5e68a7a17
+                stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a25761a8-df45-441e-ab62-5ba21855163e
+          stepCounter: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4dcb50c9-6e26-4eab-86f9-dcb5e4c08952
+                stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+            transform: ""
+          - columnReferences:
+              - columnCounter: 63658124-ada4-474c-8eca-3b7acedcf93d
+                stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc3456ba-c525-44d4-9306-8b62cd88955d
+          stepCounter: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8aea7884-bcb7-4eb9-8162-d6365d2ec152
+                stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+            transform: ""
+          - columnReferences:
+              - columnCounter: d3768231-2f79-4f86-bf5c-3557d4f3e9d6
+                stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94158e59-5509-4ef8-82bf-34220144701c
+          stepCounter: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: TIMELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Historical'"
+          - columnReferences: []
+            transform: "'Forecast'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL: d9b67251-45b1-4927-b144-f11bbe9a55d9
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL') }} "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL"
+        name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+        noLinkRefs: []
+      - aliases:
+          STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST: 28c44c8f-a5de-450b-b026-af2b205ae788
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST') }} "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST"
+        name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

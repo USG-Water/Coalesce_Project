@@ -1,0 +1,84 @@
+fileVersion: 1
+id: a90b2531-d796-4954-89c3-93e8bc878375
+name: STG_FF_YEARLY_BILLINGS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a56cc91-57d7-4e6f-aed1-fd2170725a5a
+          stepCounter: a90b2531-d796-4954-89c3-93e8bc878375
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11cc6d1c-761a-466f-92ca-37e8ed5fd091
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be225cc0-b135-4842-957d-2a0204e6c40b
+          stepCounter: a90b2531-d796-4954-89c3-93e8bc878375
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b11b1ef4-4c62-439d-9dd2-71d991671310
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: GREATEST(SUM("STG_EBS_EVENTS"."BILL_TRANS_BILL_AMOUNT"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78805bfe-15ae-4c5a-96ee-937a92c633d1
+          stepCounter: a90b2531-d796-4954-89c3-93e8bc878375
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77e507ba-a3f9-407b-aea1-63931b7f117c
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: YEAR("STG_EBS_EVENTS"."COMPLETION_DATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_EVENTS: 6e392bc2-e869-4d89-adb4-b828185fb880
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_EVENTS') }} "STG_EBS_EVENTS"
+            GROUP BY "STG_EBS_EVENTS"."PROJECT_ID", YEAR("STG_EBS_EVENTS"."COMPLETION_DATE")
+        name: STG_FF_YEARLY_BILLINGS
+        noLinkRefs: []
+  name: STG_FF_YEARLY_BILLINGS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,76 @@
+fileVersion: 1
+id: bf826ca1-8a98-47e0-85d4-bd31c90fae84
+name: STG_FF_AVG_YEARLY_BILLINGS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04038879-2c68-4f10-b270-741eddde83e2
+          stepCounter: bf826ca1-8a98-47e0-85d4-bd31c90fae84
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c114357-6a2d-4747-aa16-6ba93533b814
+                stepCounter: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d34cedd-5b5c-4c15-b3d5-235281877229
+          stepCounter: bf826ca1-8a98-47e0-85d4-bd31c90fae84
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be225cc0-b135-4842-957d-2a0204e6c40b
+                stepCounter: a90b2531-d796-4954-89c3-93e8bc878375
+            transform: AVG("STG_FF_YEARLY_BILLINGS"."TOTAL_BILLINGS")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_PROJECT_CUSTOMERS: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+          STG_FF_YEARLY_BILLINGS: a90b2531-d796-4954-89c3-93e8bc878375
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_PROJECT_CUSTOMERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_YEARLY_BILLINGS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_YEARLY_BILLINGS') }} "STG_FF_YEARLY_BILLINGS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_PROJECT_CUSTOMERS') }} "STG_FF_PROJECT_CUSTOMERS"
+                ON "STG_FF_YEARLY_BILLINGS"."PROJECT_ID" = "STG_FF_PROJECT_CUSTOMERS"."PROJECT_ID"
+            WHERE "STG_FF_YEARLY_BILLINGS"."COMPLETION_YEAR" BETWEEN YEAR(CURRENT_DATE()) AND YEAR(CURRENT_DATE()) + 4
+            GROUP BY "STG_FF_PROJECT_CUSTOMERS"."ACCOUNT_ID"
+        name: STG_FF_AVG_YEARLY_BILLINGS
+        noLinkRefs: []
+  name: STG_FF_AVG_YEARLY_BILLINGS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

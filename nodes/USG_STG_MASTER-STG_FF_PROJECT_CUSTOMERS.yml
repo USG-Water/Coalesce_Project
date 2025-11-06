@@ -1,0 +1,75 @@
+fileVersion: 1
+id: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+name: STG_FF_PROJECT_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cfeb004c-c891-436c-827f-8426ba4c6a76
+          stepCounter: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fd1d846-de97-473a-b726-0973b958d06c
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c114357-6a2d-4747-aa16-6ba93533b814
+          stepCounter: de47dbb0-a2dc-4c92-90c9-7c9c40092e03
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90d698c9-e4be-48bb-8e1f-0cac4b4dbc03
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            QUALIFY ROW_NUMBER() OVER (
+            PARTITION BY PROJECT_ID
+                ORDER BY 
+                    CASE WHEN PROJECT_RELATIONSHIP_CODE = 'PRIMARY' THEN 1 ELSE 0 END DESC
+                    , CUSTOMER_BILL_SPLIT DESC
+            ) = 1
+        name: STG_FF_PROJECT_CUSTOMERS
+        noLinkRefs: []
+  name: STG_FF_PROJECT_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

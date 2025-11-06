@@ -1,0 +1,156 @@
+fileVersion: 1
+id: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+name: STG_FF_FORECAST_PARAMETERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63b3438f-08d8-42bd-bc58-2e84b1d06348
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRM_COST_ESCALATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91ca9edf-1a5c-431a-9590-2a44e6705ab3
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1edf99bf-3ad6-4a1b-80ef-8ee496b3fb2a
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRM_BASE_BUDGET_CUTOFF
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 239f7d81-e93b-473b-a1f0-783f0ebc511a
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6892488d-97a9-4d1a-b7e9-0a978bdd7615
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRM_BUDGET_ESCALATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bcea1356-1415-4092-bf61-5dd81656b5ed
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3564f10a-8b35-4694-b568-0fd041596ab3
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRM_FORECAST_YEARS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 44e00765-3ced-4b10-81db-65204012b517
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85f00634-8c44-4ce0-86c8-5d02ef410ed5
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PRM_MINIMUM_COST_SAMPLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f55c8a8-8e21-4c53-9e4b-acd71302f1f8
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: daa0ca55-0542-41dd-bed2-093a94c17a38
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PRM_HISTORICAL_COST_INFLATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb513650-97c9-43ff-ad4c-ff6d3ce84227
+                stepCounter: b1ad7f65-4465-4df0-8c97-709a5564e27a
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0123a34b-8a7c-4ba7-9416-4b0774e4928f
+          stepCounter: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: PRM_FORECAST_START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: YEAR(CURRENT_DATE()) + 1
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PVT_FF_FORECAST_PARAMETERS: b1ad7f65-4465-4df0-8c97-709a5564e27a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: PVT_FF_FORECAST_PARAMETERS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'PVT_FF_FORECAST_PARAMETERS') }} "PVT_FF_FORECAST_PARAMETERS"
+        name: STG_FF_FORECAST_PARAMETERS
+        noLinkRefs: []
+  name: STG_FF_FORECAST_PARAMETERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

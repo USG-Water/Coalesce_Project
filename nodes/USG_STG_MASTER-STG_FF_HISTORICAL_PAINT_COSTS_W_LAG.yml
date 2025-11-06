@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 488ac3d6-d516-4e23-84cb-735858ec1e50
+name: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0519a8a5-c0e0-4129-9de0-159f4f4781c1
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 622ab7c9-38bf-4553-a75c-fc89f3ee9597
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78746f56-8e1f-490d-a364-25aeccd47338
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f405dd6c-f115-4955-bafc-861631144faa
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a79b173-cec6-41e2-beff-66696e8b6347
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f10c96f1-ddbd-47dc-bd11-9b4994b789a3
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0067a8b9-f33d-4efa-94f7-8a7d3cd392f6
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: NUMBER(11,2)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: LAST_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f10c96f1-ddbd-47dc-bd11-9b4994b789a3
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: LAG("STG_FF_HISTORICAL_PAINT_COSTS"."RAW_COST") OVER (PARTITION BY "STG_FF_HISTORICAL_PAINT_COSTS"."PROJECT_ID", "STG_FF_HISTORICAL_PAINT_COSTS"."INTERIOR_OR_EXTERIOR" ORDER BY "STG_FF_HISTORICAL_PAINT_COSTS"."COMPLETION_DATE")
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 271ce765-1f47-4806-ba45-411fad941674
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: DATE
+        description: ""
+        name: COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e843c985-8353-44c0-884c-d65d7424ca7c
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f385543-dd50-409c-beb0-c5ecacfd8726
+          stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e843c985-8353-44c0-884c-d65d7424ca7c
+                stepCounter: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+            transform: LAG("STG_FF_HISTORICAL_PAINT_COSTS"."COMPLETION_DATE") OVER (PARTITION BY "STG_FF_HISTORICAL_PAINT_COSTS"."PROJECT_ID", "STG_FF_HISTORICAL_PAINT_COSTS"."INTERIOR_OR_EXTERIOR" ORDER BY "STG_FF_HISTORICAL_PAINT_COSTS"."COMPLETION_DATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_HISTORICAL_PAINT_COSTS: 8fe8b7c7-ef63-4c9d-ad2a-cd7935d1cbc3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_COSTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_COSTS') }} "STG_FF_HISTORICAL_PAINT_COSTS"
+        name: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+        noLinkRefs: []
+  name: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

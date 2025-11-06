@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 4679a8bd-33b9-4c37-8e5c-29eba2f214a2
+name: STG_TAI_FORECAST_PARAMETERS_WEIGHTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25a714a6-e2ae-4ed7-8b5e-c9d78ea5baa1
+          stepCounter: 4679a8bd-33b9-4c37-8e5c-29eba2f214a2
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f1285eb-7060-493c-88d0-e392faaf4d22
+                stepCounter: ee373a67-4435-43e9-8354-b7f7a716fd18
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 814ac983-5ca2-47c3-a54f-4a1424568621
+          stepCounter: 4679a8bd-33b9-4c37-8e5c-29eba2f214a2
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 98174f43-e4f2-423d-8a68-b5db57d4f9e4
+                stepCounter: ee373a67-4435-43e9-8354-b7f7a716fd18
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TAI_FORECAST_PARAMETERS_WEIGHTS: ee373a67-4435-43e9-8354-b7f7a716fd18
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: TAI_FORECAST_PARAMETERS_WEIGHTS
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'TAI_FORECAST_PARAMETERS_WEIGHTS') }} "TAI_FORECAST_PARAMETERS_WEIGHTS"
+        name: STG_TAI_FORECAST_PARAMETERS_WEIGHTS
+        noLinkRefs: []
+  name: STG_TAI_FORECAST_PARAMETERS_WEIGHTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

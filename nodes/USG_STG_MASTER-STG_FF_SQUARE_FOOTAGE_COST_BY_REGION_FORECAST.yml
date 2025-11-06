@@ -1,0 +1,134 @@
+fileVersion: 1
+id: 28c44c8f-a5de-450b-b026-af2b205ae788
+name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29eb8edd-8e58-4b11-9cfa-2860fd9b1a51
+          stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b645c946-4717-432a-90bd-83e998ce8446
+                stepCounter: 40665f71-a46b-4e18-bd8a-965e95b4e4c5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02ad0ce0-5d7c-4ad9-abba-faf5e68a7a17
+          stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9faafb63-f786-4453-8753-40c01d5ce301
+                stepCounter: 40665f71-a46b-4e18-bd8a-965e95b4e4c5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63658124-ada4-474c-8eca-3b7acedcf93d
+          stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbbb1150-0660-40d1-8c45-b4973e22d754
+                stepCounter: 40665f71-a46b-4e18-bd8a-965e95b4e4c5
+            transform: "\"STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION\".\"MAX_COMPLETION_YEAR\" + \"FORECAST_YEARS\".\"SEQ\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3768231-2f79-4f86-bf5c-3557d4f3e9d6
+          stepCounter: 28c44c8f-a5de-450b-b026-af2b205ae788
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 468616d2-aa79-4901-bf0c-136f14610813
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: "\"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL\".\"COST_PER_SQFT\" * POWER(1 + \"STG_FF_FORECAST_PARAMETERS\".\"PRM_COST_ESCALATION_RATE\", \"FORECAST_YEARS\".\"SEQ\")"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_FORECAST_PARAMETERS: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+          STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL: d9b67251-45b1-4927-b144-f11bbe9a55d9
+          STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION: 40665f71-a46b-4e18-bd8a-965e95b4e4c5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FORECAST_PARAMETERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_OPEN_CYCLE_TASKS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION') }} "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"
+            INNER JOIN {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL') }} "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL"
+                ON "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."REGION" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL"."REGION"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."INTERIOR_OR_EXTERIOR" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL"."INTERIOR_OR_EXTERIOR"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."MAX_COMPLETION_YEAR" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL"."COMPLETION_YEAR"
+            INNER JOIN (
+                SELECT DISTINCT
+                    "REGION",
+                    "INTERIOR_OR_EXTERIOR",
+                    "COMPLETION_YEAR"
+                FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }}
+            ) "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
+                ON "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."REGION" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."REGION"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."INTERIOR_OR_EXTERIOR" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS_BY_REGION"."MAX_COMPLETION_YEAR" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR"
+            CROSS JOIN LATERAL (
+                SELECT INDEX + 1 AS SEQ
+                FROM TABLE(
+                    FLATTEN(
+                        INPUT => ARRAY_GENERATE_RANGE(
+                            1,
+                            (SELECT (MAX("START_YEAR") - MIN("START_YEAR")) + 2
+                             FROM {{ ref('USG_STG_MASTER', 'STG_FF_OPEN_CYCLE_TASKS') }})
+                        )
+                    )
+                )
+            ) "FORECAST_YEARS"
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
+        name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FORECAST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

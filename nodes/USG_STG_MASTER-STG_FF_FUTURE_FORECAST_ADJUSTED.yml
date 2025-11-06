@@ -1,0 +1,677 @@
+fileVersion: 1
+id: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+name: STG_FF_FUTURE_FORECAST_ADJUSTED
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      {% set full_ref = ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST') | replace('"','') %}
+      {% set db_name = full_ref.split('.')[0] %}
+
+      CALL {{ db_name }}.MASTER.TAI_FORECAST('{{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_ADJUSTED')}}');
+    preSQL: |-
+      -- Feth not authorized. Intention is to update the repo before running. 
+
+      -- {% set full_ref = ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST') | replace('"','') %}
+      -- {% set db_name = full_ref.split('.')[0] %}
+
+      -- ALTER GIT REPOSITORY USG_DEV.MASTER.TAI_FORECAST FETCH;
+      SELECT 1;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 558b3ada-c85c-4ef9-817e-8a4067475573
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 168e6712-abcd-44a2-ac1b-768acb00f2fb
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8159b29e-57fe-4618-ac1e-2e8875fa8da7
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3345eef9-66ff-4aa4-a4e8-cdbb81cda29c
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 042f5885-1b45-4e04-8a5e-6e47c1c731c1
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94ab0244-4047-4bc4-acf8-196fd364d783
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4342beaa-4389-4aa0-aac4-2fa52e50cd40
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: TANK_STYLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bd185f9-e411-47fc-9ca9-2f0fc8fb57c4
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: TANK_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3435103-cef2-4784-8eb8-827017a8581e
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: VARCHAR(240)
+        description: ""
+        name: PAINT_CONDITION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af9f16cb-8e0e-48b1-8141-3ced01dc8a3f
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER(38,5)
+        description: ""
+        name: SQUARE_FOOTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66d7285e-8eb8-41e4-8449-24e632895841
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: INITIAL_COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a24473eb-9bad-4c38-855a-5ae22300e9c9
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: INITIAL_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e84fd204-d3e0-4621-b6a4-a1c95f5c7a14
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TAI_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5be12373-7c28-4fba-a7ff-856f2ac3f0dd
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TAI_SCORE_NRM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eff37845-2657-4419-9c85-a9279334d52e
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACCOUNT_ASSET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 669c4160-3ae4-4e2b-8f4f-c34d5d518183
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: ACCOUNT_ASSET_COUNT_NRM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c08d0b07-8486-47f0-90a7-df9ed3bcc9a7
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8526cc77-cc28-410f-96e6-347019894bdc
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_BILLINGS_NRM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18e5eb28-80ae-4325-831e-c3ed8302ea97
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_ANNUAL_LOG_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61d13b2d-49b5-4af1-81fc-929d299c9391
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_ANNUAL_PCT_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32ff9266-4366-4623-9a07-192790015973
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_GROWTH_FACTOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a2df712-c889-42c1-bf75-d3838e61f5f0
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: COST_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d7b62a4-947a-4ab2-a9e7-693bda03946a
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: COASTAL_TANK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09d99c26-015a-44df-bde4-d1f86c98cd5d
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COASTAL_TANK_NRM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c1c8d54-bebb-46ef-8cf4-28dbd8edd1ac
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: DATE_CONTRACT_OBLIGATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a65290c-17f3-4914-8475-52c63941cd19
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_CYCLE_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ddb9e84e-05a8-49a8-8765-91c4887260e1
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6eb733b7-ebcc-4a1f-a36c-0148cd3c48a7
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: YEARS_SINCE_LAST_COMPLETION_NRM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac853ff0-19eb-4af7-94d6-a687c8cc4809
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_TAI_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09f349a6-9900-4648-a174-98a945ae293d
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_AVG_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fa5539a-96ee-410f-baf5-7058a900356d
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a004847f-c876-4ff4-833f-bae14f6e4e40
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_DEGREDATION_RISK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bbd16bbb-b3ae-4612-87ef-c6ca415e8889
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_ASSET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7da05a4-09cd-47f9-b8c4-0bdc944a019f
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: WEIGHT_COASTAL_TANK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fe5c936-617e-4edb-a3b8-a39188e4cacd
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TAI_ASSESSMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b015201-3d24-48aa-8222-a631d7b93b28
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: DATE
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f318b760-3d63-41dd-81d5-9b39b7b53ab8
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fae3db7e-4970-4e5f-9f4a-16d4eb8132ba
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32bea3a4-cc89-457b-8fa8-a9df0fbddb8b
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRIORITY_WEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0be59419-17e7-485e-b438-385780d7f165
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: ADJUSTED_START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29e7440e-30b2-430f-9662-c1e69cc67437
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: ADJUSTED_COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d11e04eb-6f2f-48e5-bcb2-676574edaf93
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: ADJUSTED_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67ed6e54-be5a-491e-8c06-4c6af6021d86
+          stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: ACCUMULATED_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_FUTURE_FORECAST: 177d1121-7f1b-4bcb-8870-4b6db33c8bf6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FUTURE_FORECAST
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST') }} "STG_FF_FUTURE_FORECAST"
+        name: STG_FF_FUTURE_FORECAST_ADJUSTED
+        noLinkRefs: []
+  name: STG_FF_FUTURE_FORECAST_ADJUSTED
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

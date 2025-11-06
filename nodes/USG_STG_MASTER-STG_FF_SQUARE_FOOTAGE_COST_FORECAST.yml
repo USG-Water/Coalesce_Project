@@ -1,0 +1,134 @@
+fileVersion: 1
+id: d8434bf8-ec71-4d5a-8652-024de5668eb6
+name: STG_FF_SQUARE_FOOTAGE_COST_FORECAST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 675cfa1e-9f1f-42f7-9685-3f49fa7db661
+          stepCounter: d8434bf8-ec71-4d5a-8652-024de5668eb6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c229e54-66bb-43d4-9fb1-5b65a880b164
+                stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96451eef-f153-4f4e-9df5-3205fd8e5ca1
+          stepCounter: d8434bf8-ec71-4d5a-8652-024de5668eb6
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa101b5d-f14a-4e9a-94fd-f9beced0d030
+                stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c7aee00-58d3-46b9-995b-3acc7ac3d316
+          stepCounter: d8434bf8-ec71-4d5a-8652-024de5668eb6
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4006a270-99ae-428f-82d4-0418798c4dc8
+                stepCounter: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+            transform: "\"STG_FF_SQUARE_FOOTAGE_VARIATIONS\".\"MAX_COMPLETION_YEAR\" + \"FORECAST_YEARS\".\"SEQ\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 573a5725-224a-41ca-a84d-f6ef71cbb656
+          stepCounter: d8434bf8-ec71-4d5a-8652-024de5668eb6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 468616d2-aa79-4901-bf0c-136f14610813
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: "\"STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL\".\"COST_PER_SQFT\" * POWER(1 + \"STG_FF_FORECAST_PARAMETERS\".\"PRM_COST_ESCALATION_RATE\", \"FORECAST_YEARS\".\"SEQ\")"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_FORECAST_PARAMETERS: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+          STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+          STG_FF_SQUARE_FOOTAGE_VARIATIONS: 869879f0-64d2-4311-b7c5-419e3a5b3e88
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FORECAST_PARAMETERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_OPEN_CYCLE_TASKS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_VARIATIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_VARIATIONS') }} "STG_FF_SQUARE_FOOTAGE_VARIATIONS"
+            INNER JOIN {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL') }} "STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL"
+                ON "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."STATE" = "STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL"."STATE"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."INTERIOR_OR_EXTERIOR" = "STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL"."INTERIOR_OR_EXTERIOR"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."MAX_COMPLETION_YEAR" = "STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL"."COMPLETION_YEAR"
+            INNER JOIN (
+                SELECT DISTINCT
+                    "STATE",
+                    "INTERIOR_OR_EXTERIOR",
+                    "COMPLETION_YEAR"
+                FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }}
+            ) "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
+                ON "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."STATE" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."INTERIOR_OR_EXTERIOR" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR"
+                AND "STG_FF_SQUARE_FOOTAGE_VARIATIONS"."MAX_COMPLETION_YEAR" = "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR"
+            CROSS JOIN LATERAL (
+                SELECT INDEX + 1 AS SEQ
+                FROM TABLE(
+                    FLATTEN(
+                        INPUT => ARRAY_GENERATE_RANGE(
+                            1,
+                            (SELECT (MAX("START_YEAR") - MIN("START_YEAR")) + 2
+                             FROM {{ ref('USG_STG_MASTER', 'STG_FF_OPEN_CYCLE_TASKS') }})
+                        )
+                    )
+                )
+            ) "FORECAST_YEARS"
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
+        name: STG_FF_SQUARE_FOOTAGE_COST_FORECAST
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_COST_FORECAST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

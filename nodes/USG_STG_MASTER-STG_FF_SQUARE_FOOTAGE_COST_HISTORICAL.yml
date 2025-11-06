@@ -1,0 +1,140 @@
+fileVersion: 1
+id: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+name: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1045a2be-4539-4025-b8b8-675d25861dcf
+          stepCounter: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 740e9fda-ff52-40ca-90d9-c31adc979e82
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c9c6bc9-fc41-4da5-9dc9-40b632c4759c
+          stepCounter: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2915750-c644-41eb-aed7-61453753e25a
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."TYPE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2eafae6-83a9-4ad0-9b9c-4fc50c0e9aa9
+          stepCounter: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f5539d6-b2ed-420a-b1c7-b7a4c61467f7
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR")
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c299e37-22cb-4142-8d2b-44de4939fbf9
+          stepCounter: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(MAX("STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT"), SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0))
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42fb2ebd-93f0-4f15-9a0a-6552b8e8733c
+          stepCounter: ee646538-bf1f-4cfe-a7b3-44df8e9afd11
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SAMPLE_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+          STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FORECAST_PARAMETERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }} "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
+            FULL OUTER JOIN {{ ref('USG_STG_MASTER', 'STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE') }} "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"
+                ON "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE" = "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE"
+                AND "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR" = "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."TYPE"
+                AND "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR" = "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR"
+            GROUP BY COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE")
+                     , COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."TYPE")
+                     , COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR")
+            HAVING COUNT(*) >= (
+              SELECT "STG_FF_FORECAST_PARAMETERS"."PRM_MINIMUM_COST_SAMPLE"
+              FROM {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
+              LIMIT 1
+            )
+        name: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,88 @@
+fileVersion: 1
+id: 78259d1b-d867-4737-ab5e-78458b651033
+name: STG_FF_LAST_COMPLETION_DATES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 612960f7-8403-459f-b32a-3de1582da77e
+          stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05fa7a14-2712-4655-b0ae-04d7cd0c1bd5
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da1cdbc3-2cfa-4fd6-963b-dc0267527e27
+          stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96e37844-e063-4243-88bc-b7a8788165e1
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0d9b045-7477-4b4e-9b99-1869ace2036f
+          stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
+        config: {}
+        dataType: DATE
+        description: ""
+        name: COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ead865b-ba25-40ea-9800-d00a2989ad25
+                stepCounter: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+            transform: MAX("STG_TASKS_W_TUM_FLAG"."COMPLETION_DATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TASKS_W_TUM_FLAG: 072caf50-30ee-4628-8f1c-6eb2fbe71880
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS_W_TUM_FLAG
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
+            WHERE "STG_TASKS_W_TUM_FLAG"."RENOVATION_TYPE" IN ('MP Interior', 'MP Exterior')
+            AND "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID" IS NULL
+            AND "STG_TASKS_W_TUM_FLAG"."START_DATE" IS NOT NULL
+            AND "STG_TASKS_W_TUM_FLAG"."COMPLETION_DATE" IS NOT NULL
+            GROUP BY "STG_TASKS_W_TUM_FLAG"."PROJECT_ID", "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR"
+        name: STG_FF_LAST_COMPLETION_DATES
+        noLinkRefs: []
+  name: STG_FF_LAST_COMPLETION_DATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

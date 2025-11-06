@@ -1,0 +1,161 @@
+fileVersion: 1
+id: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+name: STG_FF_DEGREDATION_RISK_RATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f8727dd-9936-4c1a-aa89-4d5b65d39af9
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0519a8a5-c0e0-4129-9de0-159f4f4781c1
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91b1ebb3-e02e-447f-b762-9879ec446c69
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78746f56-8e1f-490d-a364-25aeccd47338
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97a7d00e-0271-4a32-aa8d-c15324553b86
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a79b173-cec6-41e2-beff-66696e8b6347
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a329e56-60f6-4050-a80d-c3ba66e935c6
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: LAST_RAW_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0067a8b9-f33d-4efa-94f7-8a7d3cd392f6
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 241f3d13-b518-46a0-adec-435257cf402c
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: DEGREDATION_RISK_LOG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE
+                  WHEN "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."RAW_COST" > 0 AND "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_RAW_COST" > 0 THEN LN("STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."RAW_COST" / "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_RAW_COST") ELSE NULL
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7fd637f-2aa0-424e-a0e6-d4162c36abfa
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: DATE
+        description: ""
+        name: COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 271ce765-1f47-4806-ba45-411fad941674
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c69e08e-1540-46af-93e7-60ec70808fac
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f385543-dd50-409c-beb0-c5ecacfd8726
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16f6a2d3-3f74-45cb-b8eb-0f5504092e04
+          stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: YEARS_BETWEEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: DATEDIFF('year', "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_COMPLETION_DATE", "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."COMPLETION_DATE")
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_HISTORICAL_PAINT_COSTS_W_LAG: 488ac3d6-d516-4e23-84cb-735858ec1e50
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_COSTS_W_LAG') }} "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"
+        name: STG_FF_DEGREDATION_RISK_RATE
+        noLinkRefs: []
+  name: STG_FF_DEGREDATION_RISK_RATE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

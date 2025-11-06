@@ -1,0 +1,176 @@
+fileVersion: 1
+id: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+name: PVT_FF_WEIGHTS
+operation:
+  config:
+    Colvol1: ""
+    aggfunc:
+      items:
+        - {}
+    aggfunc1:
+      items:
+        - funcname1: MAX
+    defaultval: ""
+    defvalue: false
+    excolval: false
+    exlcol:
+      items:
+        - {}
+    inferPivot: true
+    samKeyColval: false
+    sincol: true
+    subqueryval1: "'Average Billings','Coastal Tank','Degredation Risk','TAI Score','Years Since Last Completion','Asset Count'"
+    tabKeyColumn:
+      items:
+        - keyColDropdown: null
+          keyColTextBox: METRIC
+    tabValueColumn:
+      items:
+        - valColDropdown: null
+          valColTextBox: WEIGHT
+    testsEnabled: false
+    trunc: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35a8a3fa-556d-4bbb-9fb3-d859f2b7edb5
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Average Billings'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65d44c5c-29b8-43b3-b98e-cdb5be58cc2f
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Coastal Tank'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04001ff9-7f4f-4f8e-9092-45c5ff11d495
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Degredation Risk'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ba4a6a8-91d4-4aef-a8c1-41cb9ae11839
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'TAI Score'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d03fe6b4-b62b-48c4-a4fc-6327265a7bbe
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Years Since Last Completion'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7d3c967-59cd-4a1c-bdc7-5213cdf1e71a
+          stepCounter: 7adecb17-1414-4e99-b80d-dec8a0fe8796
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: "'Asset Count'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAI_FORECAST_PARAMETERS_WEIGHTS: 4679a8bd-33b9-4c37-8e5c-29eba2f214a2
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAI_FORECAST_PARAMETERS_WEIGHTS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TAI_FORECAST_PARAMETERS_WEIGHTS') }} "STG_TAI_FORECAST_PARAMETERS_WEIGHTS"
+        name: PVT_FF_WEIGHTS
+        noLinkRefs: []
+  name: PVT_FF_WEIGHTS
+  overrideSQL: false
+  schema: ""
+  sqlType: FunctionalNodeTypes:::409
+  type: sql
+  version: 1
+type: Node

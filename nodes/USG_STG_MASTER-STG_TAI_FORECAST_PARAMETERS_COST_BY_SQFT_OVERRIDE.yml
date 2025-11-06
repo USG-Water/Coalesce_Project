@@ -1,0 +1,98 @@
+fileVersion: 1
+id: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+name: STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 56898115-f7cd-441e-9dfc-ab428628835a
+          stepCounter: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1b89026-76d7-41d9-b225-ec50baf1d62a
+                stepCounter: 83cecc6b-deb6-4583-9e5f-cbb413c1423d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f89d21b-af0c-475a-81bf-fede45c9e903
+          stepCounter: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a53fdc8c-bc8d-4286-b55f-a3db9f4be670
+                stepCounter: 83cecc6b-deb6-4583-9e5f-cbb413c1423d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 158ab45d-e33e-485a-8d90-65b4b8333458
+          stepCounter: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a25874-fcd9-4794-90df-18940ac28a00
+                stepCounter: 83cecc6b-deb6-4583-9e5f-cbb413c1423d
+            transform: REPLACE("UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR", '_', '')::NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f8ab59d-e395-4bd9-9343-bd1537b7311d
+          stepCounter: aa2433a3-cf0e-4926-be37-f680ac5be4f8
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e97995aa-4dfa-4943-aa82-5615191dc198
+                stepCounter: 83cecc6b-deb6-4583-9e5f-cbb413c1423d
+            transform: NULLIF("UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT", 0)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE: 83cecc6b-deb6-4583-9e5f-cbb413c1423d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE') }} "UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"
+            WHERE "UPVT_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT" > 0
+        name: STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
+        noLinkRefs: []
+  name: STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

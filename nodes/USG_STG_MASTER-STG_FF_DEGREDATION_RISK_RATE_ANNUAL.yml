@@ -1,0 +1,92 @@
+fileVersion: 1
+id: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+name: STG_FF_DEGREDATION_RISK_RATE_ANNUAL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac4ccf0a-f751-4ff9-8ad3-8472507f37d3
+          stepCounter: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91b1ebb3-e02e-447f-b762-9879ec446c69
+                stepCounter: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81d15581-4f77-47ba-96b9-84f80a9f5a0e
+          stepCounter: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: AVG_ANNUAL_LOG_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: AVG("STG_FF_DEGREDATION_RISK_RATE"."DEGREDATION_RISK_LOG" / NULLIF("STG_FF_DEGREDATION_RISK_RATE"."YEARS_BETWEEN", 0))
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e912e382-58b0-4d3c-9253-b43099647ca2
+          stepCounter: e2038e9f-1352-4ad5-9c23-ab42fd885a72
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_ANNUAL_PCT_DEGREDATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EXP(AVG("STG_FF_DEGREDATION_RISK_RATE"."DEGREDATION_RISK_LOG" / NULLIF("STG_FF_DEGREDATION_RISK_RATE"."YEARS_BETWEEN", 0))) - 1
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_DEGREDATION_RISK_RATE: 71130dc4-9e75-493a-abc2-c9d96dc0e335
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_DEGREDATION_RISK_RATE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_DEGREDATION_RISK_RATE') }} "STG_FF_DEGREDATION_RISK_RATE"
+            WHERE "STG_FF_DEGREDATION_RISK_RATE"."DEGREDATION_RISK_LOG" IS NOT NULL
+            AND "STG_FF_DEGREDATION_RISK_RATE"."YEARS_BETWEEN" > 0
+            GROUP BY "STG_FF_DEGREDATION_RISK_RATE"."INTERIOR_OR_EXTERIOR"
+        name: STG_FF_DEGREDATION_RISK_RATE_ANNUAL
+        noLinkRefs: []
+  name: STG_FF_DEGREDATION_RISK_RATE_ANNUAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

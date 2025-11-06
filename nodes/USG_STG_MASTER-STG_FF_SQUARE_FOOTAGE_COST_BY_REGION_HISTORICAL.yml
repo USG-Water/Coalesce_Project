@@ -1,0 +1,98 @@
+fileVersion: 1
+id: d9b67251-45b1-4927-b144-f11bbe9a55d9
+name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b75e3151-6786-4d58-a922-b79e4240f697
+          stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 006893fd-4210-4e18-a576-d64382ed37d7
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 335ed9ca-f4c8-42f6-b07d-3d6b33e4fe49
+          stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2915750-c644-41eb-aed7-61453753e25a
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4dcb50c9-6e26-4eab-86f9-dcb5e4c08952
+          stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f5539d6-b2ed-420a-b1c7-b7a4c61467f7
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8aea7884-bcb7-4eb9-8162-d6365d2ec152
+          stepCounter: d9b67251-45b1-4927-b144-f11bbe9a55d9
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 384b191f-f2fe-41e9-93d3-9585d47721df
+                stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+            transform: SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }} "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
+            GROUP BY "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."REGION", "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR"
+        name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+        noLinkRefs: []
+  name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

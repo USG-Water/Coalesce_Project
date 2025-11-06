@@ -1,0 +1,81 @@
+fileVersion: 1
+id: e5c6e19a-1b53-4029-8f1c-388f16c158ab
+name: STG_FF_PROJECT_STATES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88f9492b-c030-4f3e-8ac3-52c168b66dd5
+          stepCounter: e5c6e19a-1b53-4029-8f1c-388f16c158ab
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fd1d846-de97-473a-b726-0973b958d06c
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24842036-13bd-4a15-8610-2552404eccfa
+          stepCounter: e5c6e19a-1b53-4029-8f1c-388f16c158ab
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24098fc6-69d9-4e4d-a485-93a5d3d05957
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: MAX("STG_ADDRESSES"."STATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ADDRESSES: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+          STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
+          STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ASSETS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ASSETS') }} "STG_ASSETS"
+                ON "STG_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID" = "STG_ASSETS"."EBS_CUSTOMER_SITE_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+                ON "STG_ASSETS"."ADDRESS_ID" = "STG_ADDRESSES"."ADDRESS_ID"
+            WHERE "STG_ADDRESSES"."STATE" IS NOT NULL
+            GROUP BY "STG_PROJECT_CUSTOMERS"."PROJECT_ID"
+        name: STG_FF_PROJECT_STATES
+        noLinkRefs: []
+  name: STG_FF_PROJECT_STATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,98 @@
+fileVersion: 1
+id: 43834967-8b78-40bf-82d4-821fef51d18f
+name: STG_FF_TAI_SCORES_LATEST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f420e8fc-285e-4149-8984-22c447692c9e
+          stepCounter: 43834967-8b78-40bf-82d4-821fef51d18f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea0e4adf-01c8-40ce-9ba3-56c45cd8fb60
+                stepCounter: 967503b0-d346-4890-a3cb-be8b5c88885b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03507b6f-8dba-455d-a46f-e5f1b721da50
+          stepCounter: 43834967-8b78-40bf-82d4-821fef51d18f
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: INTERIOR_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: facbb4c5-fac2-46a9-b0bd-144943e0c677
+                stepCounter: 967503b0-d346-4890-a3cb-be8b5c88885b
+            transform: MAX_BY("STG_FF_TAI_SCORES"."INTERIOR_SCORE", "STG_FF_TAI_SCORES"."ASSESSMENT_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4cbd245-4510-4a1a-a43c-cb14107bbf5b
+          stepCounter: 43834967-8b78-40bf-82d4-821fef51d18f
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: EXTERIOR_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 703a3398-a8d9-46fb-a77c-3d31b400277f
+                stepCounter: 967503b0-d346-4890-a3cb-be8b5c88885b
+            transform: MAX_BY("STG_FF_TAI_SCORES"."EXTERIOR_SCORE", "STG_FF_TAI_SCORES"."ASSESSMENT_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 453e0d8a-0372-41e1-88d6-d42259935fd2
+          stepCounter: 43834967-8b78-40bf-82d4-821fef51d18f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ASSESSMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba8333f5-e223-4d54-81b4-0ed96c5f8be3
+                stepCounter: 967503b0-d346-4890-a3cb-be8b5c88885b
+            transform: MAX("STG_FF_TAI_SCORES"."ASSESSMENT_DATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_TAI_SCORES: 967503b0-d346-4890-a3cb-be8b5c88885b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_TAI_SCORES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_TAI_SCORES') }} "STG_FF_TAI_SCORES"
+            GROUP BY "STG_FF_TAI_SCORES"."PROJECT_ID"
+        name: STG_FF_TAI_SCORES_LATEST
+        noLinkRefs: []
+  name: STG_FF_TAI_SCORES_LATEST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
