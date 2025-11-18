@@ -198,10 +198,22 @@ operation:
               - columnCounter: "0"
                 stepCounter: "0"
             transform: |-
-              CASE 
-                  WHEN "STG_FF_TAI_SCORES_LATEST"."ASSESSMENT_DATE" <= "STG_FF_LAST_COMPLETION_DATES"."COMPLETION_DATE" THEN 5
-                  WHEN "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Interior' THEN "STG_FF_TAI_SCORES_LATEST"."INTERIOR_SCORE"
-                  WHEN "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Exterior' THEN "STG_FF_TAI_SCORES_LATEST"."EXTERIOR_SCORE"
+              CASE
+                  WHEN 
+                      "STG_FF_TAI_SCORES_LATEST"."ASSESSMENT_DATE" <= "STG_FF_LAST_COMPLETION_DATES"."COMPLETION_DATE"
+                      AND (
+                          ("STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Interior' 
+                              AND "STG_FF_TAI_SCORES_LATEST"."INTERIOR_SCORE" IS NOT NULL)
+                       OR ("STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Exterior' 
+                              AND "STG_FF_TAI_SCORES_LATEST"."EXTERIOR_SCORE" IS NOT NULL)
+                      )
+                  THEN 5
+
+                  WHEN "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Interior'
+                  THEN "STG_FF_TAI_SCORES_LATEST"."INTERIOR_SCORE"
+
+                  WHEN "STG_TASKS_W_TUM_FLAG"."INTERIOR_OR_EXTERIOR" = 'Exterior'
+                  THEN "STG_FF_TAI_SCORES_LATEST"."EXTERIOR_SCORE"
               END
         systemColumnType: None
       - appliedColumnTests: {}
