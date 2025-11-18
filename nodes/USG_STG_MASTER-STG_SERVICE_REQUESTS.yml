@@ -773,7 +773,7 @@ operation:
           columnCounter: a07c6640-b3c6-4e0e-bd87-f5bdec7f07b0
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: PLANNED_START_DATE
         nullable: true
@@ -781,13 +781,13 @@ operation:
           - columnReferences:
               - columnCounter: d68ea557-3fe2-415b-9ab7-203ce02e0a17
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."PLANNED_START_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: fe439270-1754-4f0a-9a9e-0a5cae4b812b
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: SCHEDULED_START_DATE
         nullable: true
@@ -795,13 +795,13 @@ operation:
           - columnReferences:
               - columnCounter: c461b565-773d-4d0c-8079-46d612bc6412
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."SCHEDULED_START_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 4db089c6-47c3-4de8-a37d-5ff37e246509
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: ACTUAL_START_DATE
         nullable: true
@@ -809,13 +809,13 @@ operation:
           - columnReferences:
               - columnCounter: 1b8f452c-aa85-4c8a-b311-9321590ab6f5
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."ACTUAL_START_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 11305bf1-046e-4c24-bd8c-d4d7ea276159
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: PLANNED_END_DATE
         nullable: true
@@ -823,13 +823,13 @@ operation:
           - columnReferences:
               - columnCounter: f86977d2-778d-4557-a6b2-be48bc8a5fa6
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."PLANNED_END_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 24f5ce61-2c36-4d14-b8c0-dae4027138bc
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: SCHEDULED_END_DATE
         nullable: true
@@ -837,13 +837,13 @@ operation:
           - columnReferences:
               - columnCounter: 68c57543-f3dd-439c-9d59-129880e9dbdb
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."SCHEDULED_END_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0c047a2b-887d-4317-a055-df9a5e20809a
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(9)
+        dataType: DATE
         description: ""
         name: ACTUAL_END_DATE
         nullable: true
@@ -851,7 +851,7 @@ operation:
           - columnReferences:
               - columnCounter: 8f66ce5b-42af-4317-8e05-5c4def5c7c18
                 stepCounter: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
-            transform: ""
+            transform: TO_DATE("STG_EBS_CS_SR"."ACTUAL_END_DATE", 'DD-MON-YY')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 9015085f-9e58-400e-9d4e-944d28fbfb47
