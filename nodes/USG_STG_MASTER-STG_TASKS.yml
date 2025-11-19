@@ -537,6 +537,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 7d2a09c2-2fb7-487b-bbbd-9baff590eecb
+          stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ORIGINAL_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a28f2872-ddcb-442e-bcb0-eb068cf58194
+                stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 6441ecc5-1bd6-4890-9c70-c366010a6a9c
           stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
         config: {}
@@ -548,7 +562,12 @@ operation:
           - columnReferences:
               - columnCounter: a28f2872-ddcb-442e-bcb0-eb068cf58194
                 stepCounter: 355b578d-6d1a-4ef7-a8d5-5933985a03cc
-            transform: ""
+            transform: |-
+              COALESCE(
+                  GREATEST("STG_EBS_TASKS"."START_DATE", "STG_SERVICE_REQUESTS"."PLANNED_START_DATE"),
+                  "STG_SERVICE_REQUESTS"."PLANNED_START_DATE",
+                  "STG_EBS_TASKS"."START_DATE"
+              )
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0a4941c6-4435-49d5-8827-7b50fb120deb
