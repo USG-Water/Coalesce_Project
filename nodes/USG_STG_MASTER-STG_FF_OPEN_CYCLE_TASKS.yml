@@ -343,7 +343,7 @@ operation:
           - columnReferences:
               - columnCounter: f0d9b045-7477-4b4e-9b99-1869ace2036f
                 stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
-            transform: GREATEST(YEAR(CURRENT_DATE()) - YEAR("STG_FF_LAST_COMPLETION_DATES"."COMPLETION_DATE"), 0)
+            transform: GREATEST(YEAR("STG_TASKS_W_TUM_FLAG"."START_DATE") - YEAR("STG_FF_LAST_COMPLETION_DATES"."COMPLETION_DATE"), 0)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c862ddcf-927b-4372-b175-7b4ac749582f
