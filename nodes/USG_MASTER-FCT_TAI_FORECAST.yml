@@ -3,7 +3,12 @@ id: 905b7d9b-a80b-4059-b9be-9c34a425a813
 name: FCT_TAI_FORECAST
 operation:
   config:
-    postSQL: ""
+    postSQL: |-
+      BEGIN
+          IF (CURRENT_DATABASE() = 'USG_PROD') THEN
+              CALL USG_PROD.MASTER.SP_MONTE_CARLO_SIMULATION();
+          END IF;
+      END;
     preSQL: ""
     testsEnabled: true
   database: ""
@@ -602,6 +607,34 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 00e71f3a-a7c7-41f2-9225-23a432d5c511
+                stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69b5f040-c145-4b25-affe-ce8569a523f0
+          stepCounter: 905b7d9b-a80b-4059-b9be-9c34a425a813
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ADJUSTED_YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2693d300-5269-411a-ae8d-3a824097cb78
+                stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b56e8769-6c7b-4784-8255-b921f734e88d
+          stepCounter: 905b7d9b-a80b-4059-b9be-9c34a425a813
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: YEARS_SINCE_LAST_COMPLETION_DELTA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a36f7b8-278b-43c1-9e5d-ad7630ffd35d
                 stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
             transform: ""
       - appliedColumnTests: {}

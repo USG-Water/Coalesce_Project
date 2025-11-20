@@ -605,6 +605,34 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 2693d300-5269-411a-ae8d-3a824097cb78
+          stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ADJUSTED_YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0be59419-17e7-485e-b438-385780d7f165
+                stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+            transform: "\"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"YEARS_SINCE_LAST_COMPLETION\" + (\"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"ADJUSTED_START_YEAR\" - \"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"START_YEAR\")"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a36f7b8-278b-43c1-9e5d-ad7630ffd35d
+          stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: YEARS_SINCE_LAST_COMPLETION_DELTA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0be59419-17e7-485e-b438-385780d7f165
+                stepCounter: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+            transform: "\"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"ADJUSTED_START_YEAR\" - \"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"START_YEAR\""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 5428eea9-1cee-4b9d-a8f5-8559d0cc9da9
           stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
         config: {}
