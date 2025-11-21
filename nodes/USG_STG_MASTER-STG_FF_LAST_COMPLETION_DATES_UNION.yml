@@ -97,7 +97,7 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
-            WHERE "STG_TASKS_W_TUM_FLAG"."RENOVATION_TYPE" IN ('MP Interior', 'UR Exterior', 'UR Interior and Exterior', 'UR Concrete Exterior', 'UR Concrete Interior and Exterior')
+            WHERE "STG_TASKS_W_TUM_FLAG"."RENOVATION_TYPE" IN ('MP Exterior', 'UR Exterior', 'UR Interior and Exterior', 'UR Concrete Exterior', 'UR Concrete Interior and Exterior')
             AND "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID" IS NULL
             AND "STG_TASKS_W_TUM_FLAG"."START_DATE" IS NOT NULL
             AND "STG_TASKS_W_TUM_FLAG"."COMPLETION_DATE" IS NOT NULL
