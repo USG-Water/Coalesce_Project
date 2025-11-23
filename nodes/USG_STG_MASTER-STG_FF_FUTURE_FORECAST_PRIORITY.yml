@@ -568,42 +568,12 @@ operation:
               - columnCounter: "0"
                 stepCounter: "0"
             transform: |-
-              CASE
-                  WHEN "STG_FF_FUTURE_FORECAST_METRICS"."INTERIOR_OR_EXTERIOR" = 'Interior' THEN
-                      (
-                          -- TAI + Coastal Tank + Cost Growth Factor (Degradation Risk)
-                          (
-                              "STG_FF_WEIGHTS"."WEIGHT_TAI_SCORE"
-                              + "STG_FF_WEIGHTS"."WEIGHT_COASTAL_TANK"
-                              + "STG_FF_WEIGHTS"."WEIGHT_DEGREDATION_RISK"
-                          ) * "STG_FF_FUTURE_FORECAST_METRICS"."TAI_SCORE_NRM"
-                      )
-                      +
-                      (
-                          "STG_FF_WEIGHTS"."WEIGHT_YEARS_SINCE_LAST_COMPLETION"
-                          * "STG_FF_FUTURE_FORECAST_METRICS"."YEARS_SINCE_LAST_COMPLETION_NRM"
-                      )
-                      +
-                      (
-                          "STG_FF_WEIGHTS"."WEIGHT_AVG_BILLINGS"
-                          * "STG_FF_FUTURE_FORECAST_METRICS"."AVG_BILLINGS_NRM"
-                      )
-                      +
-                      (
-                          "STG_FF_WEIGHTS"."WEIGHT_ASSET_COUNT"
-                          * "STG_FF_FUTURE_FORECAST_METRICS"."ACCOUNT_ASSET_COUNT_NRM"
-                      )
-
-                  WHEN "STG_FF_FUTURE_FORECAST_METRICS"."INTERIOR_OR_EXTERIOR" = 'Exterior' THEN
-                      (
-                          ("STG_FF_WEIGHTS"."WEIGHT_TAI_SCORE" * "STG_FF_FUTURE_FORECAST_METRICS"."TAI_SCORE_NRM") +
-                          ("STG_FF_WEIGHTS"."WEIGHT_YEARS_SINCE_LAST_COMPLETION" * "STG_FF_FUTURE_FORECAST_METRICS"."YEARS_SINCE_LAST_COMPLETION_NRM") +
-                          ("STG_FF_WEIGHTS"."WEIGHT_AVG_BILLINGS" * "STG_FF_FUTURE_FORECAST_METRICS"."AVG_BILLINGS_NRM") +
-                          ("STG_FF_WEIGHTS"."WEIGHT_DEGREDATION_RISK" * ("STG_FF_FUTURE_FORECAST_METRICS"."COST_DEGREDATION_FACTOR" - 1)) +
-                          ("STG_FF_WEIGHTS"."WEIGHT_ASSET_COUNT" * "STG_FF_FUTURE_FORECAST_METRICS"."ACCOUNT_ASSET_COUNT_NRM") +
-                          ("STG_FF_WEIGHTS"."WEIGHT_COASTAL_TANK" * "STG_FF_FUTURE_FORECAST_METRICS"."COASTAL_TANK_NRM")
-                      )
-              END
+              ("STG_FF_WEIGHTS"."WEIGHT_TAI_SCORE" * "STG_FF_FUTURE_FORECAST_METRICS"."TAI_SCORE_NRM") +
+              ("STG_FF_WEIGHTS"."WEIGHT_YEARS_SINCE_LAST_COMPLETION" * "STG_FF_FUTURE_FORECAST_METRICS"."YEARS_SINCE_LAST_COMPLETION_NRM") +
+              ("STG_FF_WEIGHTS"."WEIGHT_AVG_BILLINGS" * "STG_FF_FUTURE_FORECAST_METRICS"."AVG_BILLINGS_NRM") +
+              ("STG_FF_WEIGHTS"."WEIGHT_DEGREDATION_RISK" * ("STG_FF_FUTURE_FORECAST_METRICS"."COST_DEGREDATION_FACTOR" - 1)) +
+              ("STG_FF_WEIGHTS"."WEIGHT_ASSET_COUNT" * "STG_FF_FUTURE_FORECAST_METRICS"."ACCOUNT_ASSET_COUNT_NRM") +
+              ("STG_FF_WEIGHTS"."WEIGHT_COASTAL_TANK" * "STG_FF_FUTURE_FORECAST_METRICS"."COASTAL_TANK_NRM")
         systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
