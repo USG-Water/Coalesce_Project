@@ -1,0 +1,218 @@
+fileVersion: 1
+id: b8df1644-a2ef-452f-8bba-0d44b80bc805
+name: STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74e4113a-5daf-452f-902e-4f226b24c6cc
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc4be469-7d4e-41c1-b3f2-1e899b61dd8d
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 380357f3-5d06-4f88-a4ec-ce68dddf36f0
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 891fe34c-3c41-4a4d-8da9-d7f3fab25dcd
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9dc61ba-ea54-46ee-9a38-c938c747edf5
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58a7efb3-fa36-4da7-ae29-c576c0101d39
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e9bb827-72ba-4ec4-a522-58f0a048fa4e
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ce0cb52-8446-42e4-ab09-7e48caeb35a3
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf8e9fd9-7d0e-4816-a0cb-a8cea4569a36
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        name: INITIAL_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3d1ac4b-9618-406b-8371-abce0952e04d
+                stepCounter: f1af632c-2bcf-4852-8662-01ce08593692
+            transform: "\"STG_FF_TOTAL_TASK_COSTS\".\"RAW_COST\" * POWER(1 + \"STG_FF_FORECAST_PARAMETERS\".\"PRM_HISTORICAL_COST_INFLATION\", YEAR(CURRENT_DATE()) - YEAR(\"STG_FF_HISTORICAL_PAINT_TASKS\".\"COMPLETION_DATE\"))"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0088d4f-c8c4-49e8-b3a1-54812cb58646
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: NUMBER(38,5)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SQUARE_FOOTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ce0cb52-8446-42e4-ab09-7e48caeb35a3
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: |-
+              CASE "STG_FF_HISTORICAL_PAINT_TASKS"."INTERIOR_OR_EXTERIOR"
+                  WHEN 'Interior' THEN "STG_PROJECTS"."INTERIOR_SQ_FT"
+                  WHEN 'Exterior' THEN "STG_PROJECTS"."EXTERIOR_SQ_FT"
+              END
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70321a70-5967-4833-aaa5-2848525284d4
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: DATE
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7bf7615b-9c19-4583-8288-a7dcbadca6ed
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5861e205-953e-449d-8b44-b55e61e4c247
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: DATE
+        description: ""
+        name: COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc46fbac-5b17-403a-aa1d-220540f2dfed
+                stepCounter: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b086772-4b8b-4db2-9a5c-ab336b5f032f
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LAST_COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f385543-dd50-409c-beb0-c5ecacfd8726
+                stepCounter: 488ac3d6-d516-4e23-84cb-735858ec1e50
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7dc61e9e-799b-4fab-9d26-f6a22a350dbd
+          stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: YEAR("STG_FF_HISTORICAL_PAINT_TASKS"."COMPLETION_DATE") - YEAR("STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."LAST_COMPLETION_DATE")
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_FORECAST_PARAMETERS: db610cdc-c7a1-4f5a-a61f-f004b61a1164
+          STG_FF_HISTORICAL_PAINT_COSTS_W_LAG: 488ac3d6-d516-4e23-84cb-735858ec1e50
+          STG_FF_HISTORICAL_PAINT_TASKS: 85580d0b-e9be-4451-9854-fcc08e31a9ea
+          STG_FF_TOTAL_TASK_COSTS: f1af632c-2bcf-4852-8662-01ce08593692
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FORECAST_PARAMETERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_COSTS_W_LAG
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_TASKS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_TOTAL_TASK_COSTS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_TASKS') }} "STG_FF_HISTORICAL_PAINT_TASKS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_TOTAL_TASK_COSTS') }} "STG_FF_TOTAL_TASK_COSTS"
+                ON "STG_FF_HISTORICAL_PAINT_TASKS"."TASK_ID" = "STG_FF_TOTAL_TASK_COSTS"."PARENT_TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                ON "STG_FF_HISTORICAL_PAINT_TASKS"."PROJECT_ID" = "STG_PROJECTS"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_COSTS_W_LAG') }} "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"
+                ON "STG_FF_HISTORICAL_PAINT_TASKS"."PROJECT_ID" = "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."PROJECT_ID"
+                AND "STG_FF_HISTORICAL_PAINT_TASKS"."INTERIOR_OR_EXTERIOR" = "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."INTERIOR_OR_EXTERIOR"
+                AND "STG_FF_HISTORICAL_PAINT_TASKS"."COMPLETION_DATE" = "STG_FF_HISTORICAL_PAINT_COSTS_W_LAG"."COMPLETION_DATE"
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
+        name: STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS
+        noLinkRefs: []
+  name: STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

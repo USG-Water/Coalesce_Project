@@ -3,7 +3,29 @@ id: dcb4027f-f7cd-45f6-8ca3-082605190744
 name: PVT_EPA_FACILITIES
 operation:
   config:
-    Colvol1: ""
+    Colvol1: |-
+      'Cistern',
+      'Clear Well',
+      'Common Headers',
+      'Consecutive Connection',
+      'Distribution System System/Zone',
+      'Infiltration Gallery',
+      'Intake',
+      'Non-piped',
+      'Non-piped, Non-purchased',
+      'Other',
+      'Pressure Control',
+      'Pump Facility',
+      'Reservoir',
+      'Roof Catchment',
+      'Sampling Station',
+      'Spring',
+      'Storage',
+      'Surface Impoundment',
+      'Transmission Main (Manifold)',
+      'Treatment Plant',
+      'Well',
+      'Wellhead'
     aggfunc:
       items:
         - {}
@@ -16,20 +38,16 @@ operation:
     exlcol:
       items:
         - {}
-    inferPivot: true
+    inferPivot: false
     samKeyColval: false
     sincol: true
     subqueryval1: ""
     tabKeyColumn:
       items:
-        - keyColDropdown:
-            columnCounter: df09ce03-4b88-450d-91f5-5f7ac09c1ce1
-            stepCounter: dcb4027f-f7cd-45f6-8ca3-082605190744
-          keyColTextBox: FACILITY_TYPE
+        - keyColTextBox: FACILITY_TYPE
     tabValueColumn:
       items:
-        - valColDropdown: null
-          valColTextBox: FACILITY_ID
+        - valColTextBox: FACILITY_ID
     testsEnabled: true
     trunc: true
   database: ""

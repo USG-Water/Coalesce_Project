@@ -40,7 +40,8 @@ operation:
       'Tank Number',
       'Tank Size',
       'Tank Style',
-      'VISUAL FREQUENCY'
+      'VISUAL FREQUENCY',
+      'OPS-Work Status'
     aggfunc:
       items:
         - {}
@@ -826,6 +827,25 @@ operation:
         defaultValue: ""
         description: ""
         name: "'VISUAL FREQUENCY'"
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55bea31c-a6f0-4c68-b951-d117c5b42ad7
+          stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: "'OPS-Work Status'"
         nullable: true
         primaryKey: false
         sourceColumnReferences:

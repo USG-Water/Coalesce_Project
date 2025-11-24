@@ -596,6 +596,7 @@ operation:
     sourceMapping:
       - aliases:
           STG_ELIGIBLE_TUMS: 51b470a9-98e7-4cef-8b04-c6838d160f23
+          STG_PROJECT_CLASSES: fba952f9-d30d-4dce-8c6e-1252050cb1c0
           STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
         customSQL:
           customSQL: ""
@@ -603,12 +604,18 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_ELIGIBLE_TUMS
           - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CLASSES
+          - locationName: USG_STG_MASTER
             nodeName: STG_TASKS
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ELIGIBLE_TUMS') }} "STG_ELIGIBLE_TUMS"
                 ON "STG_TASKS"."TASK_ID" = "STG_ELIGIBLE_TUMS"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECT_CLASSES') }} "STG_PROJECT_CLASSES"
+                ON "STG_TASKS"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
+            WHERE "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" NOT IN ('UR-On Hold', 'Cancelled', 'All-On Hold')
+            OR "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" IS NULL
         name: STG_TASKS_W_TUM_FLAG
         noLinkRefs: []
   name: STG_TASKS_W_TUM_FLAG
