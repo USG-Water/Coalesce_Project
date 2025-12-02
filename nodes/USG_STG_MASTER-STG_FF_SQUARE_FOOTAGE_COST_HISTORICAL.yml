@@ -30,7 +30,7 @@ operation:
           - columnReferences:
               - columnCounter: 740e9fda-ff52-40ca-90d9-c31adc979e82
                 stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
-            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE")
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 6c9c6bc9-fc41-4da5-9dc9-40b632c4759c
@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: d2915750-c644-41eb-aed7-61453753e25a
                 stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
-            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."TYPE")
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: d2eafae6-83a9-4ad0-9b9c-4fc50c0e9aa9
@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 3f5539d6-b2ed-420a-b1c7-b7a4c61467f7
                 stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
-            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR")
+            transform: ""
       - acceptedValues:
           strictMatch: true
           values: []
@@ -77,7 +77,7 @@ operation:
           - columnReferences:
               - columnCounter: "0"
                 stepCounter: "0"
-            transform: COALESCE(MAX("STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT"), SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0))
+            transform: SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -114,9 +114,9 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }} "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
-            GROUP BY COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE")
-                     , COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."TYPE")
-                     , COALESCE("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR", "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."YEAR")
+            GROUP BY "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."STATE"
+                     ,"STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR"
+                     , "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR"
             HAVING COUNT(*) >= (
               SELECT "STG_FF_FORECAST_PARAMETERS"."PRM_MINIMUM_COST_SAMPLE"
               FROM {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
