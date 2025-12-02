@@ -1,0 +1,141 @@
+fileVersion: 1
+id: fd046d46-fd5f-401b-9363-56207350e927
+name: STG_TUM_PROJECTS_CURRENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 129a2f3e-3be8-497f-9e18-a22270a85cd8
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 439e0e54-88af-41b0-b04e-f9da06a4cafa
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c8ed674-0b81-4197-b81f-c4518492e8c4
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9d3bb71d-ee82-416e-ac18-41a01365fb1e
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."PROJECT_NUMBER", "STG_TUM_PROJECTS"."BILLING_YEAR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c798bd0e-4ac0-46b4-9ed1-86c93293d931
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PNL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b00e0a1-d2e5-4e68-9f0d-ff161187e001
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."PNL_SERVICE_LINE", "STG_TUM_PROJECTS"."BILLING_YEAR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e4bcd0b-0551-475e-9247-260a77f93f34
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: CANCELLATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11ffca0b-6826-43aa-b0a1-b9869bb6dd9a
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."CANCELLATION_STATUS", "STG_TUM_PROJECTS"."BILLING_YEAR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eca3c8e0-9196-4bb7-a918-4bf6e3197bd3
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: YEARLY_PROJECT_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23e15362-4c72-4e43-8e36-ac3b5a8a7735
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: SUM("STG_TUM_PROJECTS"."YEARLY_PROJECT_BILLINGS")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cc1d1de2-a494-419a-bcf0-173ca4cb638f
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PROJECT_START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b979e12c-c9c5-439e-a8b3-27aa820eb065
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."PROJECT_START_YEAR", "STG_TUM_PROJECTS"."BILLING_YEAR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dee605c3-b760-40fb-ab7a-bae6b8e7d2cb
+          stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: WHITELIST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ee74f52-640f-4001-a81f-a08b94ad2f79
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."WHITELIST", "STG_TUM_PROJECTS"."BILLING_YEAR")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TUM_PROJECTS: dc5c2d4b-9042-4763-96bf-f14b73578136
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_PROJECTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS') }} "STG_TUM_PROJECTS"
+            WHERE "STG_TUM_PROJECTS"."BILLING_YEAR" = 2025 OR "STG_TUM_PROJECTS"."WHITELIST"
+            GROUP BY "STG_TUM_PROJECTS"."PROJECT_ID"
+        name: STG_TUM_PROJECTS_CURRENT
+        noLinkRefs: []
+  name: STG_TUM_PROJECTS_CURRENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

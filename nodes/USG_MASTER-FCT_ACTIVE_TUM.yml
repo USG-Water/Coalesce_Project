@@ -1,0 +1,171 @@
+fileVersion: 1
+id: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+name: FCT_ACTIVE_TUM
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04002f75-b73d-4daa-a643-ffc28e8cf9e4
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 129a2f3e-3be8-497f-9e18-a22270a85cd8
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a5b43d1-98af-4758-9920-4fdf204348c5
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c8ed674-0b81-4197-b81f-c4518492e8c4
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8691bf23-8bef-42f1-8821-2099cff1cd18
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PNL_SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c798bd0e-4ac0-46b4-9ed1-86c93293d931
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bac7424-5a47-4f97-a90a-91f4ba683f35
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: CANCELLATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e4bcd0b-0551-475e-9247-260a77f93f34
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0f0b9ea-3845-44b3-ab7d-b640189f5a47
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: YEARLY_PROJECT_BILLINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eca3c8e0-9196-4bb7-a918-4bf6e3197bd3
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f3d51af-de69-48a2-9ece-31dc4615da86
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PROJECT_START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc1d1de2-a494-419a-bcf0-173ca4cb638f
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65f4467b-1607-40df-bcd1-0a1dc05492a3
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: WHITELIST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dee605c3-b760-40fb-ab7a-bae6b8e7d2cb
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9622447d-0a13-4049-ae27-7eecbe1554bb
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 233eba6e-1b8d-4ee3-bd37-6150e12061f2
+          stepCounter: 9c4c72a4-34ba-4abb-a859-600c3d18a75b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TUM_PROJECTS_CURRENT: fd046d46-fd5f-401b-9363-56207350e927
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_PROJECTS_CURRENT
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS_CURRENT') }} "STG_TUM_PROJECTS_CURRENT"
+        name: FCT_ACTIVE_TUM
+        noLinkRefs: []
+  name: FCT_ACTIVE_TUM
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

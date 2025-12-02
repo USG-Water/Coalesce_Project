@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+name: STG_TUM_TOTAL_PROJECT_BILLINGS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7125df4d-f697-4389-b43c-6fe744393bc3
+          stepCounter: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11cc6d1c-761a-466f-92ca-37e8ed5fd091
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f6555f3-69e3-4c8b-81fe-3703184d3579
+          stepCounter: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: BILL_TRANS_BILL_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b11b1ef4-4c62-439d-9dd2-71d991671310
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: SUM("STG_EBS_EVENTS"."BILL_TRANS_BILL_AMOUNT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27f734b1-db47-4500-a127-c5de836e9a60
+          stepCounter: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77e507ba-a3f9-407b-aea1-63931b7f117c
+                stepCounter: 6e392bc2-e869-4d89-adb4-b828185fb880
+            transform: YEAR("STG_EBS_EVENTS"."COMPLETION_DATE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EBS_EVENTS: 6e392bc2-e869-4d89-adb4-b828185fb880
+          STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS
+          - locationName: USG_STG_ORACLE_EBS
+            nodeName: STG_EBS_EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_EBS', 'STG_EBS_EVENTS') }} "STG_EBS_EVENTS"
+            INNER JOIN {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
+                ON "STG_EBS_EVENTS"."TASK_ID" = "STG_TASKS"."TASK_ID"
+                AND "STG_TASKS"."BILL_TYPE" IN (
+                    'CS Bill'
+                    , 'CT Bill'
+                    , 'MP Bill'
+                    , 'UR Bill'
+                    , 'TS Bill'
+                )
+            GROUP BY "STG_EBS_EVENTS"."PROJECT_ID", YEAR("STG_EBS_EVENTS"."COMPLETION_DATE")
+        name: STG_TUM_TOTAL_PROJECT_BILLINGS
+        noLinkRefs: []
+  name: STG_TUM_TOTAL_PROJECT_BILLINGS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

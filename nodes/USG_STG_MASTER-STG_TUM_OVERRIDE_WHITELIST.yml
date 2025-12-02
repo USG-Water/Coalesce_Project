@@ -1,0 +1,74 @@
+fileVersion: 1
+id: 1ca35054-2332-42d0-a23c-7b3cda97a918
+name: STG_TUM_OVERRIDE_WHITELIST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 901f34f6-c1f2-4499-834c-eb945ae89f49
+          stepCounter: 1ca35054-2332-42d0-a23c-7b3cda97a918
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f258a38f-9af8-49d8-8fae-f4b2eb3c45c6
+                stepCounter: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c74b176-4439-4e8a-84ba-c44b41e4c63f
+          stepCounter: 1ca35054-2332-42d0-a23c-7b3cda97a918
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7f6bff8-9c0f-4ae9-9561-11c79d97c743
+                stepCounter: 1e63a190-7b94-4c3a-b2e9-78cb6f6b3768
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_PROJECTS: c0a0fb27-6505-4e05-a0dc-72d1bb71e433
+          TUM_OVERRIDE_LIST_WHITELIST: 1e63a190-7b94-4c3a-b2e9-78cb6f6b3768
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: TUM_OVERRIDE_LIST_WHITELIST
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'TUM_OVERRIDE_LIST_WHITELIST') }} "TUM_OVERRIDE_LIST_WHITELIST"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
+                 ON "TUM_OVERRIDE_LIST_WHITELIST"."PROJECT_NUMBER"::VARCHAR = "STG_PROJECTS"."PROJECT_NUMBER"
+        name: STG_TUM_OVERRIDE_WHITELIST
+        noLinkRefs: []
+  name: STG_TUM_OVERRIDE_WHITELIST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

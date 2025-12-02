@@ -1,0 +1,63 @@
+fileVersion: 1
+id: a79d9ad4-d0ba-44ec-a70b-4257c8b98cc0
+name: STG_TUM_BILL_TASKS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Get a distinct list of projects that have a bill type that should be considered a TUM
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7ff6b16-e972-417a-9817-a7a6c60c4f5f
+          stepCounter: a79d9ad4-d0ba-44ec-a70b-4257c8b98cc0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76ad209d-758a-440b-8715-59bc1a204c20
+                stepCounter: 413cd36f-e28b-4d12-9785-f06a307f8d64
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TASKS: 413cd36f-e28b-4d12-9785-f06a307f8d64
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
+            WHERE "STG_TASKS"."BILL_TYPE" IN (
+                        'CS Bill'
+                        , 'CT Bill'
+                        , 'MP Bill'
+                        , 'UR Bill'
+                        , 'TS Bill'
+                    )
+            GROUP BY "STG_TASKS"."PROJECT_ID"
+        name: STG_TUM_BILL_TASKS
+        noLinkRefs: []
+  name: STG_TUM_BILL_TASKS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
