@@ -21,7 +21,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Threshold applied to TAI_SCORE for categorization. Used in determining risk levels in asset management reports. Direct load from source. Employed in dashboards for real-time risk assessment and strategic decision-making. Business key component. No transformations applied. Essential for filtering and segmenting assets based on their risk profile. Referenced in asset performance analysis and predictive modeling.
         isBusinessKey: true
         name: TAI_CUTOFF
         nullable: true
@@ -36,7 +36,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER(38,0)
-        description: ""
+        description: Unique identifier for each project. Sourced directly from the project management system. Used in project costing and resource allocation analysis. Forms the basis for project performance dashboards. No transformations applied. Serves as a foreign key in related tables. Enables tracking of project-specific metrics and reporting on project outcomes. Essential for project governance and compliance.
         name: PROJECT_ID
         nullable: true
         sourceColumnReferences:
@@ -46,25 +46,11 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9c5f3512-dcd2-4e48-84bc-cb9e52801be0
-          stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: ACCOUNT_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f3e3a8d1-9bd1-4dd6-ae1c-85b7c186f57d
-                stepCounter: af428526-fa91-4432-aecf-5ed886440b93
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: ce6f6509-6188-4daf-909c-daaa592633ee
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER(38,0)
-        description: ""
+        description: Unique identifier for each task within a project. Sourced directly from the project management system. Used in task scheduling and resource allocation analysis. Forms the basis for task performance dashboards. No transformations applied. Business key component. Serves as a foreign key in related tables. Enables tracking of task-specific metrics and reporting on task outcomes.
         isBusinessKey: true
         name: TASK_ID
         nullable: true
@@ -79,7 +65,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR
-        description: ""
+        description: Name or brief description of the task. Provides context for project activities. Used in project planning and progress tracking reports. Direct load from source system. No transformations applied. Supports filtering and categorization of tasks in project management dashboards. Aids in understanding the nature and scope of individual project tasks. Essential for project communication and documentation.
         name: TASK_NAME
         nullable: true
         sourceColumnReferences:
@@ -93,7 +79,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR
-        description: ""
+        description: Categorization of a task as either interior or exterior work. Used in resource planning and materials estimation. Direct load from source system. No transformations applied. Enables filtering and grouping of tasks based on work environment. Supports analysis of cost differences between interior and exterior projects. Useful for optimizing project logistics and safety protocols. Essential for project-specific reporting.
         name: INTERIOR_OR_EXTERIOR
         nullable: true
         sourceColumnReferences:
@@ -107,7 +93,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR(30)
-        description: ""
+        description: Geographic region where the project is located. Used in regional performance analysis and resource allocation. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on location. Supports analysis of regional cost variations and market trends. Useful for strategic planning and investment decisions. Essential for regional-specific reporting and compliance.
         name: REGION
         nullable: true
         sourceColumnReferences:
@@ -121,7 +107,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR(256)
-        description: ""
+        description: State where the project is located. Used in state-level performance analysis and compliance reporting. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on state. Supports analysis of state-specific regulations and market conditions. Useful for legal compliance and risk management. Essential for state-specific reporting and regulatory submissions.
         name: STATE
         nullable: true
         sourceColumnReferences:
@@ -135,7 +121,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR(30)
-        description: ""
+        description: Style or type of tank associated with the project. Used in project design and materials selection. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on tank characteristics. Supports analysis of cost differences between tank styles. Useful for optimizing project design and construction methods. Essential for project-specific reporting and documentation.
         name: TANK_STYLE
         nullable: true
         sourceColumnReferences:
@@ -149,7 +135,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR(30)
-        description: ""
+        description: Size or capacity of the tank associated with the project. Used in project design and materials estimation. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on tank capacity. Supports analysis of cost variations based on tank size. Useful for optimizing project design and resource allocation. Essential for project-specific reporting and documentation.
         name: TANK_SIZE
         nullable: true
         sourceColumnReferences:
@@ -163,7 +149,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: VARCHAR(240)
-        description: ""
+        description: Code indicating the condition of the paint on the tank. Used in maintenance planning and repair scheduling. Direct load from source system. No transformations applied. Enables filtering and grouping of tanks based on paint condition. Supports analysis of maintenance costs and repair priorities. Useful for asset management and risk mitigation. Essential for maintenance-related reporting and compliance.
         name: PAINT_CONDITION_CODE
         nullable: true
         sourceColumnReferences:
@@ -177,7 +163,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER(38,5)
-        description: ""
+        description: Area in square feet associated with the project. Used in cost estimation and resource planning. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on size. Supports analysis of cost per square foot and resource utilization. Useful for project budgeting and performance evaluation. Essential for project-specific reporting and financial analysis.
         name: SQUARE_FOOTAGE
         nullable: true
         sourceColumnReferences:
@@ -187,11 +173,39 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 74c128c9-8775-4653-9f6b-8d7a7035b431
+          stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
+        config: {}
+        dataType: FLOAT
+        description: Initial cost per square foot for the project. Used in budget planning and cost control. Direct load from source system. No transformations applied. Enables filtering and grouping of projects based on initial cost. Supports analysis of cost variations and budget performance. Useful for project budgeting and performance evaluation. Essential for project-specific reporting and financial analysis.
+        name: INITIAL_COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e95862b-1f06-4f27-b8a5-8fecc9f3881f
+                stepCounter: af428526-fa91-4432-aecf-5ed886440b93
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11789450-3b44-4093-8029-3dd3b62aafe3
+          stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
+        config: {}
+        dataType: FLOAT
+        description: Original cost estimate for the project. Direct load from source system. No transformations applied. Used in budget planning and financial analysis. Supports cost variance reporting and project profitability calculations. Aids in tracking project expenses against initial projections. Useful for resource allocation and investment decisions. Essential for cost management reporting and compliance. Used in dashboards for real-time cost tracking.
+        name: INITIAL_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be9a5b98-0fd7-4d91-913c-f4702a4d69df
+                stepCounter: af428526-fa91-4432-aecf-5ed886440b93
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 63def06d-a4d8-45bc-ad44-1ec3e821d393
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Total Assessment Index score for the project. Used in risk assessment and prioritization. Direct load from source system. No transformations applied. Enables filtering and ranking of projects based on risk level. Supports analysis of risk factors and mitigation strategies. Useful for resource allocation and decision-making. Essential for risk management reporting and compliance. Used in dashboards for real-time risk assessment.
         name: TAI_SCORE
         nullable: true
         sourceColumnReferences:
@@ -205,7 +219,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Reflects the number of assets associated with a given account. Sourced directly from the source system without transformations. Used in financial reporting to determine asset distribution across accounts. Aids in portfolio analysis and risk assessment. Enables calculation of key performance indicators (KPIs) related to asset holdings. Supports account-level asset summaries and informs investment strategy decisions. Useful for identifying accounts with concentrated or diversified asset portfolios. No transformations applied.
         name: ACCOUNT_ASSET_COUNT
         nullable: true
         sourceColumnReferences:
@@ -219,7 +233,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Represents the average billing amount for an account. Sourced directly from the source system without transformations. Used in financial analysis to understand revenue trends. Supports calculations of customer lifetime value and profitability metrics. Aids in identifying high-value accounts and optimizing pricing strategies. Informs revenue forecasting and budgeting processes. Useful for tracking changes in billing patterns over time. No transformations applied.
         name: AVG_BILLINGS
         nullable: true
         sourceColumnReferences:
@@ -233,7 +247,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Indicates the average annual degradation in log values. Sourced directly from the source system without transformations. Used in performance monitoring and predictive maintenance. Supports trend analysis and anomaly detection. Aids in identifying potential issues with system performance. Informs resource allocation and capacity planning. Useful for tracking changes in log degradation over time. No transformations applied.
         name: AVG_ANNUAL_LOG_DEGREDATION
         nullable: true
         sourceColumnReferences:
@@ -247,7 +261,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Denotes the average annual percentage degradation. Sourced directly from the source system without transformations. Used in performance monitoring and predictive maintenance. Supports trend analysis and anomaly detection. Aids in identifying potential issues with system performance. Informs resource allocation and capacity planning. Useful for tracking changes in degradation percentages over time. No transformations applied.
         name: AVG_ANNUAL_PCT_DEGREDATION
         nullable: true
         sourceColumnReferences:
@@ -261,7 +275,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER(38,2)
-        description: ""
+        description: Represents the budgeted cost. Sourced directly from the source system without transformations. Used in financial planning and budget tracking. Supports variance analysis and cost control. Aids in identifying areas where costs exceed budget. Informs resource allocation and investment decisions. Useful for tracking changes in budget over time. No transformations applied.
         name: COST_BUDGET
         nullable: true
         sourceColumnReferences:
@@ -275,7 +289,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: BOOLEAN
-        description: ""
+        description: Indicates whether a tank is located in a coastal region. Sourced directly from the source system without transformations. Used in environmental risk assessment and regulatory compliance. Supports analysis of coastal infrastructure vulnerability. Aids in identifying potential environmental hazards. Informs emergency response planning and resource allocation. Useful for tracking changes in coastal infrastructure over time. No transformations applied.
         name: COASTAL_TANK
         nullable: true
         sourceColumnReferences:
@@ -289,7 +303,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: BOOLEAN
-        description: ""
+        description: Flags whether a contract obligation exists. Sourced directly from the source system without transformations. Used in contract management and compliance reporting. Supports tracking of contractual obligations. Aids in identifying potential breaches of contract. Informs resource allocation and risk management. Useful for tracking changes in contractual obligations over time. No transformations applied.
         name: DATE_CONTRACT_OBLIGATION
         nullable: true
         sourceColumnReferences:
@@ -303,7 +317,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: FLOAT
-        description: ""
+        description: Represents the average length of a cycle. Sourced directly from the source system without transformations. Used in process optimization and efficiency analysis. Supports trend analysis and anomaly detection. Aids in identifying potential bottlenecks in processes. Informs resource allocation and capacity planning. Useful for tracking changes in cycle lengths over time. No transformations applied.
         name: AVG_CYCLE_LENGTH
         nullable: true
         sourceColumnReferences:
@@ -317,7 +331,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Indicates the number of years since the last completion. Sourced directly from the source system without transformations. Used in project management and performance tracking. Supports trend analysis and anomaly detection. Aids in identifying potential delays in project completion. Informs resource allocation and capacity planning. Useful for tracking changes in completion times over time. No transformations applied.
         name: YEARS_SINCE_LAST_COMPLETION
         nullable: true
         sourceColumnReferences:
@@ -331,7 +345,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: DATE
-        description: ""
+        description: Represents the date of the TAI (Technical Assessment and Inspection) assessment. Sourced directly from the source system without transformations. Used in compliance reporting and risk management. Supports trend analysis and anomaly detection. Aids in identifying potential issues with technical assessments. Informs resource allocation and capacity planning. Useful for tracking changes in assessment dates over time. No transformations applied.
         name: TAI_ASSESSMENT_DATE
         nullable: true
         sourceColumnReferences:
@@ -345,7 +359,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: DATE
-        description: ""
+        description: Date a project or task commenced. Used in project timelines and resource planning reports. Supports calculations of project duration and time-to-completion metrics. Sourced directly from the source system. No transformations applied. Aids in identifying projects starting behind schedule. Useful for capacity planning and resource allocation. Enables comparisons against planned start dates. Facilitates trend analysis of project initiation over time. Supports project portfolio management dashboards.
         name: START_DATE
         nullable: true
         sourceColumnReferences:
@@ -359,7 +373,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Calendar year when a project or task began. Used in annual performance reports and long-term trend analysis. Derived directly from the START_DATE column. No transformations applied. Supports cohort analysis and year-over-year comparisons. Aids in identifying seasonal trends in project starts. Useful for forecasting future project demand. Enables comparisons across different years. Facilitates strategic planning and resource allocation. Supports executive dashboards.
         name: START_YEAR
         nullable: true
         sourceColumnReferences:
@@ -373,7 +387,7 @@ operation:
           stepCounter: b920fec7-a423-441c-8fc7-3b76fc41c291
         config: {}
         dataType: DATE
-        description: ""
+        description: Most recent date a task or process was finalized. Used in performance reports to track cycle times. Sourced directly from the originating system's task table. No transformations applied. Helps monitor process efficiency and identify bottlenecks. Useful in performance dashboards for operations management. Provides a historical record of task progression. Supports trend analysis and process optimization. Aids in identifying recurring delays.
         name: LAST_COMPLETION_DATE
         nullable: true
         sourceColumnReferences:
@@ -391,7 +405,7 @@ operation:
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: ""
+        description: Timestamp for record creation in the data warehouse. Used for auditing data lineage and troubleshooting data quality. Generated by the system upon record insertion using CURRENT_TIMESTAMP. Essential for tracking data freshness and identifying stale records. Aids in debugging ETL processes and validating data integrity. Not sourced from an external system. Useful for identifying the origin point of data anomalies. Supports data governance initiatives.
         isSystemCreateDate: true
         name: SYSTEM_CREATE_DATE
         nullable: true
@@ -408,7 +422,7 @@ operation:
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: ""
+        description: Timestamp indicating the last record update in the data warehouse. Used for auditing changes and tracking data modifications. Generated by the system upon record update using CURRENT_TIMESTAMP. Critical for monitoring data volatility and identifying frequently changing records. Supports data governance initiatives and change management processes. Not sourced from an external system. Essential for understanding data evolution. Aids in identifying data discrepancies.
         isSystemUpdateDate: true
         name: SYSTEM_UPDATE_DATE
         nullable: true
