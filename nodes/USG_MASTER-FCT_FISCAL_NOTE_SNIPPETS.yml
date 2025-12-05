@@ -1,0 +1,185 @@
+fileVersion: 1
+id: 425c1c26-4730-4fdb-9e03-52789b602b1b
+name: FCT_FISCAL_NOTE_SNIPPETS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63578805-591f-47a0-841c-3a891d103dcc
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a1a231c-e09e-4ae0-a417-2129cf06ef6d
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ea6821e-3774-47eb-9405-ab51f0346182
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b64f5884-09fd-416e-b383-2ebb450d4839
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4733982-f895-45d7-8a6f-7ffd8fd3e6f8
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f3ac4e0-18f0-4cd9-b6ab-7e605c34a2c7
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d83d50a-a789-4bab-a13b-59166b455c0d
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35175cba-2aed-4a56-be05-5b82a9036637
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6346d2b-abb8-431f-89f0-ca0ee9b289ec
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bb1b9358-088b-4ec6-903f-902067aa9c88
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e54940d-21e4-4ac1-b462-e0ced3b6236f
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: SNIPPET_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6397c17-777e-4c49-99d0-2d0d618d9175
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 842b66d1-5a20-442c-b506-79296fb7e6a6
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ebfe8a9-1609-45b4-9b07-8a5393b8d2d6
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95d27ec5-4584-4747-81b2-16ef136da587
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 823a9439-f1e3-4673-bfed-77e9dcbc88c2
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9edadac-cdde-4bfe-847c-4cc966cb9932
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99cc9e21-c80d-4efd-a304-b12da9588d8c
+          stepCounter: 425c1c26-4730-4fdb-9e03-52789b602b1b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_SNIPPETS: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_SNIPPETS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_SNIPPETS') }} "STG_FISCAL_NOTE_CURATE_SNIPPETS"
+        name: FCT_FISCAL_NOTE_SNIPPETS
+        noLinkRefs: []
+  name: FCT_FISCAL_NOTE_SNIPPETS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

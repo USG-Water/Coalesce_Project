@@ -1,0 +1,183 @@
+fileVersion: 1
+id: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+name: STG_FNC_LOCATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 158672eb-5385-447e-a276-37e1d3fb0fe2
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2e982b3-f84b-438c-bb26-75e7990dc054
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."FIPS")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cca91687-93f2-4519-90b3-5181e7849cd0
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: BASE_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13951e42-9259-4091-a159-c2d164f8b70d
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."BASE_URL")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20efc876-da3e-4a08-84e3-e4dcb5dca17c
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b0d5d00-6893-451e-b9f7-9fb75634179e
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: UPPER("LOCATIONS"."LOCATION")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d34dd3aa-f965-4977-8d33-d539651d623d
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: INDEPENDENT_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19a50923-e08d-4e9a-b1d1-3e18262e3ee2
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."INDEPENDENT_CITY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7784128e-3bfb-4c8d-8349-9a02af7749a0
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: COUNTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6e7e11f-bfff-49c6-8920-3fa265ea6903
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."COUNTY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 206c67f7-4703-4565-9936-324e13852725
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81b736f4-566b-46ce-a407-b6bfea4db7d7
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: UPPER("LOCATIONS"."STATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a32e2128-0153-46a9-bf02-f37585777785
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f569dd90-52f7-4c0b-8367-aa0ebbecda6b
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."LAT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c538f813-3dca-4a6f-8b64-9566e27b3558
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e110070a-336b-4d95-984f-6d8c2a190e85
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."LON")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c1a2180-e5e3-4df6-bc1b-11de49298c13
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: POPULATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2391e36c-98a2-4371-861b-0b7625e2af28
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."POPULATION")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc139a12-a57a-49af-9a34-d7a04af9af86
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LOCATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c3e507d-838f-497e-b2f5-e777145f3b10
+                stepCounter: e7ea134d-fb46-4590-82ae-14ba44b0b545
+            transform: MAX("LOCATIONS"."LOCATION_TYPE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LOCATIONS: e7ea134d-fb46-4590-82ae-14ba44b0b545
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_FISCAL_NOTE_CURATE
+            nodeName: LOCATIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_FISCAL_NOTE_CURATE', 'LOCATIONS') }} "LOCATIONS"
+            WHERE "LOCATIONS"."_FIVETRAN_DELETED" = FALSE
+            GROUP BY UPPER("LOCATIONS"."LOCATION"), UPPER("LOCATIONS"."STATE")
+        name: STG_FNC_LOCATIONS
+        noLinkRefs: []
+  name: STG_FNC_LOCATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,223 @@
+fileVersion: 1
+id: fd51f528-146c-495c-beb7-dec2b1fed9c6
+name: STG_SERVICE_CENTER_LOCATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 10cbca60-91fe-4edd-af2f-8295e2490102
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_CENTER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53697865-8cea-43dd-b261-c2b4d019cd1d
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 585140c5-f9b1-40bb-9be8-b61eb2751751
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e075aacd-74cf-4b3f-a6eb-eb16fbdf6dc5
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: UPPER("SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."ADDRESS")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c0f00ff-753c-4dc0-a849-843d23721bea
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 87f88625-0349-483d-a9f3-6770e103328e
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: UPPER("SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."CITY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59bc10de-59c5-4739-b884-98945148f9b4
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ffa559ad-4426-4853-8143-5bbb1da9719a
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: |-
+              LPAD(
+                  LEFT(REGEXP_REPLACE("SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."ZIP", '[^0-9]', ''), 5),
+                  5,
+                  '0'
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49194bbf-4184-4814-8e29-75d206e7dc9f
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63f3bd51-2195-48ee-aa7a-4003b7b330e9
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdf1f463-93ca-4701-970a-a987cd82fa1b
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: facfac41-92d8-46f6-80d3-6c0e295766eb
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ca24bd5-7227-4325-ac93-58087a2e552d
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69ffca13-11c7-46fb-9528-d8888e2b5382
+                stepCounter: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf5e20cd-cac7-4dc3-a9bc-404ac71c67a7
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Address'"
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f8a0d0c-58e8-41d9-b86d-7410ef60e4fc
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CONCAT_WS(', ', "SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."ADDRESS", "SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."CITY", "SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."ZIP", "SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"."STATE", 'USA')
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f7e73d0-6b76-462d-869d-752c711fd4db
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Service Center'"
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 915f05ff-ebba-417e-9c96-e66bff282bc0
+          stepCounter: fd51f528-146c-495c-beb7-dec2b1fed9c6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Service Center'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES: cfc8b40b-a6de-4f19-9b9b-a081363e965d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES') }} "SERVICE_CENTER_LOCATIONS_SVC_CENTER_ADDRESSES"
+        name: STG_SERVICE_CENTER_LOCATIONS
+        noLinkRefs: []
+  name: STG_SERVICE_CENTER_LOCATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

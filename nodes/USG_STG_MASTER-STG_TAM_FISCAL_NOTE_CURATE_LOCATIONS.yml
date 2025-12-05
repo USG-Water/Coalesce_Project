@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+name: STG_TAM_FISCAL_NOTE_CURATE_LOCATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ec6962e-7dce-4ac1-b4b5-045ed209cd58
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 158672eb-5385-447e-a276-37e1d3fb0fe2
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4f87c20-7334-462f-a6ed-3650481ccbb6
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20efc876-da3e-4a08-84e3-e4dcb5dca17c
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: acd81bbf-e8b2-4725-858a-a5f3aed10975
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 206c67f7-4703-4565-9936-324e13852725
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a7a905b-b126-42e6-bffd-030f14c0ece8
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a32e2128-0153-46a9-bf02-f37585777785
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c601acef-755e-4b32-a2ef-3d308c609405
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c538f813-3dca-4a6f-8b64-9566e27b3558
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7438564b-b8e0-41ec-acef-a4980a0ce371
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Municipality'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3d2d089-5f2d-4480-ae8a-0abb835b0868
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS(', ', "STG_FNC_LOCATIONS"."LOCATION", "STG_FNC_LOCATIONS"."STATE", 'USA')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bcf4f1b-6de5-41cb-a1b6-166e7e8c1c84
+          stepCounter: 9941a4a1-d1b9-40c8-82be-8a7a1d8e5498
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Municipality'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_SNIPPETS: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+          STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_SNIPPETS
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_LOCATIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
+            INNER JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_SNIPPETS') }} "STG_FISCAL_NOTE_CURATE_SNIPPETS"
+                ON "STG_FNC_LOCATIONS"."FIPS" = "STG_FISCAL_NOTE_CURATE_SNIPPETS"."FIPS"
+        name: STG_TAM_FISCAL_NOTE_CURATE_LOCATIONS
+        noLinkRefs: []
+  name: STG_TAM_FISCAL_NOTE_CURATE_LOCATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

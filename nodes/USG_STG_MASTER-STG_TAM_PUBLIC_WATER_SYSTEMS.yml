@@ -1,0 +1,231 @@
+fileVersion: 1
+id: 7544692d-073d-4f48-a8c8-8091c0b53172
+name: STG_TAM_PUBLIC_WATER_SYSTEMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1da5225-d151-45c0-94f6-45bc8613b495
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PWSID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7e6f40-c0d8-48dd-8dfc-a27f87a86a54
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5178c0d2-1026-46d8-b60c-89d33ba0291c
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b632e4d-95cc-47dc-9841-2c6ad6cf34af
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4794aba7-af7d-401b-a491-e9913eb89455
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1975bf9c-2088-4478-9e76-276b5debb107
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31987061-a0b4-45ea-8768-fbe1e1941fdb
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dbf8987-db51-43a0-b1d9-d25587083c86
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f05db6f5-9fb2-4793-af31-d4325ea11ea0
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(16384)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d090e7c-5de3-446e-bcd7-80529707d28c
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3c1e7d2-3c95-48ea-99bd-733ab3eee91b
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8c942cd-115c-42cd-9488-be9a8544dafb
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e97d47f-e4c0-418f-863b-06addfb6e1eb
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24098fc6-69d9-4e4d-a485-93a5d3d05957
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ef71cd0-2bf9-4e37-8a42-79eb36942017
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90704328-53cf-45d6-a8fd-f184ed48a7e3
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e038cf4-3068-4b58-beb0-493b42388859
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d70ce1b-415c-4191-807d-e4c13dc5e825
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19a4640c-76ee-4797-b420-ed9fee03bb66
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 673aaef9-9b96-4f63-9912-d1f62503db64
+                stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a18691a-5f5b-4702-bc9b-173da80cc0b6
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CONCAT_WS(', ', "STG_ADDRESSES"."ADDRESS_1", "STG_ADDRESSES"."CITY", "STG_ADDRESSES"."POSTAL_CODE", "STG_ADDRESSES"."STATE", 'USA')
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bbeed8fc-b37a-4e78-9fc2-571517ee5f54
+          stepCounter: 7544692d-073d-4f48-a8c8-8091c0b53172
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Public Water System'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ADDRESSES: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+          STG_PUBLIC_WATER_SYSTEMS: f7ebdf2a-134f-4698-ad2e-782927d6f722
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PUBLIC_WATER_SYSTEMS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PUBLIC_WATER_SYSTEMS') }} "STG_PUBLIC_WATER_SYSTEMS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+                ON "STG_PUBLIC_WATER_SYSTEMS"."ADDRESS_ID" = "STG_ADDRESSES"."ADDRESS_ID"
+            WHERE "STG_PUBLIC_WATER_SYSTEMS"."IS_ACTIVE" = TRUE
+                  AND "STG_PUBLIC_WATER_SYSTEMS"."PWS_TYPE_CODE" = 'CWS'
+                  AND "STG_PUBLIC_WATER_SYSTEMS"."OWNER_TYPE_CODE" != 'Private'
+                  AND "STG_PUBLIC_WATER_SYSTEMS"."FACILITY_STORAGE_COUNT" > 0
+                  AND "STG_ADDRESSES"."POINT_GRANULARITY" IS NOT NULL
+        name: STG_TAM_PUBLIC_WATER_SYSTEMS
+        noLinkRefs: []
+  name: STG_TAM_PUBLIC_WATER_SYSTEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

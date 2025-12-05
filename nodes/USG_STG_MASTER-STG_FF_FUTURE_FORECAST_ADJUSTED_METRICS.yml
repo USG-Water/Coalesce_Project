@@ -633,6 +633,48 @@ operation:
             transform: "\"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"ADJUSTED_START_YEAR\" - \"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"START_YEAR\""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 3ab89295-d1b9-46b2-b412-807889f5fa50
+          stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EXPANDED_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc376248-bf5d-4fc3-bf47-2e150fd519e8
+                stepCounter: c2dd8608-69b8-48d0-ba12-17049bf90fea
+            transform: DATE_FROM_PARTS("STG_FF_FUTURE_FORECAST_EXPANDED"."ADJUSTED_START_YEAR", MONTH("STG_FF_FUTURE_FORECAST_ADJUSTED"."START_DATE"), DAY("STG_FF_FUTURE_FORECAST_ADJUSTED"."START_DATE"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9ae5f49-27fb-4dfd-ab3d-73630f6f913a
+          stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EXPANDED_START_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc376248-bf5d-4fc3-bf47-2e150fd519e8
+                stepCounter: c2dd8608-69b8-48d0-ba12-17049bf90fea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df9f9fa7-7703-4613-9330-4f94187ecca6
+          stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EXPANDED_YEARS_SINCE_LAST_COMPLETION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc376248-bf5d-4fc3-bf47-2e150fd519e8
+                stepCounter: c2dd8608-69b8-48d0-ba12-17049bf90fea
+            transform: "\"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"YEARS_SINCE_LAST_COMPLETION\" + (\"STG_FF_FUTURE_FORECAST_EXPANDED\".\"ADJUSTED_START_YEAR\" - \"STG_FF_FUTURE_FORECAST_ADJUSTED\".\"START_YEAR\")"
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 5428eea9-1cee-4b9d-a8f5-8559d0cc9da9
           stepCounter: 34922660-4e39-48dd-9e77-4d57cc2c3f24
         config: {}
@@ -678,13 +720,19 @@ operation:
     sourceMapping:
       - aliases:
           STG_FF_FUTURE_FORECAST_ADJUSTED: 27f8a393-866c-4cc7-80e9-4d64aaaaa105
+          STG_FF_FUTURE_FORECAST_EXPANDED: c2dd8608-69b8-48d0-ba12-17049bf90fea
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_FUTURE_FORECAST_ADJUSTED
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_FUTURE_FORECAST_EXPANDED
         join:
-          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_ADJUSTED') }} "STG_FF_FUTURE_FORECAST_ADJUSTED"
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_ADJUSTED') }} "STG_FF_FUTURE_FORECAST_ADJUSTED"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_EXPANDED') }} "STG_FF_FUTURE_FORECAST_EXPANDED"
+                ON "STG_FF_FUTURE_FORECAST_ADJUSTED"."TASK_ID" = "STG_FF_FUTURE_FORECAST_EXPANDED"."TASK_ID"
         name: STG_FF_FUTURE_FORECAST_ADJUSTED_METRICS
         noLinkRefs: []
   name: STG_FF_FUTURE_FORECAST_ADJUSTED_METRICS

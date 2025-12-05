@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+name: STG_TAM_PROJECT_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d574aae3-b02b-4c4b-b5fb-ad9e2941c410
+          stepCounter: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fd1d846-de97-473a-b726-0973b958d06c
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e4f5a41-0a25-41fd-ba3a-0d1e3b4944fd
+          stepCounter: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2687b46f-0398-4da3-9df4-a8a37e26b5dd
+                stepCounter: 27cb409a-bc10-4632-83a6-a146641fc090
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_PROJECT_CUSTOMERS: 27cb409a-bc10-4632-83a6-a146641fc090
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PROJECT_CUSTOMERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_PROJECT_CUSTOMERS') }} "STG_PROJECT_CUSTOMERS"
+            QUALIFY ROW_NUMBER() OVER (
+            PARTITION BY PROJECT_ID
+                ORDER BY 
+                    CASE WHEN PROJECT_RELATIONSHIP_CODE = 'PRIMARY' THEN 1 ELSE 0 END DESC
+                    , CUSTOMER_BILL_SPLIT DESC
+            ) = 1
+        name: STG_TAM_PROJECT_CUSTOMERS
+        noLinkRefs: []
+  name: STG_TAM_PROJECT_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,85 @@
+fileVersion: 1
+id: 02d63f2c-4652-429e-8781-c41d62ce3bba
+name: STG_FNC_SNIPPET_TOPICS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0636575f-6391-4d56-96d1-59a9bb431f2f
+          stepCounter: 02d63f2c-4652-429e-8781-c41d62ce3bba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cb984749-540d-4d1f-a70a-a95a6e36c24d
+                stepCounter: bdb51e62-e66d-415a-b9d2-0f5c5a2aa903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0484527-992e-4e92-8dcc-1eeaa90861da
+          stepCounter: 02d63f2c-4652-429e-8781-c41d62ce3bba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48649567-dbc4-4dfd-a720-8ae3e5fb6284
+                stepCounter: bdb51e62-e66d-415a-b9d2-0f5c5a2aa903
+            transform: MAX("SNIPPET_TOPICS"."SNIPPET_TOPIC_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abe44244-049f-4a63-b5fb-c6c06fec9cfa
+          stepCounter: 02d63f2c-4652-429e-8781-c41d62ce3bba
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MATCHED_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 128f2fac-07b7-43d1-b0d0-3de175973ecc
+                stepCounter: bdb51e62-e66d-415a-b9d2-0f5c5a2aa903
+            transform: LISTAGG("SNIPPET_TOPICS"."MATCHED_TEXT", ' ') WITHIN GROUP (ORDER BY "SNIPPET_TOPICS"."PAGE_NUM", SNIPPET_TOPICS."INDEX")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SNIPPET_TOPICS: bdb51e62-e66d-415a-b9d2-0f5c5a2aa903
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_FISCAL_NOTE_CURATE
+            nodeName: SNIPPET_TOPICS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_FISCAL_NOTE_CURATE', 'SNIPPET_TOPICS') }} "SNIPPET_TOPICS"
+            WHERE "SNIPPET_TOPICS"."_FIVETRAN_DELETED" = FALSE
+            GROUP BY "SNIPPET_TOPICS"."SNIPPET_ID"
+        name: STG_FNC_SNIPPET_TOPICS
+        noLinkRefs: []
+  name: STG_FNC_SNIPPET_TOPICS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

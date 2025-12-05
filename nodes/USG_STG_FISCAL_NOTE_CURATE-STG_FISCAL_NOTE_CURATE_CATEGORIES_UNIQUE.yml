@@ -1,0 +1,84 @@
+fileVersion: 1
+id: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+name: STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38a17181-e1b5-4b40-9306-f76726ab4a33
+          stepCounter: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bf70909-2be3-4c84-8a04-bf6a4fa72e64
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d95cbc5-c637-406d-bf99-728a76d97d66
+          stepCounter: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc575486-8f31-4730-a80d-01c0c41382ed
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: MAX("STG_FISCAL_NOTE_CURATE_CATEGORIES"."NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3bc151d-886c-4300-8a6c-917cf7c136cc
+          stepCounter: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbfe1492-6eaf-494a-bfa2-d65c96f7de28
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: MAX("STG_FISCAL_NOTE_CURATE_CATEGORIES"."CATEGORY")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_CATEGORIES: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_CATEGORIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_CATEGORIES') }} "STG_FISCAL_NOTE_CURATE_CATEGORIES"
+            GROUP BY "STG_FISCAL_NOTE_CURATE_CATEGORIES"."SNIPPET_TOPIC_ID"
+        name: STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE
+        noLinkRefs: []
+  name: STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,196 @@
+fileVersion: 1
+id: 6a7e57a4-c322-416c-b31a-3806c044a572
+name: STG_US_CENSUS_PLACE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 709a3d52-59d8-4f39-a428-4fcaec4e26d2
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: STATEFP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ec68d484-b510-480e-aefc-d129ae5489e0
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8457d99-5701-474f-b804-02634e8e4dd3
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PLACEFP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8428c51d-9f79-4f52-9227-ed75971de3c2
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1cff3cd7-4c33-4359-9ecb-748d7e2d3764
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PLACENS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 800522eb-308c-4d19-b879-254cfe031801
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dbe9903-89cc-488d-9a01-a9cc35e15aee
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FUNCSTAT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da55d4eb-a8e3-4f15-a2be-aec0ed312ac6
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e7c40ec-62f7-471c-b09f-a25451f7706b
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CLASSFP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 70bd2f50-f06c-4e03-b11d-fc1d249a069c
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8447ff8-b540-493a-a814-d815d68f2707
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6e13a2c-f6b7-4302-8035-409505f0acd2
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24b68fb4-2e7d-404f-a4de-10582a1d3307
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e7ada396-8d97-4b53-a1db-db1bea60a3a1
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: UPPER("CENSUS_PLACEFP_PLACEFP"."CITY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f903b83e-2bcb-4e01-8edb-62cebc6db028
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY_FULL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf596c44-abe4-49f4-9a4c-954c750140c9
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: UPPER("CENSUS_PLACEFP_PLACEFP"."CITY_FULL")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec6157f4-5087-4ec6-bbc3-e2b33024a0a5
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COUNTIES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 674647cc-8cd3-4db4-9c3f-e7428143e313
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: UPPER("CENSUS_PLACEFP_PLACEFP"."COUNTIES")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dab216e-1147-4098-ae6c-95cd581335b4
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: efa1a6f9-fdf6-4ad1-9d80-826dec60411e
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f833d1f-e239-4b08-9e2f-ced09895ca30
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9ac537f-89f4-461b-b774-c357200361b6
+                stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CENSUS_PLACEFP_PLACEFP: 7cde0568-df7d-4648-8e38-8244a7c776ca
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: CENSUS_PLACEFP_PLACEFP
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'CENSUS_PLACEFP_PLACEFP') }} "CENSUS_PLACEFP_PLACEFP"
+            WHERE "CENSUS_PLACEFP_PLACEFP"."TYPE" = 'INCORPORATED PLACE'
+        name: STG_US_CENSUS_PLACE
+        noLinkRefs: []
+  name: STG_US_CENSUS_PLACE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

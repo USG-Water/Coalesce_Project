@@ -1,0 +1,154 @@
+fileVersion: 1
+id: 513acd58-3957-4bbb-b005-11a6edfca61a
+name: STG_FNC_TOPICS_METADATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a831a17-9da2-4da9-b319-8395d36a9493
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 83700da7-efde-4925-b1d4-87707e172f4c
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbdc5133-1b33-49f9-96f4-e5dc6861fb2b
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOPIC_MODEL_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f8981fb-fce5-4f73-aa60-400276f584d3
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31a3bf23-d9f8-4fdc-aefc-3eb048c54c1b
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 678e7af9-04f6-48b4-bfea-e45558892a46
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97785cf8-cee5-4bc8-92d0-85375b3d7eb2
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29d7a9cd-372e-4f0f-b6b7-1639ae82c933
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0589e435-e0bc-4308-8d07-dd72979ef9ea
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e72cecd3-bd67-4436-bcca-57bcb5c43089
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5175cad-b66c-4cf0-b3cd-4aa7fad9b1e1
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMER_INTENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2d4dcd5-6b25-4f49-ada8-54b65d609be4
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa9f27cc-2fae-4cc8-889e-2c284a0ce19e
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: INTENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9c39e4c-b09b-4ae5-b3b4-0bb5bccd6fd5
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6df4c824-7636-4558-9edb-863296239168
+          stepCounter: 513acd58-3957-4bbb-b005-11a6edfca61a
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: AUTO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7bd65170-cf37-4038-b045-64c29ece1284
+                stepCounter: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TOPICS_METADATA: 4cc68d6d-c31c-4df4-a370-63db68ab827e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_FISCAL_NOTE_CURATE
+            nodeName: TOPICS_METADATA
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_FISCAL_NOTE_CURATE', 'TOPICS_METADATA') }} "TOPICS_METADATA"
+            WHERE "TOPICS_METADATA"."_FIVETRAN_DELETED" = FALSE
+        name: STG_FNC_TOPICS_METADATA
+        noLinkRefs: []
+  name: STG_FNC_TOPICS_METADATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

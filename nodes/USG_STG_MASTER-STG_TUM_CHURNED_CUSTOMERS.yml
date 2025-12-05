@@ -1,0 +1,95 @@
+fileVersion: 1
+id: 188a8b33-8644-4e75-a9a6-cb4ace0b29b1
+name: STG_TUM_CHURNED_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f89c1ba4-5eb3-4b7d-ba57-fa6eec51d2ef
+          stepCounter: 188a8b33-8644-4e75-a9a6-cb4ace0b29b1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e4f5a41-0a25-41fd-ba3a-0d1e3b4944fd
+                stepCounter: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91125b97-09d8-44fa-a634-8ac5894c4007
+          stepCounter: 188a8b33-8644-4e75-a9a6-cb4ace0b29b1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 439e0e54-88af-41b0-b04e-f9da06a4cafa
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX_BY("STG_TUM_PROJECTS"."PROJECT_ID", "STG_TUM_PROJECTS"."BILLING_YEAR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49c238ee-8d44-48d0-bd12-873a9d38283f
+          stepCounter: 188a8b33-8644-4e75-a9a6-cb4ace0b29b1
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LAST_BILLING_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d1d5e16-ad8a-4c12-bd8d-b34e278845d8
+                stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+            transform: MAX("STG_TUM_PROJECTS"."BILLING_YEAR")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_PROJECT_CUSTOMERS: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+          STG_TUM_PROJECTS: dc5c2d4b-9042-4763-96bf-f14b73578136
+          STG_TUM_PROJECTS_CURRENT: fd046d46-fd5f-401b-9363-56207350e927
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_PROJECT_CUSTOMERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_PROJECTS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_PROJECTS_CURRENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS') }} "STG_TUM_PROJECTS"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS_CURRENT') }} "STG_TUM_PROJECTS_CURRENT"
+                ON "STG_TUM_PROJECTS"."PROJECT_ID" = "STG_TUM_PROJECTS_CURRENT"."PROJECT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PROJECT_CUSTOMERS') }} "STG_TAM_PROJECT_CUSTOMERS"
+                ON "STG_TUM_PROJECTS"."PROJECT_ID" = "STG_TAM_PROJECT_CUSTOMERS"."PROJECT_ID"
+            WHERE "STG_TUM_PROJECTS_CURRENT"."PROJECT_ID" IS NULL
+            GROUP BY "STG_TAM_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID"
+        name: STG_TUM_CHURNED_CUSTOMERS
+        noLinkRefs: []
+  name: STG_TUM_CHURNED_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

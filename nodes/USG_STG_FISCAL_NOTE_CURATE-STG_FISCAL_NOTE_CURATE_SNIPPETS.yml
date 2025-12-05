@@ -1,0 +1,169 @@
+fileVersion: 1
+id: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+name: STG_FISCAL_NOTE_CURATE_SNIPPETS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a1a231c-e09e-4ae0-a417-2129cf06ef6d
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3eb8adb7-920d-42dc-88b7-09ac6d12770e
+                stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b64f5884-09fd-416e-b383-2ebb450d4839
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0484527-992e-4e92-8dcc-1eeaa90861da
+                stepCounter: 02d63f2c-4652-429e-8781-c41d62ce3bba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f3ac4e0-18f0-4cd9-b6ab-7e605c34a2c7
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 158672eb-5385-447e-a276-37e1d3fb0fe2
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35175cba-2aed-4a56-be05-5b82a9036637
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3bc151d-886c-4300-8a6c-917cf7c136cc
+                stepCounter: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb1b9358-088b-4ec6-903f-902067aa9c88
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d95cbc5-c637-406d-bf99-728a76d97d66
+                stepCounter: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6397c17-777e-4c49-99d0-2d0d618d9175
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: SNIPPET_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12b584f7-505f-4b11-bc6b-a93585cdb37e
+                stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ebfe8a9-1609-45b4-9b07-8a5393b8d2d6
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: abe44244-049f-4a63-b5fb-c6c06fec9cfa
+                stepCounter: 02d63f2c-4652-429e-8781-c41d62ce3bba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 823a9439-f1e3-4673-bfed-77e9dcbc88c2
+          stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa4f2c27-829e-48ae-abf3-d6adc5dfc6fb
+                stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE: 9f9c8ce0-31d5-48ab-960e-1001e3694b08
+          STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+          STG_FNC_SNIPPETS: 1edc85f6-95b8-4941-97fd-214786caa45a
+          STG_FNC_SNIPPET_TOPICS: 02d63f2c-4652-429e-8781-c41d62ce3bba
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_LOCATIONS
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_SNIPPET_TOPICS
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_SNIPPETS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_SNIPPETS') }} "STG_FNC_SNIPPETS"
+            LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
+                ON UPPER("STG_FNC_SNIPPETS"."LOCATION") = "STG_FNC_LOCATIONS"."LOCATION"
+                AND UPPER("STG_FNC_SNIPPETS"."STATE") = "STG_FNC_LOCATIONS"."STATE"
+            LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_SNIPPET_TOPICS') }} "STG_FNC_SNIPPET_TOPICS"
+                ON "STG_FNC_SNIPPETS"."SNIPPET_ID" = "STG_FNC_SNIPPET_TOPICS"."SNIPPET_ID"
+            LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE') }} "STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE"
+                ON "STG_FNC_SNIPPET_TOPICS"."SNIPPET_TOPIC_ID" = "STG_FISCAL_NOTE_CURATE_CATEGORIES_UNIQUE"."SNIPPET_TOPIC_ID"
+        name: STG_FISCAL_NOTE_CURATE_SNIPPETS
+        noLinkRefs: []
+  name: STG_FISCAL_NOTE_CURATE_SNIPPETS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

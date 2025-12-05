@@ -1,0 +1,180 @@
+fileVersion: 1
+id: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+name: STG_ASSET_US_CENSUS_ADDRESS_LOOKUP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef568b8d-d8ec-4586-859b-e3f864f36bd8
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6d5feb5-73b9-4723-b4a3-e3ef30046b59
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64658802-ccfd-4d6a-a2d0-0b46fa07810e
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27f5156b-ced3-41d1-bff0-6acd3639ac8b
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d872527-99cc-499f-8b4e-aaa4e4a57f09
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05fcae91-5108-4640-add2-a00709d1e7eb
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a9bbb6f-dacf-457b-9caf-d225b1867c97
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0ac3195-f342-498d-a658-7b49db26556c
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11b50b18-d5de-4527-afee-6a6d10256878
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CENSUS_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbb2f477-daa1-461e-9da8-b113018806cc
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5008c3fe-12af-4be3-9d83-d373bfdbb4fd
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MATCH_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e68a065d-2fbc-487e-80f2-843d15d92b29
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 724543d8-9f8b-44c7-81e6-9636f7db25b3
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fc86ca0-d93b-4b8a-afea-0593e018c98e
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8be0c62f-75b1-4fb4-9434-b2d460c8acc3
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e3403e2-e7dd-441e-84c8-15faf8562a53
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7e54fe6-dfed-4456-9bda-7c62fa270e12
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TIGERLINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a68a861-b3a4-4a40-9d40-7e55e6178549
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02c546d4-e007-484b-b054-2035571bb609
+          stepCounter: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIGERLINE_SIDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9149fd59-1aac-44b2-ba6c-a2fadcd1b0bd
+                stepCounter: 0856f886-7d2d-40ec-a75d-e30191153fa2
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ASSET_US_CENSUS_ADDRESS_LOOKUP_SHEET_2: 0856f886-7d2d-40ec-a75d-e30191153fa2
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: ASSET_US_CENSUS_ADDRESS_LOOKUP_SHEET_2
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'ASSET_US_CENSUS_ADDRESS_LOOKUP_SHEET_2') }} "ASSET_US_CENSUS_ADDRESS_LOOKUP_SHEET_2"
+        name: STG_ASSET_US_CENSUS_ADDRESS_LOOKUP
+        noLinkRefs: []
+  name: STG_ASSET_US_CENSUS_ADDRESS_LOOKUP
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

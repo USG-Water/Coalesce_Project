@@ -103,6 +103,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 8b632e4d-95cc-47dc-9841-2c6ad6cf34af
+          stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 158672eb-5385-447e-a276-37e1d3fb0fe2
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 5dbf8987-db51-43a0-b1d9-d25587083c86
           stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
         config: {}
@@ -254,7 +268,7 @@ operation:
           - columnReferences:
               - columnCounter: ca2de85a-a297-41d0-8982-97b1ce5776e7
                 stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-            transform: COALESCE("STG_ADDRESSES_CLEAN"."LATITUDE", "STG_US_ZIPCODE_POINTS"."LATITUDE")
+            transform: COALESCE("STG_ADDRESSES_CLEAN"."LATITUDE", "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."LATITUDE", "STG_FNC_LOCATIONS"."LATITUDE", "STG_US_ZIPCODE_POINTS"."LATITUDE")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2d70ce1b-415c-4191-807d-e4c13dc5e825
@@ -268,7 +282,25 @@ operation:
           - columnReferences:
               - columnCounter: 3eba6aef-9742-4331-865b-4383d58549a8
                 stepCounter: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
-            transform: COALESCE("STG_ADDRESSES_CLEAN"."LONGITUDE", "STG_US_ZIPCODE_POINTS"."LONGITUDE")
+            transform: COALESCE("STG_ADDRESSES_CLEAN"."LONGITUDE", "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."LONGITUDE", "STG_FNC_LOCATIONS"."LONGITUDE", "STG_US_ZIPCODE_POINTS"."LONGITUDE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 673aaef9-9b96-4f63-9912-d1f62503db64
+          stepCounter: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE
+                  WHEN "STG_ADDRESSES_CLEAN"."LONGITUDE" IS NOT NULL THEN 'Address'
+                  WHEN "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."LONGITUDE" IS NOT NULL THEN 'Address'
+                  WHEN "STG_FNC_LOCATIONS"."LONGITUDE" IS NOT NULL THEN 'Municipality'
+                  WHEN "STG_US_ZIPCODE_POINTS"."LONGITUDE" IS NOT NULL THEN 'Zipcode'
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 5472b9ec-9584-4924-80ca-fe8b89348655
@@ -316,12 +348,18 @@ operation:
     sourceMapping:
       - aliases:
           STG_ADDRESSES_CLEAN: c24c0ed3-36ea-41c5-bfc1-ae66163409b6
+          STG_ASSET_US_CENSUS_ADDRESS_LOOKUP: 4dbcab20-374a-46b3-b4c7-8879ca100fbf
+          STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
           STG_US_ZIPCODE_POINTS: dbcc38a5-1fe3-42bf-9371-3e522548c470
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_LOCATIONS
           - locationName: USG_STG_MASTER
             nodeName: STG_ADDRESSES_CLEAN
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ASSET_US_CENSUS_ADDRESS_LOOKUP
           - locationName: USG_STG_MASTER
             nodeName: STG_US_ZIPCODE_POINTS
         join:
@@ -330,6 +368,14 @@ operation:
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_ZIPCODE_POINTS') }} "STG_US_ZIPCODE_POINTS"
                 ON "STG_ADDRESSES_CLEAN"."STATE" = "STG_US_ZIPCODE_POINTS"."STATE"
                 AND "STG_ADDRESSES_CLEAN"."POSTAL_CODE" = "STG_US_ZIPCODE_POINTS"."ZIP_CODE"
+            LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
+                ON "STG_ADDRESSES_CLEAN"."CITY" = "STG_FNC_LOCATIONS"."LOCATION"
+                AND "STG_ADDRESSES_CLEAN"."STATE" = "STG_FNC_LOCATIONS"."STATE"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ASSET_US_CENSUS_ADDRESS_LOOKUP') }} "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"
+                ON "STG_ADDRESSES_CLEAN"."ADDRESS_1" = "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."ADDRESS_1"
+                AND "STG_ADDRESSES_CLEAN"."CITY" = "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."CITY"
+                AND "STG_ADDRESSES_CLEAN"."POSTAL_CODE" = "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."POSTAL_CODE"
+                AND "STG_ADDRESSES_CLEAN"."STATE" = "STG_ASSET_US_CENSUS_ADDRESS_LOOKUP"."STATE"
         name: STG_ADDRESSES
         noLinkRefs: []
   name: STG_ADDRESSES

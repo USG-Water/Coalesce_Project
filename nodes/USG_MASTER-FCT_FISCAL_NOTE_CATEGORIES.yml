@@ -1,0 +1,143 @@
+fileVersion: 1
+id: 4eed163d-2d07-4291-a721-9b130a8c0c59
+name: FCT_FISCAL_NOTE_CATEGORIES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b92dc78-442a-455a-8383-791703b02460
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bf70909-2be3-4c84-8a04-bf6a4fa72e64
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e8286f5-a93e-4922-8c17-19cffabe9b92
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c9a1acd-ff32-4ee0-94df-37781909089a
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d8c3460-fd8f-40e9-900b-603c4984d91d
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc575486-8f31-4730-a80d-01c0c41382ed
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad333a9d-20a5-49fc-9a9f-15b5fed0e5d7
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbfe1492-6eaf-494a-bfa2-d65c96f7de28
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b06bce8-c0ec-4206-be9b-dbc5960e95a5
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e717287-526f-4773-9bb4-2cda93a135b5
+                stepCounter: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0f5bb13-98d6-4cbc-b65d-5cd9297f4b31
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1adf9aee-07d4-4a26-94f8-518558c99540
+          stepCounter: 4eed163d-2d07-4291-a721-9b130a8c0c59
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_CATEGORIES: 3023fd0d-e9e9-47b0-a634-06d7961ec46b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_CATEGORIES
+        join:
+          joinCondition: FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_CATEGORIES') }} "STG_FISCAL_NOTE_CURATE_CATEGORIES"
+        name: FCT_FISCAL_NOTE_CATEGORIES
+        noLinkRefs: []
+  name: FCT_FISCAL_NOTE_CATEGORIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

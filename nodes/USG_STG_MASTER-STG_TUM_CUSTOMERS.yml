@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 95871152-b94c-4c95-ad41-198b325aa6bb
+name: STG_TUM_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd906171-58d3-42b5-854e-b51245c6e21b
+          stepCounter: 95871152-b94c-4c95-ad41-198b325aa6bb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EBS_SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e4f5a41-0a25-41fd-ba3a-0d1e3b4944fd
+                stepCounter: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 329480ec-4427-4c7e-bd3d-bc46baad9dd6
+          stepCounter: 95871152-b94c-4c95-ad41-198b325aa6bb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 129a2f3e-3be8-497f-9e18-a22270a85cd8
+                stepCounter: fd046d46-fd5f-401b-9363-56207350e927
+            transform: MAX_BY("STG_TUM_PROJECTS_CURRENT"."PROJECT_ID", "STG_TUM_PROJECTS_CURRENT"."PROJECT_START_YEAR")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_PROJECT_CUSTOMERS: 461b5c3a-6df7-4c0c-ad8d-f8f0506d97b4
+          STG_TUM_PROJECTS_CURRENT: fd046d46-fd5f-401b-9363-56207350e927
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_PROJECT_CUSTOMERS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_PROJECTS_CURRENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS_CURRENT') }} "STG_TUM_PROJECTS_CURRENT"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PROJECT_CUSTOMERS') }} "STG_TAM_PROJECT_CUSTOMERS"
+                ON "STG_TUM_PROJECTS_CURRENT"."PROJECT_ID" = "STG_TAM_PROJECT_CUSTOMERS"."PROJECT_ID"
+            GROUP BY "STG_TAM_PROJECT_CUSTOMERS"."EBS_SHIP_TO_ADDRESS_ID"
+        name: STG_TUM_CUSTOMERS
+        noLinkRefs: []
+  name: STG_TUM_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

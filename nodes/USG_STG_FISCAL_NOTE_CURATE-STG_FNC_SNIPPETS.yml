@@ -1,0 +1,140 @@
+fileVersion: 1
+id: 1edc85f6-95b8-4941-97fd-214786caa45a
+name: STG_FNC_SNIPPETS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_FISCAL_NOTE_CURATE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3eb8adb7-920d-42dc-88b7-09ac6d12770e
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bae78ff0-1327-407b-852c-06047d3fc0da
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4b4688d-8e53-4ab7-b71b-85ffe15fbc9c
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc13adc9-9cda-4726-a46d-e7764f6ee27c
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be34b564-9df1-470a-bebc-fb8402eed014
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d654683-ca84-410a-b992-ae16bacdd6cf
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25fb325c-3f05-4272-a8a5-d1d0203691b6
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe0de8a1-df0d-4241-8a02-11b4301cc2d1
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b844f15a-bc46-4f87-af2b-8c047bfe35b8
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LOCATION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b8246d4-af26-4732-b27c-4f191c80ff35
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12b584f7-505f-4b11-bc6b-a93585cdb37e
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: SNIPPET_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4f8c7e3-e8ad-46ab-945e-3cc2a74a9d91
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa4f2c27-829e-48ae-abf3-d6adc5dfc6fb
+          stepCounter: 1edc85f6-95b8-4941-97fd-214786caa45a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04b80871-1184-4382-b278-f894060b2857
+                stepCounter: e486f05c-2ec3-424a-b626-d96f4e64f587
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SNIPPETS: e486f05c-2ec3-424a-b626-d96f4e64f587
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_FISCAL_NOTE_CURATE
+            nodeName: SNIPPETS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_FISCAL_NOTE_CURATE', 'SNIPPETS') }} "SNIPPETS"
+            WHERE "SNIPPETS"."_FIVETRAN_DELETED" = FALSE
+        name: STG_FNC_SNIPPETS
+        noLinkRefs: []
+  name: STG_FNC_SNIPPETS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
