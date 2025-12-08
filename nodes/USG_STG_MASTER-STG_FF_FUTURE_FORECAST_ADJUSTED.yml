@@ -4,7 +4,7 @@ name: STG_FF_FUTURE_FORECAST_ADJUSTED
 operation:
   config:
     insertStrategy: INSERT
-    postSQL: |-
+    postSQL: |
       {% set full_ref = ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST') | replace('"','') %}
       {% set db_name = full_ref.split('.')[0] %}
 

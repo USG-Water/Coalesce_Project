@@ -415,21 +415,32 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_FUTURE_FORECAST_METRICS
         join:
-          joinCondition: |-
-            FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_METRICS') }} "STG_FF_FUTURE_FORECAST_METRICS"
+          joinCondition: |
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_METRICS') }} AS STG_FF_FUTURE_FORECAST_METRICS
             CROSS JOIN (
                 SELECT 1.5 + (SEQ4() * 0.1) AS TAI_SCORE
                 FROM TABLE(GENERATOR(ROWCOUNT => 26))
-            ) AS "TAI_CUTOFF"
-            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} AS "STG_FF_FORECAST_PARAMETERS"
-            WHERE ("STG_FF_FUTURE_FORECAST_METRICS"."TAI_SCORE" <= "TAI_CUTOFF"."TAI_SCORE" OR "STG_FF_FUTURE_FORECAST_METRICS"."DATE_CONTRACT_OBLIGATION" = TRUE)
+            ) AS TAI_CUTOFF
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} AS STG_FF_FORECAST_PARAMETERS
+            WHERE 
+                (
+                    (STG_FF_FUTURE_FORECAST_METRICS.DATE_CONTRACT_OBLIGATION = TRUE 
+                     AND STG_FF_FUTURE_FORECAST_METRICS.START_YEAR = 2026)
+                    OR 
+                    (
+                        STG_FF_FUTURE_FORECAST_METRICS.DATE_CONTRACT_OBLIGATION = FALSE
+                        AND STG_FF_FUTURE_FORECAST_METRICS.TAI_SCORE <= TAI_CUTOFF.TAI_SCORE
+                    )
+                )
                 AND STG_FF_FUTURE_FORECAST_METRICS.START_YEAR <= (
-                    (SELECT MIN(START_YEAR) FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_METRICS') }})
+                    (SELECT MIN(START_YEAR) 
+                     FROM {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_FORECAST_METRICS') }})
                     + STG_FF_FORECAST_PARAMETERS.PRM_FORECAST_YEARS - 1
                 )
-            ORDER BY "TAI_CUTOFF"."TAI_SCORE"
-                     , "STG_FF_FUTURE_FORECAST_METRICS"."DATE_CONTRACT_OBLIGATION" DESC
-                     , "STG_FF_FUTURE_FORECAST_METRICS"."TAI_SCORE"
+            ORDER BY 
+                TAI_CUTOFF.TAI_SCORE,
+                STG_FF_FUTURE_FORECAST_METRICS.DATE_CONTRACT_OBLIGATION DESC,
+                STG_FF_FUTURE_FORECAST_METRICS.TAI_SCORE;
         name: STG_FF_NEXT_YEAR_TAI_CUTOFF_TEST
         noLinkRefs: []
   name: STG_FF_NEXT_YEAR_TAI_CUTOFF_TEST
