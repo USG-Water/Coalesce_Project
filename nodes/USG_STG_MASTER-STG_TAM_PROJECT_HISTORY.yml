@@ -85,7 +85,7 @@ operation:
         defaultValue: ""
         description: ""
         keyColumnType: None
-        name: START_DATE
+        name: LATEST_START_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
@@ -93,12 +93,10 @@ operation:
                 stepCounter: "0"
             transform: |-
               MAX(
-                  COALESCE(
-                      "STG_SERVICE_REQUESTS"."ACTUAL_START_DATE",
-                      "STG_SERVICE_REQUESTS"."PLANNED_START_DATE",
-                      "STG_SERVICE_REQUESTS"."SCHEDULED_START_DATE",
-                      "STG_PROJECTS"."START_DATE"
-                  )
+                CASE 
+                  WHEN COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_START_DATE", "STG_PROJECTS"."START_DATE") <= CURRENT_DATE 
+                  THEN COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_START_DATE", "STG_PROJECTS"."START_DATE")
+                END
               )
         systemColumnType: None
       - appliedColumnTests: {}
@@ -108,7 +106,7 @@ operation:
         config: {}
         dataType: DATE
         description: ""
-        name: END_DATE
+        name: LATEST_END_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
@@ -116,49 +114,11 @@ operation:
                 stepCounter: "0"
             transform: |-
               MAX(
-                  COALESCE(
-                      "STG_SERVICE_REQUESTS"."ACTUAL_END_DATE",
-                      "STG_SERVICE_REQUESTS"."PLANNED_END_DATE",
-                      "STG_SERVICE_REQUESTS"."SCHEDULED_END_DATE",
-                      "STG_PROJECTS"."COMPLETION_DATE"
-                  )
+                CASE 
+                  WHEN COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_END_DATE", "STG_PROJECTS"."COMPLETION_DATE") <= CURRENT_DATE 
+                  THEN COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_END_DATE", "STG_PROJECTS"."COMPLETION_DATE")
+                END
               )
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: a7e2f38f-8c39-4d93-b43b-85246ac5ab92
-          stepCounter: 4f8a6790-da55-4448-8e0a-546fa52b8507
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: START_DATE_STATUS
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
-            transform: |-
-              CASE
-                  WHEN MAX(COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_START_DATE", "STG_PROJECTS"."START_DATE")) IS NOT NULL THEN 'Actual'
-                  WHEN MAX(COALESCE("STG_SERVICE_REQUESTS"."PLANNED_START_DATE", "STG_SERVICE_REQUESTS"."SCHEDULED_START_DATE")) IS NOT NULL THEN 'Planned'
-              END
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 8c187b63-8958-4a24-97a5-8cf26e0567e9
-          stepCounter: 4f8a6790-da55-4448-8e0a-546fa52b8507
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: END_DATE_STATUS
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
-            transform: |-
-              CASE
-                  WHEN MAX(COALESCE("STG_SERVICE_REQUESTS"."ACTUAL_END_DATE", "STG_PROJECTS"."COMPLETION_DATE")) IS NOT NULL THEN 'Actual'
-                  WHEN MAX(COALESCE("STG_SERVICE_REQUESTS"."PLANNED_END_DATE", "STG_SERVICE_REQUESTS"."SCHEDULED_END_DATE")) IS NOT NULL THEN 'Planned'
-              END
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
