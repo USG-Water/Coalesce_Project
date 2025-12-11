@@ -103,6 +103,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 7df9f10d-fed7-4a5a-a897-2cad6669683f
+          stepCounter: edf9511e-3167-4ef9-8537-dc88733b9c0c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CURRENT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79e5a988-6b94-4aa0-8a1b-fec15dd4a10c
+                stepCounter: edc43f82-57bb-4b33-910d-422d5eac7120
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 9baf02f4-ede2-432a-9e89-0ed438e2a7a4
           stepCounter: edf9511e-3167-4ef9-8537-dc88733b9c0c
         config: {}
@@ -114,7 +128,29 @@ operation:
           - columnReferences:
               - columnCounter: 2ebf7ce5-235e-4a3d-b625-de8f1bf7f9ef
                 stepCounter: e06a4544-2840-4718-ad43-831b10421819
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_ACCOUNTS"."PWSID" IS NULL THEN "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID"
+                  ELSE "STG_ACCOUNTS"."PWSID"
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7f544e4-f927-4a4b-a507-e946e4289be0
+          stepCounter: edf9511e-3167-4ef9-8537-dc88733b9c0c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: PWSID_FROM_BOUNDARY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2ebf7ce5-235e-4a3d-b625-de8f1bf7f9ef
+                stepCounter: e06a4544-2840-4718-ad43-831b10421819
+            transform: |-
+              CASE
+                  WHEN "STG_ACCOUNTS"."PWSID" IS NULL AND "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID" IS NOT NULL THEN TRUE
+                  ELSE FALSE
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: f923958e-f363-4596-96d0-9da8e8fea3ba
@@ -294,8 +330,8 @@ operation:
             transform: |-
               CASE
                   WHEN "STG_TUM_CUSTOMERS"."PROJECT_ID" IS NOT NULL THEN 'Active TUM'
-                  WHEN "STG_TAM_OPEN_OPPORTUNITIES"."OSC_OPTY_ID" IS NOT NULL THEN 'Active Prospect'
                   WHEN "STG_TUM_CHURNED_CUSTOMERS"."PROJECT_ID" IS NOT NULL THEN 'Churned TUM'
+                  WHEN "STG_TAM_OPEN_OPPORTUNITIES"."OSC_OPTY_ID" IS NOT NULL THEN 'Active Prospect'
                   ELSE 'Whitespace'
               END
         systemColumnType: None
@@ -307,6 +343,7 @@ operation:
           STG_ADDRESSES: f76bc498-9a03-4e52-95e0-39feab0bb8cc
           STG_ASSETS: 71247957-c2ca-4285-b03d-5cb2109869da
           STG_TAM_OPEN_OPPORTUNITIES: edc43f82-57bb-4b33-910d-422d5eac7120
+          STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
           STG_TUM_CHURNED_CUSTOMERS: 188a8b33-8644-4e75-a9a6-cb4ace0b29b1
           STG_TUM_CUSTOMERS: 95871152-b94c-4c95-ad41-198b325aa6bb
         customSQL:
@@ -320,6 +357,8 @@ operation:
             nodeName: STG_ASSETS
           - locationName: USG_STG_MASTER
             nodeName: STG_TAM_OPEN_OPPORTUNITIES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
           - locationName: USG_STG_MASTER
             nodeName: STG_TUM_CHURNED_CUSTOMERS
           - locationName: USG_STG_MASTER
@@ -338,6 +377,9 @@ operation:
                 AND "STG_TUM_CUSTOMERS"."PROJECT_ID" IS NULL
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_OPEN_OPPORTUNITIES') }} "STG_TAM_OPEN_OPPORTUNITIES"
                 ON "STG_ASSETS"."ACCOUNT_ID" = "STG_TAM_OPEN_OPPORTUNITIES"."ACCOUNT_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+                ON "STG_ACCOUNTS"."PWSID" IS NULL
+                AND ST_CONTAINS("STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."WKT_GEOM", ST_MAKEPOINT("STG_ADDRESSES"."LONGITUDE", "STG_ADDRESSES"."LATITUDE"))
             WHERE "STG_ADDRESSES"."POINT_GRANULARITY" IS NOT NULL
                    AND NOT (
                         "STG_TUM_CUSTOMERS"."PROJECT_ID" IS NULL

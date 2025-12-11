@@ -1,0 +1,84 @@
+fileVersion: 1
+id: 4c5ebebc-4467-4caf-96f2-cc738ca58b0b
+name: STG_PUBLIC_WATER_SYSTEM_EXTRA_FIELDS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed7954ea-68ac-401c-8c80-c38ece541ba5
+          stepCounter: 4c5ebebc-4467-4caf-96f2-cc738ca58b0b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c9294b3-1748-4f9e-931a-95d994c39522
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb8ecf04-aa44-4d4b-884a-d99ba50dcb2b
+          stepCounter: 4c5ebebc-4467-4caf-96f2-cc738ca58b0b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_AREA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68dd1934-b9fe-43e8-a282-81633303e110
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: MAX("STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."SERVICE_AREA_TYPE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dfc4ce86-ee26-4041-bbc9-0d8e0b52c8ef
+          stepCounter: 4c5ebebc-4467-4caf-96f2-cc738ca58b0b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DETAILED_FACILITY_REPORT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 709d131a-0219-42d2-961c-1626ec875faa
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: MAX("STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."DETAILED_FACILITY_REPORT")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+            GROUP BY "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID"
+        name: STG_PUBLIC_WATER_SYSTEM_EXTRA_FIELDS
+        noLinkRefs: []
+  name: STG_PUBLIC_WATER_SYSTEM_EXTRA_FIELDS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

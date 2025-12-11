@@ -89,6 +89,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 7094329f-b3e4-485b-9c53-8db0deda87d3
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_AREA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7680dc2e-e71a-4dc2-80f4-cfdcb94579cf
+                stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 310221fa-4c25-4306-9e0a-0700cc0dc2da
           stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
         config: {}
@@ -101,6 +115,32 @@ operation:
               - columnCounter: 44e4e44a-b230-447f-9233-25f12d498e55
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd072853-c465-4415-b461-fb02f47c5f7a
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a88ba579-db9d-4169-bab2-54911c5a9adb
+                stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76e51ed1-99df-454f-8915-1c63b571a25b
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS_CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT("STG_TAM_LOCATIONS_UNION"."FNC_FIPS", '|', "STG_TAM_LOCATIONS_UNION"."CITYLITICS_LEAD_ID")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: f12de578-bc92-4075-9d2f-45825c0f9edc
@@ -145,6 +185,34 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: f804dc00-88b3-4c0d-ba4e-da0c76c0b48f
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CURRENT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 419d9b58-ec6f-43b1-8a15-24c21128f597
+                stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b349fc4-2110-4215-909c-67a9489f4e5b
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: FACILITY_STORAGE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ff27925-ae0b-4b45-9a86-d975c1d0aec8
+                stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: ad660bde-ca31-423d-ad27-02c5a8860bd5
           stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
         config: {}
@@ -170,7 +238,11 @@ operation:
           - columnReferences:
               - columnCounter: 89e7653c-d89c-446b-9d49-b7191f04ba23
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN NULL
+                  ELSE "STG_TAM_LOCATIONS_UNION"."ADDRESS_1"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: db9e0a91-3f3a-4929-beda-36002f453a6b
@@ -184,21 +256,11 @@ operation:
           - columnReferences:
               - columnCounter: 924eaab1-ce5f-4311-b753-3d3a73a6db51
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 937863e5-01bb-47f2-8cfa-cfa69231a057
-          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: CITY_NORMAL
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 24b68fb4-2e7d-404f-a4de-10582a1d3307
-                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN COALESCE("STG_TAM_LOCATIONS_UNION"."CITY", STG_US_CENSUS_PLACE."CITY")
+                  ELSE "STG_TAM_LOCATIONS_UNION"."CITY"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2a99044f-c96e-44de-bc7b-1df9b4443853
@@ -212,7 +274,11 @@ operation:
           - columnReferences:
               - columnCounter: 24085d36-65bd-40d7-817c-599b0814152f
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN NULL
+                  ELSE "STG_TAM_LOCATIONS_UNION"."POSTAL_CODE"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2ccbc0f5-961f-4022-aca9-5dc42cdda748
@@ -242,8 +308,7 @@ operation:
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
             transform: |-
               CASE
-                  WHEN "STG_TAM_LOCATIONS_UNION"."MAP_TYPE" = 'Public Water System' AND "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Address' THEN COALESCE("STG_FNC_LOCATIONS"."LATITUDE", "STG_US_CENSUS_PLACE"."LATITUDE")
-                  WHEN "STG_TAM_LOCATIONS_UNION"."MAP_TYPE" = 'Zipcode' THEN COALESCE("STG_FNC_LOCATIONS"."LATITUDE", "STG_US_CENSUS_PLACE"."LATITUDE")
+                  WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN COALESCE("STG_FNC_LOCATIONS"."LATITUDE", "STG_US_CENSUS_PLACE"."LATITUDE")
                   ELSE "STG_TAM_LOCATIONS_UNION"."LATITUDE"
               END
       - appliedColumnTests: {}
@@ -261,7 +326,6 @@ operation:
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
             transform: |-
               CASE
-                  WHEN "STG_TAM_LOCATIONS_UNION"."MAP_TYPE" = 'Public Water System' AND "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Address' THEN COALESCE("STG_FNC_LOCATIONS"."LONGITUDE", "STG_US_CENSUS_PLACE"."LONGITUDE")
                   WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN COALESCE("STG_FNC_LOCATIONS"."LONGITUDE", "STG_US_CENSUS_PLACE"."LONGITUDE")
                   ELSE "STG_TAM_LOCATIONS_UNION"."LONGITUDE"
               END
@@ -280,7 +344,6 @@ operation:
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
             transform: |-
               CASE
-                  WHEN "STG_TAM_LOCATIONS_UNION"."MAP_TYPE" = 'Public Water System' AND "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Address' THEN 'Municipality'
                   WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN 'Municipality'
                   ELSE "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY"
               END
@@ -297,7 +360,11 @@ operation:
           - columnReferences:
               - columnCounter: 2868cfea-2579-4e3a-8baf-838725975bdd
                 stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
-            transform: ""
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_LOCATIONS_UNION"."POINT_GRANULARITY" = 'Zipcode' THEN CONCAT_WS(', ', COALESCE("STG_TAM_LOCATIONS_UNION"."CITY", STG_US_CENSUS_PLACE."CITY"), "STG_TAM_LOCATIONS_UNION"."STATE")
+                  ELSE "STG_TAM_LOCATIONS_UNION"."FULL_ADDRESS"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: d68fa28a-96dc-4e9e-9524-268109a44578
@@ -332,6 +399,7 @@ operation:
       - aliases:
           STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
           STG_TAM_LOCATIONS_UNION: 21e36a45-5a1e-453f-b5fd-a08e788452b6
+          STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
           STG_US_CENSUS_PLACE: 6a7e57a4-c322-416c-b31a-3806c044a572
         customSQL:
           customSQL: ""
@@ -341,15 +409,29 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_TAM_LOCATIONS_UNION
           - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
+          - locationName: USG_STG_MASTER
             nodeName: STG_US_CENSUS_PLACE
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TAM_LOCATIONS_UNION') }} "STG_TAM_LOCATIONS_UNION"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+                ON "STG_TAM_LOCATIONS_UNION"."PWSID" = "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID"
             LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
                 ON "STG_TAM_LOCATIONS_UNION"."FNC_FIPS" = "STG_FNC_LOCATIONS"."FIPS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_CENSUS_PLACE') }} "STG_US_CENSUS_PLACE"
                 ON "STG_TAM_LOCATIONS_UNION"."STATE" = "STG_US_CENSUS_PLACE"."STATE"
-                AND JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") >= 0.95
+                AND (
+                    -- exact city name first
+                    "STG_TAM_LOCATIONS_UNION"."CITY" = "STG_US_CENSUS_PLACE"."CITY"
+                    -- or nearest coordinates within 25 km
+                    OR ST_DWITHIN(
+                        ST_MAKEPOINT("STG_TAM_LOCATIONS_UNION"."LONGITUDE", "STG_TAM_LOCATIONS_UNION"."LATITUDE"),
+                        "STG_US_CENSUS_PLACE"."COORDINATES",
+                        25000 --25km
+                    )
+                )
+            --    AND JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") >= 0.99
             WHERE "STG_TAM_LOCATIONS_UNION"."STATE" IN (
                 'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
                 'ID','IL','IN','IA','KS','KY','LA','ME','MD',
@@ -363,8 +445,21 @@ operation:
                              , "STG_TAM_LOCATIONS_UNION"."PWSID"
                              , "STG_TAM_LOCATIONS_UNION"."FNC_FIPS"
                              , "STG_TAM_LOCATIONS_UNION"."SERVICE_CENTER_NAME"
-                ORDER BY JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") DESC
+                ORDER BY
+                    CASE WHEN "STG_TAM_LOCATIONS_UNION"."CITY" = "STG_US_CENSUS_PLACE"."CITY" THEN 0 ELSE 1 END, -- prefer exact name
+                    ST_DISTANCE(
+                        ST_MAKEPOINT("STG_TAM_LOCATIONS_UNION"."LONGITUDE", "STG_TAM_LOCATIONS_UNION"."LATITUDE"),
+                        "STG_US_CENSUS_PLACE"."COORDINATES"
+                    )
             ) = 1
+            --QUALIFY ROW_NUMBER() OVER (
+            --    PARTITION BY "STG_TAM_LOCATIONS_UNION"."ACCOUNT_ID"
+            --                 , "STG_TAM_LOCATIONS_UNION"."EBS_CUSTOMER_SITE_ID"
+            --                 , "STG_TAM_LOCATIONS_UNION"."PWSID"
+            --                 , "STG_TAM_LOCATIONS_UNION"."FNC_FIPS"
+            --                 , "STG_TAM_LOCATIONS_UNION"."SERVICE_CENTER_NAME"
+            --    ORDER BY JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") DESC
+            --) = 1
         name: STG_TAM_LOCATIONS
         noLinkRefs: []
   name: STG_TAM_LOCATIONS

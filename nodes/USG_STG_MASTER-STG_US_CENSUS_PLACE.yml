@@ -171,6 +171,26 @@ operation:
               - columnCounter: d9ac537f-89f4-461b-b774-c357200361b6
                 stepCounter: 7cde0568-df7d-4648-8e38-8244a7c776ca
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71f600c2-fe64-4606-a59a-f62458070234
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: GEOGRAPHY
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: COORDINATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ST_MAKEPOINT("CENSUS_PLACEFP_PLACEFP"."LONGITUDE", "CENSUS_PLACEFP_PLACEFP"."LATITUDE")
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

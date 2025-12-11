@@ -1,0 +1,251 @@
+fileVersion: 1
+id: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+name: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca2b4492-52fd-4485-8e72-14346a0efa4f
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c9294b3-1748-4f9e-931a-95d994c39522
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e99946f4-e05c-434c-9363-4a3ffc8235c5
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_AREA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68dd1934-b9fe-43e8-a282-81633303e110
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ff27925-ae0b-4b45-9a86-d975c1d0aec8
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: FACILITY_STORAGE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c26449c2-ca0f-4150-9897-831ce7879df7
+                stepCounter: f7ebdf2a-134f-4698-ad2e-782927d6f722
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06d43754-7ea5-4417-b742-8cbe54b7ad86
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24b68fb4-2e7d-404f-a4de-10582a1d3307
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 172ab398-669a-485b-8470-5b6dc1511774
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8447ff8-b540-493a-a814-d815d68f2707
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db6cb500-2eb9-47a2-822b-84263ff47b3d
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8447ff8-b540-493a-a814-d815d68f2707
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: CONCAT_WS(', ', "STG_US_CENSUS_PLACE"."CITY", "STG_US_CENSUS_PLACE"."STATE", 'USA')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2a6cae3-1581-42c7-9926-20f5e6511f03
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dab216e-1147-4098-ae6c-95cd581335b4
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: edc400a8-8500-4c09-81b5-29daf0721736
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f833d1f-e239-4b08-9e2f-ced09895ca30
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7300dc24-b0ee-40aa-8ec8-425162925b49
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Municipality'"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1c4c844-5df4-4eb1-9ed4-f54cb8d713ab
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Public Water System'"
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61d57bde-ce95-457e-b179-891ea5840592
+          stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: WKT_GEOM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0e4ea02-fffe-4fdc-a258-b60d9f1fad3e
+                stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_ACCOUNTS: e06a4544-2840-4718-ad43-831b10421819
+          STG_ADDRESSES: f76bc498-9a03-4e52-95e0-39feab0bb8cc
+          STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+          STG_PUBLIC_WATER_SYSTEMS: f7ebdf2a-134f-4698-ad2e-782927d6f722
+          STG_US_CENSUS_PLACE: 6a7e57a4-c322-416c-b31a-3806c044a572
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ACCOUNTS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ADDRESSES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_PUBLIC_WATER_SYSTEMS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_US_CENSUS_PLACE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PUBLIC_WATER_SYSTEMS') }} "STG_PUBLIC_WATER_SYSTEMS"
+                 ON "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID" = "STG_PUBLIC_WATER_SYSTEMS"."PWS_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ADDRESSES') }} "STG_ADDRESSES"
+                ON "STG_PUBLIC_WATER_SYSTEMS"."ADDRESS_ID" = "STG_ADDRESSES"."ADDRESS_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNTS') }} "STG_ACCOUNTS"
+                 ON "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID" = "STG_ACCOUNTS"."PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_CENSUS_PLACE') }} "STG_US_CENSUS_PLACE"
+                 ON ST_DWITHIN("STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."CENTROID_COORDINATES", "STG_US_CENSUS_PLACE"."COORDINATES", 50000) --50km
+            WHERE "STG_PUBLIC_WATER_SYSTEMS"."IS_ACTIVE" = TRUE
+                  AND "STG_PUBLIC_WATER_SYSTEMS"."PWS_TYPE_CODE" = 'CWS'
+                  AND (
+                          "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."SERVICE_AREA_TYPE" IN (
+                              'Homeowners Association'
+                              , 'Industrial/Agricultural'
+                              , 'Mobile Home Park'
+                              , 'Mobile Home Park - Principal Residence'
+                              , 'Municipality'
+                              , 'Other Area'
+                              , 'Other Residential'
+                              , 'Recreation Area'
+                              , 'Residential Area'
+                              , 'Sanitary Improvement District'
+                              , 'School'
+                              , 'Secondary Residences'
+                              , 'Subdivision'
+                              , 'Summer Camp'
+                              , 'Wholesaler of Water'
+                          )
+                        OR "STG_ACCOUNTS"."PWSID" IS NOT NULL
+                        OR "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."SERVICE_AREA_TYPE" IS NULL
+                      )
+            QUALIFY ROW_NUMBER() OVER (
+              PARTITION BY "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID"
+              ORDER BY ST_DISTANCE(
+                "STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."CENTROID_COORDINATES",
+                "STG_US_CENSUS_PLACE"."COORDINATES"
+              )
+            ) = 1
+        name: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
+        noLinkRefs: []
+  name: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

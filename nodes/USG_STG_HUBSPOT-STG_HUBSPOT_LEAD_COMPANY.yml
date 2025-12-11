@@ -1,0 +1,96 @@
+fileVersion: 1
+id: e6faafe2-174c-4de4-ab49-9b852f08e2fc
+name: STG_HUBSPOT_LEAD_COMPANY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_HUBSPOT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be3a4375-91bb-4207-8d36-4e51caf8ea9b
+          stepCounter: e6faafe2-174c-4de4-ab49-9b852f08e2fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LEAD_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 951ff8c7-864e-491c-9104-2c09b819ca20
+                stepCounter: fe3a27ad-9e58-4f85-9e20-f8eb8b8cec9a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eac14cf9-6c2a-4125-8596-2599b2aa3224
+          stepCounter: e6faafe2-174c-4de4-ab49-9b852f08e2fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: COMPANY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1ab8a70-cb2a-4f43-a759-f1c6973c702b
+                stepCounter: fe3a27ad-9e58-4f85-9e20-f8eb8b8cec9a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 482041d3-3da5-4967-9bae-f799f2d642db
+          stepCounter: e6faafe2-174c-4de4-ab49-9b852f08e2fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TYPE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 396f6e11-ee7f-4d9c-ac18-82de4cd7b8f9
+                stepCounter: fe3a27ad-9e58-4f85-9e20-f8eb8b8cec9a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4044954-d843-41fa-bee9-6b581641d5b7
+          stepCounter: e6faafe2-174c-4de4-ab49-9b852f08e2fc
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 83276fc9-198a-49ff-8bc6-e56e6093d843
+                stepCounter: fe3a27ad-9e58-4f85-9e20-f8eb8b8cec9a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LEAD_COMPANY: fe3a27ad-9e58-4f85-9e20-f8eb8b8cec9a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_HUBSPOT_RAW
+            nodeName: LEAD_COMPANY
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_HUBSPOT_RAW', 'LEAD_COMPANY') }} "LEAD_COMPANY"
+        name: STG_HUBSPOT_LEAD_COMPANY
+        noLinkRefs: []
+  name: STG_HUBSPOT_LEAD_COMPANY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,210 @@
+fileVersion: 1
+id: fe9728f1-d86d-4912-a1de-d3232256926d
+name: STG_TAM_CL_LOCATIONS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0aa4f93-1c34-4290-a39c-7c488eb0e455
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 908920cc-e907-4efb-95ae-168bb8bc6cb1
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77b0cc19-3643-4fd3-a3bd-31f02038d4de
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81242fbd-e486-4f28-a77e-ec2727949e3f
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8ad59b98-edf3-40d1-afa1-bdf534caed33
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2847062-23d4-4d4d-b20c-558846579036
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 34be1aaa-714a-4ef3-913d-89ecb5fd4f6e
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 886af451-443a-4976-b87a-44f4154ca172
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf413c22-941f-4c59-8132-0a703353be4d
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1fa18e1-c898-43d6-a7ad-482051cb8774
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 870dc09f-59fe-4f9f-bf17-0b4fa1454484
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CONCAT_WS(', ', "STG_CL_LEAD"."CITY", "STG_CL_LEAD"."STATE", 'USA')
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6d682bb-c907-4fa6-9d7a-18c3cb06f86a
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dab216e-1147-4098-ae6c-95cd581335b4
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: MAX("STG_US_CENSUS_PLACE"."LATITUDE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 287662d8-5c38-4efc-a355-0360d628017c
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f833d1f-e239-4b08-9e2f-ced09895ca30
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: MAX("STG_US_CENSUS_PLACE"."LONGITUDE")
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcac92bb-8466-4153-b815-4ab8e834ac24
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Municipality'"
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63fc7e5c-9958-47fc-89f5-98b1447b8c35
+          stepCounter: fe9728f1-d86d-4912-a1de-d3232256926d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Municipality'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CL_LEAD: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+          STG_US_CENSUS_PLACE: 6a7e57a4-c322-416c-b31a-3806c044a572
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_CITYLITICS
+            nodeName: STG_CL_LEAD
+          - locationName: USG_STG_MASTER
+            nodeName: STG_US_CENSUS_PLACE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_CITYLITICS', 'STG_CL_LEAD') }} "STG_CL_LEAD"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_CENSUS_PLACE') }} "STG_US_CENSUS_PLACE"
+                ON "STG_CL_LEAD"."STATE" = "STG_US_CENSUS_PLACE"."STATE"
+                AND "STG_CL_LEAD"."CITY" = "STG_US_CENSUS_PLACE"."CITY"
+            GROUP BY "STG_CL_LEAD"."CITYLITICS_LEAD_ID"
+                     , "STG_CL_LEAD"."CITY"
+                     , "STG_CL_LEAD"."POSTAL_CODE"
+                     , "STG_CL_LEAD"."STATE"
+                     , "STG_CL_LEAD"."PWSID"
+        name: STG_TAM_CL_LOCATIONS
+        noLinkRefs: []
+  name: STG_TAM_CL_LOCATIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

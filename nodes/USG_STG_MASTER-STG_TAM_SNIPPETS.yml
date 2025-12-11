@@ -1,0 +1,257 @@
+fileVersion: 1
+id: a13d4658-7036-4a6c-a352-36057facb857
+name: STG_TAM_SNIPPETS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86c2b5cf-90ba-4c4b-b37e-2af56f7c16c8
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f3ac4e0-18f0-4cd9-b6ab-7e605c34a2c7
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b22f2a3a-40f5-4957-b0c2-aa9ceb9d50e7
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 908920cc-e907-4efb-95ae-168bb8bc6cb1
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8604e3e-e9b4-412e-9e52-4713597b4a8c
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CL_SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences:
+              - columnCounter: 0c2a9d0e-5599-4395-8586-5aa9fde1b701
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04b4a0e6-6b42-454e-89dc-18b69d683487
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a1a231c-e09e-4ae0-a417-2129cf06ef6d
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12843cdb-cd62-4afe-92af-67474fd79530
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b64f5884-09fd-416e-b383-2ebb450d4839
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32746e08-765b-4553-b64c-26090d3ddd63
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35175cba-2aed-4a56-be05-5b82a9036637
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 399296c4-e6db-4569-b503-6aba9fde271a
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bb1b9358-088b-4ec6-903f-902067aa9c88
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df2ca970-6076-4295-8b31-da4106c77fbc
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: SNIPPET_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6397c17-777e-4c49-99d0-2d0d618d9175
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences:
+              - columnCounter: 0f8ec1db-ad3f-47bd-83e0-1dc416f8d6d5
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce8adb09-b93b-471c-9768-5e8acf0656c4
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_SUMMARY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ebfe8a9-1609-45b4-9b07-8a5393b8d2d6
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences:
+              - columnCounter: b84b2892-5720-473a-9f2f-ff68642b522c
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13f3268a-036a-49d4-b1e0-393b932a23ff
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ebfe8a9-1609-45b4-9b07-8a5393b8d2d6
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: ""
+          - columnReferences:
+              - columnCounter: 0a68142b-a8a0-46fa-a251-59f418bb7ee1
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8d42d0b-2054-4fe7-ae21-b7e5c0698fa1
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 823a9439-f1e3-4673-bfed-77e9dcbc88c2
+                stepCounter: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+            transform: TO_DATE("STG_FISCAL_NOTE_CURATE_SNIPPETS"."TS")
+          - columnReferences:
+              - columnCounter: 0669f0fd-4717-4895-9d3a-475cd7190185
+                stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+            transform: TO_DATE("STG_CL_LEAD"."LAST_ACTIVITY_DATE")
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9f1ef53-0730-4979-9375-14720f89af9e
+          stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'FiscalNote Curate'"
+          - columnReferences: []
+            transform: "'Citylitics'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FISCAL_NOTE_CURATE_SNIPPETS: 67ed56f5-0413-41aa-b820-331cf0e04bd1
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FISCAL_NOTE_CURATE_SNIPPETS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FISCAL_NOTE_CURATE_SNIPPETS') }} "STG_FISCAL_NOTE_CURATE_SNIPPETS"
+        name: STG_FISCAL_NOTE_CURATE_SNIPPETS
+        noLinkRefs: []
+      - aliases:
+          STG_CL_LEAD: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_CITYLITICS
+            nodeName: STG_CL_LEAD
+        join:
+          joinCondition: FROM {{ ref('USG_STG_CITYLITICS', 'STG_CL_LEAD') }} "STG_CL_LEAD"
+        name: STG_CL_LEAD
+        noLinkRefs: []
+  name: STG_TAM_SNIPPETS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

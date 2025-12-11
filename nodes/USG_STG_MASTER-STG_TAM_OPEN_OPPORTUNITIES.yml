@@ -45,6 +45,20 @@ operation:
               - columnCounter: d40f5ee5-9db3-461d-a859-f04ee1123440
                 stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
             transform: MAX_BY("STG_OPPORTUNITIES"."OSC_OPTY_ID", "STG_OPPORTUNITIES"."CREATION_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79e5a988-6b94-4aa0-8a1b-fec15dd4a10c
+          stepCounter: edc43f82-57bb-4b33-910d-422d5eac7120
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CURRENT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fdd46316-09d5-425b-9aa3-022c6ff84b17
+                stepCounter: 3d7202fc-05b8-4477-963c-7530a72f27aa
+            transform: MAX_BY("STG_OSC_SALES_STAGE"."NAME", "STG_OPPORTUNITIES"."CREATION_DATE")
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

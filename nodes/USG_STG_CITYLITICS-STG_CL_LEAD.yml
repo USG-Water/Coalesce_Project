@@ -1,0 +1,314 @@
+fileVersion: 1
+id: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+name: STG_CL_LEAD
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_CITYLITICS
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c2a9d0e-5599-4395-8586-5aa9fde1b701
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0de6bf06-25e9-40b4-8e12-f9d2d73a5e0e
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 908920cc-e907-4efb-95ae-168bb8bc6cb1
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c7c2b38-9d0d-4500-bf04-603423fad259
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b9c3524-686f-4305-b4a6-e0e89cdde68b
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PRIMARY_COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 70cf0e11-a167-4ecd-b726-f23fee858ef3
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa33f8f6-4cb3-4768-b182-ef91deec217d
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LEAD_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b13ecbd2-eb1b-48be-a1ab-1c3b195ac210
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8c2ff68-4c6c-42de-930e-fac96aaaf141
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONTACT_FIRSTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a2f0e06-bf34-47ba-b1e4-cad9c7547715
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec9dda92-9cf4-4dc2-8f73-32438c193492
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONTACT_LASTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9fb2961f-9e6b-423a-bef3-a627967fc065
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55e58d1b-4925-4e7a-b190-4f7e91ce562e
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONTACT_JOB_TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12ddc346-1f99-41b1-8b68-f76f9e66601f
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: UPPER("STG_HUBSPOT_LEAD"."PROPERTY_HS_CONTACT_JOB_TITLE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 016dae22-6630-4c8e-96e1-b986ad4bbbab
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ADDRESS_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5aff5b1-9de8-4c4d-8553-b1014da5de16
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: COALESCE("STG_HUBSPOT_LEAD"."PROPERTY_ADDRESS", "STG_HUBSPOT_COMPANY"."PROPERTY_ADDRESS")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2847062-23d4-4d4d-b20c-558846579036
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be36038f-b5fd-4f49-a6d7-f314fa74e776
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: COALESCE("STG_HUBSPOT_LEAD"."PROPERTY_CITY", "STG_HUBSPOT_COMPANY"."PROPERTY_CITY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 886af451-443a-4976-b87a-44f4154ca172
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dfc94787-5323-4d5b-8d0f-d82d10cc2457
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: COALESCE("STG_HUBSPOT_LEAD"."PROPERTY_ZIP", "STG_HUBSPOT_COMPANY"."PROPERTY_ZIP")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1fa18e1-c898-43d6-a7ad-482051cb8774
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b60430da-e014-451f-a224-d20eb474c3bb
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: COALESCE("STG_HUBSPOT_LEAD"."PROPERTY_STATE", "STG_HUBSPOT_COMPANY"."PROPERTY_STATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70b6471f-0af0-4184-bdf3-37bc1c753831
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: WEBSITE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 719878de-e76d-4c47-9984-3d2d8cf44819
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81242fbd-e486-4f28-a77e-ec2727949e3f
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41d09987-633c-454f-9e3f-6c0309b77908
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b84b2892-5720-473a-9f2f-ff68642b522c
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: CL_SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd8bfa6d-0f2a-4e67-9d07-9fce26b882c8
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: REGEXP_SUBSTR("STG_HUBSPOT_LEAD"."PROPERTY_SUMMARY", 'Summary:\\s*(.*)Source URL:', 1, 1, 'es', 1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a68142b-a8a0-46fa-a251-59f418bb7ee1
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(2048)
+        description: ""
+        name: CL_SNIPPET_FULL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf66b4bd-d9d2-4cda-a738-3c64c8bc5cdf
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f8ec1db-ad3f-47bd-83e0-1dc416f8d6d5
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: CL_SNIPPET_SOURCE_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd8bfa6d-0f2a-4e67-9d07-9fce26b882c8
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: REGEXP_SUBSTR("STG_HUBSPOT_LEAD"."PROPERTY_SUMMARY", 'Source URL:\\s*(\\S+)', 1, 1, 'e', 1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 874cb661-ed4b-416b-a64a-8a8196296cb2
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: CL_SNIPPET_CITYLITICS_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd8bfa6d-0f2a-4e67-9d07-9fce26b882c8
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: REGEXP_SUBSTR("STG_HUBSPOT_LEAD"."PROPERTY_SUMMARY", 'Link:\\s*(\\S+)', 1, 1, 'e', 1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fda08539-504f-4454-8a2b-030bc9117223
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_NEW_LEAD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 894a4bd1-c099-44bd-973f-1e999b530082
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0669f0fd-4717-4895-9d3a-475cd7190185
+          stepCounter: 1bdcbc64-1002-4a42-83b0-24a866e3311c
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: LAST_ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9c39e6c-37eb-4800-abae-7521420e02a8
+                stepCounter: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_HUBSPOT_COMPANY: e9ba60c8-b1de-45b5-be26-a86aa11f7bc9
+          STG_HUBSPOT_LEAD: ea15fd72-81e2-41e5-a66c-9e25936f3e99
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_HUBSPOT
+            nodeName: STG_HUBSPOT_COMPANY
+          - locationName: USG_STG_HUBSPOT
+            nodeName: STG_HUBSPOT_LEAD
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_HUBSPOT', 'STG_HUBSPOT_LEAD') }} "STG_HUBSPOT_LEAD"
+            LEFT JOIN {{ ref('USG_STG_HUBSPOT', 'STG_HUBSPOT_COMPANY') }} "STG_HUBSPOT_COMPANY"
+                ON "STG_HUBSPOT_LEAD"."PROPERTY_HS_PRIMARY_COMPANY_ID" = "STG_HUBSPOT_COMPANY"."ID"
+            WHERE "STG_HUBSPOT_LEAD"."PROPERTY_CITYLITICS_LEAD_ID" IS NOT NULL
+                  AND "STG_HUBSPOT_LEAD"."PROPERTY_HS_LEAD_IS_DISQUALIFIED" = 0
+        name: STG_CL_LEAD
+        noLinkRefs: []
+  name: STG_CL_LEAD
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

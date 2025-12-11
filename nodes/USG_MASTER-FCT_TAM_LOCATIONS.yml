@@ -4,7 +4,7 @@ name: FCT_TAM_LOCATIONS
 operation:
   config:
     postSQL: ""
-    preSQL: ""
+    preSQL: TRUNCATE TABLE {{ ref('USG_MASTER', 'FCT_TAM_LOCATIONS') }};
     testsEnabled: true
   database: ""
   deployEnabled: true
@@ -90,6 +90,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 0d29184f-7ad5-43d9-9622-ef2839bbc94b
+          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_AREA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7094329f-b3e4-485b-9c53-8db0deda87d3
+                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: c38d0d12-3488-4512-a6bf-e1461a1f4767
           stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
         config: {}
@@ -101,6 +115,34 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 310221fa-4c25-4306-9e0a-0700cc0dc2da
+                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0abbcfd-7fee-4d41-a085-fab515e91147
+          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dd072853-c465-4415-b461-fb02f47c5f7a
+                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e551d6bb-2d8d-4d21-8c79-7bf7372dc167
+          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS_CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76e51ed1-99df-454f-8915-1c63b571a25b
                 stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
             transform: ""
       - appliedColumnTests: {}
@@ -143,6 +185,34 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 721b6755-7f92-4879-8253-45d9c3815761
+                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 10293705-5280-4e72-9708-f655047cd6c3
+          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CURRENT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f804dc00-88b3-4c0d-ba4e-da0c76c0b48f
+                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2037f158-7b69-45af-9334-64b04039164c
+          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: FACILITY_STORAGE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b349fc4-2110-4215-909c-67a9489f4e5b
                 stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
             transform: ""
       - appliedColumnTests: {}
@@ -199,20 +269,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: db9e0a91-3f3a-4929-beda-36002f453a6b
-                stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 7baa782c-b564-4f7c-9ae6-716fabb0a640
-          stepCounter: bca4da18-fb6d-47ef-b49f-3d95ca766ac4
-        config: {}
-        dataType: VARCHAR(256)
-        description: ""
-        name: CITY_NORMAL
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 937863e5-01bb-47f2-8cfa-cfa69231a057
                 stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
             transform: ""
       - appliedColumnTests: {}

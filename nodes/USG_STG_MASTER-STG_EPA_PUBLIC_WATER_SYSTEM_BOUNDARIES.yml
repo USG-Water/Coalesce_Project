@@ -1,0 +1,384 @@
+fileVersion: 1
+id: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+name: STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c9294b3-1748-4f9e-931a-95d994c39522
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 142e5fbc-abcd-4120-a3aa-333b86bd2d7e
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5f3a74f-68c0-4c11-b51b-8d9696b5f166
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PWS_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8ab9c7-cd48-4011-94b1-3286ae9a1ec4
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf71b8a6-870f-40d4-9535-e5a96f9ce115
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PRIMACY_AGENCY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8b83848-3f5b-441c-8ba1-7c016e08abf7
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78879727-ecd9-426a-82f0-2d265f7f6bf4
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PRIMACY_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8b83848-3f5b-441c-8ba1-7c016e08abf7
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: |-
+              CASE
+                  WHEN "EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PRIMACY_AGENCY" IN (
+                      'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','AS','DC','GU','MP','PR','VI','UM'
+                  )
+                  THEN "EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PRIMACY_AGENCY"
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 628fce87-ed2b-40d4-8b48-280bcbbc91f5
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SERVICE_CONNECTIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 405cbf61-f887-44af-a80a-64187733d079
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ce82faf-498c-43d2-8b66-f77eeee22bc3
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: POPULATION_SERVED_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17760565-87d8-4b52-bdf0-c80b9b2d9f03
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00010ceb-e2a5-449b-8a9a-6e87ba2cc2fd
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: POP_CAT_5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 036bd531-0bfb-458a-8a66-ad3f625bdf7d
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faf6e5ca-4660-4c19-938b-0fe0f84ba0b9
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DATA_PROVIDER_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc5be297-c55b-49eb-bf36-600570a34596
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85ecf2a6-dd30-447d-8876-6841876bd16b
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ORIGINAL_DATA_PROVIDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47f0c233-a5e4-48b5-982b-7d582dfb8614
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b632d3d1-01ac-4973-852f-cd2c717e28dc
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DATA_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05e4d82e-b4d6-4223-a1ba-eeb1a84e89ba
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef310d66-a0dc-46c5-9bd7-9d9c806474e4
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MODEL_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 09a77d6a-fe22-4a5f-8de7-2b1336ea79ee
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b160e2ed-b448-4194-a4b4-b4062e9c2af7
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(1024)
+        description: ""
+        name: METHOD_DETAILS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dd290a5-6505-4530-bc5e-ac5a045ac1f2
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68dd1934-b9fe-43e8-a282-81633303e110
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_AREA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b89e3c0b-d4b5-4159-bf19-ed07da5c5ca3
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8bbf2c3-55ef-44b5-bb79-6ea48900fee1
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FEATURE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3527b393-9b0f-46f2-86ad-e94265da3f3d
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13782740-27a4-4491-b8ab-8417da83e9ed
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SYMBOLOGY_FIELD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4288f958-2628-476f-a499-7a144ba94c6f
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b6bd8be-f4ce-46db-ba0a-783c360d4af5
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MODIFICATION_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 819c62f4-7731-42b2-9028-2e6f3211e1bc
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 709d131a-0219-42d2-961c-1626ec875faa
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DETAILED_FACILITY_REPORT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 333a67c8-f59b-4318-8ccf-27aa5c03f77a
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89d4af93-ad1a-4a00-9be7-602f671666d3
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONFIRMED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77e30730-8999-4b44-b86c-113d9958f28a
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 551ecf4c-5615-4040-bb60-3b1234a3786f
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: VERIFICATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d9a1b97-3bf0-4f0b-ba51-ad2c03840b80
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2e891ef-1010-420e-9dbc-759251081772
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SHAPE_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72710c73-0d1e-4706-9bec-cec9390f8ce3
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd753549-9a61-4606-aeed-3c5d5a69f4ab
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SHAPE_AREA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f27a2200-7cd0-4f39-86ff-105e417032fe
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a3434c9-abed-4017-ae4e-7533682ae5bd
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: CENTROID_COORDINATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20cbe165-fc2e-491b-b036-539b4f7930c1
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ST_CENTROID(TRY_TO_GEOGRAPHY("EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."WKT_GEOM"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0e4ea02-fffe-4fdc-a258-b60d9f1fad3e
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: WKT_GEOM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20cbe165-fc2e-491b-b036-539b4f7930c1
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: TRY_TO_GEOGRAPHY("EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."WKT_GEOM")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ee445be-8fc1-4fb3-a019-94d5e590b5d8
+          stepCounter: a0fb73d1-f9d1-4a2c-be6d-67f398e86891
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_CREATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbb21266-b656-42b3-b396-41c7209ba04a
+                stepCounter: b5619a3e-1246-478b-8266-e56145ec2221
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES: b5619a3e-1246-478b-8266-e56145ec2221
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+            WHERE "EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID" NOT LIKE '%;%'
+        name: STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+        noLinkRefs: []
+  name: STG_EPA_PUBLIC_WATER_SYSTEM_BOUNDARIES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,254 @@
+fileVersion: 1
+id: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+name: FCT_TAM_SNIPPETS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 575838c0-72db-4d87-acd3-b1085c199f5e
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS_CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT("STG_TAM_SNIPPETS"."FNC_FIPS", '|', "STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59f3ded7-898d-4774-a369-22df1840d38b
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86c2b5cf-90ba-4c4b-b37e-2af56f7c16c8
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 783a83d4-c1d7-48b2-b7c6-928e43875df7
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b22f2a3a-40f5-4957-b0c2-aa9ceb9d50e7
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3927e829-7dd5-4d69-9305-8e73fa7161ec
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: CL_SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8604e3e-e9b4-412e-9e52-4713597b4a8c
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c8ebe7e-9fcc-408e-a173-4fd53f3b7967
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: FNC_SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04b4a0e6-6b42-454e-89dc-18b69d683487
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2705b81-84c3-45fc-b7f1-4fc983d7d078
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_SNIPPET_TOPIC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12843cdb-cd62-4afe-92af-67474fd79530
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6921945d-fa4a-4103-89d7-16a5261d5472
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32746e08-765b-4553-b64c-26090d3ddd63
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3cbc6d9-a6f8-43cd-b2ec-fe5e6f74d16c
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TOPIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 399296c4-e6db-4569-b503-6aba9fde271a
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2300e11-a463-44a5-91c5-9802bbe18802
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: SNIPPET_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df2ca970-6076-4295-8b31-da4106c77fbc
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7391da46-d2da-4023-9994-1543760beb12
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_SUMMARY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce8adb09-b93b-471c-9768-5e8acf0656c4
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00d27c13-2d5c-43f4-9b62-3207b29d8cee
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13f3268a-036a-49d4-b1e0-393b932a23ff
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 496450ec-0b6e-4307-b157-0faf4282cf92
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9f1ef53-0730-4979-9375-14720f89af9e
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aae371a9-c669-4823-9461-f49041857efd
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b8d42d0b-2054-4fe7-ae21-b7e5c0698fa1
+                stepCounter: a13d4658-7036-4a6c-a352-36057facb857
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e329fbf8-8de5-4b16-8a5c-1299181592a8
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 394d79e3-0ea0-478d-8279-f0a2bcd22946
+          stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_SNIPPETS: a13d4658-7036-4a6c-a352-36057facb857
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPETS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPETS') }} "STG_TAM_SNIPPETS"
+        name: FCT_TAM_SNIPPETS
+        noLinkRefs: []
+  name: FCT_TAM_SNIPPETS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
