@@ -75,6 +75,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 17642d19-4859-4b61-8640-c6e7993cfe2c
+          stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ec52f943-7d45-43da-b3ce-c1e393d90f4b
+                stepCounter: e06a4544-2840-4718-ad43-831b10421819
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: a6df1968-bd6c-4a34-ac33-53a6db0967e2
           stepCounter: e4fdd8c6-0390-414c-80cd-c1608acc7f61
         config: {}
@@ -397,6 +411,7 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
+          STG_ACCOUNTS: e06a4544-2840-4718-ad43-831b10421819
           STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
           STG_TAM_LOCATIONS_UNION: 21e36a45-5a1e-453f-b5fd-a08e788452b6
           STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
@@ -406,6 +421,8 @@ operation:
         dependencies:
           - locationName: USG_STG_FISCAL_NOTE_CURATE
             nodeName: STG_FNC_LOCATIONS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_ACCOUNTS
           - locationName: USG_STG_MASTER
             nodeName: STG_TAM_LOCATIONS_UNION
           - locationName: USG_STG_MASTER
@@ -417,6 +434,8 @@ operation:
             FROM {{ ref('USG_STG_MASTER', 'STG_TAM_LOCATIONS_UNION') }} "STG_TAM_LOCATIONS_UNION"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"
                 ON "STG_TAM_LOCATIONS_UNION"."PWSID" = "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."PWSID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_ACCOUNTS') }} "STG_ACCOUNTS"
+                ON "STG_TAM_LOCATIONS_UNION"."ACCOUNT_ID" = "STG_ACCOUNTS"."ACCOUNT_ID"
             LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
                 ON "STG_TAM_LOCATIONS_UNION"."FNC_FIPS" = "STG_FNC_LOCATIONS"."FIPS"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_CENSUS_PLACE') }} "STG_US_CENSUS_PLACE"
@@ -431,7 +450,6 @@ operation:
                         25000 --25km
                     )
                 )
-            --    AND JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") >= 0.99
             WHERE "STG_TAM_LOCATIONS_UNION"."STATE" IN (
                 'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
                 'ID','IL','IN','IA','KS','KY','LA','ME','MD',
@@ -452,14 +470,6 @@ operation:
                         "STG_US_CENSUS_PLACE"."COORDINATES"
                     )
             ) = 1
-            --QUALIFY ROW_NUMBER() OVER (
-            --    PARTITION BY "STG_TAM_LOCATIONS_UNION"."ACCOUNT_ID"
-            --                 , "STG_TAM_LOCATIONS_UNION"."EBS_CUSTOMER_SITE_ID"
-            --                 , "STG_TAM_LOCATIONS_UNION"."PWSID"
-            --                 , "STG_TAM_LOCATIONS_UNION"."FNC_FIPS"
-            --                 , "STG_TAM_LOCATIONS_UNION"."SERVICE_CENTER_NAME"
-            --    ORDER BY JAROWINKLER_SIMILARITY("STG_TAM_LOCATIONS_UNION"."CITY", "STG_US_CENSUS_PLACE"."CITY") DESC
-            --) = 1
         name: STG_TAM_LOCATIONS
         noLinkRefs: []
   name: STG_TAM_LOCATIONS
