@@ -103,6 +103,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: f9ea6335-7404-499c-881e-ad934870cf91
+          stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 158672eb-5385-447e-a276-37e1d3fb0fe2
+                stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 24b68fb4-2e7d-404f-a4de-10582a1d3307
           stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
         config: {}
@@ -196,15 +210,34 @@ operation:
     sourceMapping:
       - aliases:
           CENSUS_PLACEFP_PLACEFP: 7cde0568-df7d-4648-8e38-8244a7c776ca
+          STG_FNC_LOCATIONS: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
             nodeName: CENSUS_PLACEFP_PLACEFP
+          - locationName: USG_STG_FISCAL_NOTE_CURATE
+            nodeName: STG_FNC_LOCATIONS
         join:
           joinCondition: |-
             FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'CENSUS_PLACEFP_PLACEFP') }} "CENSUS_PLACEFP_PLACEFP"
+            LEFT JOIN {{ ref('USG_STG_FISCAL_NOTE_CURATE', 'STG_FNC_LOCATIONS') }} "STG_FNC_LOCATIONS"
+                ON "CENSUS_PLACEFP_PLACEFP"."STATE" = "STG_FNC_LOCATIONS"."STATE"
+                AND ST_DWITHIN(
+                    ST_MAKEPOINT("CENSUS_PLACEFP_PLACEFP"."LONGITUDE", "CENSUS_PLACEFP_PLACEFP"."LATITUDE"),
+                    "STG_FNC_LOCATIONS"."COORDINATES",
+                    25000
+                )
+
             WHERE "CENSUS_PLACEFP_PLACEFP"."TYPE" = 'INCORPORATED PLACE'
+
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "CENSUS_PLACEFP_PLACEFP"."PLACEFP"
+                ORDER BY ST_DISTANCE(
+                    ST_MAKEPOINT("CENSUS_PLACEFP_PLACEFP"."LONGITUDE", "CENSUS_PLACEFP_PLACEFP"."LATITUDE"),
+                    "STG_FNC_LOCATIONS"."COORDINATES"
+                )
+            ) = 1
         name: STG_US_CENSUS_PLACE
         noLinkRefs: []
   name: STG_US_CENSUS_PLACE

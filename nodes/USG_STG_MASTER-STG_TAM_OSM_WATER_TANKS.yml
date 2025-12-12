@@ -1,0 +1,352 @@
+fileVersion: 1
+id: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+name: STG_TAM_OSM_WATER_TANKS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2d5406e-0917-4205-9f7b-fbbe3c5c7e7e
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OSM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9badded2-1acb-41ec-a4d9-b2c1ba4e1b71
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ecc9c53-9fc8-48d1-9e1d-e4e1b192d4ee
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FNC_FIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9ea6335-7404-499c-881e-ad934870cf91
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6def4cee-d3c4-49aa-b068-d57c4322a0ca
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24b68fb4-2e7d-404f-a4de-10582a1d3307
+                stepCounter: 6a7e57a4-c322-416c-b31a-3806c044a572
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9434142-13ec-4bcd-8cd9-960f44dd61ef
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 493e6e2a-32e7-45cc-8073-558302dddcb5
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffb78a87-0339-406d-95e9-fe8947809ede
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FULL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 493e6e2a-32e7-45cc-8073-558302dddcb5
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: CONCAT_WS(', ', "STG_US_CENSUS_PLACE"."CITY", "STG_OSM_WATER_TANKS"."STATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48d97054-2137-4954-8e1a-91ac1f7e397f
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LATITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fcebf3a9-2aa6-4689-9231-39c2d43b6eea
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 030a8b03-1f52-4fb8-9f5f-c2edefe1d207
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LONGITUDE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b34da8c0-c3b5-4ae5-9750-3dd43230d07d
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86885675-7b28-423a-9ec8-dcd3ebacf36f
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: COORDINATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 889b2706-1c7a-4a9a-80cc-74898914c997
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c8abb42-a2d6-4c47-8e31-4a3ee8fea5c3
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POINT_GRANULARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'Address'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a15f11e-3bb5-4df7-bbc9-6ad603dbe255
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51418c3f-11d8-41f8-ae8b-c02fbaf20c44
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b482106-0c79-454e-ad00-beea42bb6b53
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: OPERATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5de48f8b-5d88-4867-8db1-afafb66773e9
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ddb1b03-a0df-4d3b-9639-139082f3a937
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CAPACITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2dac8af-f8d9-4eb8-bb13-fe919755c55e
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ddf302f3-1f51-4670-91ba-7a473035b9d1
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: HEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe85b8f3-f4a1-4dcd-ae1b-16caafe410e0
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a09f7de-e19a-4304-9fbc-553fdc937645
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MATERIAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b62aca45-e9da-48b1-9603-70e0a25ed974
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa4b47f0-c17a-4bba-8500-c7e2d150fc26
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: COLOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c55e1784-e45f-4a0e-86e1-9169f7aa39ed
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 803c5220-ca60-409d-9e60-11564cf348fc
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 964b6b26-b6e8-40b7-b821-24b2adcbb688
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 053a8920-3b65-4d01-a5ec-3b420b2bf621
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR(1024)
+        description: ""
+        name: TAGS_JSON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 269bc8fa-6777-4ab0-ba4f-e3f19c478a37
+                stepCounter: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86916cf2-ee15-496e-a6ac-6bfdfb310f81
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: POSSIBLE_PWSID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ca2b4492-52fd-4485-8e72-14346a0efa4f
+                stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91e5093b-ee59-4b16-81b6-48b1306d707a
+          stepCounter: 5044e8ec-1ba8-4312-b3c9-2a8b20d63336
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MAP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'OSM'"
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OSM_WATER_TANKS: 7a26aed6-a74b-41ec-b362-84b6d40196ec
+          STG_TAM_ASSETS: edf9511e-3167-4ef9-8537-dc88733b9c0c
+          STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
+          STG_US_CENSUS_PLACE: 6a7e57a4-c322-416c-b31a-3806c044a572
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_OSM_WATER_TANKS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_ASSETS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES
+          - locationName: USG_STG_MASTER
+            nodeName: STG_US_CENSUS_PLACE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_OSM_WATER_TANKS') }} "STG_OSM_WATER_TANKS"
+
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_ASSETS') }} "STG_TAM_ASSETS"
+                ON ST_DISTANCE("STG_OSM_WATER_TANKS"."COORDINATES", "STG_TAM_ASSETS"."COORDINATES") < 100
+
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES') }} "STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"
+                ON ST_CONTAINS("STG_TAM_PUBLIC_WATER_SYSTEM_BOUNDARIES"."WKT_GEOM", "STG_OSM_WATER_TANKS"."COORDINATES")
+
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_US_CENSUS_PLACE') }} "STG_US_CENSUS_PLACE"
+                ON "STG_OSM_WATER_TANKS"."STATE" = "STG_US_CENSUS_PLACE"."STATE"
+                AND ST_DWITHIN(
+                    "STG_OSM_WATER_TANKS"."COORDINATES",
+                    "STG_US_CENSUS_PLACE"."COORDINATES",
+                    25000
+                )
+
+            WHERE "STG_TAM_ASSETS"."EBS_CUSTOMER_SITE_ID" IS NULL
+
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "STG_OSM_WATER_TANKS"."OSM_ID"
+                ORDER BY ST_DISTANCE(
+                    "STG_OSM_WATER_TANKS"."COORDINATES",
+                    "STG_US_CENSUS_PLACE"."COORDINATES"
+                )
+            ) = 1
+        name: STG_TAM_OSM_WATER_TANKS
+        noLinkRefs: []
+  name: STG_TAM_OSM_WATER_TANKS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

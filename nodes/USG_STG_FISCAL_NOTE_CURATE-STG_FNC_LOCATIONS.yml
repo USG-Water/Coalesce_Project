@@ -131,6 +131,18 @@ operation:
             transform: MAX("LOCATIONS"."LON")
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: b9fa11a5-227f-41ba-9b0d-6c75127ff656
+          stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: COORDINATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ST_MAKEPOINT(MAX("LOCATIONS"."LON"), MAX("LOCATIONS"."LAT"))
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 2c1a2180-e5e3-4df6-bc1b-11de49298c13
           stepCounter: 540c95c4-d5b5-41c2-9d47-55e8d100fd34
         config: {}

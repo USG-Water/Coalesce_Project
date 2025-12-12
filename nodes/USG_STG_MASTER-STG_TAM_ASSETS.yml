@@ -265,6 +265,18 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 824230b8-5156-4640-bbd0-f305c5af9405
+          stepCounter: edf9511e-3167-4ef9-8537-dc88733b9c0c
+        config: {}
+        dataType: GEOGRAPHY
+        description: ""
+        name: COORDINATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ST_MAKEPOINT("STG_ADDRESSES"."LONGITUDE", "STG_ADDRESSES"."LATITUDE")
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 55f49ff5-4892-4be0-ae2a-28ce68f2c66a
           stepCounter: edf9511e-3167-4ef9-8537-dc88733b9c0c
         config: {}
