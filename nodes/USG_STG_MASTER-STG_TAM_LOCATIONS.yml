@@ -112,8 +112,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 7680dc2e-e71a-4dc2-80f4-cfdcb94579cf
-                stepCounter: 21e36a45-5a1e-453f-b5fd-a08e788452b6
+              - columnCounter: e99946f4-e05c-434c-9363-4a3ffc8235c5
+                stepCounter: 1ab00b2d-c6dd-4c91-89dc-9b0562207a71
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -154,7 +154,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT(COALESCE("STG_TAM_LOCATIONS_UNION"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_LOCATIONS_UNION"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_LOCATIONS_UNION"."FNC_FIPS" IS NULL AND "STG_TAM_LOCATIONS_UNION"."CITYLITICS_LEAD_ID" IS NULL THEN NULL
+                  ELSE CONCAT(COALESCE("STG_TAM_LOCATIONS_UNION"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_LOCATIONS_UNION"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: f12de578-bc92-4075-9d2f-45825c0f9edc

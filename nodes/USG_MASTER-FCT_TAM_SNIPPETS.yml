@@ -26,7 +26,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT(COALESCE("STG_TAM_SNIPPETS"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_SNIPPETS"."FNC_FIPS" IS NULL AND "STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID" IS NULL THEN NULL
+                  ELSE CONCAT(COALESCE("STG_TAM_SNIPPETS"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 59f3ded7-898d-4774-a369-22df1840d38b
