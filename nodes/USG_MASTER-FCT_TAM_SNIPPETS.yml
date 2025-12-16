@@ -20,13 +20,13 @@ operation:
           columnCounter: 575838c0-72db-4d87-acd3-b1085c199f5e
           stepCounter: ab99cfb0-8531-43ed-ae4b-0d66283020c5
         config: {}
-        dataType: VARCHAR(256)
+        dataType: VARCHAR
         description: ""
         name: FNC_FIPS_CITYLITICS_LEAD_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT("STG_TAM_SNIPPETS"."FNC_FIPS", '|', "STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID")
+            transform: CONCAT(COALESCE("STG_TAM_SNIPPETS"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_SNIPPETS"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 59f3ded7-898d-4774-a369-22df1840d38b

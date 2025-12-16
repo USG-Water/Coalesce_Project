@@ -1,0 +1,186 @@
+fileVersion: 1
+id: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+name: DIM_SALES_TEAM_HIERARCHY
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59fa8fb9-1c05-4160-a2d3-15fe2244543c
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_RW_SALES_TEAM_HIERARCHY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70ca0880-a11c-4cf5-b75e-b675049bfd4c
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: VARCHAR(256)
+        description: Name of the manager within the sales team.
+        name: MANAGER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b2015cb-6715-4241-8b94-0258a4a5186e
+                stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce1534e5-030d-41dc-9fe4-42a7aefc3f6a
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: VARCHAR(256)
+        description: Name of the Water System Consultant (WSC).
+        isBusinessKey: true
+        name: WSC_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d141854-192f-4c77-ae39-6c40339aab7a
+                stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59b3db24-fa84-4302-b992-cd73bc8f685a
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec8c8a39-bc16-4da4-a187-05f4960064a1
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3395735-0ed4-4c13-986f-2c266b64d03c
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49e8d07a-b916-4203-b232-794f4c3ffbe6
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef86cda3-75fa-46e5-81f6-0d1dd868d21d
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53b4aca3-12d7-4f1a-8bc4-39305df69a68
+          stepCounter: fb17088a-4c2e-457e-adcc-7ea4df1c988f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_RW_SALES_TEAM_HIERARCHY: 6683b42a-e13b-4553-85ad-f15f46a9b052
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_RW_SALES_TEAM_HIERARCHY
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_RW_SALES_TEAM_HIERARCHY') }} "STG_RW_SALES_TEAM_HIERARCHY"
+        name: DIM_SALES_TEAM_HIERARCHY
+        noLinkRefs: []
+  name: DIM_SALES_TEAM_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

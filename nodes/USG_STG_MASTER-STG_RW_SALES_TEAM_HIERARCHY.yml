@@ -1,0 +1,88 @@
+fileVersion: 1
+id: 6683b42a-e13b-4553-85ad-f15f46a9b052
+name: STG_RW_SALES_TEAM_HIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b2015cb-6715-4241-8b94-0258a4a5186e
+          stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: MANAGER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CONCAT("STG_OSC_PARTY_RESOURCE"."PERSON_FIRST_NAME", ' ', "STG_OSC_PARTY_RESOURCE"."PERSON_LAST_NAME")
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d141854-192f-4c77-ae39-6c40339aab7a
+          stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: WSC_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CONCAT("STG_OSC_SALES_RESOURCE_HIERARCHY"."PERSON_FIRST_NAME", ' ', "STG_OSC_SALES_RESOURCE_HIERARCHY"."PERSON_LAST_NAME")
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OSC_PARTY_RESOURCE: 72c727e4-6dc2-496b-8735-f99a0b1c5498
+          STG_OSC_SALES_RESOURCE_HIERARCHY: f623cb55-18ec-4e43-8561-a551a6f576ca
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_PARTY_RESOURCE
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_SALES_RESOURCE_HIERARCHY
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_SALES_RESOURCE_HIERARCHY') }} "STG_OSC_SALES_RESOURCE_HIERARCHY"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY_RESOURCE') }} "STG_OSC_PARTY_RESOURCE"
+                ON "STG_OSC_SALES_RESOURCE_HIERARCHY"."PARENT_RESOURCE_ID" = "STG_OSC_PARTY_RESOURCE"."PARTY_RESOURCE_PARTY_ID"
+            WHERE "STG_OSC_SALES_RESOURCE_HIERARCHY"."REPORTS_TO_FLAG" = 'Y'
+                  AND "STG_OSC_SALES_RESOURCE_HIERARCHY"."ROLE_CODE" = 'USG_WSC'
+        name: STG_RW_SALES_TEAM_HIERARCHY
+        noLinkRefs: []
+  name: STG_RW_SALES_TEAM_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

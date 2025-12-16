@@ -1,0 +1,444 @@
+fileVersion: 1
+id: a7428637-3adf-4676-9513-2db686bcd5ea
+name: DATA_PROFILING_OSC_SALES_RESOURCE_HIERARCHY
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6600f975-50a0-425d-b9f5-2a21e0034bc4
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: DENORM_MGR_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6fb0fa3-4111-4520-ad5f-855ef0adf15c
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5d52223-d6e1-4a21-b474-8ee81fe42c51
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f85bfdeb-9b15-4ffe-8e4c-69cb5529271d
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f56a34e-4660-429e-953a-1f27becc1284
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARENT_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66ab770f-ee9b-45bd-98ae-01bcc4aab7ce
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e884f59-ec2e-44af-bbe3-65de63759ea1
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: PARENT_RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a753c0c-5771-4eea-9aff-cf510f0b7093
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed36318c-7732-4ace-ae1f-1d336e60b05a
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: PARTY_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8503c19f-f2ff-4e15-ab7a-aca5fe75beb9
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d36e32fa-0e3f-4f93-886a-841f54097d38
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: PERSON_FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1b85f68-e14a-4c7e-aabe-d4ec375a9213
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2061d2f3-68ce-45ea-9afb-20e5ad773943
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: PERSON_LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b05eee0d-927a-4493-be0f-0eb8559c5e90
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47962dfb-f41a-461f-beb0-ebfc0ecf2b71
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTING_MANAGER_PEOCREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05e5037a-f75a-49c9-9aec-403bf4333ad9
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7d5c068-d9b4-459e-bf09-186559b4ea34
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOCREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84e69c33-f818-42ae-9264-d95e6c637382
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d11bcff1-67e5-4b46-9c01-c9eb61d0a94b
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOEND_DATE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 647a2ad9-9763-4754-806c-2fe6b4ccfe68
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ccc2233-b8e7-45ba-a38e-57c93c8ebb96
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9be7a3d-038a-418d-a9e3-3c023a4312b1
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92cdd635-c0f5-4d01-a2b8-16dbe83288ff
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTING_MANAGER_PEOLAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4b72cb1-de58-48de-bdfc-eb433a30ad12
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dabd28d3-b2e6-49f5-b90b-e0a677dd901f
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTS_TO_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63d0f3f0-8cdf-4faf-92bd-d90b39b4f4eb
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f67a0f46-4ea8-41af-b99d-bf772a0b8971
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 705f9ba5-dc92-454d-914f-7659986d40cb
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9e98661-5280-415b-a34a-2a94fae4af1e
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: RESOURCE_ROLE_ASSIGN_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11a2d2f2-43db-41d5-bc4a-77d7b4f771ef
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e15880d-734c-4da8-895d-eaa45754bc02
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: RESOURCE_ROLE_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69a562c1-d4f9-44ba-9afc-34793d2c6861
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0facf57d-88a4-4608-a13f-02e799ae5abf
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: ROLE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2dff26d3-0522-445f-90b1-ecbbf4d32c02
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5658449a-434b-451e-ba94-013dbf2b7c82
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: ROLE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 042a0804-825e-4791-82ed-b1afea9b936c
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3275a52-a215-401a-887a-44e881d6e181
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: TREE_CODE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39cf5a4a-bdd2-489e-8d09-65086a95cbe4
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 323606b1-9f54-4255-be42-6996ce83f12b
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dcb173ee-d7a2-4ff2-b09d-d95f8f72de72
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4480caef-7d82-42ef-8cd4-76f84ec20c67
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b861f845-dcbd-4b6f-b07c-1d3c250b477d
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22f1fd57-4848-4141-92dc-b82bbe3c504b
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1a01ab2-c85f-4cf6-949c-1dc00019a4b8
+          stepCounter: a7428637-3adf-4676-9513-2db686bcd5ea
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALES_RESOURCE_HIERARCHY: c84a99c7-26e6-473e-b119-4f0998f334c3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_SC_RESOURCEANALYTICS
+            nodeName: SALES_RESOURCE_HIERARCHY
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_SC_RESOURCEANALYTICS', 'SALES_RESOURCE_HIERARCHY') }} "SALES_RESOURCE_HIERARCHY"
+        name: DATA_PROFILING_OSC_SALES_RESOURCE_HIERARCHY
+        noLinkRefs: []
+  name: DATA_PROFILING_OSC_SALES_RESOURCE_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node

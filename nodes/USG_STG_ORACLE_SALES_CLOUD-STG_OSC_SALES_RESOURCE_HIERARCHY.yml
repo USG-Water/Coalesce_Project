@@ -1,0 +1,308 @@
+fileVersion: 1
+id: f623cb55-18ec-4e43-8561-a551a6f576ca
+name: STG_OSC_SALES_RESOURCE_HIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b72bde3f-8c63-40de-8571-854db6e0b980
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 705f9ba5-dc92-454d-914f-7659986d40cb
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59ce2501-8ed0-430a-ba93-57036d058d04
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PARENT_RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a753c0c-5771-4eea-9aff-cf510f0b7093
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f194bc1f-4cf5-4fe4-b306-27b4add30c18
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PARENT_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66ab770f-ee9b-45bd-98ae-01bcc4aab7ce
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 854ddc7a-c074-4f7f-a385-7b02e344b7ba
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f85bfdeb-9b15-4ffe-8e4c-69cb5529271d
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ab85341-faed-4315-931d-ae130338ac3a
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: DENORM_MGR_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6fb0fa3-4111-4520-ad5f-855ef0adf15c
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b6f996e-b458-43a2-bb23-9e6c5e24b0c7
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TREE_CODE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39cf5a4a-bdd2-489e-8d09-65086a95cbe4
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f8517ac-530a-4a2d-8db7-408179584e05
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ROLE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2dff26d3-0522-445f-90b1-ecbbf4d32c02
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a8d9833-fa60-4280-9007-cef9ec6d2da5
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ROLE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 042a0804-825e-4791-82ed-b1afea9b936c
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3416963f-a400-403e-800d-9f014b1d7ab3
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PERSON_FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1b85f68-e14a-4c7e-aabe-d4ec375a9213
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 997e4e0b-7912-4d18-bf87-ff0aa42c6074
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PERSON_LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b05eee0d-927a-4493-be0f-0eb8559c5e90
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a40d1bd-5e8f-4ba7-9790-42d461b2d2d9
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTING_MANAGER_PEOCREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05e5037a-f75a-49c9-9aec-403bf4333ad9
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8981aaa-7c4b-44a9-89b0-f4691952e9f2
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTING_MANAGER_PEOLAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4b72cb1-de58-48de-bdfc-eb433a30ad12
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0261886-6c28-4f87-99a6-e7514a000d08
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: RESOURCE_ROLE_ASSIGN_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11a2d2f2-43db-41d5-bc4a-77d7b4f771ef
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9469407b-1bdc-480c-83de-9f03859aee42
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: RESOURCE_ROLE_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69a562c1-d4f9-44ba-9afc-34793d2c6861
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f89fb56-c3fb-424b-81b7-0f5895ed4d1e
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REPORTS_TO_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63d0f3f0-8cdf-4faf-92bd-d90b39b4f4eb
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27653da1-2480-4a85-a403-f51b3bf6d9c9
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: PARTY_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8503c19f-f2ff-4e15-ab7a-aca5fe75beb9
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a2ca5f6-6991-467e-a5c2-f1ff170fae90
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOCREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84e69c33-f818-42ae-9264-d95e6c637382
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a213f94a-23f4-46f3-b266-381278657bc9
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOEND_DATE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 647a2ad9-9763-4754-806c-2fe6b4ccfe68
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46291009-f0d7-4d24-b637-6c94f1d32e8f
+          stepCounter: f623cb55-18ec-4e43-8561-a551a6f576ca
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPORTING_MANAGER_PEOLAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9be7a3d-038a-418d-a9e3-3c023a4312b1
+                stepCounter: c84a99c7-26e6-473e-b119-4f0998f334c3
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALES_RESOURCE_HIERARCHY: c84a99c7-26e6-473e-b119-4f0998f334c3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_SC_RESOURCEANALYTICS
+            nodeName: SALES_RESOURCE_HIERARCHY
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_ORACLE_SC_RESOURCEANALYTICS', 'SALES_RESOURCE_HIERARCHY') }} "SALES_RESOURCE_HIERARCHY"
+            WHERE "SALES_RESOURCE_HIERARCHY"."_FIVETRAN_DELETED" = FALSE
+        name: STG_OSC_SALES_RESOURCE_HIERARCHY
+        noLinkRefs: []
+  name: STG_OSC_SALES_RESOURCE_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
