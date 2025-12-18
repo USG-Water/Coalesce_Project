@@ -1,0 +1,186 @@
+fileVersion: 1
+id: a85f0611-b96f-4788-b6eb-27940656743f
+name: PSTG_TAM_SNIPPET_LLM_KEYWORDS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 453f522d-88bf-4238-8103-3bf941e87ad6
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_TAM_SNIPPET_LLM_BOOTSTRAP_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a94dd41-2591-4966-93c0-d8466a6ff0a3
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: SNIPPET_NORM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c01a0610-c7d7-47cb-ac71-a727fac2ddd6
+                stepCounter: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67d61080-b2d5-49c7-8fd0-83b69bfa6b75
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: KEYWORD_LLM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f2b4519-dfa5-4859-a490-1b9ad783b4fa
+                stepCounter: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: adf2658c-ddb3-4e7a-8131-77872f26f79b
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57d72f7b-f312-4f9a-adeb-aa52b807f27c
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0184dbb-fc83-42bf-ade9-279e53ea6cfd
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3741ba80-1ad6-41a7-8ed8-d2de03e2aedb
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 711c863a-2848-4103-8527-a952fbb55855
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf0f4676-7193-4aae-bdaf-8e0ed0389c24
+          stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_SNIPPETS_LLM_COMPLETE: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPETS_LLM_COMPLETE
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPETS_LLM_COMPLETE') }} "STG_TAM_SNIPPETS_LLM_COMPLETE"
+        name: PSTG_TAM_SNIPPET_LLM_KEYWORDS
+        noLinkRefs: []
+  name: PSTG_TAM_SNIPPET_LLM_KEYWORDS
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

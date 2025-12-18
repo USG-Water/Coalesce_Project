@@ -1,0 +1,137 @@
+fileVersion: 1
+id: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+name: STG_TAM_SNIPPET_KEYWORD_SCORES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f821bd1f-3844-4d70-a226-4cab072a3b13
+          stepCounter: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0080ee8c-80b3-4889-89c0-223ad73d0741
+                stepCounter: 3142233e-288e-41a2-967f-655edfad6274
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: af7d17fa-cc1c-43b0-8b58-dd2938b871d3
+          stepCounter: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: KEYWORDS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20e1c26e-52ee-4e05-8e8a-d88cbf9ce012
+                stepCounter: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e41fd33-8918-41d3-9446-a7aacaf6eaab
+          stepCounter: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fd115c6-a5ea-4349-82e4-f52c33676016
+                stepCounter: 3142233e-288e-41a2-967f-655edfad6274
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 419a9148-20ea-407b-b278-c2f19e2ec3ac
+          stepCounter: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SIMILARITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: VECTOR_COSINE_SIMILARITY("STG_TAM_SNIPPETS_CORTEX_EMBED"."SNIPPET_EMBED", "STG_TAM_SNIPPET_KEYWORDS"."KEYWORDS_EMBED")
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5de6f72-ba7f-46ed-bf2a-2a738479fe87
+          stepCounter: 4e3ed600-7c55-4b02-8d9c-0b3711e4f0aa
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: RN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              ROW_NUMBER() OVER (
+                  PARTITION BY "STG_TAM_SNIPPETS_CORTEX_EMBED"."SNIPPET_ID"
+                  ORDER BY VECTOR_COSINE_SIMILARITY("STG_TAM_SNIPPETS_CORTEX_EMBED"."SNIPPET_EMBED", "STG_TAM_SNIPPET_KEYWORDS"."KEYWORDS_EMBED") DESC
+              )
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_SNIPPETS_CORTEX_EMBED: 3142233e-288e-41a2-967f-655edfad6274
+          STG_TAM_SNIPPET_KEYWORDS: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPET_KEYWORDS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPETS_CORTEX_EMBED
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPETS_CORTEX_EMBED') }} "STG_TAM_SNIPPETS_CORTEX_EMBED"
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPET_KEYWORDS') }} "STG_TAM_SNIPPET_KEYWORDS"
+        name: STG_TAM_SNIPPET_KEYWORD_SCORES
+        noLinkRefs: []
+  name: STG_TAM_SNIPPET_KEYWORD_SCORES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

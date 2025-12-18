@@ -1,0 +1,80 @@
+fileVersion: 1
+id: cc149736-811f-45ab-9fad-824aafc4d28c
+name: STG_TAM_SNIPPETS_NEED_LLM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b64c77e-b5c8-4018-9eb5-f7abea5497dc
+          stepCounter: cc149736-811f-45ab-9fad-824aafc4d28c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81874bef-a966-4023-8b94-ccffa3f7d64b
+                stepCounter: df1fa704-22d8-4d34-bbfc-23a397745a43
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a91042e-b3d9-487d-b110-bdf6f9bca57b
+          stepCounter: cc149736-811f-45ab-9fad-824aafc4d28c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_NORM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 482632c1-eaaa-4b16-9ed1-c4105d91a5bf
+                stepCounter: df1fa704-22d8-4d34-bbfc-23a397745a43
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TAM_SNIPPET_LLM_KEYWORDS: a85f0611-b96f-4788-b6eb-27940656743f
+          STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING: df1fa704-22d8-4d34-bbfc-23a397745a43
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING') }} "STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING"
+            LEFT JOIN {{ ref_no_link('USG_STG_MASTER', 'PSTG_TAM_SNIPPET_LLM_KEYWORDS') }} "PSTG_TAM_SNIPPET_LLM_KEYWORDS"
+                ON "STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING"."SNIPPET_NORM" = "PSTG_TAM_SNIPPET_LLM_KEYWORDS"."SNIPPET_NORM"
+            WHERE "STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING"."KEYWORDS" IS NULL
+                  AND "PSTG_TAM_SNIPPET_LLM_KEYWORDS"."SNIPPET_NORM" IS NULL
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING"."SNIPPET_NORM"
+                ORDER BY "STG_TAM_SNIPPETS_W_KEYWORDS_BY_EMBEDDING"."SNIPPET_NORM"
+            ) =  1
+        name: STG_TAM_SNIPPETS_NEED_LLM
+        noLinkRefs:
+          - locationName: USG_STG_MASTER
+            nodeName: PSTG_TAM_SNIPPET_LLM_KEYWORDS
+  name: STG_TAM_SNIPPETS_NEED_LLM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

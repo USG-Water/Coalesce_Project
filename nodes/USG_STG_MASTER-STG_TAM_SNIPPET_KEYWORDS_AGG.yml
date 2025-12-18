@@ -1,0 +1,54 @@
+fileVersion: 1
+id: ab0c8816-efb3-4254-91a2-31ded809692a
+name: STG_TAM_SNIPPET_KEYWORDS_AGG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 827cd08a-5bd2-4f91-9f8e-781964162d7b
+          stepCounter: ab0c8816-efb3-4254-91a2-31ded809692a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: KEYWORD_LIST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20e1c26e-52ee-4e05-8e8a-d88cbf9ce012
+                stepCounter: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+            transform: LISTAGG("STG_TAM_SNIPPET_KEYWORDS"."KEYWORDS", ', ') WITHIN GROUP (ORDER BY "STG_TAM_SNIPPET_KEYWORDS"."KEYWORDS")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_SNIPPET_KEYWORDS: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPET_KEYWORDS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPET_KEYWORDS') }} "STG_TAM_SNIPPET_KEYWORDS"
+        name: STG_TAM_SNIPPET_KEYWORDS_AGG
+        noLinkRefs: []
+  name: STG_TAM_SNIPPET_KEYWORDS_AGG
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

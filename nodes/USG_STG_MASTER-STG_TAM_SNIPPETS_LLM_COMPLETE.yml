@@ -1,0 +1,105 @@
+fileVersion: 1
+id: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+name: STG_TAM_SNIPPETS_LLM_COMPLETE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c01a0610-c7d7-47cb-ac71-a727fac2ddd6
+          stepCounter: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_NORM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a91042e-b3d9-487d-b110-bdf6f9bca57b
+                stepCounter: cc149736-811f-45ab-9fad-824aafc4d28c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f2b4519-dfa5-4859-a490-1b9ad783b4fa
+          stepCounter: d4003bfc-1172-4ec3-80d6-f2a4258c8cbd
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: KEYWORD_LLM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b64c77e-b5c8-4018-9eb5-f7abea5497dc
+                stepCounter: cc149736-811f-45ab-9fad-824aafc4d28c
+            transform: |-
+              TRIM(
+                SNOWFLAKE.CORTEX.TRY_COMPLETE(
+                  'mistral-large',
+                  [
+                    {
+                      'role': 'user',
+                      'content':
+                        'You must output exactly ONE item from the keyword list below. ' ||
+                        'If none apply, output NOTHING. ' ||
+                        'Do not explain. Do not add text. Do not add punctuation.\n\n' ||
+                        'KEYWORD LIST:\n'
+                        || "STG_TAM_SNIPPET_KEYWORDS_AGG"."KEYWORD_LIST" || '\n\n' ||
+                        'SNIPPET:\n'
+                        || LEFT(
+                             REGEXP_REPLACE(
+                               "STG_TAM_SNIPPETS_NEED_LLM"."SNIPPET",
+                               '\\s+',
+                               ' '
+                             ),
+                             1000
+                           )
+                    }
+                  ],
+                  { 'temperature': 0, 'max_tokens': 12 }
+                ):choices[0].messages::string
+              )
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TAM_SNIPPETS_NEED_LLM: cc149736-811f-45ab-9fad-824aafc4d28c
+          STG_TAM_SNIPPET_KEYWORDS_AGG: ab0c8816-efb3-4254-91a2-31ded809692a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPET_KEYWORDS_AGG
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TAM_SNIPPETS_NEED_LLM
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPETS_NEED_LLM') }} "STG_TAM_SNIPPETS_NEED_LLM"
+            CROSS JOIN {{ ref('USG_STG_MASTER', 'STG_TAM_SNIPPET_KEYWORDS_AGG') }} "STG_TAM_SNIPPET_KEYWORDS_AGG"
+        name: STG_TAM_SNIPPETS_LLM_COMPLETE
+        noLinkRefs: []
+  name: STG_TAM_SNIPPETS_LLM_COMPLETE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

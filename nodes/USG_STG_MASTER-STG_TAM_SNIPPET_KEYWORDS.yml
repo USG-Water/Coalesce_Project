@@ -1,0 +1,68 @@
+fileVersion: 1
+id: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+name: STG_TAM_SNIPPET_KEYWORDS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20e1c26e-52ee-4e05-8e8a-d88cbf9ce012
+          stepCounter: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: KEYWORDS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 646fdb74-8b96-4b16-90a8-586067469016
+                stepCounter: caadfeaf-24bc-4eba-bc23-2ba5d0dafd83
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e71aa958-2dcc-4df3-b84d-1984c2f649ec
+          stepCounter: dfb83cbc-8a01-42e4-ad0b-e8bbefa7bc39
+        config: {}
+        dataType: VECTOR(FLOAT, 768)
+        description: ""
+        name: KEYWORDS_EMBED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 646fdb74-8b96-4b16-90a8-586067469016
+                stepCounter: caadfeaf-24bc-4eba-bc23-2ba5d0dafd83
+            transform: SNOWFLAKE.CORTEX.EMBED_TEXT_768('snowflake-arctic-embed-m-v1.5', "TAM_KEYWORDS_SHEET_1"."KEYWORDS")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TAM_KEYWORDS_SHEET_1: caadfeaf-24bc-4eba-bc23-2ba5d0dafd83
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: TAM_KEYWORDS_SHEET_1
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'TAM_KEYWORDS_SHEET_1') }} "TAM_KEYWORDS_SHEET_1"
+        name: STG_TAM_SNIPPET_KEYWORDS
+        noLinkRefs: []
+  name: STG_TAM_SNIPPET_KEYWORDS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

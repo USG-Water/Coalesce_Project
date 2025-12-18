@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 7d4eb43c-a70b-41ec-b117-2d73d8a0cbea
+name: STG_TAM_SNIPPET_LLM_KEYWORD_STORE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b0242f9-5018-45b4-bbf1-0f2f3fc6eb86
+          stepCounter: 7d4eb43c-a70b-41ec-b117-2d73d8a0cbea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SNIPPET_NORM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a94dd41-2591-4966-93c0-d8466a6ff0a3
+                stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9dda3902-96b0-47ff-af80-384125df90a2
+          stepCounter: 7d4eb43c-a70b-41ec-b117-2d73d8a0cbea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: KEYWORD_LLM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 67d61080-b2d5-49c7-8fd0-83b69bfa6b75
+                stepCounter: a85f0611-b96f-4788-b6eb-27940656743f
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TAM_SNIPPET_LLM_KEYWORDS: a85f0611-b96f-4788-b6eb-27940656743f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: PSTG_TAM_SNIPPET_LLM_KEYWORDS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'PSTG_TAM_SNIPPET_LLM_KEYWORDS') }} "PSTG_TAM_SNIPPET_LLM_KEYWORDS"
+        name: STG_TAM_SNIPPET_LLM_KEYWORD_STORE
+        noLinkRefs: []
+  name: STG_TAM_SNIPPET_LLM_KEYWORD_STORE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
