@@ -1,0 +1,2569 @@
+fileVersion: 1
+id: 18fe704e-5506-40cc-a768-54d6e7c85633
+name: DATA_PROFILING_OSC_REVENUE_AM
+operation:
+  config:
+    flagSrcStream: true
+    isRowCount: true
+    multiStreamBehavior: AND
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    sampleMode: Full Table
+    sampleOption: Fixed Row
+    samplePercent: "10"
+    sampleRows: "1000"
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Predecessor
+    schedulingMode: Warehouse Task
+    serverlessSize: MEDIUM
+    taskSchedule: false
+    testsEnabled: false
+    truncateBefore: true
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: false
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: task
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da57460e-7d81-45ec-a0f0-edc46935198d
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_OPTY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 653d466e-49ca-4c29-8261-0932c862d1b0
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b3d3b91-25be-4d9a-b69d-dd180d2f3b30
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PRIMARY_REVENUE_REVN_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a5074a14-2f41-4a35-9587-75da43e82730
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03e81b88-5d89-4bf9-bc96-d24afb823b1a
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_REVN_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d299955-1dcc-415f-bdf6-16fe89a92d37
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86ae9f6f-34c6-40e2-8444-34f60c920b7a
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TERRITORY_TERRITORY_VERSION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 803af291-4896-43da-b8c8-53179ad3a7bb
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c806598-4a68-48f3-b9e3-e06fd15022e2
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CURRENCY_CONVERSION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e0630686-3db7-4cd6-b908-d140fea00356
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75447a5d-612b-4cce-a255-bd44fe026896
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DENORM_MGR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b2c189d-7fd9-4457-94a5-56376994f7d9
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d6fa004-9250-445c-a633-38aac3680401
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: FISCAL_DAY_ADJUSTMENT_PERIOD_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff7e7df1-c134-4ba3-9695-5028dff52c88
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0b42fe2-93c0-4230-ab15-c47d6108d6ce
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: INV_UOM_CODE_PK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa842138-c1f1-433b-93b9-4a143448c4c9
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bf81d0e-2816-43ee-a749-d84ad78a3826
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: OPPORTUNITIES_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 355c31a3-8fe1-43e3-89ad-e350c62240db
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fac47f8a-e545-47ab-9459-e90ac68f0014
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_CURR_STG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 946a17f8-7d11-4de9-801c-41c6f8006211
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39f2d160-bc7d-4561-801a-be7cb2c4db13
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: OPPORTUNITIES_LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d2c179f-158a-4242-9a4d-c3f12c437a93
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f80297a2-b005-43c7-8ae5-715d229c7dcb
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_OWNER_RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9e3f143-a442-406f-ad29-9c9b4529a33c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80857d08-9718-4342-a308-de2f69a9001c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_PR_CMPT_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 320d292e-feda-4aca-8bc5-0ef1590b6df1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16db44fc-59da-4868-beb4-351d740f1367
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_PR_CON_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0125fbc-f75b-4ae4-a3e9-93ca4336828c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 073ceba1-0077-4cda-8d25-0c1433c8205c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: OPPORTUNITIES_PR_SRC_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35d551b9-54cd-4049-9ca1-3d5bce95d02b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af34eb6d-0735-4215-86be-992b25eb60e3
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: OPPORTUNITIES_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59f9e6cd-9465-431c-be68-f8eac1cf5796
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 045101c4-d763-4ee9-8e2e-75149e0f61b0
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITIES_SUM_REVN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 864020b5-b933-4f98-b459-90399b105cb1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2422226d-e7d8-4159-9109-50b6d1faea6e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPTY_COMPETITOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c31a195-4b40-4281-b0fd-861931253537
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd929629-787f-44ef-8bc9-1de5915b4b1b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: OPTY_COMPETITOR_THREAT_LEVEL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f6cec1e-d9d9-4524-ba6d-175504c00d0b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58374d18-663c-41e1-9e8c-e40a298df6dd
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PRIMARY_CONTACT_RELATIONSHIP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4362f1d-b05b-4562-8e9a-c913c75900e4
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a1f0aa8-ad11-4b36-8db2-4a0105ca0966
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: PRIMARY_REVENUE_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aadaf3ae-e1c3-44a8-9f95-162723fda07c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f148d3d-7378-49db-b172-3f357045ecc6
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_ACTUAL_CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6d19a11-57db-463d-ac68-cea1309e4c05
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1119f440-303c-412b-ba84-7537b7d842a1
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_ACTUAL_CLOSE_FULL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dda3f639-fd3d-4cd9-a2b0-9ecd509f9634
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35e235d6-f6f6-4391-b4ee-75663f408b5a
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_ADDITIONAL_AMOUNT_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2cc7ebe2-de5e-4cd0-a024-9f43aa0ea9aa
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d716d7e4-d19b-4fcf-91b7-f40382df6642
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_ADDITIONAL_NUM_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0415885d-fbe7-4803-9592-fe4a61f7e1ec
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7927f73e-a27d-4daa-a24e-72e0d9be447b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_ADDITIONAL_TEXT_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8f8bbde-34bd-441c-85ed-68aee64832cf
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1626fcb5-eac1-44f7-a7f1-ba1ac0ea4beb
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_ADDITIONAL_TEXT_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8e335a5-e09a-4fdf-b22b-b251c55e1683
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b3b4fa6-1a82-43d5-b6b7-809aed136e43
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_BASE_REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c867b6b-fcb0-475c-89f2-e561a4904d89
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 929f5245-2997-4730-b2ca-47ba51968ff2
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_BU_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 54a69c62-c8af-4f67-bd2e-a5809e66600c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: caed1103-2faa-4fbf-820b-1526c4bc7de1
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CLOSE_REASON_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d51d3298-e688-4244-b351-72fc7da1126e
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2800e3c6-5163-4e77-b2c9-7c9ae5f7e6fd
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CLOSE_REASON_CODE_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa44f9df-0603-480b-bb95-4f96114b9c96
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44937d91-8c62-4a45-87de-4e9a62008100
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 483c24cb-479d-454e-8249-32add8c8df66
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef4e9a10-8bd2-4309-9f72-a34210eb6d08
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_COMMIT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 380ab8fa-b154-4a00-8a83-5a3cb81c1113
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c16fc45e-ea9b-4152-b7f2-127d5b1ac865
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CONFLICT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1667b19-6531-473d-a5ff-2b5181f53f56
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2f070d9-9572-42b4-b727-b04e00ffaa61
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_CONVERSION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0e70908-7141-4268-bbd0-e6e635c5db25
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe96d1c1-3292-4e9d-b2ec-bca15ab381b1
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CONVERSION_RATE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61283cca-804e-477d-9439-bc3f5acf6ae3
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7717c58-0a1a-4cd1-b6e9-1c03992610e4
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04b303d6-0433-4d7d-b1d4-6ea82f73b345
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a623618d-378c-4c64-aab7-94cfa0d17efe
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CR_RCPT_PART_ORG_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf38cdab-3564-42c4-a36d-da609d381d35
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9a55b1f-2e74-4132-8fdd-879ca74fe50a
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39670b61-6cdd-48a3-8f4c-1dd3d9e21544
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2418828-98d2-4fc5-b993-3e60970628c6
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ebd35636-4af1-4605-88ad-312e3a99f752
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64b7d1c6-776c-47ea-b1db-4523ce195d9b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_CREATION_FULL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 67164b6b-8a3f-4aa8-9813-90c785041b50
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1e74097-337f-4e1e-a71d-dfc89cac06b4
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_CRM_CONVERSION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63f2b885-8025-4635-82b3-41c7a11710ba
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13a1628b-9aad-4ac2-9b38-a2e9ec614a76
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CRM_CONVERSION_RATE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45edf62a-2320-455d-ad36-6f13bf33166e
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef0f1b3f-b179-4416-a570-7890b0f7e8e2
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CRM_CURCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b51d8e1-f2bd-40c1-81ac-0d632cd7c1cf
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f74b61ce-4460-403d-9916-85819518d032
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CUST_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 789efc6d-5d11-4596-af29-3d975810f0d1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0da01656-e077-4f41-a7f2-c918a588bfed
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CUST_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce950c57-c26b-4a72-a341-95bdb4d18255
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd957cea-c905-4ee5-8190-21230aaee514
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CUSTOMER_INDUSTRY_CLASS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76d99b17-7fe9-4194-9b8b-e68ccd28c70f
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43fa04ec-57a5-4334-b899-20a2d39504fe
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CUSTOMER_INDUSTRY_CLASS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7dc7617-bdab-45b5-a87e-06cd526a10ff
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45a96ffb-280d-4e33-8f21-d4693ac19294
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CUSTOMER_INDUSTRY_CODE_ASSIGNMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3dd63fe2-81da-4380-87d6-77c4b416c37e
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8922b3f-fa71-4742-94c1-8eccc66ae771
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CUSTOMER_ORG_TYPE_CLASS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6686870c-1763-46dc-b8ee-0a0ad72db82a
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c55cd573-bee9-4a62-998b-34123ec68ff9
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_CUSTOMER_ORG_TYPE_CLASS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3cdc2e-3e01-4499-9ade-80634e8bee09
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aeded937-59dc-4874-8796-cea7b113b814
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_CUSTOMER_ORG_TYPE_CODE_ASSIGNMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9297489a-5efa-450f-a382-812c68e9b7c0
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55934f1a-e1da-4cc1-a5b9-1ca02a875157
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_DOWNSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c852144c-247a-4988-9100-a99a8053497a
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4834388-158a-46b4-860b-224a384342ac
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a16fc2aa-fc33-4207-a006-f19c9f94830c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: def8b620-2389-4a8d-99ab-40ae5232d3aa
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_EFFECTIVE_FULL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 98818f76-f9fe-4784-abd1-87a907f864c8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 401154b9-2697-49fd-bf19-0ec1b3233d3c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_EXPECT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db09bce1-53b5-4bcb-b056-497fb024a7c0
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 363a0da9-fc89-49e5-9a8c-2ce395fe33c6
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_EXPECT_DLVRY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd1851b2-84a4-42c4-b7b9-f745c802e2a4
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: acb41319-8f24-4486-91ac-1630b3b42d2f
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_INVENTORY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92caa4c0-0140-42fa-955d-b9281a5ed718
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8dc7c8c6-2bfe-4e82-9176-edf00e6c7991
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_INVENTORY_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e525ca1-a468-4dbb-9b50-7c50d5d04c76
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8181f39f-4d2a-410e-bb06-32b7cb064390
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e8480c7-488e-4dfd-bf4d-c9d5de821ead
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0dc6af47-dac7-492a-9359-13a714aa711f
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_LAST_UPDATE_LOGIN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c25759f8-d04e-45a4-8786-531cbebbb1a5
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7192d3a-1ccd-492f-bdaa-2582648dc5ec
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_LAST_UPDATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16b93cdc-2c09-4345-8e98-9dbec526b507
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96940dbb-e293-472a-9569-9d2b6474710f
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_LOOKUP_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad0133f6-5ba1-459b-9a2b-cffdbfcb598b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b7fee35-9586-4591-87f4-b8087399399b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5cff52b-1d84-42d4-a97c-7809acf1fa3b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2290470d-7c0c-47e4-b687-8fa28c4e8b2e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_NQ_SPLIT_ALLOC_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5803534b-10ee-4edd-b9e3-5699e353bcc1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e189c9d4-f98d-41d9-a6b5-f6908bc0dc78
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_OBJECT_VERSION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b2f34d0-9c97-4e3a-b5ee-56ce7bbfb696
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 949dc913-c519-4f05-ba81-9225404ee4e4
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_OPTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 775baeee-2fab-432a-b480-b5bde9dc25c8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b725b4f-dc71-4198-8553-9a5249641a9c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_OPTY_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 500b2248-5d3f-4f3d-b2b4-56e0b38d0836
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e548479-f85e-4fb1-b203-3443c40477a7
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_OWNER_DEAL_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1726e1aa-6848-4d62-aee3-0891ca00d6d2
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de72b487-2e99-41c9-85c7-205f1cd52b51
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_OWNER_DEAL_PROTECTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 277aa58d-5e47-49b1-8d34-6f2fa57a9782
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db0dada0-d02c-432d-80f9-23002a0c413e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_OWNER_LOCK_ASGN_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a6794b-81f7-498a-a7bc-209ce13835c9
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87137dc4-30d8-40d2-a363-d66f475f250e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_OWNER_ORG_TREE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2ad09a4-a536-439f-a848-040b6bbfc727
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e00181b2-2f5e-448e-b7d3-2c7c275c0de0
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_OWNER_ORG_TREE_STRUCT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e89332f5-165e-4a5e-a013-5d7c670d3709
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13e8d238-eea5-4ef7-ba1f-07d78159b6ca
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_OWNER_RESOURCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c91a1f9f-1c8f-4d1e-9365-aabbcd9e828b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 676f8014-229c-4afb-bd09-64d0f962e203
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_OWNER_RESOURCE_ORG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e6ecd60-8950-4bad-8d35-616b078a3f7a
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b2b2238-9bd7-4720-b088-117b3475d908
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PARENT_REVN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45a2dccf-c47e-4342-bb6f-3896594f544d
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bbb744d-05db-491e-a836-46ee627d2887
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_PART_ENGAGEMENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3822163c-98e0-4759-8f2c-c1c490f85aaf
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3886c500-88e7-4622-b2dc-bbce03aae3f5
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PARTNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c937b67-306a-47cd-a022-cf91abe10484
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14be7fee-a3c2-4f08-983f-a6e97368f21b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PARTNER_PROGRAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc2f9c4f-f7ec-4c73-9afc-8a971b2d47c2
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 773df348-3bbf-4d94-a09b-6ae9ea0bcb2c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_PARTNER_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc5d93dd-2fe1-4f98-88e6-d4f8dc72fd55
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c7cc8db-a6f3-42b5-8d05-1b0037c5ba48
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PR_CMPT_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79bfcbf2-5d65-4d5b-b38e-010cf78f5f98
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d1ae90b-c928-4777-b145-2861faef2f46
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PR_PART_ORG_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a18c5ab0-522f-46bd-bd70-c60f213b494c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98750f0e-c8bc-42bb-9b5b-88bba581451e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PR_TERRITORY_UPDATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4481c68e-5fff-4c3e-b7fb-1284f75f64c4
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5d4f396-c6fb-4b7c-88aa-10e77b06f520
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PR_TERRITORY_VERSION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c057599d-e3c4-4c37-b23b-412a95f24fd1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09754de2-497c-48d7-a94f-196b378079a8
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_PRIMARY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b09cd85-400e-463f-8442-8d85e8340216
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e684d2c-f1bf-49f5-94fa-096ab11aa577
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PROD_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc8b756a-2f3a-4f6c-8209-ddcc2d93e296
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6d291a5-9839-4080-b629-913d560e6f95
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_PRODUCT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 80e363c4-6259-4ee6-8379-d1ad4cd781f2
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b04066c7-33f1-41c0-adcf-41a343f0e310
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 264c34aa-592b-48cb-9516-39060926619c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df5e95c9-13fc-4a12-b16f-23331de25ab8
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_RECMD_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30dd35d2-2ac2-4283-b1b2-d8c4a27dc097
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3b95d26-d676-4c92-a2c0-31065491bded
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_RECMD_LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 28c0c39b-7d08-4745-b3c8-6511c0ac3833
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 672b8956-eb49-41b7-b745-ac86edf86c0c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECMD_REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4267c091-3429-4390-934a-9fd3cfc2e50a
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8aa49fa-aef4-4e77-8f3f-e51cd420215c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECMD_WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db2d19b5-e0ae-40f3-8e60-8882aa85cf4d
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a5339ae-04f8-4fac-93da-ee015649dd4a
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_ADDITIONAL_AMOUNT_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4913a2f2-db97-4998-a48e-49224e472bad
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ea79070-c6cb-4503-9e9d-adc7022d6f25
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_ADDITIONAL_NUM_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0e60f32-ef39-4925-b9fd-c40c028ff102
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2baef011-7094-4042-8057-54edf8611262
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_DOWNSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b06de944-a1c1-4977-801e-ea93bdd59947
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e244e3bb-a6f1-42dd-9dfb-57ad6e44bd9d
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_RECUR_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b459f10-1bdb-4c47-b507-ae218d11a8c6
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1d41cf-4521-4722-8ddf-d7d965d3f832
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_EXPECT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f58bcc5b-7649-42ff-b53a-422d204178b7
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6e6e98c-aac9-4bf2-8ba0-8f84ba5e18ab
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_RECUR_FREQUENCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3261b6c7-543e-4ecb-a8cf-8e74f4568049
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 518cb6e4-2ce9-4c28-ac21-2a63c8e2a606
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_RECUR_NUM_PERIODS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 247fbe67-3b21-43b9-9143-8f84fba2c506
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d59806e-6df1-4852-98a6-447619be3138
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_RECUR_PARENT_REVN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75c0dead-d533-4914-8cdc-d8558449264b
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb5eeaa1-fe53-4abb-a167-2bcdbfc7ba87
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b24e904-4495-4aca-a539-4e804568e721
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ffad392-9487-4f6b-a5eb-475d309b5b7e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aebae189-08e3-4e8a-8e0c-bd30a09ac951
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c018a390-98ae-4df6-94fa-061fa1d2702c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_RECUR_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e186c72c-f19d-4ac6-8d4c-2043ab501fc6
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0ea22c5-d2ed-4268-9b79-7f8ea5a593eb
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_RECUR_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef0dc606-b078-431d-af67-bdb142badec8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f88ac60e-d095-4741-8491-ff558cf40e98
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_UNIT_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dbfd2b1e-e3f3-48be-9f03-2286086591f8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6f90397-5295-4783-82a9-c076acb9294c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_RECUR_UPSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de2ed822-3159-4754-a385-1c157de90234
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3443f99-7d67-45cd-9393-f1e0827a4a00
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_REVN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a96cb298-a2d2-43d8-b47e-4db09c7cf121
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8847594d-a026-4f84-a239-778797193262
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_REVN_AMT_CURCY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e8f49f3-594e-4d76-9119-0707eba53f41
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a3dbf48-b563-455d-97ff-f3ca3c6d9375
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REVENUE_REVN_LAST_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77dd9ee6-6f82-4d3f-9616-82a07aec02ca
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d6d6e1f-223e-4f21-816f-989b67193355
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_REVN_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0cd242ef-c4da-40f1-a310-d7b8f9333673
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d0ca76a-1d77-4343-b132-381bcd4aa995
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_REVN_SEQ_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 14e1dd36-6b4e-4606-a516-00bc29bd40ff
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5818286e-1a23-4b5a-85cd-73c52bf61b11
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_SALES_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e144dbbe-b438-4bc1-a5e1-66b3b89381c3
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75316c3d-2e0e-4ddc-b17b-2b3c44308182
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_SALES_CHANNEL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ddf9ef4f-69ec-4f93-bc17-b90f68e631e6
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c937602c-c198-4dc8-b518-bf6c258f5986
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_SALES_CHANNEL_DERIVED_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ae44b88-a7a5-4c8c-9ae4-4f062cb58505
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd8410ba-600d-4c13-9a1d-23b507a4485c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_SALES_CREDIT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f018e52-faba-4bc1-934d-7d50ad180b1a
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 645a72b9-b2aa-4fc7-87aa-612b33711495
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_SPLIT_PARENT_REVN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dfc9708f-f596-469b-9ba5-ab85005adbd7
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd3810b2-500e-4b51-a971-fa474a5b43a1
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_SPLIT_PERCENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f08956b3-7e86-4fda-88e0-036d42a2909e
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3efeea3-b629-4ab5-862b-fc67afac2a95
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_SPLIT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef7db0a0-69ca-40b5-ae3e-2f09a4016a07
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e543b944-e439-4190-9cc3-c8f7479132f3
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_STATUS_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41bffa6f-c914-4b10-b917-1bd9b9f5ccc4
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04e3ea52-0a03-4519-a2d6-05e2127c4d38
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8bf32884-356b-4df2-8ae0-ff4f4d173cd4
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ddf3084a-0917-432c-be74-5728872e30a0
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_STATUS_CODE_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88cdbdcb-e2ce-4725-aa7d-54660cc6e388
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b19c658b-5c06-4413-852c-46a9f2961d6e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_TOP_PARENT_REVN_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2da2001a-67a7-4e98-8bfd-9a5463dea680
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec4edea9-a9a8-448b-ba4b-e6c865e9d812
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 10dddc20-2bbd-4fbf-927f-c64dea0fe207
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f4f955c-4524-4ca1-b08b-5a22d8672e03
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVENUE_TYPE_CODE_SET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab1012e9-0ddf-4000-90a2-5e4a5c200c74
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d86466b-b240-4155-9f5d-5608eb230d44
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_UNIT_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8331118-b742-4b01-8abb-c6fb9ff67645
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3b58075-f6c9-4477-8437-2d82f4dfde9b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVENUE_UOM_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a15a0f44-1acc-4aa3-a6fe-1d4fdba7b65c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb70d75e-0793-4cfc-ab22-f673364d61cd
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_UPSIDE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c94fa42f-bf88-45e4-aef0-10b4bba7ac43
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1c747aa-731c-4c26-92d7-a537ea8518d5
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: REVENUE_WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d32c513-44d6-4b34-bab7-da734bdfb811
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb99c14a-fc90-4d11-a2f1-481196a67742
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: REVN_CATEGORY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed59be49-87ab-431d-b577-02f20bcdef2c
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f75fe148-56bf-4d89-a876-761a86a76b38
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REVN_PART_ORG_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c37dbb3a-0e2e-4bf4-90b5-c4109261f434
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eab90f38-f33b-4cae-b228-45ed57a1fbcb
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALES_STAGE_AVG_DAYS_AT_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d64dacf7-1a51-49e3-b284-49172f3bcb83
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d1e83af-490a-4560-849b-d9c57ac9b567
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALES_STAGE_MAX_DAYS_IN_STAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 479805b1-fb2a-4523-a1eb-7ddca7de90f8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3021b840-4fb8-4d28-8ed5-a5f9d7c2f255
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALES_STAGE_PHASE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 83dcafcd-1a29-4bc7-8c62-ca4fcbf4e6cb
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c562497-1fa1-4486-8f55-3c385ad6e1b7
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: SALES_STAGE_QUOTA_FACTOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c63fb7ed-4006-4148-ae50-e4ee68816f57
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ace401f5-45bd-4772-bd67-a2a554fb757d
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: SALES_STAGE_RCMND_WIN_PROB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c167e338-115c-4f47-bafc-3d4223d99405
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1fa2995b-e4f7-4aba-9ebe-0fa7e5bd5c83
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALES_STAGE_SALES_METHOD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f67775ac-6e70-499d-917c-eee5a2ae85bd
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6112dd74-9081-46b8-a874-0d868fb86ce2
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALES_STAGE_STAGE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91ad5da9-1caa-4719-902f-65383cac09ee
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa7f14c7-cf0e-4549-a823-91485d82f5ec
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SALES_STAGE_STG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8442208-dfa4-432b-bede-2dc781c1f588
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc844b66-ef33-419d-8ec1-3755eb423215
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: FLOAT
+        description: ""
+        name: SALES_STAGE_STG_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b024e7a-859b-40a3-8a05-6bd3decd86ed
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: efb53bb6-a269-4a83-a911-1b1e4de0bc44
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TERRITORY_TERRITORY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a872473-0bdc-46c9-949a-47c541d16097
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8489d296-50c8-4e45-9fc5-c609c0bb516e
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: THREAT_LEVEL_LKUP_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8521bd13-f956-4a18-b0f1-1665b9e95b11
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019891c6-dfa3-445a-a74a-3a326d83602f
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: UNIT_OF_MEASURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cda5a678-f1a9-433e-916a-7e4d224005b1
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7022e196-ca32-4699-8e46-29d056511953
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f44890f5-780a-496b-852d-63b2f01c9a68
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca17f044-e8ca-486f-9440-c7820c52334d
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a9cba2e-5b61-4a9f-a45a-1636dbb6cbd8
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de7f1053-30b1-45e4-be33-a45c0de247b6
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: FORECAST_OVERRIDE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ff7c8c8-b5e8-4304-900b-73ee511a1475
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a74a11e7-cf39-4e26-b26c-8a2edf0391da
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config:
+          isDistinctCount: true
+          isNotNullCount: true
+          isNullCount: true
+        dataType: VARCHAR(256)
+        description: ""
+        name: FORECAST_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50cbe612-0ac6-4928-b401-3350487c76e7
+                stepCounter: e07daaa5-2203-4216-9952-248f4a1bc3a6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc79fa22-755c-4428-a810-c32a032fe61c
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: PROFILE_METRIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb0f6844-a025-4427-aa82-0137f41daf3b
+          stepCounter: 18fe704e-5506-40cc-a768-54d6e7c85633
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          REVENUE: e07daaa5-2203-4216-9952-248f4a1bc3a6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_ORACLE_SC_OPPORTUNITY
+            nodeName: REVENUE
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_SC_OPPORTUNITY', 'REVENUE') }} "REVENUE"
+        name: DATA_PROFILING_OSC_REVENUE_AM
+        noLinkRefs: []
+  name: DATA_PROFILING_OSC_REVENUE_AM
+  overrideSQL: false
+  schema: ""
+  sqlType: DataQualityUSG:::416
+  type: sql
+  version: 1
+type: Node
