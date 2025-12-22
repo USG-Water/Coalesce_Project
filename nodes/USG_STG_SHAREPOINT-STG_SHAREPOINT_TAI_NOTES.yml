@@ -299,6 +299,38 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 5babe250-e7c4-4ac3-b629-ca7f2509d34f
+          stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: HISTORICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 768bca3b-7d1c-478e-ac35-33f9216ee4fc
+                stepCounter: 02fe872a-a19c-4424-8955-d0c4d907f845
+            transform: |-
+              CASE "USG_PROJECT_DOCUMENT_STORAGE_TANK_ASSESSMENT_NOTES"."HISTORICAL"
+                  WHEN 'Y' THEN TRUE
+                  ELSE FALSE
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25020be1-499e-4926-b70b-0d8bbfbcd933
+          stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HISTORICAL_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 018bbba1-38d5-4660-b2a2-b93267856168
+                stepCounter: 02fe872a-a19c-4424-8955-d0c4d907f845
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 9f639569-8f62-4da5-a930-0180af7151ab
           stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
         config: {}
