@@ -84,8 +84,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4f6555f3-69e3-4c8b-81fe-3703184d3579
-                stepCounter: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+              - columnCounter: 11b75785-3163-4609-bca2-8c8670dc9f82
+                stepCounter: f1fa8db5-3de0-4a62-9028-da08d75cc50b
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -117,13 +117,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 27f734b1-db47-4500-a127-c5de836e9a60
-                stepCounter: 31682723-c9db-4b20-ae52-e2e3c59d61f6
-            transform: |-
-              CASE
-                  WHEN STG_TUM_TOTAL_PROJECT_BILLINGS."COMPLETION_YEAR" > YEAR(CURRENT_DATE) THEN YEAR(CURRENT_DATE)
-                  ELSE COALESCE("STG_TUM_TOTAL_PROJECT_BILLINGS"."COMPLETION_YEAR", YEAR(CURRENT_DATE))
-              END
+              - columnCounter: c3d55ba6-c8e9-4791-ab67-9c2311b60683
+                stepCounter: f1fa8db5-3de0-4a62-9028-da08d75cc50b
+            transform: ""
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -155,7 +151,7 @@ operation:
           STG_TUM_BILL_TASKS: a79d9ad4-d0ba-44ec-a70b-4257c8b98cc0
           STG_TUM_OVERRIDE_BLACKLIST: 6202d11a-112b-4747-aa5d-6fadc94e5111
           STG_TUM_OVERRIDE_WHITELIST: 1ca35054-2332-42d0-a23c-7b3cda97a918
-          STG_TUM_TOTAL_PROJECT_BILLINGS: 31682723-c9db-4b20-ae52-e2e3c59d61f6
+          STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED: f1fa8db5-3de0-4a62-9028-da08d75cc50b
         customSQL:
           customSQL: ""
         dependencies:
@@ -172,7 +168,7 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_TUM_OVERRIDE_WHITELIST
           - locationName: USG_STG_MASTER
-            nodeName: STG_TUM_TOTAL_PROJECT_BILLINGS
+            nodeName: STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_PROJECTS') }} "STG_PROJECTS"
@@ -192,11 +188,8 @@ operation:
                         , 'Water Quality'
                         , ''
                 )
-            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS') }} "STG_TUM_TOTAL_PROJECT_BILLINGS"
-                ON "STG_PROJECTS"."PROJECT_ID" = "STG_TUM_TOTAL_PROJECT_BILLINGS"."PROJECT_ID"
-                AND "STG_TUM_TOTAL_PROJECT_BILLINGS"."BILL_TRANS_BILL_AMOUNT" != 0
-
-
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }} "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"
+                ON "STG_PROJECTS"."PROJECT_ID" = "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"."PROJECT_ID"
             WHERE
                 -- Whitelisted projects bypass all filters
                 (
@@ -206,16 +199,16 @@ operation:
                         "STG_TUM_OVERRIDE_BLACKLIST"."PROJECT_ID" IS NULL
                         AND "STG_TUM_BILL_TASKS"."PROJECT_ID" IS NOT NULL
                         AND "STG_PROJECTS_MAX_REVENUE_BUDGET"."PROJECT_ID" IS NOT NULL
-                        AND "STG_TUM_TOTAL_PROJECT_BILLINGS"."PROJECT_ID" IS NOT NULL
+                        AND "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"."PROJECT_ID" IS NOT NULL
                         AND (
                             (
-                                "STG_TUM_TOTAL_PROJECT_BILLINGS"."COMPLETION_YEAR" BETWEEN YEAR(CURRENT_DATE) AND YEAR(CURRENT_DATE) + 1
+                                "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"."COMPLETION_YEAR" BETWEEN YEAR(CURRENT_DATE) AND YEAR(CURRENT_DATE) + 1
                                 AND COALESCE("STG_PROJECT_CLASSES"."CANCELLATION_STATUS", '') IN ('', 'Salvaged')
                             )
                             OR
                             (
-                                "STG_TUM_TOTAL_PROJECT_BILLINGS"."COMPLETION_YEAR" NOT BETWEEN YEAR(CURRENT_DATE) AND YEAR(CURRENT_DATE) + 1
-                                AND "STG_TUM_TOTAL_PROJECT_BILLINGS"."COMPLETION_YEAR" <= YEAR(CURRENT_DATE) + 1
+                                "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"."COMPLETION_YEAR" NOT BETWEEN YEAR(CURRENT_DATE) AND YEAR(CURRENT_DATE) + 1
+                                AND "STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED"."COMPLETION_YEAR" <= YEAR(CURRENT_DATE) + 1
                             )
                         )
                     )
