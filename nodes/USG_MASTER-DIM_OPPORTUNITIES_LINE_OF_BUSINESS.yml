@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+name: DIM_OPPORTUNITIES_LINE_OF_BUSINESS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Bridge table for FCT_OPPORTUNITIES
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93ab2a63-5e1a-4072-bbf1-143e1d1b5e40
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_OPPORTUNITIES_LINE_OF_BUSINESS_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86c1d37a-7199-4418-bf1c-ea8863324033
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: OPPORTUNITY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d9e4770-193e-4ff6-b0fd-7073aef46367
+                stepCounter: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3613b4b-26bd-4fb7-a54e-5719b116efa0
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: LINE_OF_BUSINESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5480c83b-f2c1-42ad-b32e-0bafbcbd2a18
+                stepCounter: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03aff56c-9f7b-4a4f-8e05-b9ed6e7ff20d
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed905f33-c8b2-4bf8-8a8d-134545d178ea
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dbaadc9f-4b39-4977-a8e6-e78dca6663a2
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: da1d24e8-26ef-48b2-b3d6-74b67100f559
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37a9e0b1-4f3b-4ec8-826e-876a671e0c98
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2bb64cba-305c-4076-be4b-3c323bc9bd91
+          stepCounter: 895a8cde-4414-4e70-9fa3-7aa43ba84460
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OPPORTUNITIES_LINE_OF_BUSINESS: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_OPPORTUNITIES_LINE_OF_BUSINESS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_OPPORTUNITIES_LINE_OF_BUSINESS') }} "STG_OPPORTUNITIES_LINE_OF_BUSINESS"
+        name: DIM_OPPORTUNITIES_LINE_OF_BUSINESS
+        noLinkRefs: []
+  name: DIM_OPPORTUNITIES_LINE_OF_BUSINESS
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

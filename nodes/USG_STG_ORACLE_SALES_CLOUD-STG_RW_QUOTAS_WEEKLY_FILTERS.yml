@@ -1,0 +1,152 @@
+fileVersion: 1
+id: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+name: STG_RW_QUOTAS_WEEKLY_FILTERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_ORACLE_SALES_CLOUD
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60b01fb1-ac18-4981-9629-55e45207ec73
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMPLOYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49cc02f7-a8c7-4e03-8182-6cde7c2ab1b2
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fb35aad-3e5f-485b-a86a-0154586af1b1
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MONTH_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b097b27f-eba7-4d41-b622-0139bbe87b99
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3cbe92f3-26d7-492b-b958-430bd25a2878
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MONTH_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c23db33b-5714-4705-a439-995fcf950a33
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 251cd804-9ff9-4581-b491-2cf2479eb256
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: DATE
+        description: ""
+        name: WEEK_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3dd35a5b-1516-4c5c-8b65-fdcde2bbd55d
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96a3b759-23bb-4089-ad8d-81f8b18a2429
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: WEEKS_IN_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COUNT(*) OVER (PARTITION BY "STG_RW_QUOTAS_WEEKLY"."EMPLOYEE", "STG_RW_QUOTAS_WEEKLY"."MONTH_START")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e144d4e5-f9eb-4ddc-bffd-43604a96f299
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LOW
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 015e5884-e2f7-4a73-b173-e69f3d303111
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f6b0e4b-9613-44e1-b06d-74de92431521
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: HIGH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 594723d5-e734-4de2-a94b-41a2939afb5f
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dca9c02b-7ffd-41f1-a203-efd6ed590499
+          stepCounter: c44a0d13-a246-4bfa-8622-dcc6fd32f405
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: CALL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3680ba90-7524-4935-a3e3-938d9110d04b
+                stepCounter: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_RW_QUOTAS_WEEKLY: 00b8a1e6-168d-4534-8f00-a1136ec4e787
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_RW_QUOTAS_WEEKLY
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_RW_QUOTAS_WEEKLY') }} "STG_RW_QUOTAS_WEEKLY"
+            WHERE "STG_RW_QUOTAS_WEEKLY"."WEEK_START" BETWEEN "STG_RW_QUOTAS_WEEKLY"."MONTH_START" AND "STG_RW_QUOTAS_WEEKLY"."MONTH_END"
+        name: STG_RW_QUOTAS_WEEKLY_FILTERS
+        noLinkRefs: []
+  name: STG_RW_QUOTAS_WEEKLY_FILTERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -128,7 +128,7 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TUM_PROJECTS') }} "STG_TUM_PROJECTS"
-            WHERE "STG_TUM_PROJECTS"."BILLING_YEAR" = 2025 OR "STG_TUM_PROJECTS"."WHITELIST"
+            WHERE "STG_TUM_PROJECTS"."BILLING_YEAR" = YEAR(CURRENT_DATE()) OR "STG_TUM_PROJECTS"."WHITELIST"
             GROUP BY "STG_TUM_PROJECTS"."PROJECT_ID"
         name: STG_TUM_PROJECTS_CURRENT
         noLinkRefs: []

@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+name: STG_OPPORTUNITIES_LINE_OF_BUSINESS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d9e4770-193e-4ff6-b0fd-7073aef46367
+          stepCounter: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPPORTUNITY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d40f5ee5-9db3-461d-a859-f04ee1123440
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5480c83b-f2c1-42ad-b32e-0bafbcbd2a18
+          stepCounter: 0f5086b9-2d81-4dc8-989d-8909859f5d1c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LINE_OF_BUSINESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbb3f17c-439c-4026-b7f4-9f9dbff647b4
+                stepCounter: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+            transform: TRIM("LOB"."VALUE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_OPPORTUNITIES: 7dae76b9-2ca5-4486-98ec-f762786bf9ce
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_OPPORTUNITIES
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_OPPORTUNITIES') }} "STG_OPPORTUNITIES",
+            LATERAL SPLIT_TO_TABLE(
+                REPLACE("STG_OPPORTUNITIES"."LINE_OF_BUSINESS", ', ', ','),
+                ','
+            ) "LOB"
+            WHERE "STG_OPPORTUNITIES"."LINE_OF_BUSINESS" IS NOT NULL
+            AND TRIM("LOB"."VALUE") != ''
+        name: STG_OPPORTUNITIES_LINE_OF_BUSINESS
+        noLinkRefs: []
+  name: STG_OPPORTUNITIES_LINE_OF_BUSINESS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

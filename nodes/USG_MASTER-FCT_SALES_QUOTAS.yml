@@ -1,0 +1,144 @@
+fileVersion: 1
+id: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+name: FCT_SALES_QUOTAS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc8420aa-e5a4-4fa4-817e-69fc5dd6eea6
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: EMPLOYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56269604-ef81-4dc5-9c7a-63d1d0d60f6f
+                stepCounter: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8e66192-0ed2-438e-a030-086589b1d570
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7ad007f-ffa7-42a8-aae3-8647966088b7
+                stepCounter: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d2b063b-8aec-474d-9f30-cac795987d7a
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: LOW
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e45135e0-4656-4894-8152-5569067c0150
+                stepCounter: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e71b352-87be-4313-86e7-cd802ac043d0
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: HIGH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7a85fd6-df5d-4b53-b300-2480d48bdfda
+                stepCounter: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33d59791-a47d-4b8d-98b2-0cb96c1b8dd7
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: CALL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e734b800-21c1-40b4-a2c3-534b8e06da4c
+                stepCounter: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21a4d002-2a3f-4d57-9acb-f526057342c1
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1cdcf2d-aec4-4072-bacc-939906253f65
+          stepCounter: cc9a7c7c-aa44-4c23-9353-a55a72c066f3
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_RW_QUOTAS_WEEKLY_METRICS: f2dbbc5d-9ac7-4ffe-8948-464665a52185
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_RW_QUOTAS_WEEKLY_METRICS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_RW_QUOTAS_WEEKLY_METRICS') }} "STG_RW_QUOTAS_WEEKLY_METRICS"
+        name: FCT_SALES_QUOTAS
+        noLinkRefs: []
+  name: FCT_SALES_QUOTAS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

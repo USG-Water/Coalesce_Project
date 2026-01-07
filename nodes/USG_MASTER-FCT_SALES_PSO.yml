@@ -1,0 +1,116 @@
+fileVersion: 1
+id: d737c932-3575-4b32-899c-2dc697c478c8
+name: FCT_SALES_PSO
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 363ed951-7b14-4265-922d-2b1e09edaa74
+          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f592c4b2-3ca1-4126-a70c-eb801697b482
+                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 34e52e44-8a7d-4de3-978a-73f1d6d5bd4f
+          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b3ec0362-c597-48ee-9240-9fe896a9b030
+                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67804332-470b-41ae-93a9-92bf77c0f7e9
+          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e307ec10-fc17-48d0-b08f-77e08035e161
+                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb37cebc-2d02-448a-ac62-5f12eab9e766
+          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63e42c5b-6a89-413f-a16d-c49e9cc1b4c1
+          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_RW_PSO_WEEKLY_METRICS: e12649ab-e8ec-4888-b1e7-e71f11d84646
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_RW_PSO_WEEKLY_METRICS
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_RW_PSO_WEEKLY_METRICS') }} "STG_RW_PSO_WEEKLY_METRICS"
+        name: FCT_SALES_PSO
+        noLinkRefs: []
+  name: FCT_SALES_PSO
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
