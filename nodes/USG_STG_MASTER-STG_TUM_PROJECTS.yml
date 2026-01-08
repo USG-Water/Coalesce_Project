@@ -75,6 +75,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 67d291a6-86f8-45ce-be9e-10ffedb4cdeb
+          stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CANCELLATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bf098b0d-7f81-4c05-92ee-f9576ecc2b31
+                stepCounter: fba952f9-d30d-4dce-8c6e-1252050cb1c0
+            transform: TO_DATE("STG_PROJECT_CLASSES"."CANCELLATION_NOTIFICATION_DATE", 'MM/YYYY')
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 23e15362-4c72-4e43-8e36-ac3b5a8a7735
           stepCounter: dc5c2d4b-9042-4763-96bf-f14b73578136
         config: {}

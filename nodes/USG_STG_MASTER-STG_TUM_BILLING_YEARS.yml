@@ -1,0 +1,100 @@
+fileVersion: 1
+id: f7e1fc01-90c7-41dc-9719-1a53bed5c1c1
+name: STG_TUM_BILLING_YEARS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f30b8c92-e209-4883-8e5b-8711b3e272e4
+          stepCounter: f7e1fc01-90c7-41dc-9719-1a53bed5c1c1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2714b25-99b8-4886-9fcc-dd03b83fe2f6
+                stepCounter: f1fa8db5-3de0-4a62-9028-da08d75cc50b
+            transform: "\"BASE\".\"PROJECT_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8afe0c0-4c5a-4231-8caf-dc65ad54360e
+          stepCounter: f7e1fc01-90c7-41dc-9719-1a53bed5c1c1
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: BILL_TRANS_BILL_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11b75785-3163-4609-bca2-8c8670dc9f82
+                stepCounter: f1fa8db5-3de0-4a62-9028-da08d75cc50b
+            transform: COALESCE("BILLS"."BILL_TRANS_BILL_AMOUNT", 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f09210b2-9ce8-473d-b9ed-98b01895c83a
+          stepCounter: f7e1fc01-90c7-41dc-9719-1a53bed5c1c1
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPLETION_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3d55ba6-c8e9-4791-ab67-9c2311b60683
+                stepCounter: f1fa8db5-3de0-4a62-9028-da08d75cc50b
+            transform: "\"CALENDAR\".\"YEAR\""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          BILLS: f1fa8db5-3de0-4a62-9028-da08d75cc50b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED
+        join:
+          joinCondition: |-
+            FROM (
+                SELECT DISTINCT "PROJECT_ID", MIN("COMPLETION_YEAR") AS "MIN_COMPLETION_YEAR"
+                FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
+                GROUP BY "PROJECT_ID"
+            ) "BASE"
+            CROSS JOIN (
+                SELECT DISTINCT "YEAR"
+                FROM "CALENDARS_FOR_FINANCE_AND_ANALYTICS"."PUBLIC"."V_CALENDAR_DIM"
+            ) "CALENDAR"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }} "BILLS"
+                ON "BASE"."PROJECT_ID" = "BILLS"."PROJECT_ID"
+                AND "CALENDAR"."YEAR" = "BILLS"."COMPLETION_YEAR"
+            WHERE "CALENDAR"."YEAR" >= (
+                  SELECT MIN("COMPLETION_YEAR")
+                  FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
+                  )
+                  AND "CALENDAR"."YEAR" >= "BASE"."MIN_COMPLETION_YEAR"
+                  AND "CALENDAR"."YEAR" <= YEAR(CURRENT_DATE)
+        name: STG_TUM_BILLING_YEARS
+        noLinkRefs: []
+  name: STG_TUM_BILLING_YEARS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

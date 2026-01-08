@@ -31,6 +31,20 @@ operation:
               - columnCounter: 7b20107a-4860-4485-9286-ec13303702ac
                 stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f254397-5b05-4f83-9972-5d8fa5380a78
+          stepCounter: 3c4f63d4-a358-4798-9902-6ef6fdb52e9d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: HISTORICAL_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25020be1-499e-4926-b70b-0d8bbfbcd933
+                stepCounter: 9d757824-fea9-4aa6-91f4-b3c523928a55
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -45,7 +59,6 @@ operation:
           joinCondition: |-
             FROM {{ ref('USG_STG_SHAREPOINT', 'STG_SHAREPOINT_TAI_NOTES') }} "STG_SHAREPOINT_TAI_NOTES"
             WHERE "STG_SHAREPOINT_TAI_NOTES"."HISTORICAL" = TRUE
-            GROUP BY "STG_SHAREPOINT_TAI_NOTES"."TITLE"
         name: STG_TANK_ASSESSMENTS_HISTORICAL
         noLinkRefs: []
   name: STG_TANK_ASSESSMENTS_HISTORICAL
