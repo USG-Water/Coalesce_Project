@@ -63,7 +63,7 @@ operation:
                 ','
             ) "LOB"
             WHERE "STG_OPPORTUNITIES"."LINE_OF_BUSINESS" IS NOT NULL
-            AND TRIM("LOB"."VALUE") != ''
+            AND TRIM("LOB"."VALUE") NOT IN ('', 'null')
         name: STG_OPPORTUNITIES_LINE_OF_BUSINESS
         noLinkRefs: []
   name: STG_OPPORTUNITIES_LINE_OF_BUSINESS
