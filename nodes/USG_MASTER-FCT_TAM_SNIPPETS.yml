@@ -15,6 +15,30 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5067f0fd-6917-48db-95da-9563d984396c
+          stepCounter: a3d574fd-a612-4df3-af00-aacfceccfff7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: FNC_FIPS_CITYLITICS_LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE
+                  WHEN "STG_TAM_SNIPPETS_W_KEYWORDS_FINAL"."FNC_FIPS" IS NULL AND "STG_TAM_SNIPPETS_W_KEYWORDS_FINAL"."CITYLITICS_LEAD_ID" IS NULL THEN NULL
+                  ELSE CONCAT(COALESCE("STG_TAM_SNIPPETS_W_KEYWORDS_FINAL"."FNC_FIPS"::VARCHAR, ''), '|', COALESCE("STG_TAM_SNIPPETS_W_KEYWORDS_FINAL"."CITYLITICS_LEAD_ID"::VARCHAR, ''))
+              END
+        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e5940359-3553-4e3b-adeb-17f3a9f48570
