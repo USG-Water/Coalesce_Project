@@ -115,7 +115,8 @@ operation:
               DATEADD(
                   WEEK,
                   "SEQ"."SEQ",
-                  DATE_TRUNC('WEEK', "STG_RW_PSO"."QUARTER_START")
+                  --DATE_TRUNC('WEEK', "STG_RW_PSO"."QUARTER_START")
+                  DATE_TRUNC('WEEK', DATE_FROM_PARTS("STG_RW_PSO"."YEAR", 1, 1))
               )
         systemColumnType: None
       - appliedColumnTests: {}
