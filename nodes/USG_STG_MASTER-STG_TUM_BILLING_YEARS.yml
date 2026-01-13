@@ -72,7 +72,9 @@ operation:
         join:
           joinCondition: |-
             FROM (
-                SELECT DISTINCT "PROJECT_ID", MIN("COMPLETION_YEAR") AS "MIN_COMPLETION_YEAR"
+                SELECT DISTINCT "PROJECT_ID"
+                                , MIN("COMPLETION_YEAR") AS "MIN_COMPLETION_YEAR"
+                                , MAX("COMPLETION_YEAR") AS "MAX_COMPLETION_YEAR"
                 FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
                 GROUP BY "PROJECT_ID"
             ) "BASE"
@@ -84,11 +86,11 @@ operation:
                 ON "BASE"."PROJECT_ID" = "BILLS"."PROJECT_ID"
                 AND "CALENDAR"."YEAR" = "BILLS"."COMPLETION_YEAR"
             WHERE "CALENDAR"."YEAR" >= (
-                  SELECT MIN("COMPLETION_YEAR")
-                  FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
+                    SELECT MIN("COMPLETION_YEAR")
+                    FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
                   )
                   AND "CALENDAR"."YEAR" >= "BASE"."MIN_COMPLETION_YEAR"
-                  AND "CALENDAR"."YEAR" <= YEAR(CURRENT_DATE)
+                  AND "CALENDAR"."YEAR" <= "BASE"."MAX_COMPLETION_YEAR"
         name: STG_TUM_BILLING_YEARS
         noLinkRefs: []
   name: STG_TUM_BILLING_YEARS
