@@ -618,7 +618,11 @@ operation:
           - columnReferences:
               - columnCounter: 5dbedc5c-4063-44b1-bb32-404fc7c92d10
                 stepCounter: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
-            transform: ""
+            transform: |-
+              CASE "STG_OSC_REVENUE"."STATUS_CATEGORY"
+                  WHEN 'WON' THEN "STG_OPPORTUNITY_NBS_WON"."LATEST_SALES_PRICE"
+                  ELSE "STG_OSC_REVENUE"."REVN_AMT"
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 6d0010ed-437a-4644-9971-beba24b81f71
@@ -931,15 +935,25 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
+          STG_OPPORTUNITY_NBS_WON: 05011784-1b15-4ee9-afa7-c4b175becf24
+          STG_OSC_OPPORTUNITY: a5e8cc5a-0bda-44ab-979f-2b95ade8785a
           STG_OSC_REVENUE: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_OPPORTUNITY_NBS_WON
+          - locationName: USG_STG_ORACLE_SALES_CLOUD
+            nodeName: STG_OSC_OPPORTUNITY
           - locationName: USG_STG_ORACLE_SALES_CLOUD
             nodeName: STG_OSC_REVENUE
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_REVENUE') }} "STG_OSC_REVENUE"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_OPPORTUNITY') }} "STG_OSC_OPPORTUNITY"
+                ON "STG_OSC_REVENUE"."OPTY_ID" = "STG_OSC_OPPORTUNITY"."OPTY_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_OPPORTUNITY_NBS_WON') }} "STG_OPPORTUNITY_NBS_WON"
+                ON "STG_OSC_OPPORTUNITY"."SALES_ORDER_NUMBER" = "STG_OPPORTUNITY_NBS_WON"."ORDER_NUMBER"
             WHERE "STG_OSC_REVENUE"."PRIMARY_FLAG" = 'Y'
         name: STG_OPPORTUNITY_REVENUE
         noLinkRefs: []

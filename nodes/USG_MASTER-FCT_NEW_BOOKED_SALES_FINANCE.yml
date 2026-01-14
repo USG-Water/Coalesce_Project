@@ -1,0 +1,371 @@
+fileVersion: 1
+id: 3aac1a25-3282-49e2-865e-80aed8082b53
+name: FCT_NEW_BOOKED_SALES_FINANCE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a41c39dd-10da-435e-af0a-b6502fbca812
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0abc0c7-5490-40ee-b364-626548f09294
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3c40b99-87b1-436f-b979-de6213a52ed4
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3cf8d3dc-3680-41aa-a69f-bd8c4373ac13
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ef854f7-2ed9-4af1-afbc-09e4d77a6a47
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 001da1ef-3006-453e-8a12-5920fc014b26
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b35bedcd-2945-4704-8e3b-dfefd8a30c8f
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: REGION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a434ec3f-5fb0-4eba-acc9-b17b75a963ad
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd26085c-4075-4cff-a53b-b8f52b3f8abe
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f99aedb-0c14-4ec1-8afe-cd2938807d28
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48bd6962-0e5d-4483-a400-178994b8b53c
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SERVICE_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e26144e-6eea-4740-88c8-673a527e57b2
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ffe9542-cbe9-4e9b-a921-700745c72ddd
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9489e4b3-9c67-4ad9-bb37-53db9e9f8915
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17a92db8-1018-4134-9976-ef70efe0a0d9
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: RPT_PRODUCT_FAMILY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4474010d-eab6-4eb7-9d97-884ab75ece13
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d15cb1ce-c48a-4ea9-b52a-11f90e7f4828
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: RPT_PRODUCT_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae8aa061-3b66-4289-b589-e715d09cc696
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a0677d5-1b31-45d2-9a3f-26a8a1cb91cc
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CONTRACT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72d14a98-5906-4471-8d5d-023a221afa2b
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46554ee9-be3e-4a4f-9955-f6e283af2b87
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        isBusinessKey: true
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 527aee5d-227b-4cb0-85e9-c3bd618cd2d6
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c16814f-a3d0-4b19-87d2-f11516118b6e
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: true
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a94a7513-e0a3-4b65-b697-87796cb46a01
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b230f92-116a-4b8e-8b64-e0ac7eeb1d4e
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d81b0944-2560-40d9-8339-311fe856f83d
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f6dd3ad-70b3-45d4-8e5f-9daf5c3ba89f
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: DATE
+        description: ""
+        name: PROJECT_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fa23273-3e14-482b-adc4-0bbd1fbb01b3
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d348fe6e-96fa-44d2-8cce-883b3228cb80
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: DATE
+        description: ""
+        name: PROJECT_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4840ff54-1789-4589-8b9e-1440cf2d7354
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 031fc6b1-25b4-49a5-993e-f308f8432964
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: DATE
+        description: ""
+        name: NBS_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 761e331b-7625-4ad9-ae7f-dd5e8fd38ba4
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0b66863-049a-44d5-bf24-c25efc723037
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: REPORTING_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0658e81-e381-4767-be8d-efc2f94d1f50
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09c18a9a-daab-4d0b-948a-0d6a9f0c7d47
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: REP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e5382727-b4f7-4fc9-adff-49375cc2c37f
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 359c8508-8ad2-432a-bc7d-27679bbacd59
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: UNIQUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9bb48f35-773e-4daf-bd91-3659ee66df1e
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04d2825d-bc61-40b7-a34f-b5cacc50a768
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SMART_SALES_EXTRAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: afbe783d-d7c9-400a-a932-b4ea64c9d9c4
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da778a53-f6e9-4136-a490-97521071b80a
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STL_OTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a619e9a9-be8c-44a5-8487-ae935c03abe2
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d882eff-4cd9-4f17-aafb-0a4cc0d8cb0c
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63bb8b02-4ad8-44c6-850b-96cddcede396
+          stepCounter: 3aac1a25-3282-49e2-865e-80aed8082b53
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_FINANCE: 63699cad-58bc-4c38-bfd8-0d613789006d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_FINANCE
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_NBS_FINANCE') }} "STG_NBS_FINANCE"
+        name: FCT_NEW_BOOKED_SALES_FINANCE
+        noLinkRefs: []
+  name: FCT_NEW_BOOKED_SALES_FINANCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
