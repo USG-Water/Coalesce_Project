@@ -1,0 +1,96 @@
+fileVersion: 1
+id: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
+name: STG_RW_QUOTAS_PSO_MONTHLY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 374a80f4-4442-4bf7-afc0-089c230ca661
+          stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMPLOYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d009bae0-ede4-41a0-80ab-e1e3892687ee
+                stepCounter: 4232c8f2-50e8-4bf6-a8a7-d98853921915
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6faf41a-e596-41fd-9356-fcdfadeaab8e
+          stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0684f17-61db-4ca7-931f-f2e38d9e612f
+                stepCounter: 4232c8f2-50e8-4bf6-a8a7-d98853921915
+            transform: |-
+              DATEADD(
+                MONTH,
+                "SEQUENCE"."SEQ",
+                DATE_FROM_PARTS(
+                  "REDWOOD_FORECAST_QUOTA_PSO"."YEAR",
+                  ("REDWOOD_FORECAST_QUOTA_PSO"."QUARTER" - 1) * 3 + 1,
+                  1
+                )
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30539fff-deba-4058-823e-8d4cc3b9d20f
+          stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8a7cee9-272e-4c15-9b6f-cc1a12962fd1
+                stepCounter: 4232c8f2-50e8-4bf6-a8a7-d98853921915
+            transform: "\"REDWOOD_FORECAST_QUOTA_PSO\".\"AMOUNT\" / 3"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          REDWOOD_FORECAST_QUOTA_PSO: 4232c8f2-50e8-4bf6-a8a7-d98853921915
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: REDWOOD_FORECAST_QUOTA_PSO
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'REDWOOD_FORECAST_QUOTA_PSO') }} "REDWOOD_FORECAST_QUOTA_PSO"
+            JOIN (
+                SELECT SEQ4() AS "SEQ"
+                FROM TABLE(GENERATOR(ROWCOUNT => 3))
+            ) "SEQUENCE"
+        name: STG_RW_QUOTAS_PSO_MONTHLY
+        noLinkRefs: []
+  name: STG_RW_QUOTAS_PSO_MONTHLY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

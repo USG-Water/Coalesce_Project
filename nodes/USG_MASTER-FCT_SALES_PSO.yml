@@ -1,5 +1,5 @@
 fileVersion: 1
-id: d737c932-3575-4b32-899c-2dc697c478c8
+id: ffd33f85-846c-4609-aeff-2eea366c1658
 name: FCT_SALES_PSO
 operation:
   config:
@@ -17,23 +17,23 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 363ed951-7b14-4265-922d-2b1e09edaa74
-          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+          columnCounter: 065c8aed-80cc-47c0-80d7-da02c8c7b7a1
+          stepCounter: ffd33f85-846c-4609-aeff-2eea366c1658
         config: {}
         dataType: VARCHAR(256)
         description: ""
         isBusinessKey: true
-        name: NAME
+        name: EMPLOYEE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f592c4b2-3ca1-4126-a70c-eb801697b482
-                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+              - columnCounter: 374a80f4-4442-4bf7-afc0-089c230ca661
+                stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 34e52e44-8a7d-4de3-978a-73f1d6d5bd4f
-          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+          columnCounter: 4e643d4c-70d0-4753-8c38-0bc50ca60f6a
+          stepCounter: ffd33f85-846c-4609-aeff-2eea366c1658
         config: {}
         dataType: DATE
         description: ""
@@ -42,13 +42,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: b3ec0362-c597-48ee-9240-9fe896a9b030
-                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+              - columnCounter: c6faf41a-e596-41fd-9356-fcdfadeaab8e
+                stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 67804332-470b-41ae-93a9-92bf77c0f7e9
-          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+          columnCounter: 28096c0b-22c6-421d-9ead-83475f698adf
+          stepCounter: ffd33f85-846c-4609-aeff-2eea366c1658
         config: {}
         dataType: FLOAT
         description: ""
@@ -56,16 +56,16 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e307ec10-fc17-48d0-b08f-77e08035e161
-                stepCounter: e12649ab-e8ec-4888-b1e7-e71f11d84646
+              - columnCounter: 30539fff-deba-4058-823e-8d4cc3b9d20f
+                stepCounter: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
             transform: ""
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fb37cebc-2d02-448a-ac62-5f12eab9e766
-          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+          columnCounter: a43b84b0-dbf4-4c51-b709-16629a1edc14
+          stepCounter: ffd33f85-846c-4609-aeff-2eea366c1658
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -81,8 +81,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 63e42c5b-6a89-413f-a16d-c49e9cc1b4c1
-          stepCounter: d737c932-3575-4b32-899c-2dc697c478c8
+          columnCounter: b00297ea-0816-4d1b-b265-826b3a51fdb0
+          stepCounter: ffd33f85-846c-4609-aeff-2eea366c1658
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -97,14 +97,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_RW_PSO_WEEKLY_METRICS: e12649ab-e8ec-4888-b1e7-e71f11d84646
+          STG_RW_QUOTAS_PSO_MONTHLY: b6301bd6-9bb7-4d1e-a9e1-8474bf9899ac
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
-            nodeName: STG_RW_PSO_WEEKLY_METRICS
+            nodeName: STG_RW_QUOTAS_PSO_MONTHLY
         join:
-          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_RW_PSO_WEEKLY_METRICS') }} "STG_RW_PSO_WEEKLY_METRICS"
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_RW_QUOTAS_PSO_MONTHLY') }} "STG_RW_QUOTAS_PSO_MONTHLY"
         name: FCT_SALES_PSO
         noLinkRefs: []
   name: FCT_SALES_PSO

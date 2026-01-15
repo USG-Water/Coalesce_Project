@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
-name: STG_RW_QUOTAS
+id: 2ffe994d-6396-479f-acaa-70776e495c0a
+name: STG_RW_QUOTAS_CALL_MONTHLY
 operation:
   config:
     insertStrategy: INSERT
@@ -19,8 +19,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 5ca7d339-42d8-4e9b-b161-921245bfe2af
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
+          columnCounter: a5e86a35-9400-48e0-acd6-d19ec3fc6c85
+          stepCounter: 2ffe994d-6396-479f-acaa-70776e495c0a
         config: {}
         dataType: VARCHAR(256)
         description: ""
@@ -33,36 +33,22 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6bd2277c-85a4-4ae6-97ff-5100f801ae42
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
+          columnCounter: 0e00f290-2c95-413b-99eb-085ed42bc49f
+          stepCounter: 2ffe994d-6396-479f-acaa-70776e495c0a
         config: {}
         dataType: DATE
         description: ""
-        name: MONTH_START
+        name: DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 2b200597-b7e3-4317-92de-e4231bf02a83
                 stepCounter: d7672be3-cd4b-4df7-be80-1eb68cab6e4e
-            transform: DATE_TRUNC('MONTH', "REDWOOD_FORECAST_QUOTA_QUOTA"."DATE")
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: fbba1a36-a03a-495c-9b2a-8cff359e05a8
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
-        config: {}
-        dataType: DATE
-        description: ""
-        name: MONTH_END
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2b200597-b7e3-4317-92de-e4231bf02a83
-                stepCounter: d7672be3-cd4b-4df7-be80-1eb68cab6e4e
-            transform: LAST_DAY("REDWOOD_FORECAST_QUOTA_QUOTA"."DATE")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: bb0f5ba8-63e4-4045-a206-9afa96e6a874
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
+          columnCounter: 13dd43cd-e1b4-47b1-a958-2412b0fa3c18
+          stepCounter: 2ffe994d-6396-479f-acaa-70776e495c0a
         config: {}
         dataType: FLOAT
         description: ""
@@ -75,8 +61,8 @@ operation:
             transform: "\"REDWOOD_FORECAST_QUOTA_QUOTA\".\"LOW\" * 1000000"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9512012f-2f58-4cc1-9eba-27fd3343ba28
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
+          columnCounter: d680b627-de45-4cc7-b3bf-23f48f1c9175
+          stepCounter: 2ffe994d-6396-479f-acaa-70776e495c0a
         config: {}
         dataType: FLOAT
         description: ""
@@ -89,8 +75,8 @@ operation:
             transform: "\"REDWOOD_FORECAST_QUOTA_QUOTA\".\"HIGH\" * 1000000"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1752753c-57f9-4718-bd0b-3636ecd474e6
-          stepCounter: d8c962a1-5669-4a01-9bc8-7d18f9e5d129
+          columnCounter: 9c5d6acf-7c49-4414-abcc-e65059bfdd49
+          stepCounter: 2ffe994d-6396-479f-acaa-70776e495c0a
         config: {}
         dataType: FLOAT
         description: ""
@@ -113,9 +99,9 @@ operation:
             nodeName: REDWOOD_FORECAST_QUOTA_QUOTA
         join:
           joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'REDWOOD_FORECAST_QUOTA_QUOTA') }} "REDWOOD_FORECAST_QUOTA_QUOTA"
-        name: STG_RW_QUOTAS
+        name: STG_RW_QUOTAS_CALL_MONTHLY
         noLinkRefs: []
-  name: STG_RW_QUOTAS
+  name: STG_RW_QUOTAS_CALL_MONTHLY
   overrideSQL: false
   schema: ""
   sqlType: Stage
