@@ -115,8 +115,7 @@ operation:
               DATEADD(
                   WEEK,
                   "SEQ"."SEQ",
-                  --DATE_TRUNC('WEEK', "STG_RW_PSO"."QUARTER_START")
-                  DATE_TRUNC('WEEK', DATE_FROM_PARTS("STG_RW_PSO"."YEAR", 1, 1))
+                  DATE_TRUNC('WEEK', "STG_RW_PSO"."QUARTER_START")
               )
         systemColumnType: None
       - appliedColumnTests: {}
@@ -148,8 +147,13 @@ operation:
             FROM {{ ref('USG_STG_MASTER', 'STG_RW_PSO') }} "STG_RW_PSO"
             JOIN (
                 SELECT SEQ4() AS "SEQ"
-                FROM TABLE(GENERATOR(ROWCOUNT => 14))
+                FROM TABLE(GENERATOR(ROWCOUNT => 20))
             ) "SEQ"
+            WHERE DATEADD(
+                    WEEK,
+                    "SEQ"."SEQ",
+                    DATE_TRUNC('WEEK', "STG_RW_PSO"."QUARTER_START")
+                  ) <= "STG_RW_PSO"."QUARTER_END"
         name: STG_RW_PSO_WEEKLY
         noLinkRefs: []
   name: STG_RW_PSO_WEEKLY
