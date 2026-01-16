@@ -131,7 +131,11 @@ operation:
           - columnReferences:
               - columnCounter: "0"
                 stepCounter: "0"
-            transform: YEAR(CURRENT_DATE()) + 1
+            transform: |-
+              CASE
+                  WHEN MONTH(CURRENT_DATE()) >= 6 THEN YEAR(CURRENT_DATE()) + 1
+                  ELSE YEAR(CURRENT_DATE())
+              END
         systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
