@@ -620,7 +620,8 @@ operation:
                 stepCounter: 8e27fbc5-1acb-4a6d-a492-0f9c1a133e81
             transform: |-
               CASE "STG_OSC_REVENUE"."STATUS_CATEGORY"
-                  WHEN 'WON' THEN COALESCE("STG_OPPORTUNITY_NBS_WON"."LATEST_SALES_PRICE", "STG_OSC_REVENUE"."REVN_AMT")
+                  WHEN 'WON' THEN "STG_OPPORTUNITY_NBS_WON"."LATEST_SALES_PRICE"
+                  --WHEN 'WON' THEN COALESCE("STG_OPPORTUNITY_NBS_WON"."LATEST_SALES_PRICE", "STG_OSC_REVENUE"."REVN_AMT")
                   ELSE "STG_OSC_REVENUE"."REVN_AMT"
               END
       - appliedColumnTests: {}
