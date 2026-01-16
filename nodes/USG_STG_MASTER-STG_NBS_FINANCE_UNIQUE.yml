@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+name: STG_NBS_FINANCE_UNIQUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c828fd22-8bb4-41ff-bc7a-8fd54cccbe0d
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0abc0c7-5490-40ee-b364-626548f09294
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3498cfcd-9e44-41f3-bb9e-3b3c905a468c
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a94a7513-e0a3-4b65-b697-87796cb46a01
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc547c24-562d-4092-9398-efc1874aad95
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 527aee5d-227b-4cb0-85e9-c3bd618cd2d6
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b58116d4-fb3a-4bd7-ace8-f28c9cfd2f95
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3cf8d3dc-3680-41aa-a69f-bd8c4373ac13
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e749a71-eda2-4443-85ae-1d8297171885
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CUSTOMER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 001da1ef-3006-453e-8a12-5920fc014b26
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0ee8598-ef0f-4a7c-8d9d-ba1507860fdf
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d81b0944-2560-40d9-8339-311fe856f83d
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: SUM("STG_NBS_FINANCE"."SALES_PRICE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfbc8be8-3926-465f-a3cb-696b86c3a62b
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: DATE
+        description: ""
+        name: NBS_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 761e331b-7625-4ad9-ae7f-dd5e8fd38ba4
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a800c2b5-258a-4f11-9e74-158cc187f289
+          stepCounter: 83a63504-81cc-4dfd-a5e0-ae5a0b8602e1
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REPORTING_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0658e81-e381-4767-be8d-efc2f94d1f50
+                stepCounter: 63699cad-58bc-4c38-bfd8-0d613789006d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_FINANCE: 63699cad-58bc-4c38-bfd8-0d613789006d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_FINANCE
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_NBS_FINANCE') }} "STG_NBS_FINANCE"
+            GROUP BY "STG_NBS_FINANCE"."PROJECT_NUMBER"
+                     , "STG_NBS_FINANCE"."ORDER_NUMBER"
+                     , "STG_NBS_FINANCE"."TASK_NAME"
+                     , "STG_NBS_FINANCE"."SALESREP"
+                     , "STG_NBS_FINANCE"."CUSTOMER_NAME"
+                     , "STG_NBS_FINANCE"."NBS_CREATION_DATE"
+                     , "STG_NBS_FINANCE"."REPORTING_MONTH"
+        name: STG_NBS_FINANCE_UNIQUE
+        noLinkRefs: []
+  name: STG_NBS_FINANCE_UNIQUE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -38,7 +38,7 @@ operation:
         config: {}
         dataType: FLOAT
         description: ""
-        name: LATEST_SALES_PRICE
+        name: SALES_PRICE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
@@ -58,11 +58,6 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_NBS_FINANCE') }} "STG_NBS_FINANCE"
-            WHERE "STG_NBS_FINANCE"."REPORTING_MONTH" = (
-                SELECT MAX("REPORTING_MONTH")
-                FROM {{ ref('USG_STG_MASTER', 'STG_NBS_FINANCE') }} "STG_NBS_FINANCE_2"
-                WHERE "STG_NBS_FINANCE"."ORDER_NUMBER" = "STG_NBS_FINANCE_2"."ORDER_NUMBER"
-            )
             GROUP BY "STG_NBS_FINANCE"."ORDER_NUMBER"
         name: STG_OPPORTUNITY_NBS_WON
         noLinkRefs: []
