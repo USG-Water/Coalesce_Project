@@ -72,7 +72,12 @@ operation:
           - columnReferences:
               - columnCounter: 384b191f-f2fe-41e9-93d3-9585d47721df
                 stepCounter: ef5ec223-48a7-4f45-b3ef-b21d4400c4dd
-            transform: SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
+            transform: |-
+              PERCENTILE_CONT(0.5) 
+                WITHIN GROUP (
+                  ORDER BY "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST" 
+                           / NULLIF("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE", 0)
+                )
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -87,6 +92,9 @@ operation:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS') }} "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"
             GROUP BY "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."REGION", "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."INTERIOR_OR_EXTERIOR", "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."COMPLETION_YEAR"
+
+            -- old cost per sqft average; we're using median now
+            -- SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
         name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL
         noLinkRefs: []
   name: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_HISTORICAL

@@ -77,7 +77,13 @@ operation:
           - columnReferences:
               - columnCounter: "0"
                 stepCounter: "0"
-            transform: SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
+            transform: |-
+              PERCENTILE_CONT(0.5)
+              WITHIN GROUP (
+                  ORDER BY 
+                  "STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST" 
+                  / NULLIF("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE", 0)
+              )
         systemColumnType: None
       - acceptedValues:
           strictMatch: true
@@ -122,6 +128,9 @@ operation:
               FROM {{ ref('USG_STG_MASTER', 'STG_FF_FORECAST_PARAMETERS') }} "STG_FF_FORECAST_PARAMETERS"
               LIMIT 1
             )
+
+            -- old cost per sqft; we're using median now
+            -- SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."RAW_COST") / NULLIF(SUM("STG_FF_SQUARE_FOOTAGE_ASSUMPTIONS"."SQUARE_FOOTAGE"), 0)
         name: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
         noLinkRefs: []
   name: STG_FF_SQUARE_FOOTAGE_COST_HISTORICAL
