@@ -75,7 +75,7 @@ operation:
             transform: |-
               COALESCE(
                 CASE 
-                  WHEN ("STG_FF_SQUARE_FOOTAGE_VARIATIONS"."MAX_COMPLETION_YEAR" + "FORECAST_YEARS"."SEQ") = 2026 
+                  WHEN "FORECAST_YEARS"."SEQ" = 1
                        AND "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT" IS NOT NULL 
                   THEN "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT"
                   ELSE NULL
