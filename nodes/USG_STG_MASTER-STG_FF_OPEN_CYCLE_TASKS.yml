@@ -472,7 +472,7 @@ operation:
             WHERE "STG_TASKS_W_TUM_FLAG"."RENOVATION_TYPE" IN ('MP Interior', 'MP Exterior')
             AND "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID" IS NULL
             AND "STG_TASKS_W_TUM_FLAG"."START_DATE" IS NOT NULL
-            AND "STG_TASKS_W_TUM_FLAG"."START_DATE" >= CURRENT_DATE()
+            AND YEAR("STG_TASKS_W_TUM_FLAG"."START_DATE") >= YEAR(CURRENT_DATE())
             AND "STG_FF_FUTURE_PAINT_TASK_CYCLES"."CYCLE" = 0
         name: STG_FF_OPEN_CYCLE_TASKS
         noLinkRefs: []
