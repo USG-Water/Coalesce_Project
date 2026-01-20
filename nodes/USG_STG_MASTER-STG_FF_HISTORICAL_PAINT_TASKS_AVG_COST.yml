@@ -1,0 +1,100 @@
+fileVersion: 1
+id: a46ba937-fa14-4d96-9211-db135de86829
+name: STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Get average cost per interior/exterior project for tanks that have had +2 renovations
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a69195ca-cb64-4c00-ad1d-88573475abe1
+          stepCounter: a46ba937-fa14-4d96-9211-db135de86829
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74e4113a-5daf-452f-902e-4f226b24c6cc
+                stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 697c4285-aa94-47c4-9f1f-b1c737249327
+          stepCounter: a46ba937-fa14-4d96-9211-db135de86829
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INTERIOR_OR_EXTERIOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e9bb827-72ba-4ec4-a522-58f0a048fa4e
+                stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa026fa6-b875-4f60-97e7-698027a07b33
+          stepCounter: a46ba937-fa14-4d96-9211-db135de86829
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf8e9fd9-7d0e-4816-a0cb-a8cea4569a36
+                stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+            transform: AVG("STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"."INITIAL_COST")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5d27f11-09a3-4f03-a6c2-a59c49030e58
+          stepCounter: a46ba937-fa14-4d96-9211-db135de86829
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: COST_PER_SQFT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0088d4f-c8c4-49e8-b3a1-54812cb58646
+                stepCounter: b8df1644-a2ef-452f-8bba-0d44b80bc805
+            transform: AVG("STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"."INITIAL_COST") / AVG("STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"."SQUARE_FOOTAGE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS: b8df1644-a2ef-452f-8bba-0d44b80bc805
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS
+        join:
+          joinCondition: |-
+            FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS') }} "STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"
+            GROUP BY "STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"."PROJECT_ID"
+                     , "STG_FF_HISTORICAL_PAINT_TASKS_W_METRICS"."INTERIOR_OR_EXTERIOR"
+            HAVING COUNT(*) >= 2
+        name: STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST
+        noLinkRefs: []
+  name: STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

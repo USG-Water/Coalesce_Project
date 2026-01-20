@@ -168,7 +168,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE"."COST_PER_SQFT", "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COST_PER_SQFT")
+            transform: COALESCE("STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."COST_PER_SQFT", "STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE"."COST_PER_SQFT", "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COST_PER_SQFT")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 77ab1b62-13ca-4f5d-a176-ace020d3d41c
@@ -180,7 +180,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"STG_FF_OPEN_CYCLE_TASKS\".\"SQUARE_FOOTAGE\" * COALESCE(\"STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE\".\"COST_PER_SQFT\")"
+            transform: "\"STG_FF_OPEN_CYCLE_TASKS\".\"SQUARE_FOOTAGE\" * COALESCE(\"STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST\".\"COST\", \"STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE\".\"COST_PER_SQFT\")"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e05d616f-4cf2-4b42-875d-08bc199572af
@@ -480,12 +480,15 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
+          STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST: a46ba937-fa14-4d96-9211-db135de86829
           STG_FF_OPEN_CYCLE_TASKS: 3415b682-4023-40ff-963b-e99731c7becc
           STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
           STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE: 8bf9ddea-aff0-42d8-bf0c-93da8f67bd8f
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_OPEN_CYCLE_TASKS
           - locationName: USG_STG_MASTER
@@ -503,6 +506,9 @@ operation:
                 ON "STG_FF_OPEN_CYCLE_TASKS"."REGION" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."REGION"
                 AND "STG_FF_OPEN_CYCLE_TASKS"."INTERIOR_OR_EXTERIOR" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."INTERIOR_OR_EXTERIOR"
                 AND "STG_FF_OPEN_CYCLE_TASKS"."START_YEAR" = "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COMPLETION_YEAR"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST') }} "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"
+                ON "STG_FF_OPEN_CYCLE_TASKS"."PROJECT_ID" = "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."PROJECT_ID"
+                AND "STG_FF_OPEN_CYCLE_TASKS"."INTERIOR_OR_EXTERIOR" = "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."INTERIOR_OR_EXTERIOR"
         name: STG_FF_FUTURE_FORECAST_METRICS
         noLinkRefs: []
   name: STG_FF_FUTURE_FORECAST_METRICS
