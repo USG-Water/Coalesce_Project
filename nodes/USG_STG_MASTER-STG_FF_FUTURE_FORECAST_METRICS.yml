@@ -180,7 +180,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"STG_FF_OPEN_CYCLE_TASKS\".\"SQUARE_FOOTAGE\" * COALESCE(\"STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST\".\"COST\", \"STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE\".\"COST_PER_SQFT\")"
+            transform: "\"STG_FF_OPEN_CYCLE_TASKS\".\"SQUARE_FOOTAGE\" * COALESCE(\"STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE\".\"COST_PER_SQFT\")"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e05d616f-4cf2-4b42-875d-08bc199572af
