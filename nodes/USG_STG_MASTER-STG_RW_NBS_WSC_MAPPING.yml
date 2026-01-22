@@ -1,0 +1,68 @@
+fileVersion: 1
+id: a9e22447-d102-4a0a-9544-ad1d4ed40c6a
+name: STG_RW_NBS_WSC_MAPPING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac337e40-d785-47a0-8927-03c2ba2c244c
+          stepCounter: a9e22447-d102-4a0a-9544-ad1d4ed40c6a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: WSC_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f714cb3-ef08-4a40-8c81-3fc40b2a3bee
+                stepCounter: 4eac1f98-e91d-42f6-a6a8-2e9c38350bf9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ffdca0e-3920-485f-a73c-2a41abc652f1
+          stepCounter: a9e22447-d102-4a0a-9544-ad1d4ed40c6a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2cde3c65-b797-4c3e-9cc2-b6e2363e8342
+                stepCounter: 4eac1f98-e91d-42f6-a6a8-2e9c38350bf9
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          NBS_WSC_MAPPING_NBS_WSC_MAPPING: 4eac1f98-e91d-42f6-a6a8-2e9c38350bf9
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_RAW_SHARE_POINT_MAPPING_FILES
+            nodeName: NBS_WSC_MAPPING_NBS_WSC_MAPPING
+        join:
+          joinCondition: FROM {{ ref('USG_RAW_SHARE_POINT_MAPPING_FILES', 'NBS_WSC_MAPPING_NBS_WSC_MAPPING') }} "NBS_WSC_MAPPING_NBS_WSC_MAPPING"
+        name: STG_RW_NBS_WSC_MAPPING
+        noLinkRefs: []
+  name: STG_RW_NBS_WSC_MAPPING
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
