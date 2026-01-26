@@ -607,6 +607,8 @@ operation:
             nodeName: STG_PROJECT_CLASSES
           - locationName: USG_STG_MASTER
             nodeName: STG_TASKS
+          - locationName: USG_STG_MASTER
+            nodeName: STG_TASKS_W_OPEN_UR
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TASKS') }} "STG_TASKS"
@@ -614,8 +616,20 @@ operation:
                 ON "STG_TASKS"."TASK_ID" = "STG_ELIGIBLE_TUMS"."TASK_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECT_CLASSES') }} "STG_PROJECT_CLASSES"
                 ON "STG_TASKS"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
-            WHERE "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" NOT IN ('UR-On Hold', 'Cancelled', 'All-On Hold')
-            OR "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" IS NULL
+            WHERE
+                (
+                    "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" NOT IN ('UR-On Hold', 'Cancelled', 'All-On Hold')
+                    OR "STG_PROJECT_CLASSES"."OPS_WORK_STATUS" IS NULL
+                )
+                AND NOT EXISTS (
+                    SELECT 1
+                    FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_OPEN_UR') }} "STG_TASKS_W_OPEN_UR"
+                    WHERE "STG_TASKS_W_OPEN_UR"."PROJECT_ID" = "STG_TASKS"."PROJECT_ID"
+                      AND (
+                          "STG_TASKS_W_OPEN_UR"."INTERIOR_OR_EXTERIOR" = "STG_TASKS"."INTERIOR_OR_EXTERIOR"
+                          OR "STG_TASKS_W_OPEN_UR"."INTERIOR_OR_EXTERIOR" = 'Interior and Exterior'
+                      )
+                )
         name: STG_TASKS_W_TUM_FLAG
         noLinkRefs: []
   name: STG_TASKS_W_TUM_FLAG
