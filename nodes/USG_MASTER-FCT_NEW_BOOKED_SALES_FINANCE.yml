@@ -4,7 +4,7 @@ name: FCT_NEW_BOOKED_SALES_FINANCE
 operation:
   config:
     postSQL: ""
-    preSQL: ""
+    preSQL: TRUNCATE TABLE {{ ref('USG_MASTER', 'FCT_NEW_BOOKED_SALES_FINANCE') }}
     testsEnabled: true
   database: ""
   deployEnabled: true
@@ -37,7 +37,6 @@ operation:
         config: {}
         dataType: NUMBER
         description: ""
-        isBusinessKey: true
         name: ORDER_NUMBER
         nullable: true
         sourceColumnReferences:
@@ -67,7 +66,6 @@ operation:
         config: {}
         dataType: VARCHAR(256)
         description: ""
-        isBusinessKey: true
         name: SALESREP
         nullable: true
         sourceColumnReferences:
@@ -82,7 +80,6 @@ operation:
         config: {}
         dataType: VARCHAR(256)
         description: ""
-        isBusinessKey: true
         name: CUSTOMER_NAME
         nullable: true
         sourceColumnReferences:
