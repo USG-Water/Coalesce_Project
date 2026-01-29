@@ -79,8 +79,22 @@ operation:
                 GROUP BY "PROJECT_ID"
             ) "BASE"
             CROSS JOIN (
-                SELECT DISTINCT "YEAR"
-                FROM "CALENDARS_FOR_FINANCE_AND_ANALYTICS"."PUBLIC"."V_CALENDAR_DIM"
+                SELECT
+                       (
+                         SELECT MIN("COMPLETION_YEAR")
+                         FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
+                       )
+                       + SEQ4() AS "YEAR"
+                FROM TABLE(
+                       GENERATOR(
+                         ROWCOUNT => YEAR(CURRENT_DATE)
+                                     - (
+                                         SELECT MIN("COMPLETION_YEAR")
+                                         FROM {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }}
+                                       )
+                                     + 1
+                       )
+                     )
             ) "CALENDAR"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TUM_TOTAL_PROJECT_BILLINGS_CAPPED') }} "BILLS"
                 ON "BASE"."PROJECT_ID" = "BILLS"."PROJECT_ID"
