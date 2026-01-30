@@ -84,6 +84,7 @@ operation:
                     , 'UR Bill'
                     , 'TS Bill'
                 )
+            WHERE "STG_EBS_EVENTS"."BILLED_FLAG" = 'Y'
             GROUP BY "STG_EBS_EVENTS"."PROJECT_ID", YEAR("STG_EBS_EVENTS"."COMPLETION_DATE")
         name: STG_TUM_TOTAL_PROJECT_BILLINGS
         noLinkRefs: []
