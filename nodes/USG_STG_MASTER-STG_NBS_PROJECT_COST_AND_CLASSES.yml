@@ -206,6 +206,20 @@ operation:
               - columnCounter: f8275053-2f2a-4824-b914-3cd6f407822f
                 stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
             transform: SUM(COALESCE("STG_EBS_BOOKED_SALES"."SALES_PRICE", 0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8488ed1-1180-49bc-8537-432746e71ab3
+          stepCounter: ef1b8082-d9b0-427a-8a5c-479d2ea21f14
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cee9d17f-3912-4e58-9ee9-ee6e28bca696
+                stepCounter: 62a5d049-6c23-4b9d-a330-9ebc744c0122
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -243,6 +257,7 @@ operation:
                      , "STG_EBS_BOOKED_SALES"."CONTRACT_TYPE"
                      , "STG_EBS_BOOKED_SALES"."TASK_NAME"
                      , "STG_PROJECTS"."START_DATE"
+                     , "STG_EBS_BOOKED_SALES"."CREATION_DATE"
         name: STG_NBS_PROJECT_COST_AND_CLASSES
         noLinkRefs: []
   name: STG_NBS_PROJECT_COST_AND_CLASSES

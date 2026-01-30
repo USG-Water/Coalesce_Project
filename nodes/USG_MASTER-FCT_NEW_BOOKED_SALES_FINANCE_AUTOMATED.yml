@@ -1,0 +1,188 @@
+fileVersion: 1
+id: 334ba75c-29ae-4272-8010-172c17d247d2
+name: FCT_NEW_BOOKED_SALES_FINANCE_AUTOMATED
+operation:
+  config:
+    postSQL: ""
+    preSQL: TRUNCATE TABLE {{ ref('USG_MASTER', 'FCT_NEW_BOOKED_SALES_FINANCE_AUTOMATED') }}
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_MASTER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7dd56431-b901-4203-8c92-74542ea583c2
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: PROJECT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a3556c3-af21-4a72-bde4-8c6802198ff1
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75b7e7e3-510d-4242-aa04-615d00b76ad8
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7609344f-9569-4a01-a461-fe12abc7e819
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5923c58b-2dca-426c-9e47-4c3ede342b0b
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: TASK_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52dff68e-8e89-4a7c-9e7d-d269b8eb42fb
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69728ee4-a97b-40be-a32c-dbedfb7e218f
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SALESREP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 572c0393-4aa8-4481-ac4d-1afb3bc68af4
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 272baadd-58b8-4969-870a-6014c98b65fa
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a11de2e1-873d-44d4-8bc5-050a571c0f8f
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd7b7a40-110c-4b6e-9503-bfcb46254db2
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SALES_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed403284-1579-4e68-87d5-e1ac7c8f3262
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 984e28af-e88f-45fa-bcc6-1409dcb76919
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: NBS_CREATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b44a40a6-17d9-4495-8cf3-0dc36da77150
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3f028a1-f524-4335-acb3-29b5427b85f6
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: REPORTING_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32e5abed-d3c3-4520-8a03-d1d812a3157e
+                stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9479b57e-5b32-4824-94e8-411b82c0e129
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54d18452-896d-43d4-a957-a3059a71a6b1
+          stepCounter: 334ba75c-29ae-4272-8010-172c17d247d2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_FINANCE_AUTOMATED_W_CURRENT: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_FINANCE_AUTOMATED_W_CURRENT
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_NBS_FINANCE_AUTOMATED_W_CURRENT') }} "STG_NBS_FINANCE_AUTOMATED_W_CURRENT"
+        name: FCT_NEW_BOOKED_SALES_FINANCE_AUTOMATED
+        noLinkRefs: []
+  name: FCT_NEW_BOOKED_SALES_FINANCE_AUTOMATED
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,110 @@
+fileVersion: 1
+id: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+name: STG_NBS_FINANCE_AUTOMATED
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: USG_STG_MASTER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6591234f-c631-44be-be87-a167661ffd3b
+          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: YEAR_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75247879-b0e2-4068-8ac5-01bcf6bd1f85
+          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MONTH_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d404135-1211-4110-8509-4de397ec457c
+          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+        config: {}
+        dataType: DATE
+        description: ""
+        name: AS_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8a1625d-2b21-4c19-92f1-bc27faf0da9b
+          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: ROW_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_NBS_TABLE_METADATA: b06afb29-ed1f-40ed-bfda-9edc76ddad81
+        customSQL:
+          customSQL: |-
+            {{ stage('Override Create SQL') }}
+            {% set full_ref = ref('USG_STG_MASTER', 'STG_NBS_TABLE_METADATA') | replace('"','') %}
+            {% set parts = full_ref.split('.') %}
+            {% set meta_db = parts[0] %}
+            {% set meta_schema = parts[1] %}
+            {% set meta_table = parts[2] %}
+
+            CALL {{ meta_db }}.{{ meta_schema }}.SP_NBS_LATEST_MONTH_PER_YEAR()
+        dependencies:
+          - locationName: USG_STG_MASTER
+            nodeName: STG_NBS_TABLE_METADATA
+        join:
+          joinCondition: FROM {{ ref('USG_STG_MASTER', 'STG_NBS_TABLE_METADATA') }} "STG_NBS_TABLE_METADATA"
+        name: STG_NBS_FINANCE_AUTOMATED
+        noLinkRefs: []
+  name: STG_NBS_FINANCE_AUTOMATED
+  overrideSQL: true
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
