@@ -40,7 +40,7 @@ operation:
           columnCounter: 7609344f-9569-4a01-a461-fe12abc7e819
           stepCounter: 7d2e3b47-dfb1-4853-9798-e3ab02d8a278
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER
         description: ""
         name: ORDER_NUMBER
         nullable: true
@@ -48,7 +48,7 @@ operation:
           - columnReferences:
               - columnCounter: 57b8e751-79f9-47d5-bd60-d0fe4c5596a4
                 stepCounter: aeca7b05-56d8-4ecb-afaf-a6f732541a62
-            transform: ""
+            transform: TRY_TO_NUMBER("STG_NBS_FINANCE_AUTOMATED_CLEAN"."ORDER_NUMBER")
           - columnReferences:
               - columnCounter: cd0e8491-1ec0-4a23-8fef-fbde0f38b3d2
                 stepCounter: 659d0edc-3b4e-47a9-b11d-f836daf1feef
