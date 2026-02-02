@@ -4,7 +4,7 @@ name: FCT_NEW_BOOKED_SALES
 operation:
   config:
     postSQL: ""
-    preSQL: ""
+    preSQL: TRUNCATE TABLE {{ ref('USG_MASTER', 'FCT_NEW_BOOKED_SALES') }}
     testsEnabled: true
   database: ""
   deployEnabled: true
