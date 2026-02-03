@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+id: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
 name: STG_NBS_FINANCE_AUTOMATED
 operation:
   config:
@@ -17,30 +17,24 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6591234f-c631-44be-be87-a167661ffd3b
-          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+          columnCounter: ecc13818-818d-4cec-afad-9779e81b7df8
+          stepCounter: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
         config: {}
         dataType: NUMBER
-        defaultValue: ""
         description: ""
-        keyColumnType: None
         name: YEAR_NUM
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
+              - columnCounter: 9e8b1a73-4480-431d-8013-93be0d7eac67
+                stepCounter: b06afb29-ed1f-40ed-bfda-9edc76ddad81
             transform: ""
-        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 75247879-b0e2-4068-8ac5-01bcf6bd1f85
-          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+          columnCounter: b1655d2b-3900-463c-85b0-2ac5ccaed475
+          stepCounter: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
         config: {}
         dataType: NUMBER
         description: ""
@@ -48,52 +42,40 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
+              - columnCounter: 41bf26e9-18b3-49c6-a763-9b6788a39fbc
+                stepCounter: b06afb29-ed1f-40ed-bfda-9edc76ddad81
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 3d404135-1211-4110-8509-4de397ec457c
-          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+          columnCounter: 6ba4c3d1-9665-498d-bbbd-51035cc2b28a
+          stepCounter: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
         config: {}
         dataType: DATE
         description: ""
         name: AS_OF_MONTH
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
-            transform: ""
+          - columnReferences: []
+            transform: "NULL"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b8a1625d-2b21-4c19-92f1-bc27faf0da9b
-          stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+          columnCounter: f927e85e-6051-49ab-ab0b-ad4acf5522d9
+          stepCounter: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
         config: {}
         dataType: VARIANT
         description: ""
         name: ROW_DATA
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
-            transform: ""
+          - columnReferences: []
+            transform: "NULL"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
           STG_NBS_TABLE_METADATA: b06afb29-ed1f-40ed-bfda-9edc76ddad81
         customSQL:
-          customSQL: |-
-            {{ stage('Override Create SQL') }}
-            {% set full_ref = ref('USG_STG_MASTER', 'STG_NBS_TABLE_METADATA') | replace('"','') %}
-            {% set parts = full_ref.split('.') %}
-            {% set meta_db = parts[0] %}
-            {% set meta_schema = parts[1] %}
-            {% set meta_table = parts[2] %}
-
-            CALL {{ meta_db }}.{{ meta_schema }}.SP_NBS_LATEST_MONTH_PER_YEAR()
+          customSQL: ""
         dependencies:
           - locationName: USG_STG_MASTER
             nodeName: STG_NBS_TABLE_METADATA
@@ -102,7 +84,7 @@ operation:
         name: STG_NBS_FINANCE_AUTOMATED
         noLinkRefs: []
   name: STG_NBS_FINANCE_AUTOMATED
-  overrideSQL: true
+  overrideSQL: false
   schema: ""
   sqlType: Stage
   type: sql

@@ -14,7 +14,7 @@ operation:
       CREATE OR REPLACE PROCEDURE {{ meta_db }}.{{ meta_schema }}.SP_NBS_LATEST_MONTH_PER_YEAR()
       RETURNS STRING
       LANGUAGE SQL
-      EXECUTE AS OWNER
+      EXECUTE AS CALLER
       AS
       $$
       DECLARE

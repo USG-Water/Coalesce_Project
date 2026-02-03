@@ -5,7 +5,14 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: ""
+    preSQL: |-
+      {% set full_ref = ref('USG_STG_MASTER', 'STG_NBS_TABLE_METADATA') | replace('"','') %}
+      {% set parts = full_ref.split('.') %}
+      {% set meta_db = parts[0] %}
+      {% set meta_schema = parts[1] %}
+      {% set meta_table = parts[2] %}
+
+      CALL {{ meta_db }}.{{ meta_schema }}.SP_NBS_LATEST_MONTH_PER_YEAR()
     testsEnabled: true
     truncateBefore: true
   database: ""
@@ -126,8 +133,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3d404135-1211-4110-8509-4de397ec457c
-                stepCounter: 4f2a26b6-968e-45df-ba80-ad4b310fb8db
+              - columnCounter: 6ba4c3d1-9665-498d-bbbd-51035cc2b28a
+                stepCounter: f74fe790-17e4-4d52-a7cd-bf84bf2dacee
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
