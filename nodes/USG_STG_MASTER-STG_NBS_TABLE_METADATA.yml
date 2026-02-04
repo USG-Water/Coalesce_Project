@@ -52,7 +52,7 @@ operation:
 
           /* 3) Create / replace final view */
           EXECUTE IMMEDIATE
-              'CREATE OR REPLACE VIEW USG_DEV.STG_MASTER.STG_NBS_FINANCE_AUTOMATED AS ' || v_sql;
+              'CREATE OR REPLACE VIEW {{ meta_db }}.{{ meta_schema }}.STG_NBS_FINANCE_AUTOMATED AS ' || v_sql;
 
           RETURN '{{ meta_db }}.{{ meta_schema }}.STG_NBS_FINANCE_AUTOMATED refreshed successfully';
 
