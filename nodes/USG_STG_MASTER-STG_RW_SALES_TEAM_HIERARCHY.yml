@@ -59,6 +59,34 @@ operation:
         systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 0cd1fa9e-c8fc-4230-bc25-03e0e90b34fd
+          stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: MANAGER_EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26614042-067a-4a21-a1b2-34b3fc73b832
+                stepCounter: 72c727e4-6dc2-496b-8735-f99a0b1c5498
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1428b001-4859-4afd-b43d-952322aec1b1
+          stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: WSC_EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26614042-067a-4a21-a1b2-34b3fc73b832
+                stepCounter: 72c727e4-6dc2-496b-8735-f99a0b1c5498
+            transform: "\"STG_OSC_PARTY_RESOURCE_WSC\".\"EMAIL_ADDRESS\""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 89b6a84d-20a8-4b64-9779-5183ab3cab6c
           stepCounter: 6683b42a-e13b-4553-85ad-f15f46a9b052
         config: {}
@@ -76,6 +104,7 @@ operation:
     sourceMapping:
       - aliases:
           STG_OSC_PARTY_RESOURCE: 72c727e4-6dc2-496b-8735-f99a0b1c5498
+          STG_OSC_PARTY_RESOURCE_WSC: 72c727e4-6dc2-496b-8735-f99a0b1c5498
           STG_OSC_SALES_RESOURCE_HIERARCHY: f623cb55-18ec-4e43-8561-a551a6f576ca
           STG_RW_NBS_WSC_MAPPING: a9e22447-d102-4a0a-9544-ad1d4ed40c6a
         customSQL:
@@ -92,6 +121,8 @@ operation:
             FROM {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_SALES_RESOURCE_HIERARCHY') }} "STG_OSC_SALES_RESOURCE_HIERARCHY"
             LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY_RESOURCE') }} "STG_OSC_PARTY_RESOURCE"
                 ON "STG_OSC_SALES_RESOURCE_HIERARCHY"."PARENT_RESOURCE_ID" = "STG_OSC_PARTY_RESOURCE"."PARTY_RESOURCE_PARTY_ID"
+            LEFT JOIN {{ ref('USG_STG_ORACLE_SALES_CLOUD', 'STG_OSC_PARTY_RESOURCE') }} "STG_OSC_PARTY_RESOURCE_WSC"
+                ON "STG_OSC_SALES_RESOURCE_HIERARCHY"."RESOURCE_ID" = "STG_OSC_PARTY_RESOURCE_WSC"."PARTY_RESOURCE_PARTY_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_RW_NBS_WSC_MAPPING') }} "STG_RW_NBS_WSC_MAPPING"
                 ON CONCAT("STG_OSC_SALES_RESOURCE_HIERARCHY"."PERSON_FIRST_NAME", ' ', "STG_OSC_SALES_RESOURCE_HIERARCHY"."PERSON_LAST_NAME") = "STG_RW_NBS_WSC_MAPPING"."WSC_NAME"
             WHERE "STG_OSC_SALES_RESOURCE_HIERARCHY"."REPORTS_TO_FLAG" = 'Y'
