@@ -117,6 +117,27 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 77ab1b62-13ca-4f5d-a176-ace020d3d41c
+          stepCounter: 839bb6d5-fe2f-4650-a4b5-9fd72f01bd80
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: INITIAL_COST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE "STG_FF_OPEN_CYCLE_TASKS"."COMPLETION_STATUS"
+              	WHEN 'Historical' THEN "STG_FF_TOTAL_TASK_COSTS"."RAW_COST"
+              	ELSE "STG_FF_OPEN_CYCLE_TASKS"."SQUARE_FOOTAGE"
+              	     * COALESCE("STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT"
+              		      , "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."COST_PER_SQFT"
+              		      , "STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE"."COST_PER_SQFT"
+              		      , "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COST_PER_SQFT"
+              	     )
+              END
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 0520f6a2-e700-42c0-80d1-d2514e21398e
           stepCounter: 839bb6d5-fe2f-4650-a4b5-9fd72f01bd80
         config: {}
@@ -168,19 +189,16 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT", "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."COST_PER_SQFT", "STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE"."COST_PER_SQFT", "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COST_PER_SQFT")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 77ab1b62-13ca-4f5d-a176-ace020d3d41c
-          stepCounter: 839bb6d5-fe2f-4650-a4b5-9fd72f01bd80
-        config: {}
-        dataType: FLOAT
-        description: ""
-        name: INITIAL_COST
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"STG_FF_OPEN_CYCLE_TASKS\".\"SQUARE_FOOTAGE\" * COALESCE(\"STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE\".\"COST_PER_SQFT\", \"STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE\".\"COST_PER_SQFT\", \"STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE\".\"COST_PER_SQFT\")"
+            transform: |-
+              CASE "STG_FF_OPEN_CYCLE_TASKS"."COMPLETION_STATUS"
+              	WHEN 'Historical' THEN "STG_FF_TOTAL_TASK_COSTS"."RAW_COST" / "STG_FF_OPEN_CYCLE_TASKS"."SQUARE_FOOTAGE"
+              	ELSE "STG_FF_OPEN_CYCLE_TASKS"."SQUARE_FOOTAGE"
+              	     * COALESCE("STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."COST_PER_SQFT"
+              			, "STG_FF_HISTORICAL_PAINT_TASKS_AVG_COST"."COST_PER_SQFT"
+              			, "STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE"."COST_PER_SQFT"
+              			, "STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE"."COST_PER_SQFT"
+              	       )
+              END
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e05d616f-4cf2-4b42-875d-08bc199572af
@@ -476,6 +494,20 @@ operation:
               - columnCounter: 4c353180-9975-4190-a6a9-f9a2d6e4f87a
                 stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1d0ffc1-43af-416b-b836-64292ce354e7
+          stepCounter: 839bb6d5-fe2f-4650-a4b5-9fd72f01bd80
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COMPLETION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f72f0ab-6d93-40e4-8caa-20f20d15e1c3
+                stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -484,6 +516,7 @@ operation:
           STG_FF_OPEN_CYCLE_TASKS: 3415b682-4023-40ff-963b-e99731c7becc
           STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE: 40acfb5b-12ae-4b57-8c3e-0064eae71c8e
           STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE: 8bf9ddea-aff0-42d8-bf0c-93da8f67bd8f
+          STG_FF_TOTAL_TASK_COSTS: f1af632c-2bcf-4852-8662-01ce08593692
           STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE: aa2433a3-cf0e-4926-be37-f680ac5be4f8
         customSQL:
           customSQL: ""
@@ -496,6 +529,8 @@ operation:
             nodeName: STG_FF_SQUARE_FOOTAGE_COST_BY_REGION_FULL_TIMELINE
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_SQUARE_FOOTAGE_COST_FULL_TIMELINE
+          - locationName: USG_STG_MASTER
+            nodeName: STG_FF_TOTAL_TASK_COSTS
           - locationName: USG_STG_MASTER
             nodeName: STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE
         join:
@@ -515,6 +550,8 @@ operation:
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE') }} "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"
                 ON "STG_FF_OPEN_CYCLE_TASKS"."STATE" = "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."STATE"
                 AND "STG_FF_OPEN_CYCLE_TASKS"."INTERIOR_OR_EXTERIOR" = "STG_TAI_FORECAST_PARAMETERS_COST_BY_SQFT_OVERRIDE"."INTERIOR_OR_EXTERIOR"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_TOTAL_TASK_COSTS') }} "STG_FF_TOTAL_TASK_COSTS"
+                ON "STG_FF_OPEN_CYCLE_TASKS"."TASK_ID" = "STG_FF_TOTAL_TASK_COSTS"."PARENT_TASK_ID"
         name: STG_FF_FUTURE_FORECAST_METRICS
         noLinkRefs: []
   name: STG_FF_FUTURE_FORECAST_METRICS

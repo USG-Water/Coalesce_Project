@@ -400,6 +400,30 @@ operation:
               - columnCounter: f0d9b045-7477-4b4e-9b99-1869ace2036f
                 stepCounter: 78259d1b-d867-4737-ab5e-78458b651033
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f72f0ab-6d93-40e4-8caa-20f20d15e1c3
+          stepCounter: 3415b682-4023-40ff-963b-e99731c7becc
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: COMPLETION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE
+                  WHEN "STG_TASKS_W_TUM_FLAG"."COMPLETION_DATE" IS NOT NULL THEN 'Historical'
+                  ELSE 'Future'
+              END
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -430,6 +454,8 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_FUTURE_PAINT_TASK_CYCLES
           - locationName: USG_STG_MASTER
+            nodeName: STG_FF_HISTORICAL_PAINT_TASKS
+          - locationName: USG_STG_MASTER
             nodeName: STG_FF_LAST_COMPLETION_DATES
           - locationName: USG_STG_MASTER
             nodeName: STG_FF_PROJECT_CUSTOMERS
@@ -442,11 +468,22 @@ operation:
           - locationName: USG_STG_MASTER
             nodeName: STG_PROJECTS
           - locationName: USG_STG_MASTER
+            nodeName: STG_SERVICE_REQUESTS
+          - locationName: USG_STG_MASTER
             nodeName: STG_TASKS_W_TUM_FLAG
         join:
           joinCondition: |-
             FROM {{ ref('USG_STG_MASTER', 'STG_TASKS_W_TUM_FLAG') }} "STG_TASKS_W_TUM_FLAG"
-            INNER JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_PAINT_TASK_CYCLES') }} "STG_FF_FUTURE_PAINT_TASK_CYCLES"
+            LEFT JOIN (
+                SELECT "STG_FF_HISTORICAL_PAINT_TASKS".*
+                FROM {{ ref('USG_STG_MASTER', 'STG_FF_HISTORICAL_PAINT_TASKS') }} "STG_FF_HISTORICAL_PAINT_TASKS"
+                LEFT JOIN {{ ref('USG_STG_MASTER', "STG_SERVICE_REQUESTS") }} "STG_SERVICE_REQUESTS"
+                    ON "STG_FF_HISTORICAL_PAINT_TASKS"."TASK_ID" = "STG_SERVICE_REQUESTS"."TASK_ID"
+                WHERE YEAR("STG_SERVICE_REQUESTS"."ACTUAL_END_DATE") = YEAR(CURRENT_DATE())
+                      AND "STG_SERVICE_REQUESTS"."ACTUAL_END_DATE" <= CURRENT_DATE()
+            ) "STG_FF_HISTORICAL_PAINT_TASKS"
+                ON "STG_TASKS_W_TUM_FLAG"."TASK_ID" = "STG_FF_HISTORICAL_PAINT_TASKS"."TASK_ID"
+            LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_FF_FUTURE_PAINT_TASK_CYCLES') }} "STG_FF_FUTURE_PAINT_TASK_CYCLES"
                 ON "STG_TASKS_W_TUM_FLAG"."TASK_ID" = "STG_FF_FUTURE_PAINT_TASK_CYCLES"."TASK_ID"
             LEFT JOIN {{ ref('USG_STG_MASTER', 'STG_PROJECT_CLASSES') }} "STG_PROJECT_CLASSES"
                 ON "STG_TASKS_W_TUM_FLAG"."PROJECT_ID" = "STG_PROJECT_CLASSES"."PROJECT_ID"
@@ -473,7 +510,10 @@ operation:
             AND "STG_TASKS_W_TUM_FLAG"."PARENT_TASK_ID" IS NULL
             AND "STG_TASKS_W_TUM_FLAG"."START_DATE" IS NOT NULL
             AND YEAR("STG_TASKS_W_TUM_FLAG"."START_DATE") >= YEAR(CURRENT_DATE())
-            AND "STG_FF_FUTURE_PAINT_TASK_CYCLES"."CYCLE" = 0
+            AND (
+                "STG_FF_HISTORICAL_PAINT_TASKS"."TASK_ID" IS NOT NULL
+                OR "STG_FF_FUTURE_PAINT_TASK_CYCLES"."CYCLE" = 0
+            )
         name: STG_FF_OPEN_CYCLE_TASKS
         noLinkRefs: []
   name: STG_FF_OPEN_CYCLE_TASKS
