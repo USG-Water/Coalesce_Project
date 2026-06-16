@@ -812,27 +812,6 @@ operation:
       - appliedColumnTests:
           isDistinct: false
         columnReference:
-          columnCounter: 248759bd-42a3-4360-b82a-452850647d76
-          stepCounter: 57b6fd6a-ad63-4154-a7a9-43be9ec6b1ac
-        config:
-          isDistinctCount: true
-          isNotNullCount: true
-          isNullCount: true
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: UC_BILLING
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 57c3177d-2ea2-4c7e-a85d-ee8c9183e26f
-                stepCounter: 56ee08f1-6293-4637-b3d3-439cf10b180b
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests:
-          isDistinct: false
-        columnReference:
           columnCounter: 96cffe6f-2544-4ee8-bc0c-d6cdfd58ef41
           stepCounter: 57b6fd6a-ad63-4154-a7a9-43be9ec6b1ac
         config: {}
@@ -845,10 +824,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: "NULL"
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests:
+      - appliedColumnTests:
           isDistinct: false
         columnReference:
           columnCounter: a8ed14df-0ad5-4ff7-9a28-806ce1162397
@@ -864,8 +840,11 @@ operation:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs:
       - isDistinct
+    materializationOption: ""
     sourceMapping:
       - aliases:
           CS_INCIDENTS_ALL_B: 56ee08f1-6293-4637-b3d3-439cf10b180b
