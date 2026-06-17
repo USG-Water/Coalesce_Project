@@ -432,15 +432,20 @@ operation:
           columnCounter: 04e8d247-7972-4d9b-b767-6a81f82f9416
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: VARCHAR(12)
-        description: ""
+        dataType: Boolean
+        description: a process flag which is varchar in source system
         name: INCIDENT_ATTRIBUTE_2
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 019ed1a3-fdd6-729b-bc2c-14f3bd5b4a36
                 stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
-            transform: ""
+            transform: |-
+              CASE 
+                WHEN "STG_EBS_SERVICE_REQUESTS"."INCIDENT_ATTRIBUTE_2" = 'Y' THEN TRUE
+                WHEN "STG_EBS_SERVICE_REQUESTS"."INCIDENT_ATTRIBUTE_2" = 'N' THEN FALSE
+                ELSE NULL  -- Handles  valeus like 'P'(as seen in incident no 172073) and any other invalid values
+              END::BOOLEAN
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a1e1912b-c5d7-4e26-b796-7d947b3bffc0
