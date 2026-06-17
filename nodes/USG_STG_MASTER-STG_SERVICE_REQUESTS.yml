@@ -283,10 +283,7 @@ operation:
               - columnCounter: e9ac76c2-18c3-472a-aa7e-52eea843eff3
                 stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 462203c2-0942-429a-b11d-3617833a444f
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
@@ -294,7 +291,6 @@ operation:
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        keyColumnType: None
         name: CORE_CONTENT_AD_HOC_PRONTO_FORM_LINK
         nullable: true
         sourceColumnReferences:
@@ -302,7 +298,6 @@ operation:
               - columnCounter: 1beb1de5-a783-4573-987e-8c8498ee5732
                 stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
             transform: "'https://corecontent.ot2.opentext.com/subscriptions/utilityservicescompany-ccontent-prod/search/cmsfield_cms_any__type_rel_sys/type_ccm1_prontofrm_peezo/cmsfield_ccm1_prontofrm_peezo__form_name8_txt_en_split/Ad-Hoc/cmsfield_ccm1_prontofrm_peezo__service_request_number9_txt_en_split/\"' || \"STG_EBS_SERVICE_REQUESTS\".\"SERVICE_REQUEST_NUMBER\" || '\"/cmsfield_cms_any__ws_rel_sys/__polaris_document_type__/cmsfield_cms_any__trait_names_ss/__polaris_document_type__/query_id/Advanced%20search____InResults_Advanced%20search%2Ftype_ccm1_prontofrm_peezo/timeZoneID/America%2FChicago/searchUUID/%20/name/Advanced%20search/forcePerspectiveChange/true/enableSearchForm/true?page=50_450'"
-        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 888bf2cc-a9ce-4ae1-a957-7b354cd9d43b
@@ -437,13 +432,13 @@ operation:
           columnCounter: 04e8d247-7972-4d9b-b767-6a81f82f9416
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
-        dataType: BOOLEAN
+        dataType: VARCHAR(12)
         description: ""
         name: INCIDENT_ATTRIBUTE_2
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5501fb92-16e6-406e-b084-99e3045156e3
+              - columnCounter: 019ed1a3-fdd6-729b-bc2c-14f3bd5b4a36
                 stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
             transform: ""
       - appliedColumnTests: {}
@@ -686,20 +681,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0875fd63-1140-4415-b88a-14900c8df092
-          stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
-        config: {}
-        dataType: VARCHAR(16777216)
-        description: ""
-        name: UC_BILLING
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 3fd60133-a43e-48b7-b3a5-d7abdc5a6801
-                stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 8ba52060-4417-40b4-8c7f-c28980ca8d4c
           stepCounter: 74ab8def-0ae0-4300-9902-c29c43a1c567
         config: {}
@@ -881,7 +862,10 @@ operation:
                 stepCounter: ec5d7b44-15ec-4f87-afaa-fe418542c372
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           STG_EBS_CS_SR: 3dc5262b-2f95-4f74-9933-f8d95fdafcd0
