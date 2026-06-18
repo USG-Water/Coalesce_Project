@@ -654,15 +654,14 @@ operation:
       - isDistinct
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          CS_INCIDENTS_ALL_B: 56ee08f1-6293-4637-b3d3-439cf10b180b
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: USG_RAW_ORACLE_EBS
+          - locationName: USG_RAW_ORACLE_EBS_CS
             nodeName: CS_INCIDENTS_ALL_B
         join:
-          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'CS_INCIDENTS_ALL_B') }} "CS_INCIDENTS_ALL_B"
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS_CS', 'CS_INCIDENTS_ALL_B') }} "CS_INCIDENTS_ALL_B"
         name: STG_EBS_SERVICE_REQUESTS
         noLinkRefs: []
   name: STG_EBS_SERVICE_REQUESTS

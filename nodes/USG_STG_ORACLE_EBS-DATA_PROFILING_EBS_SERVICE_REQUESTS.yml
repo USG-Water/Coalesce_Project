@@ -22,7 +22,7 @@ operation:
     truncateBefore: true
     whName: <WAREHOUSE_NAME>
   database: ""
-  deployEnabled: false
+  deployEnabled: true
   description: ""
   isMultisource: false
   locationName: USG_STG_ORACLE_EBS
@@ -846,15 +846,14 @@ operation:
       - isDistinct
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          CS_INCIDENTS_ALL_B: 56ee08f1-6293-4637-b3d3-439cf10b180b
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: USG_RAW_ORACLE_EBS
+          - locationName: USG_RAW_ORACLE_EBS_CS
             nodeName: CS_INCIDENTS_ALL_B
         join:
-          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS', 'CS_INCIDENTS_ALL_B') }} "CS_INCIDENTS_ALL_B"
+          joinCondition: FROM {{ ref('USG_RAW_ORACLE_EBS_CS', 'CS_INCIDENTS_ALL_B') }} "CS_INCIDENTS_ALL_B"
         name: DATA_PROFILING_EBS_SERVICE_REQUESTS
         noLinkRefs: []
   name: DATA_PROFILING_EBS_SERVICE_REQUESTS
