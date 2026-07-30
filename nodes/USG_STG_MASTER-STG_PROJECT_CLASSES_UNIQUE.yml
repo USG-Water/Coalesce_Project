@@ -787,6 +787,27 @@ operation:
                       THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
                   END
               )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ebd2a90-f882-434d-bf30-ab79cacbb0bb
+          stepCounter: 9c872515-9b64-4554-9114-31dcc24267e7
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: "'Y2Y_REVENUE_RECOGNITION'"
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55bea31c-a6f0-4c68-b951-d117c5b42ad7
+                stepCounter: a924033d-4fe2-4df3-8e45-e1cd6e6015fa
+            transform: |-
+              MAX_BY(
+                  "PVT_PROJECT_CLASSES"."'Y2Y_REVENUE_RECOGNITION'",
+                  CASE 
+                      WHEN "PVT_PROJECT_CLASSES"."'Y2Y_REVENUE_RECOGNITION'" IS NOT NULL 
+                      THEN "PVT_PROJECT_CLASSES"."LAST_UPDATE_DATE" 
+                  END
+              )
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
